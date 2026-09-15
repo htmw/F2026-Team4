@@ -1,0 +1,27 @@
+# Internal working docs — NOT for the public GitHub repo (they live locally / on the wiki)
+CLAUDE.md
+docs/kickoff.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / web
+node_modules/
+web/dist/
+*.log
+npm-debug.log*
+
+# Ingest caches (raw Overpass/Nominatim responses)
+ingest/.cache/
+*.cache
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
