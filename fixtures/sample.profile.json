@@ -1,0 +1,23 @@
+{
+  "id": "sample-food-history",
+  "interests": {
+    "food": 0.9,
+    "history": 0.8,
+    "art": 0.5,
+    "architecture": 0.7,
+    "nature": 0.4,
+    "nightlife": 0.2,
+    "shopping": 0.1
+  },
+  "pace": 0.4,
+  "max_walk_minutes": 20,
+  "daily_active_hours": 8,
+  "day_start": "09:30",
+  "day_end": "22:00",
+  "budget": { "total": 1200, "currency": "EUR" },
+  "dietary": ["vegetarian"],
+  "accessibility": [],
+  "avoid": [],
+  "novelty_appetite": 0.3,
+  "feedback": { "accepted": [], "rejected": [] }
+}

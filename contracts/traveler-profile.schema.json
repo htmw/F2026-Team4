@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cs691.local/contracts/traveler-profile.schema.json",
+  "title": "TravelerProfile",
+  "description": "Everything the system knows about a traveler. Produced by the preference form or by the AI layer from free text. One of the three team contracts.",
+  "type": "object",
+  "required": ["interests", "pace", "max_walk_minutes", "day_start", "day_end", "budget"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "description": "UUID; optional until persistence exists." },
+    "interests": {
+      "type": "object",
+      "description": "Weights 0..1 over the controlled interest vocabulary (see categories.json).",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 },
+      "minProperties": 1
+    },
+    "pace": {
+      "type": "number",
+      "description": "0 = relaxed (fewer stops/day), 1 = packed.",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_walk_minutes": {
+      "type": "integer",
+      "description": "Tolerance between two consecutive stops, not per day.",
+      "minimum": 0,
+      "maximum": 240
+    },
+    "daily_active_hours": { "type": "number", "minimum": 1, "maximum": 16 },
+    "day_start": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
+    "day_end": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
+    "budget": {
+      "type": "object",
+      "required": ["total", "currency"],
+      "additionalProperties": false,
+      "properties": {
+        "total": { "type": "number", "minimum": 0 },
+        "currency": { "type": "string", "minLength": 3, "maxLength": 3 }
+      }
+    },
+    "dietary": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "accessibility": { "type": "array", "items": { "type": "string" }, "default": [] },
+    "avoid": {
+      "type": "array",
+      "description": "Categories or place ids the traveler wants excluded.",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "novelty_appetite": {
+      "type": "number",
+      "description": "Exploration vs exploitation knob for the scorer.",
+      "minimum": 0,
+      "maximum": 1,
+      "default": 0.3
+    },
+    "feedback": {
+      "type": "object",
+      "description": "Place ids the user accepted/rejected. Drives preference learning later.",
+      "additionalProperties": false,
+      "properties": {
+        "accepted": { "type": "array", "items": { "type": "string" }, "default": [] },
+        "rejected": { "type": "array", "items": { "type": "string" }, "default": [] }
+      },
+      "default": { "accepted": [], "rejected": [] }
+    }
+  }
+}

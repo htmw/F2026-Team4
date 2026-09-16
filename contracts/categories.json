@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "description": "Controlled vocabulary. `interests` are the 7 dimensions a TravelerProfile weights. `categories` are the tags a Place can carry; each maps to one or more interests so the scorer can match places to a traveler. Data team: map OSM/source taxonomies ONTO these category keys. Everyone: do not invent new interest dimensions without team agreement.",
+  "interests": [
+    "food",
+    "history",
+    "art",
+    "architecture",
+    "nature",
+    "nightlife",
+    "shopping"
+  ],
+  "categories": {
+    "museum": ["history", "art"],
+    "gallery": ["art"],
+    "monument": ["history", "architecture"],
+    "landmark": ["history", "architecture"],
+    "church": ["history", "architecture"],
+    "castle": ["history", "architecture"],
+    "palace": ["history", "architecture"],
+    "viewpoint": ["nature", "architecture"],
+    "park": ["nature"],
+    "garden": ["nature"],
+    "beach": ["nature"],
+    "restaurant": ["food"],
+    "cafe": ["food"],
+    "bakery": ["food"],
+    "market": ["food", "shopping"],
+    "bar": ["nightlife"],
+    "nightclub": ["nightlife"],
+    "shop": ["shopping"],
+    "neighborhood": ["architecture", "history"],
+    "day_trip": ["nature", "history"]
+  }
+}
