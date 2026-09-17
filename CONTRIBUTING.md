@@ -16,13 +16,6 @@ it gets reverted, not debugged on `main`.
 5. At least one teammate reviews and approves.
 6. Delete the branch after merge.
 
-## Branch protection to turn on
-Settings → Branches → Add rule for `main`:
-- Require a pull request before merging (≥ 1 approval).
-- Require status checks to pass: select **CI / Python** and **CI / Web**.
-- Require branches to be up to date before merging.
-- Do not allow direct pushes / force-pushes to `main`.
-
 ## Before you push
 ```bash
 make lint     # ruff + web typecheck
