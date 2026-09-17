@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help install install-py install-web lint lint-py lint-web test test-py test-web run-api run-web
+.PHONY: help install install-py install-web lint lint-py lint-web test test-py test-web run-api run-web train evaluate
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -33,3 +33,9 @@ run-api: ## Start the API on http://localhost:8000
 
 run-web: ## Start the frontend on http://localhost:5173
 	cd web && npm run dev
+
+train: ## Train the ranking model -> models/ranker.txt
+	uv run python -m ranker.train
+
+evaluate: ## Evaluate the ranker vs baselines (NDCG@k)
+	uv run python -m ranker.evaluate
