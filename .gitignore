@@ -1,6 +1,7 @@
-# Internal working docs — NOT for the public GitHub repo (they live locally / on the wiki)
+# Internal working docs — NOT for the public GitHub code repo (they live locally / on the wiki)
 CLAUDE.md
 docs/kickoff.md
+wiki/
 
 # Python
 __pycache__/

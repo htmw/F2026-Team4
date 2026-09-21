@@ -1,7 +1,7 @@
 [project]
-name = "travel-recommender"
+name = "wanderwise"
 version = "0.0.1"
-description = "CS-691 capstone: personalized multi-agent travel recommender"
+description = "Wanderwise — CS-691 capstone: a personalized travel recommender"
 readme = "README.md"
 requires-python = ">=3.11,<3.12"
 dependencies = [
