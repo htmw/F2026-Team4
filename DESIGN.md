@@ -1,4 +1,4 @@
-# Design & Architecture
+# Wanderwise — Design & Architecture
 
 Read this before working in the repo. It is the source of truth for how the system fits
 together and the data shapes every part speaks.
@@ -7,7 +7,7 @@ together and the data shapes every part speaks.
 
 ## What this project is
 
-A personalized travel itinerary planner. The user says where they're going, how long they
+**Wanderwise** is a personalized travel itinerary planner. The user says where they're going, how long they
 have, and what they care about. The system produces a day-by-day schedule that is **actually
 executable**: real opening hours, real travel times between stops, real costs, and lets the
 user modify it in natural language.

@@ -20,7 +20,7 @@ from pydantic import BaseModel
 from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 
-app = FastAPI(title="Travel Recommender API (stub)", version="0.0.1")
+app = FastAPI(title="Wanderwise API (stub)", version="0.0.1")
 
 # Dev-only: let the Vite frontend (localhost:5173) call us. Tighten before any real deploy.
 app.add_middleware(

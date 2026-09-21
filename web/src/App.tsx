@@ -26,7 +26,7 @@ export function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Travel Recommender</h1>
+        <h1>Wanderwise</h1>
         <p className="muted">
           Walking skeleton — the scheduler is a naive stub. Real optimization comes next.
         </p>

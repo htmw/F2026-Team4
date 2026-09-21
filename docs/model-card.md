@@ -1,4 +1,4 @@
-# Model card — travel-recommender ranker
+# Model card — Wanderwise ranker
 
 A short, honest description of the trained model. Update it as the model changes.
 

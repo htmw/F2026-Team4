@@ -1,6 +1,6 @@
-# Personalized Multi-Agent Travel Recommender (CS-691)
+# Wanderwise — Personalized Travel Recommender (CS-691)
 
-A personalized travel itinerary planner. The user says where they're going, how long they
+**Wanderwise** is a personalized travel itinerary planner. The user says where they're going, how long they
 have, and what they care about: the system produces a day-by-day schedule that is **actually
 executable**: real opening hours, real travel times, real costs, and it also lets the user modify it
 in natural language.
