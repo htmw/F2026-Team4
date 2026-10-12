@@ -77,7 +77,7 @@ def select_candidates(conn):
             key = (r[0], r[1])
             if key not in seen:
                 seen.add(key)
-                cands.append(dict(zip(FIELDS, r)))
+                cands.append(dict(zip(FIELDS, r, strict=True)))
                 added += 1
         log.append(f"{why}: {added} new")
 
@@ -124,7 +124,8 @@ def try_osrm_sample(cands, n_places=7):
         with urllib.request.urlopen(req, timeout=OSRM_TIMEOUT_S) as resp:
             data = json.load(resp)
     except Exception as e:
-        print(f"[osrm] could not reach server ({type(e).__name__}: {e}), leaving osrm_walk_min NULL")
+        print(f"[osrm] could not reach server ({type(e).__name__}: {e}), "
+              "leaving osrm_walk_min NULL")
         return None
     if data.get("code") != "Ok" or "durations" not in data:
         print(f"[osrm] bad response (code={data.get('code')}), leaving osrm_walk_min NULL")
@@ -193,8 +194,10 @@ def main():
     d = km[mask]
     w = walk[mask]
     print(f"[matrix] {n} places, {n*n} pairs")
-    print(f"[matrix] distance km: median {np.median(d):.2f}, p90 {np.percentile(d, 90):.2f}, max {d.max():.2f}")
-    print(f"[matrix] walk min:    median {np.median(w):.1f}, p90 {np.percentile(w, 90):.1f}, max {w.max():.1f}")
+    print(f"[matrix] distance km: median {np.median(d):.2f}, "
+          f"p90 {np.percentile(d, 90):.2f}, max {d.max():.2f}")
+    print(f"[matrix] walk min:    median {np.median(w):.1f}, "
+          f"p90 {np.percentile(w, 90):.1f}, max {w.max():.1f}")
 
     note = {"osrm_ok": osrm is not None, "osrm_pairs": osrm_hits}
     if osrm:
