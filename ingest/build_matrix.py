@@ -40,9 +40,7 @@ ENDPOINTS = [
 
 # One query per group. Overpass wants the bbox as south, west, north, east.
 QUERIES = {
-    "sights": (
-        'nwr["tourism"~"^(attraction|museum|gallery|viewpoint)$"]["name"]({bbox});'
-    ),
+    "sights": ('nwr["tourism"~"^(attraction|museum|gallery|viewpoint)$"]["name"]({bbox});'),
     "historic": 'nwr["historic"]["name"]({bbox});',
     "food": 'nwr["amenity"~"^(restaurant|cafe)$"]["name"]({bbox});',
     "parks": 'nwr["leisure"~"^(park|garden)$"]["name"]({bbox});',
@@ -58,9 +56,7 @@ def utcnow() -> str:
 
 
 def build_query(template: str, bbox: str) -> str:
-    return (
-        f"[out:json][timeout:120];\n(\n  {template.format(bbox=bbox)}\n);\nout center;"
-    )
+    return f"[out:json][timeout:120];\n(\n  {template.format(bbox=bbox)}\n);\nout center;"
 
 
 def fetch_overpass(query: str, label: str) -> tuple[dict, str]:
@@ -72,27 +68,23 @@ def fetch_overpass(query: str, label: str) -> tuple[dict, str]:
     for attempt in range(1, MAX_ATTEMPTS + 1):
         for endpoint in ENDPOINTS:
             try:
-                print(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}",
-                      flush=True)
-                resp = requests.post(
-                    endpoint, data={"data": query}, timeout=REQUEST_TIMEOUT
-                )
+                print(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}", flush=True)
+                resp = requests.post(endpoint, data={"data": query}, timeout=REQUEST_TIMEOUT)
                 resp.raise_for_status()
                 payload = resp.json()
                 if "elements" not in payload:
-                    raise RuntimeError(
-                        f"unexpected Overpass payload keys: {list(payload.keys())}"
-                    )
-                print(f"  [{label}] OK via {endpoint} "
-                      f"({len(payload['elements'])} elements)", flush=True)
+                    raise RuntimeError(f"unexpected Overpass payload keys: {list(payload.keys())}")
+                print(
+                    f"  [{label}] OK via {endpoint} ({len(payload['elements'])} elements)",
+                    flush=True,
+                )
                 return payload, endpoint
             except Exception as exc:  # any failure -> try the next endpoint
                 last_err = exc
                 print(f"  [{label}] failed via {endpoint}: {exc}", flush=True)
         if attempt < MAX_ATTEMPTS:
             wait = BACKOFFS[attempt - 1]
-            print(f"  [{label}] all endpoints failed, backing off {wait}s...",
-                  flush=True)
+            print(f"  [{label}] all endpoints failed, backing off {wait}s...", flush=True)
             time.sleep(wait)
     raise RuntimeError(f"[{label}] exhausted all attempts: {last_err}")
 
@@ -190,12 +182,12 @@ ON CONFLICT (osm_type, osm_id) DO UPDATE SET
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Extract Rome places from Overpass.")
-    ap.add_argument("--refresh", action="store_true",
-                    help="re-download raw responses even if cached")
+    ap.add_argument(
+        "--refresh", action="store_true", help="re-download raw responses even if cached"
+    )
     ap.add_argument("--db", default=str(DEFAULT_DB), help="SQLite db path")
     ap.add_argument("--bbox", default=DEFAULT_BBOX, help="s,w,n,e bounding box")
-    ap.add_argument("--only", choices=list(QUERIES),
-                    help="run only one query group (for testing)")
+    ap.add_argument("--only", choices=list(QUERIES), help="run only one query group (for testing)")
     args = ap.parse_args()
 
     RAW_DIR.mkdir(parents=True, exist_ok=True)
@@ -251,24 +243,35 @@ def main() -> int:
                 inserted += 1
                 per_category[row["category"]] = per_category.get(row["category"], 0) + 1
             conn.commit()
-            print(f"[{label}] normalized {inserted} named places "
-                  f"(dropped nameless so far: {dropped_nameless})", flush=True)
+            print(
+                f"[{label}] normalized {inserted} named places "
+                f"(dropped nameless so far: {dropped_nameless})",
+                flush=True,
+            )
 
         cur.execute(
             """UPDATE ingest_runs SET finished_at=?, endpoint=?, counts_json=?,
                    dropped_nameless=?, notes=? WHERE run_id=?""",
-            (utcnow(), ",".join(sorted(endpoints_used)),
-             json.dumps(per_category, sort_keys=True), dropped_nameless,
-             f"refresh={args.refresh}", run_id),
+            (
+                utcnow(),
+                ",".join(sorted(endpoints_used)),
+                json.dumps(per_category, sort_keys=True),
+                dropped_nameless,
+                f"refresh={args.refresh}",
+                run_id,
+            ),
         )
         conn.commit()
     finally:
         conn.close()
 
     total = sum(per_category.values())
-    print(f"DONE: {total} places "
-          f"({', '.join(f'{k}={v}' for k, v in sorted(per_category.items()))}), "
-          f"dropped nameless={dropped_nameless}", flush=True)
+    print(
+        f"DONE: {total} places "
+        f"({', '.join(f'{k}={v}' for k, v in sorted(per_category.items()))}), "
+        f"dropped nameless={dropped_nameless}",
+        flush=True,
+    )
     return 0
 
 
