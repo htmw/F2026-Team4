@@ -45,7 +45,7 @@ def test_build_query_formats_bounding_box():
 def test_fetch_overpass_returns_successful_payload():
     calls = []
 
-    def fake_post(url, *, data, timeout):
+    def fake_post(url, *, data, timeout, headers=None):
         calls.append((url, data, timeout))
         return FakeResponse({"elements": [{"id": 123}]})
 
@@ -68,7 +68,7 @@ def test_fetch_overpass_retries_after_endpoint_failures():
     calls = []
     sleeps = []
 
-    def fake_post(url, *, data, timeout):
+    def fake_post(url, *, data, timeout, headers=None):
         calls.append(url)
         if len(calls) <= len(ENDPOINTS):
             raise requests.ConnectionError("server unavailable")
@@ -89,7 +89,7 @@ def test_fetch_overpass_retries_after_endpoint_failures():
 
 
 def test_fetch_overpass_rejects_invalid_payload():
-    def fake_post(url, *, data, timeout):
+    def fake_post(url, *, data, timeout, headers=None):
         return FakeResponse({"unexpected": []})
 
     with pytest.raises(RuntimeError, match="exhausted all attempts"):
@@ -105,7 +105,7 @@ def test_fetch_overpass_rejects_invalid_payload():
 def test_fetch_group_caches_successful_response(tmp_path: Path):
     calls = []
 
-    def fake_post(url, *, data, timeout):
+    def fake_post(url, *, data, timeout, headers=None):
         calls.append(url)
         return FakeResponse({"elements": [{"id": 456}]})
 
@@ -140,7 +140,7 @@ def test_fetch_group_caches_successful_response(tmp_path: Path):
 def test_fetch_group_refresh_bypasses_cache(tmp_path: Path):
     calls = []
 
-    def fake_post(url, *, data, timeout):
+    def fake_post(url, *, data, timeout, headers=None):
         calls.append(url)
         return FakeResponse({"elements": [{"id": len(calls)}]})
 
