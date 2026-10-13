@@ -30,3 +30,5 @@ ingest/.cache/
 .idea/
 .vscode/
 *.swp
+
+data/cache/
