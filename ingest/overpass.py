@@ -17,6 +17,9 @@ ENDPOINTS = [
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
 BACKOFFS = [5, 15, 45]
+HEADERS = {
+    "User-Agent": "Wanderwise-Travel-Recommender/1.0 (OpenStreetMap data ingestion)",
+}
 
 # Query groups. Nothing here depends on a city: the bbox is the only variable.
 GROUPS = {
@@ -40,34 +43,70 @@ GROUPS = {
 
 
 def bbox_string(bbox) -> str:
-    return ",".join(f"{v:.6f}" for v in bbox)  # Overpass order: south,west,north,east
+    """Format a bounding box in Overpass order: south, west, north, east."""
+    return ",".join(f"{v:.6f}" for v in bbox)
 
 
 def build_query(template: str, bbox) -> str:
+    """Build an Overpass QL query for the requested bounding box."""
     return (
         f"[out:json][timeout:120];\n(\n  {template.format(bbox=bbox_string(bbox))}\n);\nout center;"
     )
 
 
 def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sleep, log=print):
-    """POST the query, trying each endpoint in turn, with backoff between rounds."""
+    """POST a query, trying available endpoints with bounded backoff."""
     last_err: Exception | None = None
+    endpoints = list(ENDPOINTS)
+
     for attempt in range(1, MAX_ATTEMPTS + 1):
-        for endpoint in ENDPOINTS:
+        for endpoint in endpoints:
             try:
                 log(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}")
-                resp = post(endpoint, data={"data": query}, timeout=REQUEST_TIMEOUT)
+                resp = post(
+                    endpoint,
+                    data={"data": query},
+                    headers=HEADERS,
+                    timeout=REQUEST_TIMEOUT,
+                )
                 resp.raise_for_status()
                 payload = resp.json()
-                if "elements" not in payload:
-                    raise RuntimeError(f"unexpected Overpass payload keys: {list(payload)}")
+
+                if not isinstance(payload, dict) or "elements" not in payload:
+                    raise RuntimeError(
+                        f"unexpected Overpass payload keys: "
+                        f"{list(payload) if isinstance(payload, dict) else type(payload).__name__}"
+                    )
+
                 log(f"  [{label}] OK ({len(payload['elements'])} elements)")
                 return payload, endpoint
+
+            except requests.HTTPError as exc:
+                last_err = exc
+                status = getattr(getattr(exc, "response", None), "status_code", None)
+                log(f"  [{label}] HTTP failure via {endpoint}: {exc}")
+
+                # 406 usually indicates request or server policy rejection.
+                # Do not waste more retries on this same endpoint.
+                if status == 406:
+                    continue
+
+                # Rate limiting and server errors are retried after backoff.
+                if status == 429 or (status is not None and status >= 500):
+                    sleep(BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)])
+                    continue
+
+            except (requests.ConnectionError, requests.Timeout) as exc:
+                last_err = exc
+                log(f"  [{label}] connection failure via {endpoint}: {exc}")
+
             except Exception as exc:
                 last_err = exc
                 log(f"  [{label}] failed via {endpoint}: {exc}")
+
         if attempt < MAX_ATTEMPTS:
-            sleep(BACKOFFS[attempt - 1])
+            sleep(BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)])
+
     raise RuntimeError(f"[{label}] exhausted all attempts: {last_err}")
 
 
@@ -87,10 +126,12 @@ def fetch_group(
     key = {"group": group, "bbox": [round(v, 5) for v in bbox], "query": query}
     path = Path(cache_dir) / slug / f"overpass_{group}.json"
     wrapper = None if refresh else load_cached(path, key)
+
     if wrapper is not None:
         log(f"[{group}] cache hit")
         return wrapper
+
     payload, endpoint = fetch_overpass(query, group, post=post, sleep=sleep, log=log)
     wrapper = store(path, key, payload, endpoint=endpoint)
-    sleep(2)  # be polite to the public API
+    sleep(2)  # Be polite to the public API.
     return wrapper
