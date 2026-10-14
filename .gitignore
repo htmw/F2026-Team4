@@ -22,7 +22,6 @@ web/dist/
 npm-debug.log*
 
 # Ingest caches (raw Overpass/Nominatim responses)
-ingest/.cache/
 *.cache
 
 # OS / editor
@@ -30,3 +29,7 @@ ingest/.cache/
 .idea/
 .vscode/
 *.swp
+
+# Generated data
+data/cache/
+data/out/
