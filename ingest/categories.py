@@ -24,27 +24,6 @@ _LANDMARK_HISTORIC = {
 }
 _SHOP_VALUES = {"mall", "department_store", "souvenir", "gift", "antiques"}
 
-RULE_OUTPUTS = {
-    "museum",
-    "gallery",
-    "castle",
-    "palace",
-    "monument",
-    "church",
-    "viewpoint",
-    "landmark",
-    "park",
-    "garden",
-    "beach",
-    "restaurant",
-    "cafe",
-    "bakery",
-    "market",
-    "bar",
-    "nightclub",
-    "shop",
-}
-
 
 def map_categories(tags: dict) -> list[str]:
     """Return vocabulary categories for an OSM element. First entry is the primary category."""
@@ -96,6 +75,35 @@ def map_categories(tags: dict) -> list[str]:
     if shop in _SHOP_VALUES:
         add("shop")
     return out
+
+
+# Representative tags for each mapping rule. This keeps category discovery tied to
+# map_categories() rather than maintaining a separate copy of its output vocabulary.
+_CATEGORY_RULE_TAGS = (
+    {"tourism": "museum"},
+    {"tourism": "gallery"},
+    {"historic": "castle"},
+    {"historic": "castle", "castle_type": "palace"},
+    {"historic": "monument"},
+    {"amenity": "place_of_worship", "building": "church"},
+    {"tourism": "viewpoint"},
+    {"tourism": "attraction"},
+    {"leisure": "park"},
+    {"leisure": "garden"},
+    {"natural": "beach"},
+    {"amenity": "restaurant"},
+    {"amenity": "cafe"},
+    {"shop": "bakery"},
+    {"amenity": "marketplace"},
+    {"amenity": "bar"},
+    {"amenity": "nightclub"},
+    {"shop": "mall"},
+)
+
+
+def mapped_categories() -> set[str]:
+    """Return the categories that the current mapping rules can emit."""
+    return {category for tags in _CATEGORY_RULE_TAGS for category in map_categories(tags)}
 
 
 # --- Defaults. Always labelled `inferred`; they are guesses by category, never city data. ---
@@ -168,15 +176,16 @@ def load_vocabulary(path: Path) -> set[str]:
 
 def check_against_vocabulary(vocab: set[str]) -> None:
     """Fail loudly if the mapping or defaults use a key the contract does not define."""
-    used = set(RULE_OUTPUTS) | set(DEFAULT_DURATION_MIN) | set(DEFAULT_HOURS) | FREE_BY_DEFAULT
+    rule_outputs = mapped_categories()
+    used = rule_outputs | set(DEFAULT_DURATION_MIN) | set(DEFAULT_HOURS) | FREE_BY_DEFAULT
     missing = used - vocab
     if missing:
         raise ValueError(f"categories not in contracts/categories.json: {sorted(missing)}")
-    uncovered = RULE_OUTPUTS - set(DEFAULT_DURATION_MIN)
-    if uncovered | (RULE_OUTPUTS - set(DEFAULT_HOURS)):
+    uncovered = rule_outputs - set(DEFAULT_DURATION_MIN)
+    if uncovered | (rule_outputs - set(DEFAULT_HOURS)):
         raise ValueError("every mapped category needs a default duration and default hours")
 
 
 def unmapped_vocabulary(vocab: set[str]) -> list[str]:
     """Vocabulary keys no OSM rule can produce (reported as gaps in the build report)."""
-    return sorted(vocab - RULE_OUTPUTS)
+    return sorted(vocab - mapped_categories())
