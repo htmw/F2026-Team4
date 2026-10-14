@@ -54,6 +54,7 @@ COUNTRY_CURRENCY = {
     "AR": "ARS",
     "CL": "CLP",
     "CO": "COP",
+    "GE": "GEL",
     "PE": "PEN",
 }
 
