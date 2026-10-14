@@ -133,6 +133,11 @@ def _parse(text: str):
                     own[d].append((s, 1440))
                     if e > 0:
                         spill[d].append((0, e))
+
+    # Holiday-only rules do not describe normal weekly opening hours.
+    if ignored and not any(own[d] or spill[d] for d in range(7)):
+        raise _Unsupported("no supported weekly hours; only holiday rules found")
+
     hours = {name: _merge(own[d] + spill[(d - 1) % 7]) for d, name in enumerate(DAYS)}
     hours["confidence"] = "known"
     return hours, ignored
