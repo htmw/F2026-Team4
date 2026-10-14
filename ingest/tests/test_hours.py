@@ -38,8 +38,8 @@ def test_overnight_hours_continue_into_next_day():
     assert result.hours["tue"] == [["00:00", "02:00"]]
 
 
-def test_unsupported_hours_are_not_marked_known():
-    result = parse_opening_hours("sunrise-sunset")
+def test_holiday_only_rules_are_not_marked_known():
+    result = parse_opening_hours("PH off")
 
     assert result.status == "unparseable"
     assert result.hours is None
@@ -47,10 +47,13 @@ def test_unsupported_hours_are_not_marked_known():
 
 
 def test_holiday_rules_are_reported_as_ignored():
-    result = parse_opening_hours("PH 10:00-12:00")
+    result = parse_opening_hours("Mo-Fr 09:00-17:00; PH 10:00-12:00")
 
     assert result.status == "parsed"
     assert result.ignored == ["PH: 10:00-12:00"]
-    assert all(
-        result.hours[day] is None for day in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
-    )
+
+    for day in ("mon", "tue", "wed", "thu", "fri"):
+        assert result.hours[day] == [["09:00", "17:00"]]
+
+    assert result.hours["sat"] is None
+    assert result.hours["sun"] is None
