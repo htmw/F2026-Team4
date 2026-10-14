@@ -9,7 +9,11 @@ from pathlib import Path
 import requests
 
 from .cache import slugify, utc_now_iso, write_json
-from .categories import check_against_vocabulary, load_vocabulary, unmapped_vocabulary
+from .categories import (
+    check_against_vocabulary,
+    load_vocabulary,
+    unmapped_vocabulary,
+)
 from .cost import currency_for_country
 from .geocode import geocode
 from .matrix import (
@@ -46,10 +50,17 @@ def run_city(
     check_against_vocabulary(vocab)
     validator = make_validator(contracts_dir / "place.schema.json")
 
-    geo = geocode(query, cache_dir, refresh=refresh, get=get, max_span_deg=max_span_deg)
+    geo = geocode(
+        query,
+        cache_dir,
+        refresh=refresh,
+        get=get,
+        max_span_deg=max_span_deg,
+    )
     bbox = tuple(bbox) if bbox else geo.bbox
     currency = currency_for_country(geo.country)
     slug = slugify(query)
+
     log(f"{geo.display_name}  bbox={bbox}  country={geo.country or '?'}  currency={currency}")
 
     places: list[dict] = []
@@ -62,25 +73,45 @@ def run_city(
 
     for group in groups or list(GROUPS):
         wrapper = fetch_group(
-            group, bbox, cache_dir, slug, refresh=refresh, post=post, sleep=sleep, log=log
+            group,
+            bbox,
+            cache_dir,
+            slug,
+            refresh=refresh,
+            post=post,
+            sleep=sleep,
+            log=log,
         )
         fetched = wrapper["fetched_at"][:10]
+
         for el in wrapper["payload"].get("elements", []):
             key = (el.get("type"), el.get("id"))
+
             if key in seen:
                 continue
+
             seen.add(key)
-            r = build_place(el, currency=currency, fetched_date=fetched, validator=validator)
+            r = build_place(
+                el,
+                currency=currency,
+                fetched_date=fetched,
+                validator=validator,
+            )
+
             if r.place is None:
                 counts[f"dropped_{r.drop_reason}"] += 1
+
                 if r.error and len(schema_errors) < 5:
                     schema_errors.append(r.error)
+
                 continue
+
             places.append(r.place)
             prom[r.place["id"]] = r.prominence
             hours_status[r.hours_status] += 1
             cost_status[r.cost_status] += 1
             counts["places"] += 1
+
     places.sort(key=lambda p: p["id"])
 
     report = {
@@ -98,14 +129,31 @@ def run_city(
     }
 
     out = Path(out_dir) / slug
+
     write_json(out / "places.json", places, indent=1)
     write_json(out / "destination.json", geo.destination(), indent=1)
     write_json(out / "report.json", report, indent=1)
     write_json(out / "prominence.json", prom)
+
     if places:
         subset = select_for_matrix(places, prom, matrix_top)
         m = walking_matrix(subset, speed_kmh, detour_factor)
-        write_json(out / "matrix.json", matrix_payload(subset, m, speed_kmh, detour_factor))
+
+        write_json(
+            out / "matrix.json",
+            matrix_payload(
+                subset,
+                m,
+                speed_kmh,
+                detour_factor,
+            ),
+        )
 
     log(f"{len(places)} valid places -> {out}")
-    return {"destination": geo.destination(), "places": places, "report": report, "out_dir": out}
+
+    return {
+        "destination": geo.destination(),
+        "places": places,
+        "report": report,
+        "out_dir": out,
+    }
