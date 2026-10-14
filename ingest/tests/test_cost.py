@@ -66,3 +66,19 @@ def test_parses_thousands_separators():
         assert result.cost["currency"] == expected_currency
         assert result.cost["confidence"] == "known"
         assert result.status == "charge_parsed"
+
+
+def test_does_not_match_currency_code_inside_word():
+    result = parse_cost({"charge": "ENTRY 10"}, [], "TRY")
+
+    assert result.cost["confidence"] == "unknown"
+    assert result.status == "charge_ambiguous"
+
+
+def test_euro_price_with_per_person_text():
+    result = parse_cost({"charge": "€5 PER PERSON"}, [], "EUR")
+
+    assert result.cost["amount"] == 5.0
+    assert result.cost["currency"] == "EUR"
+    assert result.cost["confidence"] == "known"
+    assert result.status == "charge_parsed"
