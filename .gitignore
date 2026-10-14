@@ -1,34 +1,5 @@
-# Internal working docs — NOT for the public GitHub code repo (they live locally / on the wiki)
-CLAUDE.md
-docs/kickoff.md
-wiki/
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-.pytest_cache/
-.ruff_cache/
-*.egg-info/
-
-# Trained model artifacts (retrainable via `make train`) — keep the folder, not the binaries
-models/*
-!models/.gitkeep
-
-# Node / web
-node_modules/
-web/dist/
-*.log
-npm-debug.log*
-
-# Ingest caches (raw Overpass/Nominatim responses)
-ingest/.cache/
-*.cache
-
-# OS / editor
-.DS_Store
-.idea/
 .vscode/
 *.swp
 
 data/cache/
+data/out/
