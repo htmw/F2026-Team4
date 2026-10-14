@@ -121,6 +121,25 @@ def test_fetch_overpass_rejects_timeout_remark():
         )
 
 
+def test_fetch_overpass_rejects_partial_elements_with_remark():
+    def fake_post(url, *, data, timeout, headers=None):
+        return FakeResponse(
+            {
+                "elements": [{"id": 123}],
+                "remark": "runtime error: Query timed out",
+            }
+        )
+
+    with pytest.raises(RuntimeError, match="exhausted all attempts"):
+        fetch_overpass(
+            "test query",
+            "test",
+            post=fake_post,
+            sleep=lambda _: None,
+            log=lambda _: None,
+        )
+
+
 def test_fetch_group_caches_successful_response(tmp_path: Path):
     calls = []
 
@@ -154,6 +173,30 @@ def test_fetch_group_caches_successful_response(tmp_path: Path):
 
     cache_path = tmp_path / "lisbon" / "overpass_sights.json"
     assert load_cached(cache_path, first["key"]) == first
+
+
+def test_fetch_group_does_not_cache_runtime_error(tmp_path: Path):
+    def fake_post(url, *, data, timeout, headers=None):
+        return FakeResponse(
+            {
+                "elements": [{"id": 123}],
+                "remark": "runtime error: Query timed out",
+            }
+        )
+
+    with pytest.raises(RuntimeError, match="exhausted all attempts"):
+        fetch_group(
+            "sights",
+            BBOX,
+            tmp_path,
+            "lisbon",
+            post=fake_post,
+            sleep=lambda _: None,
+            log=lambda _: None,
+        )
+
+    cache_path = tmp_path / "lisbon" / "overpass_sights.json"
+    assert not cache_path.exists()
 
 
 def test_fetch_group_refresh_bypasses_cache(tmp_path: Path):
