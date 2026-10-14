@@ -49,3 +49,19 @@ def test_country_currency_lookup():
     assert currency_for_country("IN") == "INR"
     assert currency_for_country("pt") == "EUR"
     assert currency_for_country("??") == "XXX"
+
+
+def test_parses_thousands_separators():
+    cases = [
+        ("15,000 VND", 15000.0, "VND"),
+        ("2.500 COP", 2500.0, "COP"),
+        ("1.200 HUF", 1200.0, "HUF"),
+    ]
+
+    for charge, expected_amount, expected_currency in cases:
+        result = parse_cost({"charge": charge}, [], "XXX")
+
+        assert result.cost["amount"] == expected_amount
+        assert result.cost["currency"] == expected_currency
+        assert result.cost["confidence"] == "known"
+        assert result.status == "charge_parsed"
