@@ -72,9 +72,15 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 resp.raise_for_status()
                 payload = resp.json()
 
-                if not isinstance(payload, dict) or "elements" not in payload:
+                # Overpass may return HTTP 200 with a remark describing a timeout
+                # or another query failure. Never treat such a response as success.
+                if (
+                    not isinstance(payload, dict)
+                    or "elements" not in payload
+                    or "remark" in payload
+                ):
                     raise RuntimeError(
-                        f"unexpected Overpass payload keys: "
+                        f"unexpected Overpass payload: "
                         f"{list(payload) if isinstance(payload, dict) else type(payload).__name__}"
                     )
 

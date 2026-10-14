@@ -102,6 +102,25 @@ def test_fetch_overpass_rejects_invalid_payload():
         )
 
 
+def test_fetch_overpass_rejects_timeout_remark():
+    def fake_post(url, *, data, timeout, headers=None):
+        return FakeResponse(
+            {
+                "elements": [],
+                "remark": "runtime error: Query timed out",
+            }
+        )
+
+    with pytest.raises(RuntimeError, match="exhausted all attempts"):
+        fetch_overpass(
+            "test query",
+            "test",
+            post=fake_post,
+            sleep=lambda _: None,
+            log=lambda _: None,
+        )
+
+
 def test_fetch_group_caches_successful_response(tmp_path: Path):
     calls = []
 
