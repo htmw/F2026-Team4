@@ -89,8 +89,8 @@ def run_city(
 
             if key in seen:
                 continue
-
             seen.add(key)
+
             r = build_place(
                 el,
                 currency=currency,
@@ -135,19 +135,20 @@ def run_city(
     write_json(out / "report.json", report, indent=1)
     write_json(out / "prominence.json", prom)
 
-    if places:
-        subset = select_for_matrix(places, prom, matrix_top)
-        m = walking_matrix(subset, speed_kmh, detour_factor)
+    # Always rewrite the matrix so it matches the current places.json,
+    # including when the current run contains zero valid places.
+    subset = select_for_matrix(places, prom, matrix_top)
+    m = walking_matrix(subset, speed_kmh, detour_factor)
 
-        write_json(
-            out / "matrix.json",
-            matrix_payload(
-                subset,
-                m,
-                speed_kmh,
-                detour_factor,
-            ),
-        )
+    write_json(
+        out / "matrix.json",
+        matrix_payload(
+            subset,
+            m,
+            speed_kmh,
+            detour_factor,
+        ),
+    )
 
     log(f"{len(places)} valid places -> {out}")
 
