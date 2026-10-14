@@ -89,7 +89,7 @@ if (hasError) {
     <form className="card" onSubmit={handleSubmit}>
       <h2>Plan a trip</h2>
 
-      <div className="row">
+      <div className="row trip-dates">
        <label className="field">
   Destination
   <input
@@ -167,53 +167,66 @@ if (hasError) {
         ))}
       </div>
 
-      <h3>Travel style</h3>
-      <div className="row">
-        <label className="slider">
-          <span className="slider-label">
-            pace <em>{pace.toFixed(1)}</em> (0 relaxed → 1 packed)
-          </span>
-          <input
-            type="range"
-            min={0}
-            max={1}
-            step={0.1}
-            value={pace}
-            onChange={(e) => setPace(Number(e.target.value))}
-          />
-        </label>
-        <label className="field">
-          Max walk between stops (min)
-          <input
-            type="number"
-            min={0}
-            max={240}
-            value={maxWalk}
-            onChange={(e) => setMaxWalk(Number(e.target.value))}
-          />
-        </label>
-      </div>
+<h3>Travel style</h3>
 
-      <div className="row">
-        <label className="field">
-          Day start
-          <input type="time" value={dayStart} onChange={(e) => setDayStart(e.target.value)} />
-        </label>
-        <label className="field">
-          Day end
-          <input type="time" value={dayEnd} onChange={(e) => setDayEnd(e.target.value)} />
-        </label>
-        <label className="field">
-          Budget ({currency})
-          <input
-            type="number"
-            min={0}
-            value={budget}
-            onChange={(e) => setBudget(Number(e.target.value))}
-          />
-        </label>
-      </div>
+{/* Travel Pace */}
+<div className="row">
+  <label className="slider" style={{ width: "100%" }}>
+    <span className="slider-label">
+      pace <em>{pace.toFixed(1)}</em> (0 relaxed → 1 packed)
+    </span>
+    <input
+      type="range"
+      min={0}
+      max={1}
+      step={0.1}
+      value={pace}
+      onChange={(e) => setPace(Number(e.target.value))}
+    />
+  </label>
+</div>
 
+{/* Walking, Budget, and Daily Hours */}
+<div className="travel-style-grid">
+  <label className="field">
+    Max walk between stops (min)
+    <input
+      type="number"
+      min={0}
+      max={240}
+      value={maxWalk}
+      onChange={(e) => setMaxWalk(Number(e.target.value))}
+    />
+  </label>
+
+  <label className="field">
+    Budget ({currency})
+    <input
+      type="number"
+      min={0}
+      value={budget}
+      onChange={(e) => setBudget(Number(e.target.value))}
+    />
+  </label>
+
+  <label className="field">
+    Day start
+    <input
+      type="time"
+      value={dayStart}
+      onChange={(e) => setDayStart(e.target.value)}
+    />
+  </label>
+
+  <label className="field">
+    Day end
+    <input
+      type="time"
+      value={dayEnd}
+      onChange={(e) => setDayEnd(e.target.value)}
+    />
+  </label>
+</div>
       <label className="field">
         Dietary (comma-separated)
         <input value={dietary} onChange={(e) => setDietary(e.target.value)} />
