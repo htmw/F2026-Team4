@@ -37,6 +37,19 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+    if (!destination.trim()) {
+  alert("Please enter a destination.");
+  return;
+}
+
+if (!startDate || !endDate) {
+  alert("Please select both travel dates.");
+  return;
+}
+    if (endDate < startDate) {
+  alert("End date cannot be earlier than start date.");
+  return;
+}
     const profile: TravelerProfile = {
       interests,
       pace,
