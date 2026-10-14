@@ -22,6 +22,8 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const [destination, setDestination] = useState("Lisbon");
   const [startDate, setStartDate] = useState("2026-10-01");
   const [endDate, setEndDate] = useState("2026-10-03");
+  const [destinationError, setDestinationError] = useState("");
+  const [dateError, setDateError] = useState("");
   const [interests, setInterests] = useState<Record<string, number>>({ ...DEFAULT_INTERESTS });
   const [pace, setPace] = useState(0.4);
   const [maxWalk, setMaxWalk] = useState(20);
@@ -37,17 +39,25 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    if (!destination.trim()) {
-  alert("Please enter a destination.");
-  return;
+    setDestinationError("");
+setDateError("");
+
+let hasError = false;
+
+if (!destination.trim()) {
+  setDestinationError("Please enter a destination.");
+  hasError = true;
 }
 
 if (!startDate || !endDate) {
-  alert("Please select both travel dates.");
-  return;
+  setDateError("Please select both travel dates.");
+  hasError = true;
+} else if (endDate < startDate) {
+  setDateError("End date cannot be earlier than start date.");
+  hasError = true;
 }
-    if (endDate < startDate) {
-  alert("End date cannot be earlier than start date.");
+
+if (hasError) {
   return;
 }
     const profile: TravelerProfile = {
@@ -80,18 +90,62 @@ if (!startDate || !endDate) {
       <h2>Plan a trip</h2>
 
       <div className="row">
-        <label className="field">
-          Destination
-          <input value={destination} onChange={(e) => setDestination(e.target.value)} />
-        </label>
-        <label className="field">
-          Start date
-          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-        </label>
-        <label className="field">
-          End date
-          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-        </label>
+       <label className="field">
+  Destination
+  <input
+    value={destination}
+    onChange={(e) => {
+      setDestination(e.target.value);
+      setDestinationError("");
+    }}
+    aria-invalid={!!destinationError}
+  />
+
+  {destinationError && (
+    <span 
+    style={{ color: "red", fontSize: "13px" }}
+     role="alert">
+      {destinationError}
+    </span>
+  )}
+</label>
+     
+<label className="field">
+  Start date
+  <input
+    type="date"
+    value={startDate}
+    onChange={(e) => {
+      setStartDate(e.target.value);
+      setDateError("");
+    }}
+    aria-invalid={!!dateError}
+  />
+</label>
+   
+       
+<label className="field">
+  End date
+  <input
+    type="date"
+    value={endDate}
+    onChange={(e) => {
+      setEndDate(e.target.value);
+      setDateError("");
+    }}
+    aria-invalid={!!dateError}
+  />
+
+  {dateError && (
+    <span
+      style={{ color: "red", fontSize: "13px" }}
+      role="alert"
+    >
+      {dateError}
+    </span>
+  )}
+</label>
+
       </div>
 
       <h3>What do you care about?</h3>
