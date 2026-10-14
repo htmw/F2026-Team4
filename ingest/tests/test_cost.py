@@ -49,6 +49,7 @@ def test_country_currency_lookup():
     assert currency_for_country("IN") == "INR"
     assert currency_for_country("pt") == "EUR"
     assert currency_for_country("??") == "XXX"
+    assert currency_for_country("GE") == "GEL"
 
 
 def test_parses_thousands_separators():
