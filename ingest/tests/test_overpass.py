@@ -229,3 +229,28 @@ def test_fetch_group_refresh_bypasses_cache(tmp_path: Path):
 
     assert len(calls) == 2
     assert refreshed["payload"] == {"elements": [{"id": 2}]}
+
+
+def test_fetch_overpass_does_not_retry_permanent_http_400():
+    calls = []
+    sleeps = []
+
+    response = requests.Response()
+    response.status_code = 400
+    error = requests.HTTPError("400 Client Error", response=response)
+
+    def fake_post(url, *, data, timeout, headers=None):
+        calls.append(url)
+        raise error
+
+    with pytest.raises(RuntimeError, match="non-retryable HTTP error 400"):
+        fetch_overpass(
+            "test query",
+            "test",
+            post=fake_post,
+            sleep=sleeps.append,
+            log=lambda _: None,
+        )
+
+    assert len(calls) == 1
+    assert sleeps == []

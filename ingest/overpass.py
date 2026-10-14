@@ -55,12 +55,11 @@ def build_query(template: str, bbox) -> str:
 
 
 def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sleep, log=print):
-    """POST a query, trying available endpoints with bounded backoff."""
+    """POST a query, retrying transient failures across available endpoints."""
     last_err: Exception | None = None
-    endpoints = list(ENDPOINTS)
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
-        for endpoint in endpoints:
+        for endpoint in ENDPOINTS:
             try:
                 log(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}")
                 resp = post(
@@ -72,15 +71,14 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 resp.raise_for_status()
                 payload = resp.json()
 
-                # Overpass may return HTTP 200 with a remark describing a timeout
-                # or another query failure. Never treat such a response as success.
+                # Overpass can return HTTP 200 with a remark describing a query failure.
                 if (
                     not isinstance(payload, dict)
                     or "elements" not in payload
                     or "remark" in payload
                 ):
                     raise RuntimeError(
-                        f"unexpected Overpass payload: "
+                        "unexpected Overpass payload: "
                         f"{list(payload) if isinstance(payload, dict) else type(payload).__name__}"
                     )
 
@@ -92,26 +90,26 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 status = getattr(getattr(exc, "response", None), "status_code", None)
                 log(f"  [{label}] HTTP failure via {endpoint}: {exc}")
 
-                # 406 usually indicates request or server policy rejection.
-                # Do not waste more retries on this same endpoint.
-                if status == 406:
+                # Rate limiting and server-side errors may be temporary.
+                if status == 429 or (status is not None and status >= 500):
                     continue
 
-                # Rate limiting and server errors are retried after backoff.
-                if status == 429 or (status is not None and status >= 500):
-                    sleep(BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)])
-                    continue
+                # Permanent client errors, such as HTTP 400, won't improve by retrying
+                # the same query against another endpoint.
+                raise RuntimeError(f"[{label}] non-retryable HTTP error {status}: {exc}") from exc
 
             except (requests.ConnectionError, requests.Timeout) as exc:
                 last_err = exc
                 log(f"  [{label}] connection failure via {endpoint}: {exc}")
 
-            except Exception as exc:
+            except RuntimeError as exc:
                 last_err = exc
-                log(f"  [{label}] failed via {endpoint}: {exc}")
+                log(f"  [{label}] invalid Overpass response via {endpoint}: {exc}")
 
         if attempt < MAX_ATTEMPTS:
-            sleep(BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)])
+            delay = BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)]
+            log(f"  [{label}] retrying after {delay}s")
+            sleep(delay)
 
     raise RuntimeError(f"[{label}] exhausted all attempts: {last_err}")
 

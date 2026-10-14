@@ -1,9 +1,10 @@
 """Data spike: how much real hours / price data does OSM have for each city?
 
+Usage:
     python -m ingest.spike "<city A>" "<city B>" "<city C>" [--osrm-url http://localhost:5000]
 
 Numbers are measured on raw OSM only (no manual curation), so they describe data coverage.
-Writes docs/data-spike.md and docs/data-spike.json.
+Writes docs/data-spike.md and docs/data-spike.json, even if a city fails.
 """
 
 from __future__ import annotations
@@ -55,7 +56,7 @@ def render(results: dict, today: str) -> str:
     lines = [
         "# Data spike: OSM coverage of hours and prices",
         "",
-        (f"Generated {today} by `python -m ingest.spike`. Raw OSM only, no manual curation."),
+        f"Generated {today} by `python -m ingest.spike`. Raw OSM only, no manual curation.",
         "",
         "- **Real hours**: `opening_hours` present and fully parsed (confidence `known`).",
         "- **Unparseable**: tag present but outside the supported subset (confidence `unknown`).",
@@ -66,17 +67,20 @@ def render(results: dict, today: str) -> str:
         "## Summary",
         "",
         (
-            "| City | Places | Real hours | Unparseable | No hours tag | "
-            "Real price | Known free | No price data |"
+            "| City | Status | Places | Real hours | Unparseable | "
+            "No hours tag | Real price | Known free | No price data |"
         ),
-        "|---|---|---|---|---|---|---|---|",
     ]
 
     for city, result in results.items():
+        if result.get("error"):
+            lines.append(f"| {city} | FAILED | n/a | n/a | n/a | n/a | n/a | n/a | n/a |")
+            continue
+
         stats = result["stats"]
         n = stats["places"]
         lines.append(
-            f"| {city} | {n} | "
+            f"| {city} | OK | {n} | "
             f"{_pct(stats['hours_parsed'], n)} | "
             f"{_pct(stats['hours_unparseable'], n)} | "
             f"{_pct(stats['hours_absent'], n)} | "
@@ -86,6 +90,10 @@ def render(results: dict, today: str) -> str:
         )
 
     for city, result in results.items():
+        if result.get("error"):
+            lines += ["", f"## {city}", "", f"**Failed:** {result['error']}"]
+            continue
+
         stats = result["stats"]
         lines += [
             "",
@@ -134,11 +142,9 @@ def render(results: dict, today: str) -> str:
         "",
         "- Coverage differs by category (museums vs. restaurants),",
         "  so compare the per-category tables.",
-        (
-            "- `typical_duration_minutes` is always a category default "
-            "(the contract has no confidence field for it)."
-        ),
-        ("- Holiday (`PH`/`SH`) opening rules are ignored; the contract has no holiday field."),
+        "- `typical_duration_minutes` is always a category default "
+        "(the contract has no confidence field for it).",
+        "- Holiday (`PH`/`SH`) opening rules are ignored; the contract has no holiday field.",
     ]
 
     return "\n".join(lines) + "\n"
@@ -159,31 +165,40 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     results: dict = {}
+    failures = 0
 
     for city in args.cities:
-        res = run_city(
-            city,
-            cache_dir=Path(args.cache),
-            out_dir=Path(args.out),
-            contracts_dir=Path(args.contracts),
-            refresh=args.refresh,
-        )
-        entry = {"stats": city_stats(res["places"], res["report"])}
+        try:
+            res = run_city(
+                city,
+                cache_dir=Path(args.cache),
+                out_dir=Path(args.out),
+                contracts_dir=Path(args.contracts),
+                refresh=args.refresh,
+            )
+            entry = {"stats": city_stats(res["places"], res["report"])}
 
-        if args.osrm_url and len(res["places"]) >= 2:
-            try:
-                sample, minutes = osrm_sample(res["places"], args.osrm_url)
-                entry["osrm"] = summarize_osrm(sample, minutes)
-            except Exception as exc:
-                entry["osrm"] = {
-                    "n_pairs": 0,
-                    "note": f"OSRM unavailable: {exc}",
-                }
+            if args.osrm_url and len(res["places"]) >= 2:
+                try:
+                    sample, minutes = osrm_sample(res["places"], args.osrm_url)
+                    entry["osrm"] = summarize_osrm(sample, minutes)
+                except Exception as exc:
+                    entry["osrm"] = {
+                        "n_pairs": 0,
+                        "note": f"OSRM unavailable: {exc}",
+                    }
 
-        results[city] = entry
+            results[city] = entry
+            print(f"[{city}] completed successfully")
+
+        except Exception as exc:
+            failures += 1
+            results[city] = {"error": f"{type(exc).__name__}: {exc}"}
+            print(f"[{city}] failed: {exc}", file=sys.stderr)
 
     docs = Path(args.docs)
     docs.mkdir(parents=True, exist_ok=True)
+
     (docs / "data-spike.md").write_text(
         render(results, date.today().isoformat()),
         encoding="utf-8",
@@ -192,8 +207,11 @@ def main(argv: list[str] | None = None) -> int:
         json.dumps(results, indent=1),
         encoding="utf-8",
     )
+
     print(f"wrote {docs / 'data-spike.md'}")
-    return 0
+    print(f"wrote {docs / 'data-spike.json'}")
+
+    return 1 if failures else 0
 
 
 if __name__ == "__main__":
