@@ -58,13 +58,31 @@ COUNTRY_CURRENCY = {
     "PE": "PEN",
 }
 
+
 _SYMBOLS = {"€": "EUR", "£": "GBP"}
 
+# Recognize only valid currency codes, not arbitrary three-letter words.
+# Keep this list aligned with ISO 4217 currency codes used by the parser.
+_ISO_CURRENCIES = set(
+    """
+    AED AFN ALL AMD ANG AOA ARS AUD AWG AZN BAM BBD BDT BGN BHD BIF
+    BMD BND BOB BRL BSD BTN BWP BYN BZD CAD CDF CHF CLP CNY COP CRC
+    CUP CVE CZK DJF DKK DOP DZD EGP ERN ETB EUR FJD FKP GBP GEL GHS
+    GIP GMD GNF GTQ GYD HKD HNL HTG HUF IDR ILS INR IQD IRR ISK JMD
+    JOD JPY KES KGS KHR KMF KPW KRW KWD KYD KZT LAK LBP LKR LRD LSL
+    LYD MAD MDL MGA MKD MMK MNT MOP MRU MUR MVR MWK MXN MYR MZN NAD
+    NGN NIO NOK NPR NZD OMR PAB PEN PGK PHP PKR PLN PYG QAR RON RSD
+    RUB RWF SAR SBD SCR SDG SEK SGD SHP SLE SLL SOS SRD SSP STN SVC
+    SYP SZL THB TJS TMT TND TOP TRY TTD TWD TZS UAH UGX USD UYU UZS
+    VES VND VUV WST XAF XCD XCG XOF XPF YER ZAR ZMW ZWG
+    """.split()
+)
+
 # Accept ordinary decimal amounts and grouped thousands such as 15,000 or 2.500.
-# The final lookahead prevents matching only part of a longer number. Punctuation
-# after a complete amount is allowed so multiple prices can still be detected.
 _AMOUNT = r"(?<![\d.,])(\d{1,3}(?:[.,]\d{3})+|\d+(?:[.,]\d{1,2})?)(?!\d)"
-_CUR = r"([A-Z]{3}|€|£)"
+
+# Currency codes must not be embedded in longer uppercase words.
+_CUR = r"(?<![A-Z])(" + "|".join(sorted(_ISO_CURRENCIES, key=len, reverse=True)) + r"|€|£)(?![A-Z])"
 
 _AMOUNT_FIRST = re.compile(_AMOUNT + r"\s*" + _CUR)
 _CUR_FIRST = re.compile(_CUR + r"\s*" + _AMOUNT)
