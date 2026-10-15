@@ -32,6 +32,8 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const [destination, setDestination] = useState("Lisbon");
   const [startDate, setStartDate] = useState("2026-10-01");
   const [endDate, setEndDate] = useState("2026-10-03");
+  const [destinationError, setDestinationError] = useState("");
+  const [dateError, setDateError] = useState("");
   const [interests, setInterests] = useState<Record<string, number>>({ ...DEFAULT_INTERESTS });
   const [pace, setPace] = useState(0.4);
   const [maxWalk, setMaxWalk] = useState("20");
@@ -55,19 +57,38 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    if (endDate < startDate) {
-      setFormError("End date can't be before the start date.");
-      return;
+    setDestinationError("");
+    setDateError("");
+    setFormError(null);
+
+    let hasError = false;
+
+    if (!destination.trim()) {
+      setDestinationError("Please enter a destination.");
+      hasError = true;
     }
+
+    if (!startDate || !endDate) {
+      setDateError("Please select both travel dates.");
+      hasError = true;
+    } else if (endDate < startDate) {
+      setDateError("End date cannot be earlier than start date.");
+      hasError = true;
+    }
+
     if (dayEnd <= dayStart) {
       setFormError("Day end time must be later than the day start time.");
-      return;
+      hasError = true;
     }
+
     if (!Object.values(interests).some((v) => v > 0)) {
       setFormError("Please set at least one interest above zero so we know what you care about.");
+      hasError = true;
+    }
+
+    if (hasError) {
       return;
     }
-    setFormError(null);
 
     const maxWalkMinutes = Math.max(0, Number(maxWalk) || 0);
     const budgetTotal = Math.max(0, Number(budget) || 0);
@@ -101,8 +122,21 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
       <div className="row">
         <label className="field">
           Destination
-          <input value={destination} onChange={(e) => setDestination(e.target.value)} />
+          <input
+            value={destination}
+            onChange={(e) => {
+              setDestination(e.target.value);
+              setDestinationError("");
+            }}
+            aria-invalid={!!destinationError}
+          />
+          {destinationError && (
+            <span style={{ color: "red", fontSize: "13px" }} role="alert">
+              {destinationError}
+            </span>
+          )}
         </label>
+
         <label className="field">
           Start date
           <input
@@ -110,10 +144,12 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             value={startDate}
             onChange={(e) => {
               setStartDate(e.target.value);
-              setFormError(null);
+              setDateError("");
             }}
+            aria-invalid={!!dateError}
           />
         </label>
+
         <label className="field">
           End date
           <input
@@ -122,9 +158,15 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             min={startDate}
             onChange={(e) => {
               setEndDate(e.target.value);
-              setFormError(null);
+              setDateError("");
             }}
+            aria-invalid={!!dateError}
           />
+          {dateError && (
+            <span style={{ color: "red", fontSize: "13px" }} role="alert">
+              {dateError}
+            </span>
+          )}
         </label>
       </div>
 
