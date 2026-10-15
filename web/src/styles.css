@@ -680,4 +680,168 @@ form.card .travel-style-grid input {
   }
 }
 
+/* Wanderwise - Modern Itinerary Dashboard */
+
+.itinerary-dashboard {
+  padding: 24px;
+}
+
+.itinerary-dashboard-header h2 {
+  margin: 4px 0 8px;
+  color: #1f3a5f;
+  font-size: 28px;
+}
+
+.itinerary-eyebrow {
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.summary-card {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary-card span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.summary-card strong {
+  font-size: 18px;
+  color: #1f3a5f;
+}
+
+.itinerary-days {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.itinerary-day-card {
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 3px 12px rgba(31, 58, 95, 0.05);
+}
+
+.itinerary-day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.itinerary-day-header h3 {
+  margin: 5px 0 0;
+  color: #1f3a5f;
+}
+
+.day-number {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.day-count {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.itinerary-activities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itinerary-activity {
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.itinerary-activity:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.activity-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: #eff6ff;
+  border-radius: 10px;
+  font-size: 17px;
+}
+
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-time {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.activity-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #1f3a5f;
+}
+
+.activity-reason {
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.activity-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: #475569;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .trip-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .itinerary-dashboard {
+    padding: 16px;
+  }
+}
+
 
