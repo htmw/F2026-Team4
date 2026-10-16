@@ -104,3 +104,48 @@ They don't test the full form or the frontend/backend flow.
 These results are from the version tested on October 14.
 Fixes haven't been retested yet, and a working itinerary
 with scheduled stops hasn't been verified.
+
+## Retest — October 16, 2026
+
+Tested branch: feature/frontend-form-validation
+
+I checked the updated form again.
+
+### Fixes that worked
+
+- Budget: clearing the field and typing 200 now shows 200.
+- Max walk: clearing the field and typing 10 now shows 10.
+- Day start at 6 PM and day end at 10 AM now shows:
+  "Day end time must be later than the day start time."
+- Setting both daily times to 10 AM shows the same warning.
+- Setting all seven interests to zero now shows:
+  "Please set at least one interest above zero so we know what you care about."
+
+### Still needs attention
+
+**Blank day start**
+
+With Food at 1.0, day start empty, and day end at 6 PM,
+clicking Plan my trip showed "Could not plan the trip: Failed to fetch."
+
+There was no warning asking me to select a start time.
+The frontend should catch the empty field before sending the request.
+This test does not confirm how the backend handles it.
+
+![Blank day start retest](frontend-test-screenshots/blank-day-start-retest.png)
+
+**Blank day end**
+
+With Food at 1.0, day start at 10 AM, and day end empty,
+the form showed "Day end time must be later than the day start time."
+
+It showed a warning, but "Please select a day end time"
+would explain the problem more clearly.
+
+![Blank day end retest](frontend-test-screenshots/blank-day-end-retest.png)
+
+### Testing limits
+
+This retest covered frontend form behavior.
+I haven't verified a successful itinerary with scheduled stops
+or rerun the automated checks on this updated version.
