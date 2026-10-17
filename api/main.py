@@ -1,13 +1,3 @@
-"""FastAPI service — the orchestrator.
-
-For now it does one thing: POST /plan takes a traveler profile + destination +
-dates and returns a valid Itinerary produced by the stub scheduler. It validates
-the incoming profile and the outgoing itinerary against the contracts, so the
-moment any component drifts from the agreed shapes, we find out here.
-
-This is the seam the Optimizer team plugs into: swap `plan_itinerary` for the
-real `/optimizer` schedule() and nothing else in the system needs to change.
-"""
 
 from __future__ import annotations
 
@@ -18,11 +8,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from api.contracts import validate
-from api.scheduler_stub import plan_itinerary
 
-app = FastAPI(title="Wanderwise API (stub)", version="0.0.1")
+from optimizer.scheduler import plan_itinerary
 
-# Dev-only: let the Vite frontend (localhost:5173) call us. Tighten before any real deploy.
+
+app = FastAPI(
+    title="Wanderwise Travel Planning API",
+    description=(
+        "Personalized travel recommendations with "
+        "constraint-aware itinerary optimization."
+    ),
+    version="1.0.0",
+)
+
+# Allow frontend communication during development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -45,15 +44,49 @@ def health() -> dict[str, str]:
 
 @app.post("/plan")
 def plan(req: PlanRequest) -> dict[str, Any]:
-    profile_errors = validate("traveler-profile", req.profile)
+
+    # Step 1: Validate traveler profile
+    profile_errors = validate(
+        "traveler-profile",
+        req.profile
+    )
+
     if profile_errors:
-        raise HTTPException(status_code=422, detail={"profile_errors": profile_errors})
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "profile_errors": profile_errors
+            }
+        )
 
-    itinerary = plan_itinerary(req.profile, req.destination, req.start_date, req.end_date)
+    # Step 2: Generate optimized itinerary
+    try:
+        itinerary = plan_itinerary(
+            profile=req.profile,
+            destination=req.destination,
+            start_date=req.start_date,
+            end_date=req.end_date,
+        )
 
-    # If our own output breaks the contract, fail loudly — that's a bug, not a bad request.
-    itinerary_errors = validate("itinerary", itinerary)
+    except ValueError as error:
+        raise HTTPException(
+            status_code=422,
+            detail=str(error)
+        ) from error
+
+    # Step 3: Validate generated itinerary
+    itinerary_errors = validate(
+        "itinerary",
+        itinerary
+    )
+
     if itinerary_errors:
-        raise HTTPException(status_code=500, detail={"itinerary_errors": itinerary_errors})
+        raise HTTPException(
+            status_code=500,
+            detail={
+                "itinerary_errors": itinerary_errors
+            }
+        )
 
+    # Step 4: Return optimized travel plan
     return itinerary
