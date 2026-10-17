@@ -59,6 +59,34 @@ def test_plan_rejects_an_invalid_profile():
     assert resp.status_code == 422
 
 
+def _plan_body(**overrides) -> dict:
+    body = {
+        "profile": _sample_profile(),
+        "destination": {"name": "Lisbon"},
+        "start_date": "2026-10-01",
+        "end_date": "2026-10-03",
+    }
+    body.update(overrides)
+    return body
+
+
+def test_plan_rejects_reversed_dates():
+    resp = client.post("/plan", json=_plan_body(start_date="2026-10-05", end_date="2026-10-01"))
+    assert resp.status_code == 422
+
+
+def test_plan_rejects_malformed_dates():
+    resp = client.post("/plan", json=_plan_body(start_date="October 1st"))
+    assert resp.status_code == 422
+
+
+def test_plan_rejects_reversed_or_equal_daily_times():
+    for day_start, day_end in [("18:00", "09:00"), ("10:00", "10:00")]:
+        profile = {**_sample_profile(), "day_start": day_start, "day_end": day_end}
+        resp = client.post("/plan", json=_plan_body(profile=profile))
+        assert resp.status_code == 422, (day_start, day_end)
+
+
 def test_scores_are_nonnegative_and_something_matches():
     category_map = load_categories()["categories"]
     profile = _sample_profile()
