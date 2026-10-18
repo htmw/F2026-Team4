@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T15:03:24+00:00",
+ "generated_at": "2026-10-18T15:51:20+00:00",
  "query": "Lisbon, Portugal",
  "destination": {
   "name": "Lisbon",
@@ -158,8 +158,8 @@
   "unparseable": 153
  },
  "cost_status": {
-  "no_data": 4787,
-  "default_free": 1183,
+  "no_data": 4789,
+  "default_free": 1181,
   "charge_parsed": 33,
   "fee_amount_missing": 48,
   "fee_free": 22
@@ -170,17 +170,17 @@
   "bar": 367,
   "shop": 194,
   "bakery": 139,
-  "landmark": 276,
+  "landmark": 275,
   "gallery": 59,
-  "garden": 119,
+  "garden": 118,
   "market": 47,
   "viewpoint": 53,
-  "museum": 104,
+  "museum": 105,
   "nightclub": 31,
   "park": 228,
   "neighborhood": 27,
   "church": 251,
-  "palace": 150,
+  "palace": 151,
   "castle": 36,
   "monument": 10
  },
