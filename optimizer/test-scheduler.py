@@ -6,7 +6,6 @@ from copy import deepcopy
 from api.contracts import validate
 from optimizer.scheduler import schedule
 
-
 HOURS = {
     day: [["09:00", "18:00"]]
     for day in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
