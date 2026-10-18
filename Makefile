@@ -48,7 +48,8 @@ ingest: ## Ingest one city into data/out: make ingest CITY="Porto, Portugal"
 	uv run python -m ingest "$(CITY)"
 
 snapshot-rome: ## Rebuild the committed Rome snapshot in data/cities/rome
-	uv run python -m ingest "Rome, Italy" --bbox $(ROME_BBOX) --slug rome --alias Roma \
+	uv run python -m ingest "Rome, Italy" --bbox $(ROME_BBOX) --slug rome \
+		--alias Roma --alias "Roma, Italia" \
 		--out data/cities --curation data/curation/rome.json --matrix-top 0
 
 data-spike: ## Hours and price coverage for four cities -> docs/data-spike.md
