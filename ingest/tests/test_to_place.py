@@ -122,3 +122,65 @@ def test_build_place_rejects_schema_invalid_coordinates(validator):
     assert result.place is None
     assert result.drop_reason == "schema_invalid"
     assert result.error is not None
+
+
+def test_restaurant_closed_on_one_day_is_kept_with_unknown_hours(validator):
+    result = build_place(
+        {
+            "type": "node",
+            "id": 6,
+            "lat": 41.89,
+            "lon": 12.47,
+            "tags": {"name": "Trattoria", "amenity": "restaurant", "opening_hours": "Su off"},
+        },
+        currency="EUR",
+        fetched_date="2026-10-17",
+        validator=validator,
+    )
+
+    assert result.place is not None
+    assert result.place["hours"]["confidence"] == "unknown"
+
+
+def test_place_closed_every_day_is_dropped(validator):
+    result = build_place(
+        {
+            "type": "node",
+            "id": 7,
+            "lat": 41.89,
+            "lon": 12.47,
+            "tags": {"name": "Museo Chiuso", "tourism": "museum", "opening_hours": "off"},
+        },
+        currency="EUR",
+        fetched_date="2026-10-17",
+        validator=validator,
+    )
+
+    assert result.place is None
+    assert result.drop_reason == "always_closed"
+
+
+@pytest.mark.parametrize(
+    "el_type, tags, long_structure, rough_point",
+    [
+        ("way", {"historic": "citywalls", "barrier": "city_wall"}, True, False),
+        ("way", {"historic": "aqueduct"}, True, False),
+        ("relation", {"historic": "citywalls", "type": "building"}, True, True),
+        ("relation", {"historic": "citywalls", "type": "site"}, True, True),
+        ("relation", {"historic": "citywalls", "type": "multipolygon"}, True, False),
+        ("way", {"historic": "ruins"}, False, False),
+    ],
+)
+def test_signals_mark_wall_pieces_and_collection_relations(
+    validator, el_type, tags, long_structure, rough_point
+):
+    element = {
+        "type": el_type,
+        "id": 8,
+        "center": {"lat": 41.89, "lon": 12.49},
+        "tags": {"name": "Mura Aureliane", **tags},
+    }
+    result = build_place(element, currency="EUR", fetched_date="2026-10-17", validator=validator)
+
+    assert result.signals["long_structure"] is long_structure
+    assert result.signals["rough_point"] is rough_point

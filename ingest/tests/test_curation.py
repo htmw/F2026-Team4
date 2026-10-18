@@ -11,7 +11,7 @@ from ingest.to_place import make_validator
 SCHEMA = Path(__file__).resolve().parents[2] / "contracts" / "place.schema.json"
 
 
-def _place(pid, name, lat, lon, pop=0.5):
+def _place(pid, name, lat, lon, pop=0.5, cats=("landmark",)):
     hours = {d: [["00:00", "23:59"]] for d in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")}
     hours["confidence"] = "inferred"
     return {
@@ -19,7 +19,7 @@ def _place(pid, name, lat, lon, pop=0.5):
         "name": name,
         "lat": lat,
         "lon": lon,
-        "categories": ["landmark"],
+        "categories": list(cats),
         "typical_duration_minutes": 30,
         "cost": {"amount": 0.0, "currency": "EUR", "confidence": "inferred"},
         "hours": hours,
@@ -208,3 +208,90 @@ def test_bad_confidence_value_is_rejected(tmp_path):
 
     with pytest.raises(CurationError, match="confidence"):
         load_curation(path)
+
+
+# --- Copies of a curated place --------------------------------------------------------
+
+ARA_PACIS = [41.9062, 12.4755]
+
+
+def _ara_pacis_places():
+    return [
+        _place("osm:way/10", "Museo dell'Ara Pacis", 41.9062, 12.4755, pop=0.43, cats=("museum",)),
+        # The altar inside the museum, mapped as its own sight 6 m away.
+        _place("osm:way/11", "Ara Pacis Augustae", 41.90625, 12.4755, pop=0.41),
+        _place("osm:node/12", "Bar Ara Pacis", 41.9063, 12.4757, pop=0.0, cats=("bar",)),
+        _place("osm:node/13", "Ara Pacis Augustae", 41.93, 12.50, pop=0.1),  # 3 km away
+    ]
+
+
+def _ara_pacis_entry(**overrides):
+    entry = _entry(
+        name="Ara Pacis Museum",
+        match={"names": ["Museo dell'Ara Pacis", "Ara Pacis Augustae", "Bar Ara Pacis"],
+               "near": ARA_PACIS},
+        price={"amount": 14.0, "currency": "EUR"},
+        duration_minutes=60,
+    )
+    entry.update(overrides)
+    return entry
+
+
+def test_copies_of_a_curated_place_are_folded_into_it():
+    places = _ara_pacis_places()
+    curation = {"checked_on": "2026-10-17", "places": [_ara_pacis_entry()]}
+    out, report = apply_curation(places, curation, {}, make_validator(SCHEMA))
+    ids = [p["id"] for p in out]
+
+    assert "osm:way/11" not in ids
+    assert report.folded == [
+        {"entry": "Ara Pacis Museum", "kept": "osm:way/10", "dropped": ["osm:way/11"]}
+    ]
+    museum = next(p for p in out if p["id"] == "osm:way/10")
+    assert museum["categories"] == ["museum", "landmark"]
+    assert museum["cost"]["amount"] == 14.0
+    assert museum["typical_duration_minutes"] == 60
+    # A venue with the same name stays, and so does a namesake outside the radius.
+    assert "osm:node/12" in ids
+    assert "osm:node/13" in ids
+
+
+def test_a_copy_that_another_entry_is_about_is_not_folded():
+    places = _ara_pacis_places()
+    altar = _entry(
+        name="Altar",
+        match={"names": ["Ara Pacis Augustae"], "near": ARA_PACIS, "radius_m": 50},
+    )
+    museum = _ara_pacis_entry(match={"names": ["Museo dell'Ara Pacis", "Ara Pacis Augustae"],
+                                     "near": ARA_PACIS})
+    curation = {"checked_on": "2026-10-17", "places": [museum, altar]}
+    out, report = apply_curation(places, curation, {})
+
+    assert {"osm:way/10", "osm:way/11"} <= {p["id"] for p in out}
+    assert report.folded == []
+
+
+def test_two_entries_for_one_place_are_an_error(places, signals):
+    curation = {"checked_on": "2026-10-17", "places": [_entry(), _entry(name="Colosseo again")]}
+
+    with pytest.raises(CurationError, match="both match osm:way/1"):
+        apply_curation(places, curation, signals)
+
+
+def test_zone_keeps_a_neighbourhood_whose_label_falls_inside(signals):
+    places = [
+        _place("osm:way/1", "Tempio di Saturno", 41.8925, 12.4845),
+        _place("osm:relation/2", "Campitelli", 41.8926, 12.4846, cats=("neighborhood",)),
+    ]
+    zone = {
+        "name": "Forum",
+        "polygon": [[41.891, 12.483], [41.891, 12.486], [41.894, 12.486], [41.894, 12.483]],
+        "keep": [],
+        "reason": "test",
+    }
+    out, report = apply_curation(
+        places, {"checked_on": "2026-10-17", "places": [], "exclude_within": [zone]}, {}
+    )
+
+    assert [p["id"] for p in out] == ["osm:relation/2"]
+    assert report.excluded_by_zone == {"Forum": 1}

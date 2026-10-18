@@ -17,7 +17,7 @@ def _hours():
     return hours
 
 
-def _write_city(base: Path, key: str, name: str, aliases=(), n=3):
+def _write_city(base: Path, key: str, name: str, aliases=(), n=3, country="IT", country_name=""):
     d = base / key
     d.mkdir(parents=True)
     places = [
@@ -36,11 +36,12 @@ def _write_city(base: Path, key: str, name: str, aliases=(), n=3):
     ]
     (d / "places.json").write_text(json.dumps(places), encoding="utf-8")
     (d / "destination.json").write_text(
-        json.dumps({"name": name, "country": "IT", "lat": 41.9, "lon": 12.5}), encoding="utf-8"
+        json.dumps({"name": name, "country": country, "lat": 41.9, "lon": 12.5}), encoding="utf-8"
     )
-    (d / "city.json").write_text(
-        json.dumps({"key": key, "name": name, "aliases": list(aliases)}), encoding="utf-8"
-    )
+    meta = {"key": key, "name": name, "country": country, "aliases": list(aliases)}
+    if country_name:
+        meta["country_name"] = country_name
+    (d / "city.json").write_text(json.dumps(meta), encoding="utf-8")
     return d
 
 
@@ -64,6 +65,56 @@ def test_snapshot_found_by_name_alias_or_city_country(dirs, name):
     assert city.source == "snapshot"
     assert city.destination["country"] == "IT"
     assert len(city.places) == 3
+
+
+@pytest.mark.parametrize("name", ["Rome, IT", "Rome, Lazio, Italy", "Roma, Italy"])
+def test_city_with_its_own_country_is_accepted(dirs, name):
+    cities, _ = dirs
+    _write_city(cities, "rome", "Rome", aliases=["Roma"], country_name="Italy")
+
+    assert catalog.load_city(name).key == "rome"
+
+
+@pytest.mark.parametrize("name", ["Rome, Georgia", "Roma, Texas", "Rome, NY"])
+def test_a_namesake_in_another_country_is_not_rome(dirs, name):
+    cities, _ = dirs
+    _write_city(cities, "rome", "Rome", aliases=["Roma", "Rome, Italy"])
+
+    with pytest.raises(catalog.CityNotAvailable, match="No place data"):
+        catalog.load_city(name)
+
+
+def test_an_alias_with_a_region_counts_as_that_region(dirs):
+    # Snapshots built before country_name existed still carry "Rome, Italy" as an alias.
+    cities, _ = dirs
+    _write_city(cities, "rome", "Rome", aliases=["Roma", "Rome, Italy"], country="")
+
+    assert catalog.load_city("Roma, Italy").key == "rome"
+
+
+@pytest.mark.parametrize("name", ["", "   ", None, ","])
+def test_a_missing_name_is_rejected_with_the_cities_that_work(dirs, name):
+    with pytest.raises(catalog.CityNotAvailable, match="no name.*Lisbon"):
+        catalog.load_city(name)
+
+
+def test_fixture_has_a_country(dirs):
+    city = catalog.load_city("Lisbon, Portugal")
+
+    assert city.destination["country"] == "PT"
+    with pytest.raises(catalog.CityNotAvailable):
+        catalog.load_city("Lisbon, Ohio")
+
+
+def test_committed_data_beats_a_local_run_of_the_same_city(dirs, monkeypatch):
+    _, out = dirs
+    _write_city(out, "lisbon", "Lisbon", aliases=["Lisboa"])
+    monkeypatch.setattr(catalog, "EXTRA_DIRS", [out])
+
+    assert catalog.load_city("Lisbon").source == "fixture"
+    # A local run can still add a city nobody committed.
+    _write_city(out, "porto", "Porto")
+    assert catalog.load_city("Porto").source == "local"
 
 
 def test_local_runs_are_ignored_unless_asked_for(dirs, monkeypatch):

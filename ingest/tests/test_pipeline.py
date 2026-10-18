@@ -25,6 +25,7 @@ def test_empty_run_overwrites_stale_matrix(tmp_path, monkeypatch):
         display_name="Test City",
         bbox=(1.0, 2.0, 3.0, 4.0),
         country="US",
+        country_name="United States",
         destination=lambda: {"name": "Test City"},
     )
 
@@ -85,7 +86,7 @@ def _fake_get(boundingbox):
                     "lat": "41.8933",
                     "lon": "12.4829",
                     "boundingbox": boundingbox,
-                    "address": {"country_code": "it"},
+                    "address": {"country_code": "it", "country": "Italy"},
                     "display_name": "Rome, Lazio, Italy",
                 }
             ]
@@ -132,6 +133,13 @@ ELEMENTS = [
         "tags": {"name": "Museo Chiuso", "tourism": "museum", "opening_hours": "off"},
     },
     {"type": "node", "id": 5, "lat": 41.8970, "lon": 12.4820, "tags": {"tourism": "museum"}},
+    {
+        # A long relation that only touches the box: its centre lies far outside it.
+        "type": "relation",
+        "id": 6,
+        "center": {"lat": 41.9247, "lon": 12.95},
+        "tags": {"name": "Acquedotti Claudio e Anio novus", "historic": "aqueduct"},
+    },
 ]
 
 
@@ -207,6 +215,7 @@ def test_full_run_dedupes_scores_curates_and_writes_city_files(tmp_path):
 
     assert report["counts"]["dropped_always_closed"] == 1
     assert report["counts"]["dropped_no_name"] == 1
+    assert report["counts"]["dropped_outside_bbox"] == 1
     assert report["duplicates"]["merged"] == 1
     assert report["curation"]["applied"] == 1
     assert report["curation"]["unmatched"] == []
@@ -215,6 +224,7 @@ def test_full_run_dedupes_scores_curates_and_writes_city_files(tmp_path):
     assert city["key"] == "rome"
     assert "Roma" in city["aliases"]
     assert city["country"] == "IT"
+    assert city["country_name"] == "Italy"
     assert "OpenStreetMap" in city["attribution"]
     assert not stale.exists()
     assert len(result["places"]) == 2
@@ -230,6 +240,31 @@ def test_matrix_file_lists_walk_and_transit_minutes(tmp_path):
     assert len(matrix["ids"]) == 2
     assert len(matrix["minutes"]) == 2
     assert len(matrix["transit_minutes"]) == 2
+
+
+def test_a_failed_matrix_leaves_the_previous_output_alone(tmp_path):
+    _run(tmp_path, matrix_top=10)
+    city_dir = tmp_path / "out" / "rome-italy"
+    before = {f.name: f.read_bytes() for f in city_dir.iterdir()}
+
+    with pytest.raises(ValueError, match="speed"):
+        _run(tmp_path, matrix_top=10, speed_kmh=0, curation_path=_curation_file(tmp_path))
+
+    assert {f.name: f.read_bytes() for f in city_dir.iterdir()} == before
+
+
+def test_output_files_use_unix_line_ends(tmp_path):
+    _run(tmp_path, matrix_top=0)
+
+    for f in (tmp_path / "out" / "rome-italy").iterdir():
+        assert b"\r\n" not in f.read_bytes(), f.name
+
+
+def test_a_place_centred_outside_the_box_is_dropped(tmp_path):
+    result = _run(tmp_path, bbox=(41.87, 12.43, 41.94, 12.53), matrix_top=0)
+
+    assert result["report"]["counts"]["dropped_outside_bbox"] == 1
+    assert "osm:relation/6" not in [p["id"] for p in result["places"]]
 
 
 def test_explicit_bbox_skips_the_city_size_check(tmp_path):
