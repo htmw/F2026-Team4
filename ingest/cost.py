@@ -88,6 +88,11 @@ _AMOUNT_FIRST = re.compile(_AMOUNT + r"\s*" + _CUR)
 _CUR_FIRST = re.compile(_CUR + r"\s*" + _AMOUNT)
 
 
+def is_currency_code(code: str) -> bool:
+    """True for a real ISO 4217 code such as EUR or GEL."""
+    return code in _ISO_CURRENCIES
+
+
 def currency_for_country(country_code: str) -> str:
     """Return the ISO currency for a country code, or XXX if unknown."""
     return COUNTRY_CURRENCY.get((country_code or "").upper(), "XXX")

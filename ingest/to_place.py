@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+import re
+import unicodedata
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -11,28 +13,24 @@ from jsonschema import Draft202012Validator, FormatChecker
 from .categories import DEFAULT_DURATION_MIN, DEFAULT_HOURS, map_categories
 from .cost import parse_cost
 from .hours import DAYS, parse_opening_hours
+from .popularity import documentation_count, signals_from_tags
 
-_PROMINENCE_KEYS = (
-    "wikidata",
-    "wikipedia",
-    "heritage",
-    "website",
-    "contact:website",
-    "opening_hours",
-    "fee",
-    "charge",
-    "description",
-)
+# Name tags kept for matching curated entries and duplicates. old_name is left out on
+# purpose: it often belongs to a different, earlier place at the same spot.
+_NAME_TAG = re.compile(r"^(name|alt_name|official_name|int_name|short_name)(:[A-Za-z-]+)?$")
 
 
 @dataclass
 class BuildResult:
     place: dict | None
-    drop_reason: str | None = None  # no_name | no_coords | unmapped_category | schema_invalid
+    # no_name | no_coords | unmapped_category | always_closed | schema_invalid
+    drop_reason: str | None = None
     hours_status: str | None = None  # parsed | absent | unparseable
     cost_status: str | None = None
     prominence: int = 0
     error: str | None = None
+    # Tag facts the later steps need (popularity, dedupe, curation). Not part of the contract.
+    signals: dict = field(default_factory=dict)
 
 
 def make_validator(schema_path: Path) -> Draft202012Validator:
@@ -41,8 +39,22 @@ def make_validator(schema_path: Path) -> Draft202012Validator:
 
 
 def prominence(tags: dict) -> int:
-    """Crude, city-agnostic 'how documented is this place' score. Used only to cap matrix size."""
-    return sum(1 for k in _PROMINENCE_KEYS if tags.get(k))
+    """How many documentation tags a place has (website, hours, wikidata...)."""
+    return documentation_count(tags)
+
+
+def normalize_name(text: str) -> str:
+    """Lowercase, strip accents and punctuation, so Castel Sant'Angelo matches sant angelo."""
+    decomposed = unicodedata.normalize("NFKD", text)
+    no_marks = "".join(ch for ch in decomposed if not unicodedata.combining(ch))
+    return " ".join(re.sub(r"[^\w]+", " ", no_marks.casefold()).split())
+
+
+def name_variants(tags: dict) -> list[str]:
+    """Every normalised name the place is known by, in any language."""
+    names = {normalize_name(v) for k, v in tags.items() if _NAME_TAG.match(k) and v}
+    names.discard("")
+    return sorted(names)
 
 
 def element_id(el: dict) -> str:
@@ -88,6 +100,10 @@ def build_place(
     parsed = parse_opening_hours(tags.get("opening_hours"))
     if parsed.status == "parsed":
         hours = parsed.hours
+        # "off" for every day of the week: closed for good or for a long restoration.
+        # A planner can never schedule it, so it only wastes a candidate slot.
+        if all(hours[d] is None for d in DAYS):
+            return BuildResult(None, "always_closed", hours_status=parsed.status)
     elif parsed.status == "absent":
         hours = _default_hours(cats[0])
     else:
@@ -109,4 +125,10 @@ def build_place(
     errors = sorted(validator.iter_errors(place), key=lambda e: list(e.path))
     if errors:
         return BuildResult(None, "schema_invalid", error=errors[0].message)
-    return BuildResult(place, None, parsed.status, cost.status, prominence(tags))
+
+    signals = signals_from_tags(tags)
+    signals["osm_type"] = el.get("type")
+    signals["names"] = name_variants(tags)
+    return BuildResult(
+        place, None, parsed.status, cost.status, prominence(tags), signals=signals
+    )

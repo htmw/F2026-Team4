@@ -1,4 +1,14 @@
-"""city name -> geocode -> Overpass -> contract-valid Place[] -> per-city output folder."""
+"""city name -> geocode -> Overpass -> contract-valid Place[] -> per-city output folder.
+
+Steps, in order:
+1. geocode the name (Nominatim) for the centre, country and default bounding box,
+2. fetch every Overpass query group for the box (raw responses cached on disk),
+3. convert each OSM element to a Place, dropping the ones that cannot be valid,
+4. score popularity from the OSM tags,
+5. merge duplicate records of the same place,
+6. apply the hand checked curation file, if there is one,
+7. write places.json, destination.json, city.json, report.json and matrix.json.
+"""
 
 from __future__ import annotations
 
@@ -8,23 +18,30 @@ from pathlib import Path
 
 import requests
 
-from .cache import slugify, utc_now_iso, write_json
+from .cache import slugify, utc_now_iso, write_json, write_json_lines_array
 from .categories import (
     check_against_vocabulary,
     load_vocabulary,
     unmapped_vocabulary,
 )
 from .cost import currency_for_country
-from .geocode import geocode
+from .curation import apply_curation, load_curation
+from .dedupe import dedupe
+from .geocode import DEFAULT_MAX_SPAN_KM, geocode
 from .matrix import (
     DEFAULT_DETOUR,
     DEFAULT_SPEED_KMH,
+    TravelModel,
     matrix_payload,
     select_for_matrix,
+    transit_matrix,
     walking_matrix,
 )
 from .overpass import GROUPS, fetch_group
+from .popularity import popularity
 from .to_place import build_place, make_validator
+
+OSM_ATTRIBUTION = "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
 
 
 def run_city(
@@ -36,10 +53,13 @@ def run_city(
     refresh: bool = False,
     groups: list[str] | None = None,
     bbox=None,
-    max_span_deg: float = 0.8,
+    max_span_km: float = DEFAULT_MAX_SPAN_KM,
     matrix_top: int = 300,
     speed_kmh: float = DEFAULT_SPEED_KMH,
     detour_factor: float = DEFAULT_DETOUR,
+    slug: str | None = None,
+    aliases: list[str] | None = None,
+    curation_path: Path | None = None,
     post=requests.post,
     get=requests.get,
     sleep=time.sleep,
@@ -49,22 +69,27 @@ def run_city(
     vocab = load_vocabulary(contracts_dir / "categories.json")
     check_against_vocabulary(vocab)
     validator = make_validator(contracts_dir / "place.schema.json")
+    curation = load_curation(curation_path) if curation_path else None
 
+    # With an explicit bbox the geocoded box is only used for the name, country and centre,
+    # so its size does not matter (London, Tokyo, or any city whose admin area is huge).
     geo = geocode(
         query,
         cache_dir,
         refresh=refresh,
         get=get,
-        max_span_deg=max_span_deg,
+        max_span_km=None if bbox else max_span_km,
     )
+    bbox_source = "explicit" if bbox else "geocoded"
     bbox = tuple(bbox) if bbox else geo.bbox
     currency = currency_for_country(geo.country)
-    slug = slugify(query)
+    cache_slug = slugify(query)
+    out_slug = slug or cache_slug
 
     log(f"{geo.display_name}  bbox={bbox}  country={geo.country or '?'}  currency={currency}")
 
     places: list[dict] = []
-    prom: dict[str, int] = {}
+    signals: dict[str, dict] = {}
     seen: set[tuple] = set()
     counts: Counter = Counter()
     hours_status: Counter = Counter()
@@ -76,7 +101,7 @@ def run_city(
             group,
             bbox,
             cache_dir,
-            slug,
+            cache_slug,
             refresh=refresh,
             post=post,
             sleep=sleep,
@@ -106,55 +131,109 @@ def run_city(
 
                 continue
 
+            r.place["popularity"] = popularity(r.signals)
+            r.signals["cost_status"] = r.cost_status
             places.append(r.place)
-            prom[r.place["id"]] = r.prominence
-            hours_status[r.hours_status] += 1
-            cost_status[r.cost_status] += 1
-            counts["places"] += 1
+            signals[r.place["id"]] = r.signals
+            counts["valid_records"] += 1
+
+    places, dedupe_report = dedupe(places, signals)
+
+    curation_report = None
+    if curation is not None:
+        places, report = apply_curation(places, curation, signals, validator)
+        curation_report = report.as_dict()
+        for name in report.unmatched:
+            log(f"  curation: no match for {name!r}")
 
     places.sort(key=lambda p: p["id"])
+    counts["places"] = len(places)
+    for p in places:
+        hours_status[_hours_label(p)] += 1
+        cost_status[_cost_label(p, signals.get(p["id"], {}))] += 1
 
+    destination = geo.destination()
     report = {
         "generated_at": utc_now_iso(),
         "query": query,
-        "destination": geo.destination(),
+        "destination": destination,
         "bbox": list(bbox),
+        "bbox_source": bbox_source,
         "currency_fallback": currency,
         "counts": dict(counts),
+        "duplicates": dedupe_report.as_dict(),
         "hours_status": dict(hours_status),
         "cost_status": dict(cost_status),
         "categories": dict(Counter(p["categories"][0] for p in places)),
         "vocabulary_gaps": unmapped_vocabulary(vocab),
+        "curation": curation_report,
         "schema_error_samples": schema_errors,
     }
+    city = {
+        "key": out_slug,
+        "name": destination["name"],
+        "country": destination.get("country", ""),
+        "aliases": sorted({a for a in [query, destination["name"], *(aliases or [])] if a}),
+        "lat": destination.get("lat"),
+        "lon": destination.get("lon"),
+        "bbox": list(bbox),
+        "bbox_source": bbox_source,
+        "currency": currency,
+        "places": len(places),
+        "built_at": report["generated_at"],
+        "curation": Path(curation_path).name if curation_path else None,
+        "attribution": OSM_ATTRIBUTION,
+    }
 
-    out = Path(out_dir) / slug
+    out = Path(out_dir) / out_slug
 
-    write_json(out / "places.json", places, indent=1)
-    write_json(out / "destination.json", geo.destination(), indent=1)
+    write_json_lines_array(out / "places.json", places)
+    write_json(out / "destination.json", destination, indent=1)
+    write_json(out / "city.json", city, indent=1)
     write_json(out / "report.json", report, indent=1)
-    write_json(out / "prominence.json", prom)
 
-    # Always rewrite the matrix so it matches the current places.json,
-    # including when the current run contains zero valid places.
-    subset = select_for_matrix(places, prom, matrix_top)
-    m = walking_matrix(subset, speed_kmh, detour_factor)
+    # The matrix always describes the places.json written next to it, including after an
+    # empty run. matrix_top=0 means no matrix file at all (the API builds legs on demand).
+    matrix_file = out / "matrix.json"
+    if matrix_top > 0:
+        model = TravelModel(walk_speed_kmh=speed_kmh, walk_detour=detour_factor)
+        subset = select_for_matrix(places, matrix_top)
+        write_json(
+            matrix_file,
+            matrix_payload(
+                subset,
+                walking_matrix(subset, speed_kmh, detour_factor),
+                speed_kmh,
+                detour_factor,
+                transit=transit_matrix(subset, model),
+                model=model,
+            ),
+        )
+    elif matrix_file.exists():
+        matrix_file.unlink()
 
-    write_json(
-        out / "matrix.json",
-        matrix_payload(
-            subset,
-            m,
-            speed_kmh,
-            detour_factor,
-        ),
-    )
-
-    log(f"{len(places)} valid places -> {out}")
+    log(f"{len(places)} places ({dedupe_report.merged} duplicates merged) -> {out}")
 
     return {
-        "destination": geo.destination(),
+        "destination": destination,
         "places": places,
         "report": report,
         "out_dir": out,
     }
+
+
+def _hours_label(place: dict) -> str:
+    """parsed (real or curated hours), absent (category default used) or unparseable."""
+    labels = {"known": "parsed", "inferred": "absent"}
+    return labels.get(place["hours"]["confidence"], "unparseable")
+
+
+def _cost_label(place: dict, signals: dict) -> str:
+    """Same labels as cost.parse_cost, read from the final record after dedupe and curation."""
+    cost = place["cost"]
+    if cost["confidence"] == "known":
+        return "charge_parsed" if cost["amount"] > 0 else "fee_free"
+    if cost["confidence"] == "inferred":
+        return "default_free"
+    status = signals.get("cost_status")
+    return status if status in {"fee_amount_missing", "charge_ambiguous"} else "no_data"

@@ -2,7 +2,8 @@
 
 One global mapping for every destination. It may only emit keys that exist in the
 vocabulary (checked at runtime by check_against_vocabulary). Vocabulary keys that OSM
-tags cannot express reliably (neighborhood, day_trip) are reported as gaps, not guessed.
+tags cannot express reliably (day_trip) are reported as gaps, not guessed. Neighborhoods
+are mapped, but the Overpass query only asks for ones that carry a wikidata tag.
 """
 
 from __future__ import annotations
@@ -23,10 +24,24 @@ _LANDMARK_HISTORIC = {
     "aqueduct",
 }
 _SHOP_VALUES = {"mall", "department_store", "souvenir", "gift", "antiques"}
+_NEIGHBOURHOOD_PLACES = {"neighbourhood", "quarter"}
 
 
 def map_categories(tags: dict) -> list[str]:
-    """Return vocabulary categories for an OSM element. First entry is the primary category."""
+    """Return vocabulary categories for an OSM element. First entry is the primary category.
+
+    The primary category decides the default hours, the default visit length and whether
+    entry is assumed free, so the most specific tag has to come first. The order is:
+
+    1. venues (restaurant, cafe, bar, shop...): hours and prices follow the business,
+    2. sights with a clear type (museum, castle, church, viewpoint...),
+    3. green and open spaces (park, garden, beach),
+    4. the generic buckets: neighborhood, then landmark (tourism=attraction, historic
+       structures, notable squares and fountains).
+
+    A bar tagged tourism=attraction therefore stays a bar first and only picks up
+    landmark as a second category.
+    """
     out: list[str] = []
 
     def add(c: str) -> None:
@@ -35,31 +50,9 @@ def map_categories(tags: dict) -> list[str]:
 
     tourism, historic = tags.get("tourism"), tags.get("historic")
     amenity, shop = tags.get("amenity"), tags.get("shop")
-    building = tags.get("building")
+    building, leisure = tags.get("building"), tags.get("leisure")
 
-    if tourism == "museum":
-        add("museum")
-    if tourism == "gallery":
-        add("gallery")
-    if historic in {"castle", "fort", "fortress"}:
-        add("palace" if tags.get("castle_type") == "palace" or building == "palace" else "castle")
-    if building == "palace":
-        add("palace")
-    if historic == "monument":
-        add("monument")
-    if amenity == "place_of_worship" and building in _CHURCH_BUILDINGS:
-        add("church")
-    if tourism == "viewpoint":
-        add("viewpoint")
-    if tourism == "attraction" or historic in _LANDMARK_HISTORIC:
-        add("landmark")
-    leisure = tags.get("leisure")
-    if leisure == "park":
-        add("park")
-    if leisure == "garden":
-        add("garden")
-    if tags.get("natural") == "beach":
-        add("beach")
+    # 1. Venues.
     if amenity == "restaurant":
         add("restaurant")
     if amenity == "cafe":
@@ -74,6 +67,43 @@ def map_categories(tags: dict) -> list[str]:
         add("nightclub")
     if shop in _SHOP_VALUES:
         add("shop")
+
+    # 2. Typed sights.
+    if tourism == "museum":
+        add("museum")
+    if tourism == "gallery":
+        add("gallery")
+    if historic in {"castle", "fort", "fortress"}:
+        add("palace" if tags.get("castle_type") == "palace" or building == "palace" else "castle")
+    if building == "palace":
+        add("palace")
+    if historic == "monument":
+        add("monument")
+    if amenity == "place_of_worship" and (
+        building in _CHURCH_BUILDINGS or tags.get("religion") == "christian"
+    ):
+        add("church")
+    if tourism == "viewpoint":
+        add("viewpoint")
+
+    # 3. Green and open spaces.
+    if leisure == "park":
+        add("park")
+    if leisure == "garden":
+        add("garden")
+    if tags.get("natural") == "beach":
+        add("beach")
+
+    # 4. Generic buckets, only primary when nothing more specific matched.
+    if tags.get("place") in _NEIGHBOURHOOD_PLACES:
+        add("neighborhood")
+    if (
+        tourism == "attraction"
+        or historic in _LANDMARK_HISTORIC
+        or tags.get("place") == "square"
+        or amenity == "fountain"
+    ):
+        add("landmark")
     return out
 
 
@@ -86,8 +116,12 @@ _CATEGORY_RULE_TAGS = (
     {"historic": "castle", "castle_type": "palace"},
     {"historic": "monument"},
     {"amenity": "place_of_worship", "building": "church"},
+    {"amenity": "place_of_worship", "religion": "christian"},
     {"tourism": "viewpoint"},
     {"tourism": "attraction"},
+    {"place": "square"},
+    {"amenity": "fountain"},
+    {"place": "neighbourhood"},
     {"leisure": "park"},
     {"leisure": "garden"},
     {"natural": "beach"},

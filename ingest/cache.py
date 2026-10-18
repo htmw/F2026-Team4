@@ -33,6 +33,13 @@ def write_json(path: Path, obj, *, indent: int | None = None) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=indent), encoding="utf-8")
 
 
+def write_json_lines_array(path: Path, items: list) -> None:
+    """A JSON array with one item per line: valid JSON, compact, and readable in a diff."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    body = ",\n".join(json.dumps(item, ensure_ascii=False) for item in items)
+    path.write_text(f"[\n{body}\n]\n" if items else "[]\n", encoding="utf-8")
+
+
 def load_cached(path: Path, key: dict) -> dict | None:
     """Return the cached wrapper if it exists and was fetched for exactly this key."""
     if not path.exists():
