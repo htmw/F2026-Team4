@@ -167,6 +167,7 @@ def test_place_closed_every_day_is_dropped(validator):
         ("way", {"historic": "aqueduct"}, True, False),
         ("relation", {"historic": "citywalls", "type": "building"}, True, True),
         ("relation", {"historic": "citywalls", "type": "site"}, True, True),
+        ("relation", {"historic": "aqueduct", "type": "waterway"}, True, True),
         ("relation", {"historic": "citywalls", "type": "multipolygon"}, True, False),
         ("way", {"historic": "ruins"}, False, False),
     ],
