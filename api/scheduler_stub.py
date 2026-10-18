@@ -197,10 +197,6 @@ def plan_itinerary(
     warnings.append(
         "Stub scheduler: travel time, opening hours and budget are not yet enforced."
     )
-    if city_data.source == "fixture":
-        warnings.append(
-            f"Places for {city_data.name} come from the hand-made sample file, not live data."
-        )
 
     currency = profile.get("budget", {}).get("currency", "EUR")
     return {
