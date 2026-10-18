@@ -219,3 +219,465 @@ button[type="submit"]:disabled {
   background: #fef2f2;
   color: #b91c1c;
 }
+
+/* Wanderwise Sprint 1 - Frontend UI Improvements */
+
+/* Modern form card */
+form.card {
+  border-radius: 18px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 28px rgba(31, 58, 95, 0.07);
+}
+
+/* Form heading */
+form.card h2 {
+  color: #1f3a5f;
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+form.card h3 {
+  color: #1f3a5f;
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+/* Input labels */
+form.card .field {
+  font-size: 14px;
+  font-weight: 500;
+  gap: 8px;
+}
+
+/* Better input boxes */
+form.card .field input {
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-size: 15px;
+  width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Highlight selected input */
+form.card .field input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Highlight invalid inputs */
+form.card .field input[aria-invalid="true"] {
+  border-color: #dc2626;
+  background: #fffafa;
+}
+
+/* Interest sliders */
+form.card .interests {
+  gap: 18px;
+}
+
+form.card .slider {
+  gap: 10px;
+}
+
+form.card input[type="range"] {
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+
+/* Plan My Trip button */
+form.card button[type="submit"] {
+  background: #2563eb;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.18);
+  transition: background 0.2s, transform 0.2s;
+}
+
+form.card button[type="submit"]:hover:not(:disabled) {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  form.card {
+    padding: 18px;
+  }
+
+  form.card .row {
+    flex-direction: column;
+  }
+
+  form.card button[type="submit"] {
+    width: 100%;
+  }
+}
+form.card {
+  background-color: #eaf3ff;
+}
+
+/* Wanderwise - Interest Cards */
+
+form.card .interests {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+form.card .interests .slider {
+  background: #f0f6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+form.card .interests .slider:hover {
+  background: #e6f0ff;
+  border-color: #93c5fd;
+}
+
+form.card .interests .slider-label {
+  color: #1f3a5f;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+form.card .interests .slider-label em {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+form.card .interests input[type="range"] {
+  width: 100%;
+  accent-color: #2563eb;
+}
+
+@media (max-width: 500px) {
+  form.card .interests {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Wanderwise - Interest Cards */
+
+form.card .interests {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+form.card .interests .slider {
+  background: #f0f6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 16px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+form.card .interests .slider:hover {
+  background: #e6f0ff;
+  border-color: #93c5fd;
+}
+
+form.card .interests .slider-label {
+  color: #1f3a5f;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+form.card .interests .slider-label em {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+form.card .interests input[type="range"] {
+  width: 100%;
+  accent-color: #2563eb;
+}
+
+@media (max-width: 500px) {
+  form.card .interests {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Wanderwise - Destination and Date Fields */
+
+form.card .row:first-of-type {
+  background: #f8faff;
+  border: 1px solid #dbeafe;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 20px;
+  gap: 14px;
+}
+
+form.card .field {
+  color: #1f3a5f;
+  font-weight: 600;
+}
+
+form.card .field input {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+form.card .field input:hover {
+  border-color: #93c5fd;
+}
+
+form.card .field input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+form.card .field input[aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+@media (max-width: 600px) {
+  form.card .row:first-of-type {
+    flex-direction: column;
+  }
+}
+
+/* Wanderwise - Travel Style Improvements */
+
+form.card h3 {
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+form.card .row {
+  row-gap: 16px;
+}
+
+form.card .row:not(:first-of-type) {
+  margin-bottom: 14px;
+}
+
+form.card input[type="time"],
+form.card input[type="number"] {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  min-height: 46px;
+}
+
+form.card .row .slider-label {
+  color: #1f3a5f;
+  font-weight: 600;
+}
+
+form.card button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 24px;
+}
+
+/* Wanderwise - Compact Form Layout */
+
+form.card {
+  padding: 20px;
+}
+
+form.card h2 {
+  margin-bottom: 16px;
+}
+
+form.card h3 {
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+form.card .interests {
+  gap: 8px;
+}
+
+form.card .interests .slider {
+  padding: 10px 12px;
+  gap: 6px;
+}
+
+form.card .row {
+  gap: 10px;
+}
+
+form.card .field {
+  gap: 5px;
+}
+
+form.card .field input {
+  padding: 9px 11px;
+  min-height: 40px;
+}
+
+form.card button[type="submit"] {
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 16px;
+}
+
+/* Keep compact design on larger screens */
+@media (min-width: 821px) {
+  .layout {
+    grid-template-columns: minmax(440px, 520px) minmax(0, 1fr);
+  }
+}
+
+
+
+/* Wanderwise - Compact Form Design */
+
+form.card .interests {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+form.card .interests .slider {
+  padding: 10px;
+  gap: 5px;
+}
+
+form.card h3 {
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+form.card .row {
+  gap: 10px;
+}
+
+form.card .field input {
+  min-width: 0;
+  padding: 9px;
+}
+
+form.card button[type="submit"] {
+  width: 100%;
+  margin-top: 12px;
+}
+
+
+
+/* Separate Destination and Travel Dates */
+
+form.card .trip-dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+form.card .trip-dates > .field:first-child {
+  grid-column: 1 / -1;
+}
+
+form.card .trip-dates > .field {
+  min-width: 0;
+}
+
+form.card .trip-dates > .field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 420px) {
+  form.card .trip-dates {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Separate Destination and Travel Dates */
+
+form.card .trip-dates {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+form.card .trip-dates > .field:first-child {
+  grid-column: 1 / -1;
+}
+
+form.card .trip-dates > .field {
+  min-width: 0;
+}
+
+form.card .trip-dates > .field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Wanderwise - Compact Travel Style */
+
+form.card .row {
+  gap: 10px;
+}
+
+form.card .field {
+  min-width: 0;
+}
+
+form.card .field input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form.card h3 {
+  margin-top: 18px;
+  margin-bottom: 10px;
+}
+
+form.card button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Visible Travel Style Design Test */
+
+form.card button[type="submit"] {
+  background-color: #0f766e;
+  color: white;
+  border-radius: 16px;
+  width: 100%;
+  padding: 16px;
+  font-weight: bold;
+}
+
+/* Wanderwise - Travel Style Grid */
+
+form.card .travel-style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+form.card .travel-style-grid .field {
+  min-width: 0;
+}
+
+form.card .travel-style-grid input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 420px) {
+  form.card .travel-style-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
