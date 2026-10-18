@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T00:14:52+00:00",
+ "generated_at": "2026-10-18T01:06:29+00:00",
  "query": "Rome, Italy",
  "destination": {
   "name": "Rome",
@@ -16,26 +16,21 @@
  "bbox_source": "explicit",
  "currency_fallback": "EUR",
  "counts": {
-  "valid_records": 4864,
+  "valid_records": 4857,
   "dropped_unmapped_category": 492,
-  "dropped_always_closed": 10,
-  "places": 4622
+  "dropped_outside_bbox": 14,
+  "dropped_always_closed": 3,
+  "dropped_no_position": 1,
+  "places": 4548
  },
  "duplicates": {
-  "merged": 111,
+  "merged": 171,
   "examples": [
    {
-    "kept": "osm:node/1649776329",
-    "name": "Galleria Colonna",
+    "kept": "osm:way/112137587",
+    "name": "Musei Vaticani",
     "dropped": [
-     "osm:relation/2054909"
-    ]
-   },
-   {
-    "kept": "osm:node/2296913458",
-    "name": "Stadio di Domiziano",
-    "dropped": [
-     "osm:node/12052719807"
+     "osm:way/255959482"
     ]
    },
    {
@@ -46,17 +41,10 @@
     ]
    },
    {
-    "kept": "osm:way/516174441",
-    "name": "Piazza del Quirinale",
+    "kept": "osm:node/1649776329",
+    "name": "Galleria Colonna",
     "dropped": [
-     "osm:node/5446426922"
-    ]
-   },
-   {
-    "kept": "osm:node/13397444401",
-    "name": "Mancini - Vicollo Della Campana",
-    "dropped": [
-     "osm:node/13397449001"
+     "osm:relation/2054909"
     ]
    },
    {
@@ -67,65 +55,139 @@
     ]
    },
    {
-    "kept": "osm:way/23955329",
-    "name": "Largo di Torre Argentina",
+    "kept": "osm:node/10877839218",
+    "name": "Ristorante Sahara",
     "dropped": [
-     "osm:way/125374921"
+     "osm:node/10877863692"
     ]
    },
    {
-    "kept": "osm:way/112137587",
-    "name": "Musei Vaticani",
+    "kept": "osm:node/5739386222",
+    "name": "Da Fortunato",
     "dropped": [
-     "osm:way/255959482"
+     "osm:node/10875963960"
     ]
    },
    {
-    "kept": "osm:way/244928138",
-    "name": "Fontana di Maderno",
+    "kept": "osm:node/7134111776",
+    "name": "Ristorante Al Pompiere",
     "dropped": [
-     "osm:way/244928574"
+     "osm:node/11524589628"
     ]
    },
    {
-    "kept": "osm:relation/1841080",
-    "name": "Forum Romanum",
+    "kept": "osm:node/7884824685",
+    "name": "Hosteria del Mercato",
     "dropped": [
-     "osm:relation/1849832"
+     "osm:node/12047129468",
+     "osm:node/5288226126"
+    ]
+   },
+   {
+    "kept": "osm:node/9498676688",
+    "name": "Tre Scalini",
+    "dropped": [
+     "osm:node/2244982533"
+    ]
+   },
+   {
+    "kept": "osm:node/9919861981",
+    "name": "Artisan",
+    "dropped": [
+     "osm:node/9919861980"
     ]
    }
+  ],
+  "long_structures": [
+   {
+    "kept": "osm:relation/10129640",
+    "name": "Mura Aureliane",
+    "pieces": 91,
+    "placed_at": "osm:way/1006455125"
+   },
+   {
+    "kept": "osm:way/112677344",
+    "name": "Mura Serviane",
+    "pieces": 18,
+    "placed_at": "osm:way/112677344"
+   },
+   {
+    "kept": "osm:way/837026526",
+    "name": "Mura gianicolensi",
+    "pieces": 7,
+    "placed_at": "osm:way/837026526"
+   },
+   {
+    "kept": "osm:relation/13394499",
+    "name": "Aqua Neroniana",
+    "pieces": 2,
+    "placed_at": "osm:way/200350823"
+   },
+   {
+    "kept": "osm:way/1000800331",
+    "name": "Acquedotto Felice",
+    "pieces": 3,
+    "placed_at": "osm:way/1000800331"
+   },
+   {
+    "kept": "osm:relation/12043626",
+    "name": "Passetto di Borgo",
+    "pieces": 1,
+    "placed_at": "osm:relation/12043626"
+   },
+   {
+    "kept": "osm:way/131704036",
+    "name": "Acquedotto Claudio",
+    "pieces": 2,
+    "placed_at": "osm:way/131704036"
+   },
+   {
+    "kept": "osm:way/97834048",
+    "name": "Acquedotto Julio",
+    "pieces": 1,
+    "placed_at": "osm:way/97834048"
+   },
+   {
+    "kept": "osm:node/11495762804",
+    "name": "Resti dell'Acquedotto Antoniniano",
+    "pieces": 1,
+    "placed_at": "osm:node/11495762804"
+   }
+  ],
+  "dropped_no_position": [
+   "osm:relation/20347404"
   ]
  },
  "hours_status": {
-  "absent": 3507,
-  "parsed": 1009,
-  "unparseable": 106
+  "absent": 3427,
+  "parsed": 1010,
+  "unparseable": 111
  },
  "cost_status": {
-  "no_data": 3322,
-  "default_free": 1186,
-  "fee_free": 50,
-  "fee_amount_missing": 40,
+  "no_data": 3329,
+  "default_free": 1104,
+  "fee_free": 52,
+  "fee_amount_missing": 39,
   "charge_parsed": 24
  },
  "categories": {
-  "restaurant": 1967,
-  "shop": 105,
-  "viewpoint": 19,
+  "restaurant": 1974,
+  "shop": 104,
+  "viewpoint": 17,
   "bar": 303,
   "cafe": 877,
   "bakery": 93,
   "museum": 115,
-  "landmark": 421,
+  "landmark": 351,
   "gallery": 18,
-  "park": 149,
-  "church": 376,
+  "park": 142,
+  "church": 375,
   "nightclub": 23,
   "monument": 42,
   "market": 34,
-  "neighborhood": 25,
+  "neighborhood": 26,
   "castle": 4,
-  "garden": 47,
+  "garden": 46,
   "palace": 4
  },
  "vocabulary_gaps": [
@@ -145,7 +207,6 @@
    "osm:node/12813664034",
    "osm:node/13004798413",
    "osm:node/13094031501",
-   "osm:node/13256187380",
    "osm:node/13735344022",
    "osm:node/13947393775",
    "osm:node/14107772324",
@@ -215,6 +276,7 @@
    "osm:relation/1842061",
    "osm:relation/1842062",
    "osm:relation/1849828",
+   "osm:relation/1849832",
    "osm:relation/1849835",
    "osm:relation/1854238",
    "osm:relation/1854239",
@@ -230,7 +292,6 @@
    "osm:relation/1861912",
    "osm:relation/19372161",
    "osm:relation/49690",
-   "osm:relation/5454237",
    "osm:way/1016871040",
    "osm:way/111659077",
    "osm:way/111697743",
@@ -252,6 +313,7 @@
    "osm:way/131557337",
    "osm:way/132581385",
    "osm:way/132881964",
+   "osm:way/135747106",
    "osm:way/149714726",
    "osm:way/1527652398",
    "osm:way/205595971",
@@ -268,9 +330,53 @@
    "osm:way/49824161"
   ],
   "excluded_by_zone": {
-   "Roman Forum and Palatine": 76,
+   "Roman Forum and Palatine": 75,
    "Vatican Museums, Gardens and Apostolic Palace": 49
   },
+  "folded": [
+   {
+    "entry": "Colosseum",
+    "kept": "osm:relation/1834818",
+    "dropped": [
+     "osm:node/5978649686"
+    ]
+   },
+   {
+    "entry": "Castel Sant'Angelo",
+    "kept": "osm:way/8035487",
+    "dropped": [
+     "osm:node/6499816579"
+    ]
+   },
+   {
+    "entry": "Ara Pacis Museum",
+    "kept": "osm:way/201293294",
+    "dropped": [
+     "osm:way/201291264"
+    ]
+   },
+   {
+    "entry": "Galleria Doria Pamphilj",
+    "kept": "osm:node/706793341",
+    "dropped": [
+     "osm:relation/1707363"
+    ]
+   },
+   {
+    "entry": "Giardino degli Aranci",
+    "kept": "osm:relation/8437974",
+    "dropped": [
+     "osm:node/653947448"
+    ]
+   },
+   {
+    "entry": "Knights of Malta keyhole",
+    "kept": "osm:node/3512305861",
+    "dropped": [
+     "osm:way/24534437"
+    ]
+   }
+  ],
   "matches": [
    {
     "name": "Colosseum",
@@ -387,10 +493,10 @@
     "as": "known"
    },
    {
-    "name": "Campo de' Fiori market",
+    "name": "Campo de' Fiori",
     "id": "osm:way/4949430",
     "osm_name": "Campo de' Fiori",
-    "as": "inferred"
+    "as": "known"
    },
    {
     "name": "Mercato di Testaccio",
