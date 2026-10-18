@@ -40,19 +40,17 @@ train: ## Train the ranking model -> models/ranker.txt
 evaluate: ## Evaluate the ranker vs baselines (NDCG@k)
 	uv run python -m ranker.evaluate
 
-CITY ?= Lisbon, Portugal
 OSRM_FOOT ?= https://routing.openstreetmap.de/routed-foot
 
-ingest: ## Ingest the city into data/out (CITY defaults to Lisbon, Portugal)
-	uv run python -m ingest "$(CITY)"
+ingest: ## Scratch run of the Lisbon pipeline into data/out (never served)
+	uv run python -m ingest "Lisbon, Portugal"
 
-snapshot-lisbon: ## Rebuild the committed Lisbon snapshot in data/cities/lisbon
+snapshot-lisbon: ## Rebuild the committed Lisbon data in data/cities/lisbon
 	uv run python -m ingest "Lisbon, Portugal" --slug lisbon \
-		--alias Lisboa --alias "Lisboa, Portugal" \
-		--out data/cities --matrix-top 0
+		--alias Lisboa --alias "Lisboa, Portugal" --out data/cities
 
 data-spike: ## Hours and price coverage for Lisbon -> docs/data-spike.md
-	uv run python -m ingest.spike "Lisbon, Portugal"
+	uv run python -m ingest.spike
 
 routing-spike: ## Haversine vs OSRM foot routing for Lisbon -> docs/routing-spike.md
 	uv run python -m ingest.routing_spike Lisbon --osrm-url $(OSRM_FOOT)
