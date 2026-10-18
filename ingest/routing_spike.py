@@ -10,8 +10,9 @@ every ordered pair. Two comparisons come out of it:
 
 - geometry: our estimate against the real street distance walked at OUR speed. This isolates
   the detour factor, which is the only thing the cheap method can get wrong.
-- end to end: our estimate against OSRM's own foot durations (OSRM walks at about 5 km/h,
-  a little faster than the 4.5 km/h we plan with for tourists).
+- end to end: our estimate against OSRM's own foot durations. The public foot profile
+  measured about 4.5 km/h in the Rome run, the same speed we plan with, so there the two
+  comparisons agree. The report says so when another server walks at a different speed.
 
 Writes docs/routing-spike.md and docs/routing-spike.json.
 """
@@ -28,6 +29,7 @@ from pathlib import Path
 import numpy as np
 import requests
 
+from .cache import write_json, write_text
 from .catalog import load_city
 from .matrix import DEFAULT_DETOUR, DEFAULT_SPEED_KMH, haversine_km
 
@@ -287,10 +289,8 @@ def main(argv: list[str] | None = None) -> int:
     docs = Path(args.docs)
     docs.mkdir(parents=True, exist_ok=True)
     today = date.today().isoformat()
-    (docs / "routing-spike.md").write_text(
-        render(city.name, result, source_label, today), encoding="utf-8"
-    )
-    (docs / "routing-spike.json").write_text(json.dumps(result, indent=1), encoding="utf-8")
+    write_text(docs / "routing-spike.md", render(city.name, result, source_label, today))
+    write_json(docs / "routing-spike.json", result, indent=1)
     print(f"wrote {docs / 'routing-spike.md'}")
     return 0
 

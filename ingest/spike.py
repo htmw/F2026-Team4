@@ -14,12 +14,12 @@ Writes docs/data-spike.md and docs/data-spike.json, even if a city fails.
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
+from .cache import write_json, write_text
 from .geocode import parse_bbox
 from .matrix import osrm_sample, summarize_osrm
 from .pipeline import run_city
@@ -309,14 +309,8 @@ def main(argv: list[str] | None = None) -> int:
     docs = Path(args.docs)
     docs.mkdir(parents=True, exist_ok=True)
 
-    (docs / "data-spike.md").write_text(
-        render(results, date.today().isoformat()),
-        encoding="utf-8",
-    )
-    (docs / "data-spike.json").write_text(
-        json.dumps(results, indent=1),
-        encoding="utf-8",
-    )
+    write_text(docs / "data-spike.md", render(results, date.today().isoformat()))
+    write_json(docs / "data-spike.json", results, indent=1)
 
     print(f"wrote {docs / 'data-spike.md'}")
     print(f"wrote {docs / 'data-spike.json'}")
