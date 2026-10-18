@@ -1,4 +1,10 @@
-"""Convert OSM elements into valid Place records, dropping invalid ones."""
+"""Step 3 of the pipeline: turn one OSM element into a Place record, or say why not.
+
+build_place() takes one element from an Overpass response (its type, id, position and
+tags) and returns a BuildResult: the Place, valid against contracts/place.schema.json, or
+the reason it was dropped. It also keeps a few tag facts (signals) that the popularity,
+dedupe and curation steps need later.
+"""
 
 from __future__ import annotations
 
@@ -13,7 +19,7 @@ from jsonschema import Draft202012Validator, FormatChecker
 from .categories import DEFAULT_DURATION_MIN, DEFAULT_HOURS, map_categories
 from .cost import parse_cost
 from .hours import DAYS, parse_opening_hours
-from .popularity import documentation_count, signals_from_tags
+from .popularity import signals_from_tags
 
 # Name tags kept for matching curated entries and duplicates. old_name is left out on
 # purpose: it often belongs to a different, earlier place at the same spot.
@@ -41,14 +47,15 @@ def is_long_structure(tags: dict) -> bool:
 
 @dataclass
 class BuildResult:
+    """What build_place() returns: a Place, or the reason it was dropped."""
+
     place: dict | None
-    # no_name | no_coords | unmapped_category | always_closed | schema_invalid
+    # no_name, no_coords, unmapped_category, always_closed or schema_invalid
     drop_reason: str | None = None
-    hours_status: str | None = None  # parsed | absent | unparseable
-    cost_status: str | None = None
-    prominence: int = 0
-    error: str | None = None
-    # Tag facts the later steps need (popularity, dedupe, curation). Not part of the contract.
+    error: str | None = None  # the schema error message when drop_reason is schema_invalid
+    cost_status: str | None = None  # how the price was found, see cost.parse_cost()
+    # Facts from the OSM tags that later steps need (popularity, dedupe, curation). They are
+    # not part of the Place contract and are not written to places.json.
     signals: dict = field(default_factory=dict)
 
 
@@ -57,13 +64,11 @@ def make_validator(schema_path: Path) -> Draft202012Validator:
     return Draft202012Validator(schema, format_checker=FormatChecker())
 
 
-def prominence(tags: dict) -> int:
-    """How many documentation tags a place has (website, hours, wikidata...)."""
-    return documentation_count(tags)
-
-
 def normalize_name(text: str) -> str:
-    """Lowercase, strip accents and punctuation, so Castel Sant'Angelo matches sant angelo."""
+    """Lowercase, strip accents and punctuation, so spellings of one name compare equal.
+
+    Example: Padrão dos Descobrimentos -> padrao dos descobrimentos
+    """
     decomposed = unicodedata.normalize("NFKD", text)
     no_marks = "".join(ch for ch in decomposed if not unicodedata.combining(ch))
     return " ".join(re.sub(r"[^\w]+", " ", no_marks.casefold()).split())
@@ -87,17 +92,18 @@ def _coords(el: dict):
     return center.get("lat"), center.get("lon")
 
 
-def _default_hours(primary: str) -> dict:
+def default_hours(primary: str) -> dict:
+    """The category default hours, every day of the week, labelled inferred."""
     windows = [list(w) for w in DEFAULT_HOURS[primary]]
     hours = {d: [list(w) for w in windows] for d in DAYS}
     hours["confidence"] = "inferred"
     return hours
 
 
-def _unknown_hours() -> dict:
-    hours = {
-        d: None for d in DAYS
-    }  # NOTE: null means closed; consumers must check confidence first
+def unknown_hours() -> dict:
+    """Hours we could not read. Every day is null, which here means no information, not
+    closed: anyone reading hours must check the confidence first."""
+    hours = {d: None for d in DAYS}
     hours["confidence"] = "unknown"
     return hours
 
@@ -105,6 +111,8 @@ def _unknown_hours() -> dict:
 def build_place(
     el: dict, *, currency: str, fetched_date: str, validator: Draft202012Validator
 ) -> BuildResult:
+    """One OSM element -> BuildResult. currency is used when a price has none of its own,
+    fetched_date becomes last_verified."""
     tags = el.get("tags") or {}
     name = (tags.get("name") or "").strip()
     if not name:
@@ -122,11 +130,11 @@ def build_place(
         # "off" for every day of the week: closed for good or for a long restoration.
         # A planner can never schedule it, so it only wastes a candidate slot.
         if all(hours[d] is None for d in DAYS):
-            return BuildResult(None, "always_closed", hours_status=parsed.status)
+            return BuildResult(None, "always_closed")
     elif parsed.status == "absent":
-        hours = _default_hours(cats[0])
+        hours = default_hours(cats[0])
     else:
-        hours = _unknown_hours()
+        hours = unknown_hours()
 
     cost = parse_cost(tags, cats, currency)
     place = {
@@ -152,6 +160,4 @@ def build_place(
     signals["rough_point"] = el.get("type") == "relation" and tags.get("type") in (
         _COLLECTION_RELATIONS
     )
-    return BuildResult(
-        place, None, parsed.status, cost.status, prominence(tags), signals=signals
-    )
+    return BuildResult(place, cost_status=cost.status, signals=signals)

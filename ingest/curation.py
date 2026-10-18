@@ -193,7 +193,7 @@ def find_match(entry: dict, places: list[dict], signals: dict) -> dict | None:
             candidates.append((-p.get("popularity", 0.0), dist, p["id"], p))
     if not candidates:
         return None
-    # The most popular namesake wins (the Pantheon, not the Bar Pantheon next door),
+    # The most popular namesake wins (the monument, not a cafe named after it next door),
     # then the closest one.
     candidates.sort(key=lambda c: c[:3])
     return candidates[0][3]

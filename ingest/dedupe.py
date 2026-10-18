@@ -35,8 +35,8 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass, field
 
-from .categories import DEFAULT_DURATION_MIN
-from .to_place import normalize_name
+from .categories import DEFAULT_DURATION_MIN, FREE_BY_DEFAULT, most_specific_first
+from .to_place import default_hours, normalize_name
 
 SAME_NAME_RADIUS_M = 60.0
 SAME_WIKIDATA_RADIUS_M = 1000.0
@@ -102,6 +102,8 @@ def merge_group(group: list[dict], signals: dict) -> dict:
     categories = list(winner["categories"])
     for other in others:
         categories += [c for c in other["categories"] if c not in categories]
+    categories = most_specific_first(categories)
+    new_primary = categories[0] != winner["categories"][0]
     winner["categories"] = categories
     winner["typical_duration_minutes"] = max(
         winner["typical_duration_minutes"],
@@ -117,6 +119,15 @@ def merge_group(group: list[dict], signals: dict) -> dict:
         if donor is not None:
             winner["cost"] = donor["cost"]
 
+    # A copy can bring a more specific category: the Jeronimos Monastery is a landmark in
+    # one record and a museum in another. Defaults that came from the old primary category
+    # (open all day, free entry) are then wrong, so they follow the new one.
+    if new_primary:
+        if winner["hours"]["confidence"] == "inferred":
+            winner["hours"] = default_hours(categories[0])
+        if winner["cost"]["confidence"] == "inferred" and categories[0] not in FREE_BY_DEFAULT:
+            winner["cost"] = {**winner["cost"], "confidence": "unknown"}
+
     winner["popularity"] = max(p.get("popularity", 0.0) for p in group)
 
     # The winner answers to every name its copies had (useful for curation matching).
@@ -129,7 +140,12 @@ def merge_group(group: list[dict], signals: dict) -> dict:
 
 
 class _Keys:
-    """Tiny union-find over name and wikidata keys of long structure pieces."""
+    """Puts keys that belong to the same structure into one group (a small union-find).
+
+    The keys are names (name:cerca moura) and wikidata ids (qid:Q123). If one wall piece
+    carries a name and an id, and another piece carries a second name and the same id,
+    union() links all three, and find() returns the same group label for each of them.
+    """
 
     def __init__(self):
         self.parent: dict[str, str] = {}
@@ -152,7 +168,13 @@ class _Keys:
 
 
 def _long_structures(places: list[dict], signals: dict, order: list[int]) -> list[list[int]]:
-    """Groups of indices that are one wall or aqueduct, each in richness order."""
+    """Groups of indices that are one wall or aqueduct, each in richness order.
+
+    First pass: collect the names and wikidata ids of every wall or aqueduct piece and link
+    the ones that belong together. Second pass: every sight that carries one of those names
+    or ids joins its structure, wherever it is in the city. Venues and neighbourhoods never
+    join.
+    """
 
     def facts(i):
         return signals.get(places[i]["id"], {})

@@ -1,10 +1,11 @@
-"""python -m ingest "<city name>" [options]
+"""Command line entry point: python -m ingest "<city name>" [options]
 
 Examples:
-    python -m ingest "Lisbon, Portugal"
-    python -m ingest "London, UK" --bbox 51.45,-0.25,51.56,0.02
-    python -m ingest "Lisbon, Portugal" --slug lisbon \\
-        --alias Lisboa --out data/cities --matrix-top 0
+    python -m ingest "Lisbon, Portugal"          # scratch run into data/out/lisbon-portugal
+    python -m ingest "Lisbon, Portugal" --slug lisbon --alias Lisboa \\
+        --alias "Lisboa, Portugal" --out data/cities   # the committed snapshot
+
+Most people never call this directly: make snapshot-lisbon runs the second example.
 """
 
 from __future__ import annotations
@@ -23,9 +24,9 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(
-        prog="ingest", description="Fetch and build Place[] for any destination."
+        prog="ingest", description="Fetch OpenStreetMap data for a city and build its places."
     )
-    ap.add_argument("city", help='destination name, e.g. "Kyoto" or "Cordoba, Argentina"')
+    ap.add_argument("city", help='city name, e.g. "Lisbon, Portugal"')
     ap.add_argument("--cache", default=str(REPO_ROOT / "data" / "cache"))
     ap.add_argument("--out", default=str(REPO_ROOT / "data" / "out"))
     ap.add_argument("--contracts", default=str(REPO_ROOT / "contracts"))
@@ -46,14 +47,6 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument(
         "--curation", help="hand checked facts to apply, e.g. data/curation/lisbon.json"
     )
-    ap.add_argument(
-        "--matrix-top",
-        type=int,
-        default=300,
-        help="places included in matrix.json, 0 writes no matrix file",
-    )
-    ap.add_argument("--speed-kmh", type=float, default=4.5)
-    ap.add_argument("--detour-factor", type=float, default=1.3)
     a = ap.parse_args(argv)
     try:
         run_city(
@@ -65,9 +58,6 @@ def main(argv: list[str] | None = None) -> int:
             groups=a.only,
             bbox=parse_bbox(a.bbox) if a.bbox else None,
             max_span_km=a.max_span_km,
-            matrix_top=a.matrix_top,
-            speed_kmh=a.speed_kmh,
-            detour_factor=a.detour_factor,
             slug=a.slug,
             aliases=a.alias,
             curation_path=Path(a.curation) if a.curation else None,
