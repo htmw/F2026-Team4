@@ -14,7 +14,7 @@ Generated 2026-10-17 by `python -m ingest.spike`. Raw OSM only, no manual curati
 | City | Status | Places | Real hours | Unparseable | No hours tag | Real price | Known free | Assumed free | No price data |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Rome, Italy | OK | 4685 | 21.4% | 2.6% | 76.0% | 0.2% | 0.8% | 26.3% | 72.6% |
-| Lisbon, Portugal | OK | 6074 | 25.0% | 2.5% | 72.5% | 0.5% | 0.4% | 19.5% | 79.6% |
+| Lisbon, Portugal | OK | 6073 | 25.0% | 2.5% | 72.5% | 0.5% | 0.4% | 19.5% | 79.6% |
 | Porto, Portugal | OK | 3056 | 21.8% | 2.0% | 76.2% | 1.1% | 1.3% | 26.0% | 71.5% |
 | Tbilisi, Georgia | OK | 2523 | 27.5% | 0.8% | 71.7% | 0.1% | 0.3% | 23.1% | 76.5% |
 
@@ -65,7 +65,7 @@ Area (explicit bbox, S,W,N,E): 41.8700, 12.4300, 41.9400, 12.5300
 | restaurant | 2827 | 29.8% | 0.0% |
 | cafe | 1155 | 31.6% | 0.0% |
 | bar | 367 | 26.2% | 0.0% |
-| landmark | 277 | 8.3% | 0.4% |
+| landmark | 276 | 8.3% | 0.4% |
 | church | 251 | 2.8% | 0.0% |
 | park | 228 | 7.0% | 1.8% |
 | shop | 194 | 20.1% | 0.0% |
@@ -81,7 +81,7 @@ Area (explicit bbox, S,W,N,E): 41.8700, 12.4300, 41.9400, 12.5300
 | neighborhood | 27 | 0.0% | 0.0% |
 | monument | 10 | 0.0% | 0.0% |
 
-Dropped: always_closed=3, no_position=1, outside_bbox=8, unmapped_category=460
+Dropped: always_closed=3, no_position=2, outside_bbox=8, unmapped_category=460
 
 Duplicate records merged: 127
 

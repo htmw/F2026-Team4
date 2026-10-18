@@ -71,8 +71,8 @@ request path and no latency risk in the demo.
 Overpass gives a way or a relation the centre of its bounding box. For a ring of walls that
 centre is the middle of the city: the Aurelian Walls relation sat next to the Colosseum. A
 wall or aqueduct is therefore placed on one of its pieces, never on a relation that only
-groups parts (type site, route or building). A place whose centre falls outside the
-requested bbox is dropped (one aqueduct relation landed 17 km east of Rome).
+groups parts (type site, route, building or waterway). A place whose centre falls outside
+the requested bbox is dropped (one aqueduct relation landed 17 km east of Rome).
 
 ## Data dictionary: where each Place field comes from
 
