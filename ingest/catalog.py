@@ -3,7 +3,7 @@
 The API and the optimizer should never care whether a city came from a committed snapshot,
 from a local ingest run or from the hand-made fixtures. They ask this module:
 
-    city = load_city("Rome")                         # CityData, or CityNotAvailable
+    city = load_city("Lisbon")                       # CityData, or CityNotAvailable
     legs = travel_legs(candidates, max_walk_minutes=20)
 
 Lookup order for a destination name, committed data first:
@@ -12,11 +12,11 @@ Lookup order for a destination name, committed data first:
 3. any folder listed in WANDERWISE_EXTRA_CITIES (os.pathsep separated), for trying out a
    local run such as data/out without committing it. Off by default, and it can only add
    cities, never replace a committed one, so a spike run on one laptop never changes what
-   the API or the ranker sees for Rome or Lisbon.
+   the API or the ranker sees for Lisbon.
 
-Names match on the city name or an alias ("Rome", "Roma", "Rome, Italy"). "City, Region"
-also matches when the last part is the city's country ("Rome, IT", "Rome, Lazio, Italy"),
-but "Rome, Georgia" does not: that is a different Rome.
+Names match on the city name or an alias ("Lisbon", "Lisboa", "Lisbon, Portugal"). "City,
+Region" also matches when the last part is the city's country ("Lisbon, PT"), but
+"Lisbon, Ohio" does not: that is a different Lisbon.
 
 A name nobody has data for raises CityNotAvailable with the list of cities that do work,
 so the API can say so instead of quietly planning a trip somewhere else.
@@ -74,7 +74,7 @@ def _read_json(path: Path):
 
 
 def _region_of(alias: str) -> str | None:
-    """'Rome, Italy' -> 'italy'. None when the alias has no comma."""
+    """'Lisbon, Portugal' -> 'portugal'. None when the alias has no comma."""
     parts = [normalize_name(p) for p in alias.split(",")]
     parts = [p for p in parts if p]
     return parts[-1] if len(parts) > 1 else None
@@ -115,7 +115,7 @@ def _entries() -> list[_Entry]:
     """Every city in lookup order.
 
     A later source never serves a city an earlier one already serves, whether the key
-    matches (rome) or only the name does (a local run in rome-italy is still Rome).
+    matches (lisbon) or only the name does (a local run in lisbon-portugal is still Lisbon).
     """
     seen_keys: set[str] = set()
     served_names: set[str] = set()
@@ -180,7 +180,7 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
 
 
 def load_city(name: str | None) -> CityData:
-    """Places and destination info for a city name such as 'Rome' or 'Rome, Italy'."""
+    """Places and destination info for a city name such as 'Lisbon' or 'Lisboa'."""
     source, path = resolve(name or "")
     stamp_file = path if source == "fixture" else path / "places.json"
     return _load(source, path, stamp_file.stat().st_mtime)

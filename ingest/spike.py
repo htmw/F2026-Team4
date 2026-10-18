@@ -2,7 +2,7 @@
 
 Usage:
     python -m ingest.spike "<city A>" "<city B>" "<city C>" [--osrm-url http://localhost:5000]
-    python -m ingest.spike "Rome, Italy@41.87,12.43,41.94,12.53" "Lisbon, Portugal"
+    python -m ingest.spike "Lisbon, Portugal"
 
 A city may carry its own area after an @ (south,west,north,east). Without it the geocoded
 city boundary is used.
@@ -32,7 +32,7 @@ def _pct(n: int, d: int) -> str:
 
 
 def parse_city_arg(text: str) -> tuple[str, tuple | None]:
-    """'Rome, Italy@41.87,12.43,41.94,12.53' -> ('Rome, Italy', (41.87, 12.43, 41.94, 12.53))."""
+    """'Lisbon, Portugal@38.69,-9.23,38.8,-9.09' -> ('Lisbon, Portugal', (38.69, ...))."""
     if "@" not in text:
         return text.strip(), None
     name, bbox = text.rsplit("@", 1)
@@ -226,6 +226,11 @@ def _decision(ok: dict) -> list[str]:
     def share(stats, key):
         return 100 * stats[key] / stats["places"] if stats["places"] else 0.0
 
+    def span(values, digits):
+        """'25' for one city, '21 to 28' for several."""
+        lo, hi = f"{min(values):.{digits}f}", f"{max(values):.{digits}f}"
+        return lo if lo == hi else f"{lo} to {hi}"
+
     hours = [share(s, "hours_parsed") for s in ok.values()]
     priced = [share(s, "price_known_paid") + share(s, "price_known_free") for s in ok.values()]
     top_hours = [
@@ -237,18 +242,18 @@ def _decision(ok: dict) -> list[str]:
         "",
         "## What this means",
         "",
-        f"- Real opening hours exist for {min(hours):.0f} to {max(hours):.0f}% of places. "
+        f"- Real opening hours exist for {span(hours, 0)}% of places. "
         "The optimizer has to plan most stops on `inferred` hours, as a soft constraint, and "
         "the UI has to say so.",
-        f"- A known price (paid or free) exists for {min(priced):.1f} to {max(priced):.1f}% of "
+        f"- A known price (paid or free) exists for {span(priced, 1)}% of "
         "places. OSM is not a price source; budget totals rest on curation and category "
         "assumptions.",
     ]
     if top_hours:
         lines.append(
-            f"- Among the {TOP_SIGHTS} most popular sights, {min(top_hours):.0f} to "
-            f"{max(top_hours):.0f}% have real hours. Hand curating the top sights of the demo "
-            "city closes the gap where it matters, which is what data/curation/ does."
+            f"- Among the {TOP_SIGHTS} most popular sights, {span(top_hours, 0)}% have real hours. "
+            "Hand curating the top sights of the demo city closes the gap where it matters, "
+            "which is what the curation step in data/curation/ is for."
         )
     lines.append(
         "- Recommendation: for the MVP, curate the top sights of the demo city instead of "

@@ -5,7 +5,7 @@ museum node sitting inside an attraction polygon. Left alone, the optimizer coul
 the same church twice in one day.
 
 Long structures first. City walls and aqueducts are mapped as many short pieces that share
-a name: Rome has about 90 pieces of the Aurelian Walls. Every record that shares a name or
+a name: Lisbon has 36 pieces of the Aguas Livres aqueduct. Every record that shares a name or
 a wikidata id with such a piece is the same structure, wherever it is in the city, so the
 group becomes one stop. Gates and towers have names of their own and stay separate. The
 stop is placed on its best node or way. A relation only has the centre of its bounding box,

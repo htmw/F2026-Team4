@@ -19,8 +19,8 @@ from .popularity import documentation_count, signals_from_tags
 # purpose: it often belongs to a different, earlier place at the same spot.
 _NAME_TAG = re.compile(r"^(name|alt_name|official_name|int_name|short_name)(:[A-Za-z-]+)?$")
 
-# City walls and aqueducts are mapped as many short pieces that share one name: Rome has
-# about 90 pieces of the Aurelian Walls. Dedupe turns each structure back into one stop.
+# City walls and aqueducts are mapped as many short pieces that share one name: Lisbon has
+# 36 pieces of the Aguas Livres aqueduct. Dedupe turns each structure back into one stop.
 _LONG_STRUCTURE_TAGS = {
     ("historic", "citywalls"),
     ("historic", "aqueduct"),
@@ -30,8 +30,8 @@ _LONG_STRUCTURE_TAGS = {
 }
 
 # Relations that group separate parts. Overpass places them at the centre of the bounding
-# box of all the parts, which can be far from every part: the ring of the Aurelian Walls
-# has its centre next to the Colosseum.
+# box of all the parts, which can be far from every part: a ring of city walls has its
+# centre in the middle of the city, far from any wall.
 _COLLECTION_RELATIONS = {"site", "route", "building", "waterway", "collection", "multilinestring"}
 
 

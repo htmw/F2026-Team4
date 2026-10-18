@@ -3,8 +3,8 @@
 Examples:
     python -m ingest "Lisbon, Portugal"
     python -m ingest "London, UK" --bbox 51.45,-0.25,51.56,0.02
-    python -m ingest "Rome, Italy" --bbox 41.87,12.43,41.94,12.53 --slug rome \\
-        --alias Roma --out data/cities --curation data/curation/rome.json --matrix-top 0
+    python -m ingest "Lisbon, Portugal" --slug lisbon \\
+        --alias Lisboa --out data/cities --matrix-top 0
 """
 
 from __future__ import annotations
@@ -41,9 +41,11 @@ def main(argv: list[str] | None = None) -> int:
         default=DEFAULT_MAX_SPAN_KM,
         help="largest geocoded area accepted without --bbox (default %(default)s km)",
     )
-    ap.add_argument("--slug", help="output folder name, e.g. rome (default: from the city name)")
+    ap.add_argument("--slug", help="output folder name, e.g. lisbon (default: from the city name)")
     ap.add_argument("--alias", action="append", default=[], help="extra name the API accepts")
-    ap.add_argument("--curation", help="hand checked facts to apply, e.g. data/curation/rome.json")
+    ap.add_argument(
+        "--curation", help="hand checked facts to apply, e.g. data/curation/lisbon.json"
+    )
     ap.add_argument(
         "--matrix-top",
         type=int,

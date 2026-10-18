@@ -15,19 +15,19 @@ Rules:
   checked the source.
 - An entry that matches no place is reported, not silently dropped.
 
-File shape (JSON):
+File shape (JSON, the values are only an illustration):
 
     {
-      "city": "rome",
-      "checked_on": "2026-10-17",
-      "valid_for": "winter timetable 2026/27",
+      "city": "lisbon",
+      "checked_on": "2026-10-20",
+      "valid_for": "winter timetable",
       "places": [
         {
-          "name": "Colosseum",
-          "match": {"names": ["Colosseo"], "near": [41.8902, 12.4922], "radius_m": 300},
-          "opening_hours": "Mo-Su 08:30-16:30",
-          "price": {"amount": 18.0, "currency": "EUR"},
-          "duration_minutes": 120,
+          "name": "Example Museum",
+          "match": {"names": ["Museu Exemplo"], "near": [38.7100, -9.1400], "radius_m": 150},
+          "opening_hours": "Tu-Su 10:00-18:00",
+          "price": {"amount": 10.0, "currency": "EUR"},
+          "duration_minutes": 90,
           "sources": ["https://..."],
           "notes": "Last entry one hour before closing."
         }
@@ -35,10 +35,10 @@ File shape (JSON):
       "exclude": [{"id": "osm:way/1", "reason": "closed for restoration"}],
       "exclude_within": [
         {
-          "name": "Roman Forum and Palatine",
-          "polygon": [[41.8932, 12.4842], [41.8935, 12.4868], ...],
-          "keep": ["osm:relation/1841080"],
-          "reason": "inside the ticketed park, visited with the Forum ticket"
+          "name": "Example ticketed site",
+          "polygon": [[38.7100, -9.1400], [38.7105, -9.1390], ...],
+          "keep": ["osm:way/1"],
+          "reason": "inside the ticketed site, visited with its main ticket"
         }
       ]
     }
@@ -46,16 +46,16 @@ File shape (JSON):
 `match.id` pins an entry to one OSM id when the name is ambiguous.
 
 Copies are folded in. OSM often has a second record of a curated place under one of its
-names: the Ara Pacis altar next to the Ara Pacis museum, a viewpoint called Giardino degli
-Aranci inside the garden. Any record within the entry's radius that carries one of the
-entry's names is merged into the curated record, so the planner cannot offer it as a free
-extra stop with guessed hours. A venue is never folded into a sight (the San Clemente bar
-stays a bar), and a neighbourhood is never folded into anything.
+names, such as a monument mapped once as a building and once as a point, or a viewpoint
+inside a garden. Any record within the entry's radius that carries one of the entry's
+names is merged into the curated record, so the planner cannot offer it as a free extra
+stop with guessed hours. A venue is never folded into a sight (a bar named after a
+monument stays a bar), and a neighbourhood is never folded into anything.
 
 `exclude_within` drops every place inside a polygon (lat, lon corners) except the ids in
-`keep`. Big ticketed sites need it: OSM maps each temple of the Forum and each gallery of
-the Vatican Museums as its own sight, and without the zone the planner would send someone to
-the Temple of Saturn at 9 pm as a free 30 minute stop. A zone never drops a neighbourhood:
+`keep`. Big ticketed sites need it: OSM can map each part of a large site as its own sight,
+and without the zone the planner would send someone to one of those parts at 9 pm as a free
+30 minute stop. A zone never drops a neighbourhood:
 the label point of a whole district can fall inside a polygon without the district being
 part of the site.
 """
