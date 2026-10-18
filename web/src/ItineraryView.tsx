@@ -1,13 +1,21 @@
-
+import { useState } from "react";
 import { confidenceLabel, formatMoney, prettifyPlaceId } from "./format";
 import type { Itinerary } from "./types";
 
 interface Props {
   itinerary: Itinerary;
 }
-
 export function ItineraryView({ itinerary }: Props) {
   const { destination, totals, warnings, score, days } = itinerary;
+const [openDays, setOpenDays] = useState<number[]>([0]);
+
+function toggleDay(dayIndex: number) {
+  setOpenDays((current) =>
+    current.includes(dayIndex)
+      ? current.filter((index) => index !== dayIndex)
+      : [...current, dayIndex]
+  );
+}
 
   return (
     <div className="card itinerary-dashboard">
@@ -49,22 +57,32 @@ export function ItineraryView({ itinerary }: Props) {
       <div className="itinerary-days">
         {days.map((day, dayIndex) => (
           <section key={day.date} className="itinerary-day-card">
-            <div className="itinerary-day-header">
-              <div>
-                <span className="day-number">DAY {dayIndex + 1}</span>
-                <h3>{day.date}</h3>
-              </div>
-              <span className="day-count">
-                {day.items.length} activities
-              </span>
-            </div>
+           
+<button
+  type="button"
+  className="itinerary-day-header day-toggle"
+  onClick={() => toggleDay(dayIndex)}
+  aria-expanded={openDays.includes(dayIndex)}
+>
+  <div>
+    <span className="day-number">DAY {dayIndex + 1}</span>
+    <h3>{day.date}</h3>
+  </div>
+
+  <span className="day-count">
+    {day.items.length} activities
+    {openDays.includes(dayIndex) ? " ▲" : " ▼"}
+  </span>
+</button>
+ 
 
             {day.items.length === 0 && (
               <p className="muted">No stops scheduled.</p>
             )}
 
-            <ol className="itinerary-activities">
-              {day.items.map((item, i) => (
+            {openDays.includes(dayIndex) && (
+  <ol className="itinerary-activities">
+    {day.items.map((item, i) => (
                 <li
                   key={`${item.place_id}-${i}`}
                   className="itinerary-activity"
@@ -107,6 +125,7 @@ export function ItineraryView({ itinerary }: Props) {
                 </li>
               ))}
             </ol>
+            )}
           </section>
         ))}
       </div>
