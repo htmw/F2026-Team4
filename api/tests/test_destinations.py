@@ -46,6 +46,14 @@ def test_unknown_city_is_rejected_with_a_clear_message():
     assert "Rome" in message
 
 
+@pytest.mark.parametrize("destination", [{}, {"name": ""}, {"name": "Rome, Georgia"}])
+def test_missing_or_wrong_city_is_not_planned_in_lisbon(destination):
+    resp = client.post("/plan", json=_body(destination))
+
+    assert resp.status_code == 422
+    assert "Cities with data" in resp.json()["detail"]["destination_errors"][0]
+
+
 def test_rome_is_planned_from_the_rome_snapshot():
     rome_ids = {p["id"] for p in catalog.load_places("Rome")}
     resp = client.post("/plan", json=_body({"name": "Rome"}))
