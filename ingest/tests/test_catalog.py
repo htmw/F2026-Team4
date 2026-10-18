@@ -117,6 +117,20 @@ def test_committed_data_beats_a_local_run_of_the_same_city(dirs, monkeypatch):
     assert catalog.load_city("Porto").source == "local"
 
 
+def test_a_local_run_of_a_committed_city_is_not_listed_twice(dirs, monkeypatch):
+    cities, out = dirs
+    _write_city(cities, "rome", "Rome", aliases=["Roma"], country_name="Italy")
+    _write_city(out, "rome-italy", "Rome", aliases=["Rome, Italy"])
+    _write_city(out, "lisbon-portugal", "Lisbon", aliases=["Lisbon, Portugal"])
+    _write_city(out, "porto-portugal", "Porto", aliases=["Porto, Portugal"])
+    monkeypatch.setattr(catalog, "EXTRA_DIRS", [out])
+
+    listed = [(c["name"], c["source"]) for c in catalog.available_cities()]
+
+    assert listed == [("Rome", "snapshot"), ("Lisbon", "fixture"), ("Porto", "local")]
+    assert catalog.load_city("Rome, Italy").source == "snapshot"
+
+
 def test_local_runs_are_ignored_unless_asked_for(dirs, monkeypatch):
     _, out = dirs
     _write_city(out, "porto-portugal", "Porto", aliases=["Porto, Portugal"])
