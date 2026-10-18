@@ -49,5 +49,8 @@ def load_categories() -> dict[str, Any]:
 
 
 def load_places(city: str = "lisbon") -> list[dict[str, Any]]:
-    """Load fixture places for a city. Ingest team will replace this with real data later."""
+    """Load fixture places for a city.
+
+    TODO(ingest): waiting for ingest output. Until then this only reads /fixtures.
+    """
     return _load_json(FIXTURES / f"{city}.places.json")
