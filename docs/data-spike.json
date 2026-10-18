@@ -1,0 +1,500 @@
+{
+ "Rome, Italy": {
+  "stats": {
+   "places": 4753,
+   "hours_parsed": 1003,
+   "hours_unparseable": 116,
+   "hours_absent": 3634,
+   "price_known_paid": 10,
+   "price_known_free": 39,
+   "price_assumed_free": 1309,
+   "price_no_data": 3395,
+   "top_sights": {
+    "n": 100,
+    "hours_known": 29,
+    "price_known": 5
+   },
+   "dropped": {
+    "dropped_unmapped_category": 492,
+    "dropped_always_closed": 10
+   },
+   "duplicates_merged": 111,
+   "bbox": [
+    41.87,
+    12.43,
+    41.94,
+    12.53
+   ],
+   "bbox_source": "explicit",
+   "by_category": {
+    "restaurant": {
+     "n": 1967,
+     "hours_known": 585,
+     "price_known": 0
+    },
+    "shop": {
+     "n": 105,
+     "hours_known": 14,
+     "price_known": 0
+    },
+    "viewpoint": {
+     "n": 22,
+     "hours_known": 1,
+     "price_known": 0
+    },
+    "bar": {
+     "n": 303,
+     "hours_known": 89,
+     "price_known": 0
+    },
+    "cafe": {
+     "n": 880,
+     "hours_known": 149,
+     "price_known": 0
+    },
+    "bakery": {
+     "n": 93,
+     "hours_known": 32,
+     "price_known": 0
+    },
+    "museum": {
+     "n": 134,
+     "hours_known": 37,
+     "price_known": 38
+    },
+    "landmark": {
+     "n": 502,
+     "hours_known": 10,
+     "price_known": 4
+    },
+    "gallery": {
+     "n": 18,
+     "hours_known": 3,
+     "price_known": 0
+    },
+    "park": {
+     "n": 150,
+     "hours_known": 7,
+     "price_known": 2
+    },
+    "church": {
+     "n": 392,
+     "hours_known": 55,
+     "price_known": 0
+    },
+    "nightclub": {
+     "n": 23,
+     "hours_known": 3,
+     "price_known": 0
+    },
+    "monument": {
+     "n": 45,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "market": {
+     "n": 34,
+     "hours_known": 14,
+     "price_known": 0
+    },
+    "neighborhood": {
+     "n": 26,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "castle": {
+     "n": 4,
+     "hours_known": 1,
+     "price_known": 1
+    },
+    "garden": {
+     "n": 51,
+     "hours_known": 2,
+     "price_known": 4
+    },
+    "palace": {
+     "n": 4,
+     "hours_known": 1,
+     "price_known": 0
+    }
+   }
+  }
+ },
+ "Lisbon, Portugal": {
+  "stats": {
+   "places": 6085,
+   "hours_parsed": 1518,
+   "hours_unparseable": 152,
+   "hours_absent": 4415,
+   "price_known_paid": 33,
+   "price_known_free": 22,
+   "price_assumed_free": 1198,
+   "price_no_data": 4832,
+   "top_sights": {
+    "n": 100,
+    "hours_known": 29,
+    "price_known": 16
+   },
+   "dropped": {
+    "dropped_always_closed": 4,
+    "dropped_unmapped_category": 460
+   },
+   "duplicates_merged": 124,
+   "bbox": [
+    38.6913994,
+    -9.2298356,
+    38.7967584,
+    -9.0863328
+   ],
+   "bbox_source": "geocoded",
+   "by_category": {
+    "restaurant": {
+     "n": 2826,
+     "hours_known": 843,
+     "price_known": 0
+    },
+    "cafe": {
+     "n": 1155,
+     "hours_known": 365,
+     "price_known": 0
+    },
+    "bar": {
+     "n": 367,
+     "hours_known": 96,
+     "price_known": 0
+    },
+    "shop": {
+     "n": 194,
+     "hours_known": 39,
+     "price_known": 0
+    },
+    "bakery": {
+     "n": 139,
+     "hours_known": 51,
+     "price_known": 0
+    },
+    "landmark": {
+     "n": 282,
+     "hours_known": 22,
+     "price_known": 1
+    },
+    "gallery": {
+     "n": 59,
+     "hours_known": 10,
+     "price_known": 2
+    },
+    "garden": {
+     "n": 119,
+     "hours_known": 5,
+     "price_known": 3
+    },
+    "market": {
+     "n": 47,
+     "hours_known": 13,
+     "price_known": 0
+    },
+    "viewpoint": {
+     "n": 54,
+     "hours_known": 1,
+     "price_known": 1
+    },
+    "museum": {
+     "n": 104,
+     "hours_known": 39,
+     "price_known": 43
+    },
+    "nightclub": {
+     "n": 31,
+     "hours_known": 7,
+     "price_known": 0
+    },
+    "park": {
+     "n": 233,
+     "hours_known": 17,
+     "price_known": 4
+    },
+    "neighborhood": {
+     "n": 27,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "church": {
+     "n": 252,
+     "hours_known": 7,
+     "price_known": 0
+    },
+    "palace": {
+     "n": 149,
+     "hours_known": 2,
+     "price_known": 0
+    },
+    "castle": {
+     "n": 36,
+     "hours_known": 1,
+     "price_known": 1
+    },
+    "monument": {
+     "n": 10,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "beach": {
+     "n": 1,
+     "hours_known": 0,
+     "price_known": 0
+    }
+   }
+  }
+ },
+ "Porto, Portugal": {
+  "stats": {
+   "places": 3062,
+   "hours_parsed": 667,
+   "hours_unparseable": 61,
+   "hours_absent": 2334,
+   "price_known_paid": 35,
+   "price_known_free": 41,
+   "price_assumed_free": 803,
+   "price_no_data": 2183,
+   "top_sights": {
+    "n": 100,
+    "hours_known": 30,
+    "price_known": 21
+   },
+   "dropped": {
+    "dropped_always_closed": 4,
+    "dropped_unmapped_category": 184
+   },
+   "duplicates_merged": 64,
+   "bbox": [
+    41.1383507,
+    -8.691289,
+    41.1859353,
+    -8.5520792
+   ],
+   "bbox_source": "geocoded",
+   "by_category": {
+    "restaurant": {
+     "n": 1102,
+     "hours_known": 285,
+     "price_known": 0
+    },
+    "bar": {
+     "n": 201,
+     "hours_known": 57,
+     "price_known": 1
+    },
+    "cafe": {
+     "n": 647,
+     "hours_known": 163,
+     "price_known": 0
+    },
+    "bakery": {
+     "n": 86,
+     "hours_known": 30,
+     "price_known": 0
+    },
+    "shop": {
+     "n": 161,
+     "hours_known": 23,
+     "price_known": 0
+    },
+    "church": {
+     "n": 205,
+     "hours_known": 11,
+     "price_known": 5
+    },
+    "market": {
+     "n": 27,
+     "hours_known": 20,
+     "price_known": 0
+    },
+    "nightclub": {
+     "n": 30,
+     "hours_known": 4,
+     "price_known": 0
+    },
+    "gallery": {
+     "n": 46,
+     "hours_known": 11,
+     "price_known": 13
+    },
+    "museum": {
+     "n": 73,
+     "hours_known": 34,
+     "price_known": 44
+    },
+    "landmark": {
+     "n": 197,
+     "hours_known": 8,
+     "price_known": 7
+    },
+    "viewpoint": {
+     "n": 22,
+     "hours_known": 0,
+     "price_known": 1
+    },
+    "monument": {
+     "n": 15,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "neighborhood": {
+     "n": 28,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "garden": {
+     "n": 86,
+     "hours_known": 4,
+     "price_known": 2
+    },
+    "park": {
+     "n": 78,
+     "hours_known": 15,
+     "price_known": 3
+    },
+    "castle": {
+     "n": 31,
+     "hours_known": 1,
+     "price_known": 0
+    },
+    "palace": {
+     "n": 13,
+     "hours_known": 1,
+     "price_known": 0
+    },
+    "beach": {
+     "n": 14,
+     "hours_known": 0,
+     "price_known": 0
+    }
+   }
+  }
+ },
+ "Tbilisi, Georgia": {
+  "stats": {
+   "places": 2524,
+   "hours_parsed": 694,
+   "hours_unparseable": 21,
+   "hours_absent": 1809,
+   "price_known_paid": 3,
+   "price_known_free": 7,
+   "price_assumed_free": 585,
+   "price_no_data": 1929,
+   "top_sights": {
+    "n": 100,
+    "hours_known": 16,
+    "price_known": 3
+   },
+   "dropped": {
+    "dropped_unmapped_category": 902
+   },
+   "duplicates_merged": 40,
+   "bbox": [
+    41.6177901,
+    44.5962016,
+    41.8438777,
+    45.0172908
+   ],
+   "bbox_source": "geocoded",
+   "by_category": {
+    "shop": {
+     "n": 85,
+     "hours_known": 20,
+     "price_known": 0
+    },
+    "cafe": {
+     "n": 705,
+     "hours_known": 291,
+     "price_known": 0
+    },
+    "nightclub": {
+     "n": 28,
+     "hours_known": 6,
+     "price_known": 0
+    },
+    "restaurant": {
+     "n": 672,
+     "hours_known": 202,
+     "price_known": 0
+    },
+    "bakery": {
+     "n": 183,
+     "hours_known": 35,
+     "price_known": 0
+    },
+    "bar": {
+     "n": 265,
+     "hours_known": 90,
+     "price_known": 0
+    },
+    "gallery": {
+     "n": 28,
+     "hours_known": 9,
+     "price_known": 1
+    },
+    "landmark": {
+     "n": 118,
+     "hours_known": 3,
+     "price_known": 1
+    },
+    "museum": {
+     "n": 42,
+     "hours_known": 17,
+     "price_known": 3
+    },
+    "church": {
+     "n": 197,
+     "hours_known": 7,
+     "price_known": 0
+    },
+    "market": {
+     "n": 27,
+     "hours_known": 3,
+     "price_known": 0
+    },
+    "viewpoint": {
+     "n": 4,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "neighborhood": {
+     "n": 52,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "monument": {
+     "n": 9,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "castle": {
+     "n": 5,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "park": {
+     "n": 89,
+     "hours_known": 8,
+     "price_known": 0
+    },
+    "palace": {
+     "n": 2,
+     "hours_known": 1,
+     "price_known": 0
+    },
+    "beach": {
+     "n": 2,
+     "hours_known": 0,
+     "price_known": 0
+    },
+    "garden": {
+     "n": 11,
+     "hours_known": 2,
+     "price_known": 5
+    }
+   }
+  }
+ }
+}
