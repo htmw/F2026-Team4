@@ -57,3 +57,20 @@ def test_holiday_rules_are_reported_as_ignored():
 
     assert result.hours["sat"] is None
     assert result.hours["sun"] is None
+
+
+def test_closed_days_alone_do_not_mean_closed_all_week():
+    for value in ("Su off", "Mo off", "Sa,Su closed"):
+        result = parse_opening_hours(value)
+
+        assert result.status == "unparseable", value
+        assert result.hours is None
+
+
+def test_closed_every_day_is_known_when_every_day_is_named():
+    for value in ("off", "Mo-Su off", "Mo-Fr off; Sa-Su off"):
+        result = parse_opening_hours(value)
+
+        days = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+        assert result.status == "parsed", value
+        assert all(result.hours[d] is None for d in days)

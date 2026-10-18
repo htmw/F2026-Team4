@@ -26,7 +26,7 @@ def london_response():
             "lon": "-0.1276",
             # Nominatim order: south, north, west, east.
             "boundingbox": ["51.28", "51.70", "-0.51", "0.33"],
-            "address": {"country_code": "gb"},
+            "address": {"country_code": "gb", "country": "United Kingdom"},
             "display_name": "London, Greater London, England, United Kingdom",
         }
     ]
@@ -59,6 +59,7 @@ def test_geocode_accepts_london_by_default(tmp_path, london_response):
 
     assert result.name == "London"
     assert result.country == "GB"
+    assert result.country_name == "United Kingdom"
     assert result.bbox == (51.28, -0.51, 51.70, 0.33)
 
 
@@ -76,3 +77,11 @@ def test_geocode_allows_any_area_when_limit_disabled(tmp_path, italy_response):
     result = geocode("Italy", tmp_path, get=_fake_get(italy_response), max_span_km=None)
 
     assert result.country == "IT"
+
+
+def test_missing_address_gives_empty_country_fields(tmp_path, italy_response):
+    del italy_response[0]["address"]
+    result = geocode("Italy", tmp_path, get=_fake_get(italy_response), max_span_km=None)
+
+    assert result.country == ""
+    assert result.country_name == ""
