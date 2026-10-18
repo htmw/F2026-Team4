@@ -13,8 +13,8 @@ def _grid(n=5, step_km=0.6):
     return [
         {
             "id": f"osm:node/{i}",
-            "lat": 41.89 + (i % 3) * step_km / KM_PER_DEG_LAT,
-            "lon": 12.48 + (i // 3) * step_km / (KM_PER_DEG_LAT * 0.745),
+            "lat": 38.72 + (i % 3) * step_km / KM_PER_DEG_LAT,
+            "lon": -9.14 + (i // 3) * step_km / (KM_PER_DEG_LAT * 0.78),
             "popularity": 1.0 - i / 100,
         }
         for i in range(n)
@@ -91,6 +91,6 @@ def test_osrm_table_requests_durations_and_distances():
     places = _grid(2)
     table = osrm_table(places, "https://osrm.test/routed-foot/", get=fake_get)
 
-    assert seen["url"].startswith("https://osrm.test/routed-foot/table/v1/foot/12.48,")
+    assert seen["url"].startswith("https://osrm.test/routed-foot/table/v1/foot/-9.14,")
     assert seen["params"] == {"annotations": "duration,distance"}
     assert table["ids"] == ["osm:node/0", "osm:node/1"]

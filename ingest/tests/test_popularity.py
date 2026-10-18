@@ -9,13 +9,13 @@ def _famous_tags(translations=120):
     tags = {f"name:{code}": "x" for code in _codes(translations)}
     tags.update(
         {
-            "name": "Colosseo",
+            "name": "Torre de Belém",
             "tourism": "attraction",
-            "wikidata": "Q10285",
-            "wikipedia": "it:Colosseo",
+            "wikidata": "Q215003",
+            "wikipedia": "pt:Torre de Belém",
             "heritage": "1",
-            "website": "https://colosseo.it",
-            "opening_hours": "Mo-Su 08:30-16:30",
+            "website": "https://example.org/belem-tower",
+            "opening_hours": "Tu-Su 10:00-17:30",
         }
     )
     return tags
@@ -47,7 +47,7 @@ def test_famous_sight_scores_near_one():
 
 
 def test_plain_cafe_scores_near_zero():
-    score = popularity(signals_from_tags({"name": "Bar Mario", "amenity": "cafe"}))
+    score = popularity(signals_from_tags({"name": "Café da Esquina", "amenity": "cafe"}))
 
     assert score == 0.0
 
@@ -60,7 +60,7 @@ def test_more_translations_never_lower_the_score():
 
 @pytest.mark.parametrize("key", ["wikidata", "wikipedia", "heritage"])
 def test_each_reference_tag_adds_to_the_score(key):
-    base = {"name": "Chiesa", "amenity": "place_of_worship"}
+    base = {"name": "Igreja", "amenity": "place_of_worship"}
     with_tag = {**base, key: "yes"}
 
     assert popularity(signals_from_tags(with_tag)) > popularity(signals_from_tags(base))
