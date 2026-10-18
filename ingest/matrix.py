@@ -1,9 +1,19 @@
-"""Travel-time matrix: haversine x detour factor / walking speed, plus an OSRM cross-check.
+"""Travel-time matrices between places, plus an OSRM cross-check.
 
-PROPOSAL, not yet a contract: the JSON shape below needs agreement with the Optimizer team.
+Walking: straight line distance x detour factor / walking speed. The routing spike in
+docs/routing-spike.md measures how far that is from real street routing.
+
+Transit: a flat overhead (walk to the stop and wait) plus the distance at an average
+door-to-door speed. It is a planning estimate, not a timetable, and every leg built from it
+is labelled transit so the itinerary can say so.
+
+travel_legs() returns the shape the optimizer reads: {(from_id, to_id): {"minutes", "mode"}}.
+The JSON written to matrix.json is still a proposal until the Optimizer team signs it off.
 """
 
 from __future__ import annotations
+
+from dataclasses import asdict, dataclass
 
 import numpy as np
 import requests
@@ -11,6 +21,30 @@ import requests
 EARTH_KM = 6371.0088
 DEFAULT_SPEED_KMH = 4.5
 DEFAULT_DETOUR = 1.3  # street distance / straight-line. A starting guess; the spike measures it.
+
+
+@dataclass(frozen=True)
+class TravelModel:
+    """Every number the travel estimates depend on, in one place."""
+
+    walk_speed_kmh: float = DEFAULT_SPEED_KMH
+    walk_detour: float = DEFAULT_DETOUR
+    # Average door-to-door speed of bus and metro in a European centre, waiting excluded.
+    transit_speed_kmh: float = 15.0
+    transit_detour: float = 1.4
+    # Walk to the stop, wait, walk from the stop.
+    transit_overhead_min: float = 10.0
+
+    def __post_init__(self):
+        if self.walk_speed_kmh <= 0 or self.transit_speed_kmh <= 0:
+            raise ValueError("speeds must be > 0")
+        if self.walk_detour < 1.0 or self.transit_detour < 1.0:
+            raise ValueError("detour factors must be >= 1")
+        if self.transit_overhead_min < 0:
+            raise ValueError("transit_overhead_min must be >= 0")
+
+    def as_dict(self) -> dict:
+        return asdict(self)
 
 
 def haversine_km(lat1, lon1, lat2, lon2):
@@ -55,15 +89,71 @@ def walking_matrix(
     return m
 
 
-def select_for_matrix(places: list[dict], prominence: dict[str, int], n: int) -> list[dict]:
-    """Interim cap: most-documented places first. Real flow: matrix over ranked candidates."""
-    return sorted(places, key=lambda p: (-prominence.get(p["id"], 0), p["id"]))[:n]
+def select_for_matrix(places: list[dict], n: int) -> list[dict]:
+    """Cap for the matrix.json written to disk: most popular places first.
+
+    The API does not read this file. It builds legs on demand for its own candidate list
+    with travel_legs(), which is fast enough for a few hundred places.
+    """
+    return sorted(places, key=lambda p: (-p.get("popularity", 0.0), p["id"]))[:n]
+
+
+def transit_matrix(places: list[dict], model: TravelModel | None = None) -> np.ndarray:
+    """minutes[i][j] by public transport, as a flat estimate (see TravelModel)."""
+    model = model or TravelModel()
+    lat, lon = _latlon(places)
+    km = haversine_km(lat, lon, lat, lon)
+    m = model.transit_overhead_min + km * model.transit_detour / model.transit_speed_kmh * 60.0
+    np.fill_diagonal(m, 0.0)
+    return m
+
+
+def choose_modes(
+    walk: np.ndarray, transit: np.ndarray, max_walk_minutes: float
+) -> tuple[np.ndarray, np.ndarray]:
+    """Per leg: walk when it is within the traveler's tolerance, otherwise transit.
+
+    Returns (minutes, is_walk). Transit is used past the tolerance even when it is a little
+    slower, because the tolerance is the traveler saying how far they are willing to walk.
+    """
+    is_walk = walk <= max_walk_minutes
+    return np.where(is_walk, walk, transit), is_walk
+
+
+def travel_legs(
+    places: list[dict], max_walk_minutes: float, model: TravelModel | None = None
+) -> dict[tuple[str, str], dict]:
+    """{(from_id, to_id): {"minutes": float, "mode": "walk" | "transit"}} for every ordered pair.
+
+    This is the shape optimizer/travel.py reads. Same-place pairs are left out.
+    """
+    model = model or TravelModel()
+    if not places:
+        return {}
+    walk = walking_matrix(places, model.walk_speed_kmh, model.walk_detour)
+    transit = transit_matrix(places, model)
+    minutes, is_walk = choose_modes(walk, transit, max_walk_minutes)
+    ids = [p["id"] for p in places]
+    legs: dict[tuple[str, str], dict] = {}
+    for i, a in enumerate(ids):
+        for j, b in enumerate(ids):
+            if i != j:
+                legs[(a, b)] = {
+                    "minutes": round(float(minutes[i, j]), 1),
+                    "mode": "walk" if is_walk[i, j] else "transit",
+                }
+    return legs
 
 
 def matrix_payload(
-    places: list[dict], minutes: np.ndarray, speed_kmh: float, detour_factor: float
+    places: list[dict],
+    minutes: np.ndarray,
+    speed_kmh: float,
+    detour_factor: float,
+    transit: np.ndarray | None = None,
+    model: TravelModel | None = None,
 ) -> dict:
-    return {
+    payload = {
         "method": "haversine",
         "unit": "minutes",
         "mode": "walk",
@@ -72,6 +162,10 @@ def matrix_payload(
         "ids": [p["id"] for p in places],
         "minutes": np.round(minutes, 1).tolist(),
     }
+    if transit is not None:
+        payload["transit_minutes"] = np.round(transit, 1).tolist()
+        payload["transit_model"] = (model or TravelModel()).as_dict()
+    return payload
 
 
 def osrm_sample(

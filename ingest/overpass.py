@@ -22,12 +22,16 @@ HEADERS = {
 }
 
 # Query groups. Nothing here depends on a city: the bbox is the only variable.
+# Squares, fountains and neighbourhoods are only fetched when they carry a wikidata tag.
+# Without that filter every small piazza and housing estate in a city comes back. Suburbs
+# are left out: in OSM they are whole residential districts, not a place to walk around.
 GROUPS = {
     "sights": 'nwr["tourism"~"^(attraction|museum|gallery|viewpoint)$"]["name"]({bbox});',
     "historic": 'nwr["historic"]["name"]({bbox});',
     "worship": (
         'nwr["amenity"="place_of_worship"]'
-        '["building"~"^(church|cathedral|chapel|basilica)$"]["name"]({bbox});'
+        '["building"~"^(church|cathedral|chapel|basilica)$"]["name"]({bbox});\n'
+        '  nwr["amenity"="place_of_worship"]["religion"="christian"]["name"]({bbox});'
     ),
     "nature": (
         'nwr["leisure"~"^(park|garden)$"]["name"]({bbox});\n'
@@ -39,6 +43,11 @@ GROUPS = {
     ),
     "nightlife": 'nwr["amenity"~"^(bar|pub|nightclub)$"]["name"]({bbox});',
     "shopping": 'nwr["shop"~"^(mall|department_store|souvenir|gift|antiques)$"]["name"]({bbox});',
+    "public_spaces": (
+        'nwr["place"="square"]["name"]["wikidata"]({bbox});\n'
+        '  nwr["amenity"="fountain"]["name"]["wikidata"]({bbox});'
+    ),
+    "neighborhoods": 'nwr["place"~"^(neighbourhood|quarter)$"]["name"]["wikidata"]({bbox});',
 }
 
 
