@@ -97,8 +97,8 @@ def plan_itinerary(
     ingest.catalog.CityNotAvailable when there is no data for that city.
     """
     category_map = load_categories()["categories"]
-    city_name = city or destination.get("name") or destination.get("city") or "lisbon"
-    city_data = load_city(city_name)
+    # No silent default: a request without a city name gets a clear 422, not Lisbon.
+    city_data = load_city(city or destination.get("name") or destination.get("city"))
     rejected = set(profile.get("feedback", {}).get("rejected", []))
     places = [p for p in city_data.places if p["id"] not in rejected]
 
