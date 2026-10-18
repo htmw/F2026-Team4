@@ -1,24 +1,26 @@
 {
  "Rome, Italy": {
   "stats": {
-   "places": 4753,
+   "places": 4685,
    "hours_parsed": 1003,
-   "hours_unparseable": 116,
-   "hours_absent": 3634,
+   "hours_unparseable": 122,
+   "hours_absent": 3560,
    "price_known_paid": 10,
    "price_known_free": 39,
-   "price_assumed_free": 1309,
-   "price_no_data": 3395,
+   "price_assumed_free": 1234,
+   "price_no_data": 3402,
    "top_sights": {
     "n": 100,
-    "hours_known": 29,
+    "hours_known": 28,
     "price_known": 5
    },
    "dropped": {
     "dropped_unmapped_category": 492,
-    "dropped_always_closed": 10
+    "dropped_outside_bbox": 14,
+    "dropped_always_closed": 3,
+    "dropped_no_position": 1
    },
-   "duplicates_merged": 111,
+   "duplicates_merged": 171,
    "bbox": [
     41.87,
     12.43,
@@ -28,12 +30,12 @@
    "bbox_source": "explicit",
    "by_category": {
     "restaurant": {
-     "n": 1967,
+     "n": 1974,
      "hours_known": 585,
      "price_known": 0
     },
     "shop": {
-     "n": 105,
+     "n": 104,
      "hours_known": 14,
      "price_known": 0
     },
@@ -63,7 +65,7 @@
      "price_known": 38
     },
     "landmark": {
-     "n": 502,
+     "n": 437,
      "hours_known": 10,
      "price_known": 4
     },
@@ -73,12 +75,12 @@
      "price_known": 0
     },
     "park": {
-     "n": 150,
+     "n": 143,
      "hours_known": 7,
      "price_known": 2
     },
     "church": {
-     "n": 392,
+     "n": 391,
      "hours_known": 55,
      "price_known": 0
     },
@@ -108,7 +110,7 @@
      "price_known": 1
     },
     "garden": {
-     "n": 51,
+     "n": 50,
      "hours_known": 2,
      "price_known": 4
     },
@@ -122,24 +124,26 @@
  },
  "Lisbon, Portugal": {
   "stats": {
-   "places": 6085,
+   "places": 6074,
    "hours_parsed": 1518,
-   "hours_unparseable": 152,
-   "hours_absent": 4415,
+   "hours_unparseable": 153,
+   "hours_absent": 4403,
    "price_known_paid": 33,
    "price_known_free": 22,
-   "price_assumed_free": 1198,
-   "price_no_data": 4832,
+   "price_assumed_free": 1184,
+   "price_no_data": 4835,
    "top_sights": {
     "n": 100,
     "hours_known": 29,
     "price_known": 16
    },
    "dropped": {
-    "dropped_always_closed": 4,
-    "dropped_unmapped_category": 460
+    "dropped_always_closed": 3,
+    "dropped_unmapped_category": 460,
+    "dropped_outside_bbox": 8,
+    "dropped_no_position": 1
    },
-   "duplicates_merged": 124,
+   "duplicates_merged": 127,
    "bbox": [
     38.6913994,
     -9.2298356,
@@ -149,7 +153,7 @@
    "bbox_source": "geocoded",
    "by_category": {
     "restaurant": {
-     "n": 2826,
+     "n": 2827,
      "hours_known": 843,
      "price_known": 0
     },
@@ -174,8 +178,8 @@
      "price_known": 0
     },
     "landmark": {
-     "n": 282,
-     "hours_known": 22,
+     "n": 277,
+     "hours_known": 23,
      "price_known": 1
     },
     "gallery": {
@@ -194,7 +198,7 @@
      "price_known": 0
     },
     "viewpoint": {
-     "n": 54,
+     "n": 53,
      "hours_known": 1,
      "price_known": 1
     },
@@ -209,8 +213,8 @@
      "price_known": 0
     },
     "park": {
-     "n": 233,
-     "hours_known": 17,
+     "n": 228,
+     "hours_known": 16,
      "price_known": 4
     },
     "neighborhood": {
@@ -219,12 +223,12 @@
      "price_known": 0
     },
     "church": {
-     "n": 252,
+     "n": 251,
      "hours_known": 7,
      "price_known": 0
     },
     "palace": {
-     "n": 149,
+     "n": 150,
      "hours_known": 2,
      "price_known": 0
     },
@@ -237,25 +241,20 @@
      "n": 10,
      "hours_known": 0,
      "price_known": 0
-    },
-    "beach": {
-     "n": 1,
-     "hours_known": 0,
-     "price_known": 0
     }
    }
   }
  },
  "Porto, Portugal": {
   "stats": {
-   "places": 3062,
+   "places": 3056,
    "hours_parsed": 667,
-   "hours_unparseable": 61,
-   "hours_absent": 2334,
+   "hours_unparseable": 60,
+   "hours_absent": 2329,
    "price_known_paid": 35,
    "price_known_free": 41,
-   "price_assumed_free": 803,
-   "price_no_data": 2183,
+   "price_assumed_free": 795,
+   "price_no_data": 2185,
    "top_sights": {
     "n": 100,
     "hours_known": 30,
@@ -263,6 +262,7 @@
    },
    "dropped": {
     "dropped_always_closed": 4,
+    "dropped_outside_bbox": 6,
     "dropped_unmapped_category": 184
    },
    "duplicates_merged": 64,
@@ -275,7 +275,7 @@
    "bbox_source": "geocoded",
    "by_category": {
     "restaurant": {
-     "n": 1102,
+     "n": 1104,
      "hours_known": 285,
      "price_known": 0
     },
@@ -295,7 +295,7 @@
      "price_known": 0
     },
     "shop": {
-     "n": 161,
+     "n": 160,
      "hours_known": 23,
      "price_known": 0
     },
@@ -310,7 +310,7 @@
      "price_known": 0
     },
     "nightclub": {
-     "n": 30,
+     "n": 31,
      "hours_known": 4,
      "price_known": 0
     },
@@ -325,7 +325,7 @@
      "price_known": 44
     },
     "landmark": {
-     "n": 197,
+     "n": 191,
      "hours_known": 8,
      "price_known": 7
     },
@@ -340,7 +340,7 @@
      "price_known": 0
     },
     "neighborhood": {
-     "n": 28,
+     "n": 27,
      "hours_known": 0,
      "price_known": 0
     },
@@ -365,7 +365,7 @@
      "price_known": 0
     },
     "beach": {
-     "n": 14,
+     "n": 13,
      "hours_known": 0,
      "price_known": 0
     }
@@ -374,13 +374,13 @@
  },
  "Tbilisi, Georgia": {
   "stats": {
-   "places": 2524,
+   "places": 2523,
    "hours_parsed": 694,
    "hours_unparseable": 21,
-   "hours_absent": 1809,
+   "hours_absent": 1808,
    "price_known_paid": 3,
    "price_known_free": 7,
-   "price_assumed_free": 585,
+   "price_assumed_free": 584,
    "price_no_data": 1929,
    "top_sights": {
     "n": 100,
@@ -388,7 +388,8 @@
     "price_known": 3
    },
    "dropped": {
-    "dropped_unmapped_category": 902
+    "dropped_unmapped_category": 902,
+    "dropped_outside_bbox": 1
    },
    "duplicates_merged": 40,
    "bbox": [
@@ -475,7 +476,7 @@
      "price_known": 0
     },
     "park": {
-     "n": 89,
+     "n": 88,
      "hours_known": 8,
      "price_known": 0
     },
