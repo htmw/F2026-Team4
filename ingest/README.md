@@ -48,11 +48,21 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
-   A place whose hours say closed every day is dropped.
+   A place whose hours name every day as closed is dropped. A place that only lists its
+   closed days ("Su off") keeps `unknown` hours: the open days are not stated. A place whose
+   centre falls outside the bbox is dropped too: Overpass returns anything that touches the
+   box, and a long relation can have its centre kilometres away.
 4. **Popularity** ([`popularity.py`](popularity.py)): a 0..1 proxy from translated names,
    Wikidata and Wikipedia links, heritage status and how well documented the place is.
-5. **Duplicates** ([`dedupe.py`](dedupe.py)): same wikidata id within 1 km, or same name
-   within 60 m, become one record. The richer copy wins and borrows known facts from the other.
+5. **Duplicates** ([`dedupe.py`](dedupe.py)):
+   - City walls and aqueducts come as dozens of pieces with one name (Rome has 91 pieces of
+     the Aurelian Walls). Each structure becomes one stop, placed on its best piece. A
+     relation is never used for the position: its centre is the middle of a bounding box,
+     which for a ring of walls is next to the Colosseum.
+   - Everything else is grouped around a seed, richest record first: same wikidata id within
+     1 km of the seed (100 m when the names differ), or same name within 60 m. Distances are
+     measured to the seed, so a row of neighbours cannot chain into one group. A venue never
+     merges with a sight. The seed keeps its id and borrows known facts from its copies.
 6. **Curation** ([`curation.py`](curation.py)): hand checked hours, prices and visit lengths
    for the sights that matter most, from `data/curation/<city>.json`.
 
@@ -96,9 +106,14 @@ because OSM has no reviews.
 - `confidence` is `high` or `medium` when the facts come from the official site. Use `low` when
   only secondary sources exist or they disagree: the entry is then applied as `inferred`.
 - Hours are the doors-open times. Last entry, free Sundays and special closures go in `notes`.
+- Other records of the same place are folded in: anything within the entry's radius that
+  carries one of its names (the Ara Pacis altar next to the Ara Pacis museum). Venues are
+  never folded, so the San Clemente bar stays a bar. Two entries that match the same place
+  stop the run.
 - `exclude_within` drops every place inside a polygon except the ids in `keep`. Rome uses it
   for the Roman Forum and Palatine, and for the inside of the Vatican walls: OSM maps every
-  temple and gallery there as its own sight, but they are visited with one ticket.
+  temple and gallery there as its own sight, but they are visited with one ticket. A zone
+  never drops a neighbourhood, because the label point of a whole district can fall inside.
 
 To refresh a city, check the sources again, update `checked_on`, then `make snapshot-rome`.
 
@@ -125,14 +140,21 @@ legs = travel_legs(candidates, max_walk_minutes=profile["max_walk_minutes"])
 legs[(a_id, b_id)]                        # {"minutes": 12.4, "mode": "walk"}
 ```
 
-`legs` is the exact shape `optimizer/travel.py` already reads. Lookup order for a name:
-committed snapshots in `data/cities`, then `/fixtures`. `api/contracts.load_places()` goes
-through the same catalog, so Lisbon still comes from the fixtures and Rome from the snapshot.
+`legs` is the shape `optimizer/travel.py` reads (that file is on the optimizer branch,
+PR 13, until it merges). Lookup order for a name: committed snapshots in `data/cities`,
+then `/fixtures`, then any folder in `WANDERWISE_EXTRA_CITIES`. `api/contracts.load_places()`
+goes through the same catalog, so Lisbon comes from the fixtures and Rome from the snapshot.
+
+A name matches the city name or an alias. "City, Region" also matches when the last part is
+the city's country, so "Rome, IT" and "Rome, Lazio, Italy" work but "Rome, Georgia" does
+not. A request without a city name gets the same clear error as an unknown city.
 
 A plain `make ingest` writes to `data/out` and is not served, so a test run on one laptop
 never changes what the API or the ranker sees. To try a local city in the app, point
-`WANDERWISE_EXTRA_CITIES=data/out` at it. To ship a city, build it into `data/cities`
-(as `make snapshot-rome` does) and commit it.
+`WANDERWISE_EXTRA_CITIES=data/out` at it. It can add cities but never replace Rome or
+Lisbon. To ship a city, build it into `data/cities` (as `make snapshot-rome` does) and
+commit it. Output files are written with Unix line ends on every OS, so a rebuild on
+Windows gives the same bytes.
 
 For the what-if-it-rains flow, [`weather.py`](weather.py) gives a daily forecast for the trip
 dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
@@ -144,6 +166,9 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 - Seasonal hours: the contract holds one weekly pattern, so the curated hours are the winter
   timetable that covers the demo dates. Change them when the season changes.
 - `day_trip` has no OSM mapping yet; it needs curated entries.
+- Parts of one site that OSM tags with the site's wikidata under another name more than
+  100 m away stay separate records. In Rome the one that mattered (Piazza Retta, part of
+  St. Peter's Square) is excluded by hand.
 
 ## License
 

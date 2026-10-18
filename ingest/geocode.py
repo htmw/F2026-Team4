@@ -53,6 +53,7 @@ class Geocoded:
     lon: float
     bbox: tuple[float, float, float, float]  # south, west, north, east
     display_name: str
+    country_name: str = ""  # in English, e.g. "Italy"; "" if unavailable
 
     def destination(self) -> dict:
         """Return the destination shape used by the Itinerary contract."""
@@ -131,12 +132,14 @@ def geocode(
                 "or pass an explicit --bbox."
             )
 
+    address = r.get("address") or {}
     return Geocoded(
         query=query,
         name=r.get("name") or query.strip(),
-        country=(r.get("address", {}).get("country_code") or "").upper(),
+        country=(address.get("country_code") or "").upper(),
         lat=float(r["lat"]),
         lon=float(r["lon"]),
         bbox=(south, west, north, east),
         display_name=r.get("display_name", ""),
+        country_name=address.get("country") or "",
     )

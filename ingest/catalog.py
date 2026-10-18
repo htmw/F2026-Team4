@@ -6,12 +6,17 @@ from a local ingest run or from the hand-made fixtures. They ask this module:
     city = load_city("Rome")                         # CityData, or CityNotAvailable
     legs = travel_legs(candidates, max_walk_minutes=20)
 
-Lookup order for a destination name:
+Lookup order for a destination name, committed data first:
 1. data/cities/<key>/   committed snapshots (real OSM data, curated where it matters)
-2. any folder listed in WANDERWISE_EXTRA_CITIES (os.pathsep separated), for trying out a
-   local run such as data/out without committing it. Off by default, so a spike run on
-   one laptop never changes what the API or the ranker sees on another.
-3. fixtures/<key>.places.json   the hand-made sample data (Lisbon)
+2. fixtures/<key>.places.json   the hand-made sample data (Lisbon)
+3. any folder listed in WANDERWISE_EXTRA_CITIES (os.pathsep separated), for trying out a
+   local run such as data/out without committing it. Off by default, and it can only add
+   cities, never replace a committed one, so a spike run on one laptop never changes what
+   the API or the ranker sees for Rome or Lisbon.
+
+Names match on the city name or an alias ("Rome", "Roma", "Rome, Italy"). "City, Region"
+also matches when the last part is the city's country ("Rome, IT", "Rome, Lazio, Italy"),
+but "Rome, Georgia" does not: that is a different Rome.
 
 A name nobody has data for raises CityNotAvailable with the list of cities that do work,
 so the API can say so instead of quietly planning a trip somewhere else.
@@ -34,6 +39,9 @@ CITIES_DIR = ROOT / "data" / "cities"
 EXTRA_DIRS = [Path(p) for p in os.environ.get("WANDERWISE_EXTRA_CITIES", "").split(os.pathsep) if p]
 FIXTURES_DIR = ROOT / "fixtures"
 
+# The hand-made fixtures have no city.json, so their country is written down here.
+FIXTURE_COUNTRIES = {"lisbon": ("PT", "Portugal")}
+
 
 class CityNotAvailable(LookupError):
     """No data for this destination. The message lists the cities that do have data."""
@@ -45,77 +53,105 @@ class CityData:
     name: str
     destination: dict  # Itinerary.destination shape: name, country, lat, lon
     places: list[dict]
-    source: str  # snapshot | local | fixture
+    source: str  # snapshot | fixture | local
     path: Path
+
+
+@dataclass(frozen=True)
+class _Entry:
+    """One city the catalog can serve, with every name it answers to."""
+
+    key: str
+    name: str
+    source: str
+    path: Path
+    names: frozenset[str]  # normalised city names and aliases
+    regions: frozenset[str]  # normalised country code, country name, alias regions
 
 
 def _read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _city_dirs(base: Path) -> list[Path]:
+def _region_of(alias: str) -> str | None:
+    """'Rome, Italy' -> 'italy'. None when the alias has no comma."""
+    parts = [normalize_name(p) for p in alias.split(",")]
+    parts = [p for p in parts if p]
+    return parts[-1] if len(parts) > 1 else None
+
+
+def _entry(key: str, name: str, source: str, path: Path, aliases, country_bits) -> _Entry:
+    aliases = [a for a in aliases if a]
+    names = {normalize_name(n) for n in [key.replace("-", " "), name, *aliases]}
+    regions = {normalize_name(c) for c in country_bits if c}
+    regions.update(r for r in map(_region_of, aliases) if r)
+    names.discard("")
+    regions.discard("")
+    return _Entry(key, name, source, path, frozenset(names), frozenset(regions))
+
+
+def _dir_entries(base: Path, source: str) -> list[_Entry]:
     if not base.is_dir():
         return []
-    return sorted(d for d in base.iterdir() if (d / "places.json").exists())
+    out = []
+    for d in sorted(x for x in base.iterdir() if (x / "places.json").exists()):
+        meta = _read_json(d / "city.json") if (d / "city.json").exists() else {}
+        name = meta.get("name") or d.name.replace("-", " ").title()
+        country = (meta.get("country", ""), meta.get("country_name", ""))
+        out.append(_entry(d.name, name, source, d, meta.get("aliases", []), country))
+    return out
 
 
-def _names_for_dir(city_dir: Path) -> set[str]:
-    names = {city_dir.name.replace("-", " ")}
-    meta_file = city_dir / "city.json"
-    if meta_file.exists():
-        meta = _read_json(meta_file)
-        names.update([meta.get("name", ""), *meta.get("aliases", [])])
-    return {normalize_name(n) for n in names if n}
+def _fixture_entries() -> list[_Entry]:
+    out = []
+    for f in sorted(FIXTURES_DIR.glob("*.places.json")):
+        key = f.name.removesuffix(".places.json")
+        country = FIXTURE_COUNTRIES.get(key, ("", ""))
+        out.append(_entry(key, key.title(), "fixture", f, [], country))
+    return out
 
 
-def _fixture_files() -> list[Path]:
-    return sorted(FIXTURES_DIR.glob("*.places.json"))
-
-
-def _candidates(name: str) -> list[str]:
-    """'Rome, Italy' -> ['rome italy', 'rome']. Exact form first, then the part before a comma."""
-    full = normalize_name(name)
-    first = normalize_name(name.split(",")[0])
-    return [n for n in dict.fromkeys([full, first]) if n]
-
-
-def _sources() -> list[tuple[str, Path]]:
-    return [("snapshot", CITIES_DIR), *(("local", d) for d in EXTRA_DIRS)]
+def _entries() -> list[_Entry]:
+    """Every city in lookup order. A key seen once is not served again by a later source."""
+    seen: set[str] = set()
+    out: list[_Entry] = []
+    sources = [
+        _dir_entries(CITIES_DIR, "snapshot"),
+        _fixture_entries(),
+        *(_dir_entries(d, "local") for d in EXTRA_DIRS),
+    ]
+    for entries in sources:
+        for e in entries:
+            if e.key not in seen:
+                seen.add(e.key)
+                out.append(e)
+    return out
 
 
 def available_cities() -> list[dict]:
     """Every city the app can plan for right now, with where its data comes from."""
-    seen: set[str] = set()
-    out: list[dict] = []
-    for source, base in _sources():
-        for d in _city_dirs(base):
-            if d.name in seen:
-                continue
-            seen.add(d.name)
-            meta = _read_json(d / "city.json") if (d / "city.json").exists() else {}
-            out.append({"key": d.name, "name": meta.get("name", d.name.title()), "source": source})
-    for f in _fixture_files():
-        key = f.name.removesuffix(".places.json")
-        if key not in seen:
-            seen.add(key)
-            out.append({"key": key, "name": key.title(), "source": "fixture"})
-    return out
+    return [{"key": e.key, "name": e.name, "source": e.source} for e in _entries()]
+
+
+def _matches(entry: _Entry, full: str, first: str, region: str | None) -> bool:
+    if full in entry.names:
+        return True
+    return region is not None and first in entry.names and region in entry.regions
 
 
 def resolve(name: str) -> tuple[str, Path]:
     """Return (source, path) for a destination name, or raise CityNotAvailable."""
-    wanted = _candidates(name or "")
-    for source, base in _sources():
-        dirs = _city_dirs(base)
-        for candidate in wanted:
-            for d in dirs:
-                if candidate in _names_for_dir(d):
-                    return source, d
-    for candidate in wanted:
-        for f in _fixture_files():
-            if normalize_name(f.name.removesuffix(".places.json")) == candidate:
-                return "fixture", f
-    names = ", ".join(c["name"] for c in available_cities()) or "none yet"
+    entries = _entries()
+    names = ", ".join(e.name for e in entries) or "none yet"
+    full = normalize_name(name or "")
+    if not full:
+        raise CityNotAvailable(f"The destination has no name. Cities with data: {names}.")
+    parts = [p for p in (normalize_name(x) for x in name.split(",")) if p]
+    first = parts[0]
+    region = parts[-1] if len(parts) > 1 else None
+    for e in entries:
+        if _matches(e, full, first, region):
+            return e.source, e.path
     raise CityNotAvailable(f"No place data for {name!r} yet. Cities with data: {names}.")
 
 
@@ -127,15 +163,18 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         lat = sum(p["lat"] for p in places) / len(places)
         lon = sum(p["lon"] for p in places) / len(places)
         destination = {"name": key.title(), "lat": round(lat, 4), "lon": round(lon, 4)}
+        country = FIXTURE_COUNTRIES.get(key, ("", ""))[0]
+        if country:
+            destination["country"] = country
         return CityData(key, key.title(), destination, places, source, path)
     places = _read_json(path / "places.json")
     destination = _read_json(path / "destination.json")
     return CityData(path.name, destination["name"], destination, places, source, path)
 
 
-def load_city(name: str) -> CityData:
+def load_city(name: str | None) -> CityData:
     """Places and destination info for a city name such as 'Rome' or 'Rome, Italy'."""
-    source, path = resolve(name)
+    source, path = resolve(name or "")
     stamp_file = path if source == "fixture" else path / "places.json"
     return _load(source, path, stamp_file.stat().st_mtime)
 
@@ -151,6 +190,6 @@ def travel_legs(
     """Legs between every pair of the given places, in the optimizer's matrix shape.
 
     Build it for the candidate list you are about to schedule, not for a whole city:
-    300 places is 89,700 legs and takes a few milliseconds.
+    300 places is 89,700 legs and takes about 0.1 s, most of it building the dict.
     """
     return _travel_legs(places, max_walk_minutes, model)

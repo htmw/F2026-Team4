@@ -19,6 +19,25 @@ from .popularity import documentation_count, signals_from_tags
 # purpose: it often belongs to a different, earlier place at the same spot.
 _NAME_TAG = re.compile(r"^(name|alt_name|official_name|int_name|short_name)(:[A-Za-z-]+)?$")
 
+# City walls and aqueducts are mapped as many short pieces that share one name: Rome has
+# about 90 pieces of the Aurelian Walls. Dedupe turns each structure back into one stop.
+_LONG_STRUCTURE_TAGS = {
+    ("historic", "citywalls"),
+    ("historic", "aqueduct"),
+    ("barrier", "city_wall"),
+    ("man_made", "city_wall"),
+    ("man_made", "aqueduct"),
+}
+
+# Relations that group separate parts. Overpass places them at the centre of the bounding
+# box of all the parts, which can be far from every part: the ring of the Aurelian Walls
+# has its centre next to the Colosseum.
+_COLLECTION_RELATIONS = {"site", "route", "building"}
+
+
+def is_long_structure(tags: dict) -> bool:
+    return any(tags.get(key) == value for key, value in _LONG_STRUCTURE_TAGS)
+
 
 @dataclass
 class BuildResult:
@@ -129,6 +148,10 @@ def build_place(
     signals = signals_from_tags(tags)
     signals["osm_type"] = el.get("type")
     signals["names"] = name_variants(tags)
+    signals["long_structure"] = is_long_structure(tags)
+    signals["rough_point"] = el.get("type") == "relation" and tags.get("type") in (
+        _COLLECTION_RELATIONS
+    )
     return BuildResult(
         place, None, parsed.status, cost.status, prominence(tags), signals=signals
     )

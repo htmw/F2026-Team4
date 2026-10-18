@@ -18,6 +18,8 @@ from pathlib import Path
 
 import requests
 
+from .cache import write_json
+
 OPEN_METEO_URL = "https://api.open-meteo.com/v1/forecast"
 DAILY_FIELDS = (
     "weather_code",
@@ -149,9 +151,6 @@ def daily_forecast(
     payload = _read_cache(path, now)
     if payload is None:
         payload = _fetch(lat, lon, get)
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(
-            json.dumps({"fetched_at": now.isoformat(), "payload": payload}), encoding="utf-8"
-        )
+        write_json(path, {"fetched_at": now.isoformat(), "payload": payload})
     by_date = _parse(payload)
     return {d: by_date.get(d) for d in _dates(start, end)}

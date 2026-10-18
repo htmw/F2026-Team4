@@ -106,6 +106,7 @@ def _merge(windows: list[tuple[int, int]]):
 def _parse(text: str):
     own = [[] for _ in range(7)]  # windows starting on this day
     spill = [[] for _ in range(7)]  # overnight tail that runs into the *next* day
+    mentioned: set[int] = set()  # days some rule talks about
     ignored: list[str] = []
     rules = [r for r in text.split(";") if r.strip()]
     if not rules:
@@ -124,6 +125,7 @@ def _parse(text: str):
             if not days:  # holiday-only rule
                 continue
         parsed = _parse_times(rest)
+        mentioned.update(days)
         for d in days:
             own[d], spill[d] = [], []
             for s, e in parsed or []:
@@ -134,9 +136,15 @@ def _parse(text: str):
                     if e > 0:
                         spill[d].append((0, e))
 
-    # Holiday-only rules do not describe normal weekly opening hours.
-    if ignored and not any(own[d] or spill[d] for d in range(7)):
-        raise _Unsupported("no supported weekly hours; only holiday rules found")
+    if not any(own[d] or spill[d] for d in range(7)):
+        # Holiday-only rules do not describe normal weekly opening hours.
+        if not mentioned:
+            raise _Unsupported("no supported weekly hours; only holiday rules found")
+        # "Su off" on its own is how mappers write "closed on Sundays". It says nothing
+        # about the other days, so it must not become "known closed every day". Only a
+        # value that names every day (off, Mo-Su off) really means closed all week.
+        if len(mentioned) < 7:
+            raise _Unsupported("only closed days are given; the open days are not stated")
 
     hours = {name: _merge(own[d] + spill[(d - 1) % 7]) for d, name in enumerate(DAYS)}
     hours["confidence"] = "known"

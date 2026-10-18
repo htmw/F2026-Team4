@@ -45,10 +45,19 @@ File shape (JSON):
 
 `match.id` pins an entry to one OSM id when the name is ambiguous.
 
+Copies are folded in. OSM often has a second record of a curated place under one of its
+names: the Ara Pacis altar next to the Ara Pacis museum, a viewpoint called Giardino degli
+Aranci inside the garden. Any record within the entry's radius that carries one of the
+entry's names is merged into the curated record, so the planner cannot offer it as a free
+extra stop with guessed hours. A venue is never folded into a sight (the San Clemente bar
+stays a bar), and a neighbourhood is never folded into anything.
+
 `exclude_within` drops every place inside a polygon (lat, lon corners) except the ids in
 `keep`. Big ticketed sites need it: OSM maps each temple of the Forum and each gallery of
 the Vatican Museums as its own sight, and without the zone the planner would send someone to
-the Temple of Saturn at 9 pm as a free 30 minute stop.
+the Temple of Saturn at 9 pm as a free 30 minute stop. A zone never drops a neighbourhood:
+the label point of a whole district can fall inside a polygon without the district being
+part of the site.
 """
 
 from __future__ import annotations
@@ -58,7 +67,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from .cost import is_currency_code
-from .dedupe import distance_m
+from .dedupe import distance_m, is_venue, merge_group
 from .hours import parse_opening_hours
 from .to_place import normalize_name
 
@@ -75,6 +84,7 @@ class CurationReport:
     unmatched: list[str] = field(default_factory=list)
     excluded: list[str] = field(default_factory=list)
     excluded_by_zone: dict[str, int] = field(default_factory=dict)
+    folded: list[dict] = field(default_factory=list)
 
     def as_dict(self) -> dict:
         return {
@@ -82,6 +92,7 @@ class CurationReport:
             "unmatched": self.unmatched,
             "excluded": self.excluded,
             "excluded_by_zone": self.excluded_by_zone,
+            "folded": self.folded,
             "matches": self.applied,
         }
 
@@ -146,6 +157,21 @@ def _wanted_names(entry: dict) -> set[str]:
     return {normalize_name(n) for n in names if n}
 
 
+def _names_of(place: dict, signals: dict) -> set[str]:
+    return set(signals.get(place["id"], {}).get("names") or []) | {normalize_name(place["name"])}
+
+
+def _search_area(entry: dict) -> tuple[dict | None, float]:
+    match = entry.get("match") or {}
+    near = match.get("near")
+    point = {"lat": near[0], "lon": near[1]} if near else None
+    return point, float(match.get("radius_m", DEFAULT_RADIUS_M))
+
+
+def _is_neighbourhood(place: dict) -> bool:
+    return place["categories"][0] == "neighborhood"
+
+
 def find_match(entry: dict, places: list[dict], signals: dict) -> dict | None:
     """The place an entry refers to: pinned id, else exact name near the given point."""
     match = entry.get("match") or {}
@@ -156,14 +182,11 @@ def find_match(entry: dict, places: list[dict], signals: dict) -> dict | None:
         # The OSM object was replaced or deleted: fall back to the names below.
 
     wanted = _wanted_names(entry)
-    near = match.get("near")
-    radius = float(match.get("radius_m", DEFAULT_RADIUS_M))
-    point = {"lat": near[0], "lon": near[1]} if near else None
+    point, radius = _search_area(entry)
 
     candidates = []
     for p in places:
-        names = set(signals.get(p["id"], {}).get("names") or [normalize_name(p["name"])])
-        if not names & wanted:
+        if not _names_of(p, signals) & wanted:
             continue
         dist = distance_m(point, p) if point else 0.0
         if dist <= radius:
@@ -174,6 +197,22 @@ def find_match(entry: dict, places: list[dict], signals: dict) -> dict | None:
     # then the closest one.
     candidates.sort(key=lambda c: c[:3])
     return candidates[0][3]
+
+
+def find_copies(entry: dict, target: dict, places: list[dict], signals: dict) -> list[dict]:
+    """Other records of the curated place: one of the entry's names, inside its radius."""
+    wanted = _wanted_names(entry)
+    point, radius = _search_area(entry)
+    point = point or target
+    copies = []
+    for p in places:
+        if p["id"] == target["id"] or is_venue(p) != is_venue(target):
+            continue
+        if _is_neighbourhood(p) or _is_neighbourhood(target):
+            continue
+        if _names_of(p, signals) & wanted and distance_m(point, p) <= radius:
+            copies.append(p)
+    return sorted(copies, key=lambda p: p["id"])
 
 
 def apply_curation(
@@ -189,20 +228,46 @@ def apply_curation(
         inside = {
             p["id"]
             for p in places
-            if p["id"] not in keep and point_in_polygon(p["lat"], p["lon"], zone["polygon"])
+            if p["id"] not in keep
+            and not _is_neighbourhood(p)
+            and point_in_polygon(p["lat"], p["lon"], zone["polygon"])
         }
         report.excluded_by_zone[zone["name"]] = len(inside - drop)
         drop |= inside
     out = [p for p in places if p["id"] not in drop]
     report.excluded = sorted(drop & {p["id"] for p in places})
 
-    index = {p["id"]: i for i, p in enumerate(out)}
+    # Match every entry before folding anything, so folding the copies of one entry can
+    # never remove the place another entry is about.
+    matched: list[tuple[dict, dict]] = []
+    owner: dict[str, str] = {}
     for entry in curation["places"]:
         target = find_match(entry, out, signals)
         if target is None:
             report.unmatched.append(entry["name"])
             continue
-        place = dict(target)
+        if target["id"] in owner:
+            raise CurationError(
+                f"{entry['name']!r} and {owner[target['id']]!r} both match {target['id']}; "
+                "pin one of them with match.id"
+            )
+        owner[target["id"]] = entry["name"]
+        matched.append((entry, target))
+
+    by_id = {p["id"]: p for p in out}
+    folded: set[str] = set()
+    for entry, target in matched:
+        copies = [
+            c
+            for c in find_copies(entry, target, out, signals)
+            if c["id"] not in owner and c["id"] not in folded
+        ]
+        place = merge_group([target, *copies], signals) if copies else dict(target)
+        if copies:
+            folded.update(c["id"] for c in copies)
+            report.folded.append(
+                {"entry": entry["name"], "kept": target["id"], "dropped": [c["id"] for c in copies]}
+            )
         label = "inferred" if entry.get("confidence") == "low" else "known"
         if entry.get("opening_hours") is not None:
             hours = parse_opening_hours(entry["opening_hours"]).hours
@@ -221,8 +286,9 @@ def apply_curation(
             errors = list(validator.iter_errors(place))
             if errors:
                 raise CurationError(f"{entry['name']}: result is not a valid Place: {errors[0]}")
-        out[index[place["id"]]] = place
+        by_id[place["id"]] = place
         report.applied.append(
             {"name": entry["name"], "id": place["id"], "osm_name": target["name"], "as": label}
         )
+    out = [by_id[p["id"]] for p in out if p["id"] not in folded]
     return out, report

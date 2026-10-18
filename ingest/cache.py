@@ -28,16 +28,20 @@ def utc_now_iso() -> str:
     return datetime.now(UTC).isoformat(timespec="seconds")
 
 
-def write_json(path: Path, obj, *, indent: int | None = None) -> None:
+def write_text(path: Path, text: str) -> None:
+    """UTF-8 with Unix line ends on every OS, so a rebuild on Windows gives the same bytes."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=indent), encoding="utf-8")
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
+def write_json(path: Path, obj, *, indent: int | None = None) -> None:
+    write_text(path, json.dumps(obj, ensure_ascii=False, indent=indent))
 
 
 def write_json_lines_array(path: Path, items: list) -> None:
     """A JSON array with one item per line: valid JSON, compact, and readable in a diff."""
-    path.parent.mkdir(parents=True, exist_ok=True)
     body = ",\n".join(json.dumps(item, ensure_ascii=False) for item in items)
-    path.write_text(f"[\n{body}\n]\n" if items else "[]\n", encoding="utf-8")
+    write_text(path, f"[\n{body}\n]\n" if items else "[]\n")
 
 
 def load_cached(path: Path, key: dict) -> dict | None:

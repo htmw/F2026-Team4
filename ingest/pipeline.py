@@ -3,9 +3,10 @@
 Steps, in order:
 1. geocode the name (Nominatim) for the centre, country and default bounding box,
 2. fetch every Overpass query group for the box (raw responses cached on disk),
-3. convert each OSM element to a Place, dropping the ones that cannot be valid,
+3. convert each OSM element to a Place, dropping the ones that cannot be valid or whose
+   centre falls outside the box,
 4. score popularity from the OSM tags,
-5. merge duplicate records of the same place,
+5. merge duplicate records of the same place, and the pieces of each wall or aqueduct,
 6. apply the hand checked curation file, if there is one,
 7. write places.json, destination.json, city.json, report.json and matrix.json.
 """
@@ -131,6 +132,13 @@ def run_city(
 
                 continue
 
+            # Overpass returns ways and relations that only touch the box. Their centre can
+            # be far outside it (a Roman aqueduct relation lands 17 km east of the centre),
+            # and the planner only works inside the box.
+            if not _inside(r.place, bbox):
+                counts["dropped_outside_bbox"] += 1
+                continue
+
             r.place["popularity"] = popularity(r.signals)
             r.signals["cost_status"] = r.cost_status
             places.append(r.place)
@@ -138,6 +146,8 @@ def run_city(
             counts["valid_records"] += 1
 
     places, dedupe_report = dedupe(places, signals)
+    if dedupe_report.no_position:
+        counts["dropped_no_position"] = len(dedupe_report.no_position)
 
     curation_report = None
     if curation is not None:
@@ -173,6 +183,7 @@ def run_city(
         "key": out_slug,
         "name": destination["name"],
         "country": destination.get("country", ""),
+        "country_name": geo.country_name,
         "aliases": sorted({a for a in [query, destination["name"], *(aliases or [])] if a}),
         "lat": destination.get("lat"),
         "lon": destination.get("lon"),
@@ -185,30 +196,32 @@ def run_city(
         "attribution": OSM_ATTRIBUTION,
     }
 
-    out = Path(out_dir) / out_slug
+    # Build the matrix before writing anything, so a failure here (bad speed, too many
+    # places) never leaves a new places.json next to an old matrix.json.
+    # matrix_top=0 means no matrix file at all (the API builds legs on demand).
+    matrix = None
+    if matrix_top > 0:
+        model = TravelModel(walk_speed_kmh=speed_kmh, walk_detour=detour_factor)
+        subset = select_for_matrix(places, matrix_top)
+        matrix = matrix_payload(
+            subset,
+            walking_matrix(subset, speed_kmh, detour_factor),
+            speed_kmh,
+            detour_factor,
+            transit=transit_matrix(subset, model),
+            model=model,
+        )
 
+    out = Path(out_dir) / out_slug
     write_json_lines_array(out / "places.json", places)
     write_json(out / "destination.json", destination, indent=1)
     write_json(out / "city.json", city, indent=1)
     write_json(out / "report.json", report, indent=1)
 
-    # The matrix always describes the places.json written next to it, including after an
-    # empty run. matrix_top=0 means no matrix file at all (the API builds legs on demand).
+    # The matrix always describes the places.json written next to it, even after an empty run.
     matrix_file = out / "matrix.json"
-    if matrix_top > 0:
-        model = TravelModel(walk_speed_kmh=speed_kmh, walk_detour=detour_factor)
-        subset = select_for_matrix(places, matrix_top)
-        write_json(
-            matrix_file,
-            matrix_payload(
-                subset,
-                walking_matrix(subset, speed_kmh, detour_factor),
-                speed_kmh,
-                detour_factor,
-                transit=transit_matrix(subset, model),
-                model=model,
-            ),
-        )
+    if matrix is not None:
+        write_json(matrix_file, matrix)
     elif matrix_file.exists():
         matrix_file.unlink()
 
@@ -220,6 +233,11 @@ def run_city(
         "report": report,
         "out_dir": out,
     }
+
+
+def _inside(place: dict, bbox) -> bool:
+    south, west, north, east = bbox
+    return south <= place["lat"] <= north and west <= place["lon"] <= east
 
 
 def _hours_label(place: dict) -> str:
