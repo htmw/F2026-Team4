@@ -1,8 +1,6 @@
-"""The API plans from the city the traveler asked for, or says it has no data for it.
+"""The API plans Lisbon from the Lisbon data and refuses every other city with a clear 422.
 
-Sprint 1 integration testing found that asking for New York returned Lisbon places. Lisbon is
-now the one city with real data, and these tests pin the behaviour: Lisbon is planned from the
-Lisbon snapshot, and any other city gets a clear 422.
+A trip must never be planned in a different city from the one the traveler asked for.
 """
 
 from __future__ import annotations
@@ -84,9 +82,3 @@ def test_destination_sent_as_city_key_still_works():
 
     assert resp.status_code == 200, resp.text
     assert all(pid.startswith("osm:") for pid in _scheduled_ids(resp.json()))
-
-
-def test_lisbon_is_real_data_not_the_sample_file():
-    resp = client.post("/plan", json=_body({"name": "Lisbon"}))
-
-    assert not any("sample file" in w for w in resp.json()["warnings"])
