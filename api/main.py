@@ -27,8 +27,6 @@ from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
 
-from optimizer.scheduler import plan_itinerary
-
 
 app = FastAPI(
     title="Wanderwise Travel Planning API",
@@ -132,38 +130,6 @@ def plan(req: PlanRequest) -> dict[str, Any]:
             }
         )
 
-<<<<<<< HEAD
-    # Step 2: Generate optimized itinerary
-    try:
-        itinerary = plan_itinerary(
-            profile=req.profile,
-            destination=req.destination,
-            start_date=req.start_date,
-            end_date=req.end_date,
-        )
-
-    except ValueError as error:
-        raise HTTPException(
-            status_code=422,
-            detail=str(error)
-        ) from error
-
-    # Step 3: Validate generated itinerary
-    itinerary_errors = validate(
-        "itinerary",
-        itinerary
-    )
-
-    if itinerary_errors:
-        raise HTTPException(
-            status_code=500,
-            detail={
-                "itinerary_errors": itinerary_errors
-            }
-        )
-
-    # Step 4: Return optimized travel plan
-=======
     request_errors = _request_errors(req)
     if request_errors:
         raise HTTPException(status_code=422, detail={"request_errors": request_errors})
@@ -202,5 +168,4 @@ def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     # rest of the trip as it was. Until then the whole trip is re-planned from scratch.
     itinerary = _build_itinerary(request, trip_id=trip_id)
     store.save(trip_id, request, itinerary)
->>>>>>> origin/main
     return itinerary
