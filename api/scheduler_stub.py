@@ -51,8 +51,8 @@ def score_place(
 ) -> float:
     """Simple dot product of the place's interests against the traveler's weights.
 
-    TODO(optimizer): this rewards places that touch many interests and ignores
-    budget fit, popularity, novelty, and confidence. Replace with real scoring.
+    TODO(optimizer): waiting for the real score(place, profile). This one rewards places
+    that touch many interests and ignores budget fit, popularity, novelty, and confidence.
     """
     weights = profile.get("interests", {})
     return float(sum(weights.get(i, 0.0) for i in _interests_touched(place, category_map)))
@@ -91,12 +91,19 @@ def plan_itinerary(
     start_date: str,
     end_date: str,
     city: str = "lisbon",
+    trip_id: str | None = None,
 ) -> dict[str, Any]:
+    """Build an Itinerary. Pass `trip_id` when re-planning an existing trip."""
     category_map = load_categories()["categories"]
-    places = load_places(city)
+    # TODO(ingest): waiting for Place[] for the requested `destination`. Until ingest is
+    # merged, every trip is planned from the Lisbon fixtures (the response warns about it).
+    rejected = set(profile.get("feedback", {}).get("rejected", []))
+    places = [p for p in load_places(city) if p["id"] not in rejected]
 
     # 1) Score every place, best first. Use the trained ranking model if one exists,
     #    otherwise the hand-coded stub.
+    #    TODO(ranker): the model is still trained on synthetic data; waiting for real
+    #    Place data from ingest (and real feedback) to retrain it.
     trained_scorer = _get_trained_scorer()
 
     def _score(place: dict[str, Any]) -> float:
@@ -114,7 +121,9 @@ def plan_itinerary(
     else:
         ordered = [p for s, _pop, p in scored if s > 0]  # stub: keep interest matches only
 
-    # 2) Greedy day packing. Ignores travel time + opening hours (Optimizer replaces this).
+    # 2) Greedy day packing.
+    #    TODO(optimizer): waiting for schedule(places, profile, dates, travel_matrix). This
+    #    stub ignores opening hours, travel time, max_walk_minutes and the budget.
     day_start = _to_minutes(profile.get("day_start", "09:00"))
     day_end = _to_minutes(profile.get("day_end", "22:00"))
     pace = float(profile.get("pace", 0.5))
@@ -149,7 +158,8 @@ def plan_itinerary(
                     "place_id": place["id"],
                     "start": _to_hhmm(cursor),
                     "end": _to_hhmm(cursor + duration),
-                    # TODO(data/optimizer): real travel time from a travel matrix.
+                    # TODO(ingest, optimizer): waiting for the travel matrix from ingest
+                    # and for the optimizer to schedule with it.
                     "travel_from_prev": {"minutes": 0, "mode": "none"},
                     "cost": cost,
                     "reason": _reason(place, profile, interests),
@@ -172,7 +182,7 @@ def plan_itinerary(
         dest["country"] = destination["country"]
 
     # Naive "score": how full the days ended up. Saturates toward 1.0.
-    # TODO(optimizer): replace with a real itinerary quality score.
+    # TODO(optimizer): waiting for a real itinerary quality score.
     placed = sum(len(d["items"]) for d in days_out)
     itinerary_score = round(placed / (placed + 3), 2) if placed else 0.0
 
@@ -181,11 +191,14 @@ def plan_itinerary(
         warnings.append(
             f"Opening hours for {unverified_hours} place(s) could not be verified."
         )
-    warnings.append("Stub scheduler: travel time and opening hours are not yet enforced.")
+    warnings.append(
+        "Stub scheduler: travel time, opening hours and budget are not yet enforced, "
+        "and every trip is planned from the Lisbon sample places."
+    )
 
     currency = profile.get("budget", {}).get("currency", "EUR")
     return {
-        "trip_id": str(uuid.uuid4()),
+        "trip_id": trip_id or str(uuid.uuid4()),
         "destination": dest,
         "start_date": start_date,
         "end_date": end_date,

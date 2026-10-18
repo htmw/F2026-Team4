@@ -11,6 +11,9 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 
+# Local trip database (api/trips.py)
+data/*.db
+
 # Trained model artifacts (retrainable via `make train`) — keep the folder, not the binaries
 models/*
 !models/.gitkeep
