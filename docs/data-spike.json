@@ -1,124 +1,122 @@
 {
- "Lisbon, Portugal": {
-  "stats": {
-   "places": 6073,
-   "hours_parsed": 1518,
-   "hours_unparseable": 153,
-   "hours_absent": 4402,
-   "price_known_paid": 33,
-   "price_known_free": 22,
-   "price_assumed_free": 1183,
-   "price_no_data": 4835,
-   "top_sights": {
-    "n": 100,
-    "hours_known": 29,
-    "price_known": 16
+ "city": "Lisbon, Portugal",
+ "stats": {
+  "places": 6073,
+  "hours_parsed": 1518,
+  "hours_unparseable": 153,
+  "hours_absent": 4402,
+  "price_known_paid": 33,
+  "price_known_free": 22,
+  "price_assumed_free": 1181,
+  "price_no_data": 4837,
+  "top_sights": {
+   "n": 100,
+   "hours_known": 29,
+   "price_known": 16
+  },
+  "dropped": {
+   "dropped_always_closed": 3,
+   "dropped_unmapped_category": 460,
+   "dropped_outside_bbox": 8,
+   "dropped_no_position": 2
+  },
+  "duplicates_merged": 127,
+  "bbox": [
+   38.6913994,
+   -9.2298356,
+   38.7967584,
+   -9.0863328
+  ],
+  "by_category": {
+   "restaurant": {
+    "n": 2827,
+    "hours_known": 843,
+    "price_known": 0
    },
-   "dropped": {
-    "dropped_always_closed": 3,
-    "dropped_unmapped_category": 460,
-    "dropped_outside_bbox": 8,
-    "dropped_no_position": 2
+   "cafe": {
+    "n": 1155,
+    "hours_known": 365,
+    "price_known": 0
    },
-   "duplicates_merged": 127,
-   "bbox": [
-    38.6913994,
-    -9.2298356,
-    38.7967584,
-    -9.0863328
-   ],
-   "bbox_source": "geocoded",
-   "by_category": {
-    "restaurant": {
-     "n": 2827,
-     "hours_known": 843,
-     "price_known": 0
-    },
-    "cafe": {
-     "n": 1155,
-     "hours_known": 365,
-     "price_known": 0
-    },
-    "bar": {
-     "n": 367,
-     "hours_known": 96,
-     "price_known": 0
-    },
-    "shop": {
-     "n": 194,
-     "hours_known": 39,
-     "price_known": 0
-    },
-    "bakery": {
-     "n": 139,
-     "hours_known": 51,
-     "price_known": 0
-    },
-    "landmark": {
-     "n": 276,
-     "hours_known": 23,
-     "price_known": 1
-    },
-    "gallery": {
-     "n": 59,
-     "hours_known": 10,
-     "price_known": 2
-    },
-    "garden": {
-     "n": 119,
-     "hours_known": 5,
-     "price_known": 3
-    },
-    "market": {
-     "n": 47,
-     "hours_known": 13,
-     "price_known": 0
-    },
-    "viewpoint": {
-     "n": 53,
-     "hours_known": 1,
-     "price_known": 1
-    },
-    "museum": {
-     "n": 104,
-     "hours_known": 39,
-     "price_known": 43
-    },
-    "nightclub": {
-     "n": 31,
-     "hours_known": 7,
-     "price_known": 0
-    },
-    "park": {
-     "n": 228,
-     "hours_known": 16,
-     "price_known": 4
-    },
-    "neighborhood": {
-     "n": 27,
-     "hours_known": 0,
-     "price_known": 0
-    },
-    "church": {
-     "n": 251,
-     "hours_known": 7,
-     "price_known": 0
-    },
-    "palace": {
-     "n": 150,
-     "hours_known": 2,
-     "price_known": 0
-    },
-    "castle": {
-     "n": 36,
-     "hours_known": 1,
-     "price_known": 1
-    },
-    "monument": {
-     "n": 10,
-     "hours_known": 0,
-     "price_known": 0
-    }
+   "bar": {
+    "n": 367,
+    "hours_known": 96,
+    "price_known": 0
+   },
+   "shop": {
+    "n": 194,
+    "hours_known": 39,
+    "price_known": 0
+   },
+   "bakery": {
+    "n": 139,
+    "hours_known": 51,
+    "price_known": 0
+   },
+   "landmark": {
+    "n": 275,
+    "hours_known": 23,
+    "price_known": 1
+   },
+   "gallery": {
+    "n": 59,
+    "hours_known": 10,
+    "price_known": 2
+   },
+   "garden": {
+    "n": 118,
+    "hours_known": 5,
+    "price_known": 3
+   },
+   "market": {
+    "n": 47,
+    "hours_known": 13,
+    "price_known": 0
+   },
+   "viewpoint": {
+    "n": 53,
+    "hours_known": 1,
+    "price_known": 1
+   },
+   "museum": {
+    "n": 105,
+    "hours_known": 39,
+    "price_known": 43
+   },
+   "nightclub": {
+    "n": 31,
+    "hours_known": 7,
+    "price_known": 0
+   },
+   "park": {
+    "n": 228,
+    "hours_known": 16,
+    "price_known": 4
+   },
+   "neighborhood": {
+    "n": 27,
+    "hours_known": 0,
+    "price_known": 0
+   },
+   "church": {
+    "n": 251,
+    "hours_known": 7,
+    "price_known": 0
+   },
+   "palace": {
+    "n": 151,
+    "hours_known": 2,
+    "price_known": 0
+   },
+   "castle": {
+    "n": 36,
+    "hours_known": 1,
+    "price_known": 1
+   },
+   "monument": {
+    "n": 10,
+    "hours_known": 0,
+    "price_known": 0
    }
   }
  }

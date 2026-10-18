@@ -13,17 +13,17 @@ the curation step deal with.
 **2. One city: Lisbon.**
 The project covers Lisbon only. `data/cities/lisbon/` is committed, so the demo never waits
 on Overpass (a full city fetch takes minutes and Overpass rate limits hard). It holds real
-OpenStreetMap data and replaces the small hand made sample in `/fixtures`, which the catalog
-now hides. Hand checked facts for the top sights are the next step (see What is still open).
+OpenStreetMap data. The small hand made sample in `fixtures/lisbon.places.json` is no
+longer read by the app. Hand checked facts for the top sights are the next step (see What
+is still open).
 
-**3. The catalog decides where a city comes from, not the API.**
-`ingest/catalog.py` resolves a destination name to the committed Lisbon snapshot. The API
-and the optimizer call `load_city()` and never touch file paths. Local runs in `data/out`
-are only served when `WANDERWISE_EXTRA_CITIES` says so, and never in place of committed
-data, so a spike run on one laptop cannot change what the API or the ranker sees for
-Lisbon. Any other city, a missing name, or "Lisbon, Ohio" raises `CityNotAvailable`, and
-the API turns that into a 422 that names the city that does work. This fixes the Sprint 1
-integration finding where New York returned Lisbon places.
+**3. One function gives out the data: `load_city()`.**
+`ingest/catalog.py` is the only code that opens `data/cities/lisbon/`. The API and the
+optimizer call `load_city()` or `load_places()` and never touch file paths. A scratch run
+of the pipeline writes to `data/out/` and is never served, so a test run on one laptop
+cannot change what the API or the ranker sees. Any other city, a missing name, or
+Lisbon, Ohio raises `CityNotAvailable`, and the API turns that into a 422 that names
+Lisbon. This fixes the Sprint 1 integration finding where New York returned Lisbon places.
 
 **4. Strict parsing, honest labels.**
 `known` means the value came from real data or from a person checking the official source.
@@ -48,7 +48,10 @@ record and every distance is measured to it. An earlier version linked any two c
 records, and a row of neighbours could chain into one group across a whole district.
 City walls and aqueducts are the opposite case: OSM splits them into dozens of pieces with
 one name (36 for the Aguas Livres aqueduct), so every piece of one structure becomes one
-stop.
+stop. A merged place keeps the most specific category first (decision 5), whichever copy it
+came from: the Jeronimos Monastery is a landmark in one record and a museum in another, and
+the merged place is a museum, so it does not get the landmark default of open all day and
+free.
 
 **8. A big ticketed site is one stop.**
 OSM can map each part of a big ticketed site as its own sight, with default hours of open
@@ -114,14 +117,22 @@ Weights add up to 1. Forty translated names (or more) earn the full name weight.
 
 ## What is still open
 
-- The JSON shape of `matrix.json` is a proposal. The optimizer reads `travel_legs()` output
-  directly, which needs no file at all.
+- Place names in the app. An itinerary item carries only `place_id`, so the frontend shows
+  `Way/24341353` instead of Torre de Belém. It needs either a `name` on each item (a contract
+  change the team agrees on) or a place lookup by id. Data, backend and frontend together.
+- The Lisbon Oceanarium and the Lisbon Zoo are missing: the sights query does not ask for
+  `tourism=aquarium` or `tourism=zoo`, and the contract has no category for them yet. Only
+  the Oceanarium gift shop is in the data.
 - Training data for the ranker on real places: the Lisbon snapshot gives real candidates, but
   real relevance labels still need a public dataset (Sprint 2 plan). Real places never carry
   `rating`, so a model trained on synthetic ratings should be retrained before it ranks them.
-- About 2% of OSM `opening_hours` values stay `unknown` because the parser does not read
-  month ranges, extended times such as `19:00-26:00`, or rules joined by a comma. Supporting
-  them is a parser change worth doing once the demo city is settled.
+- About 9% of the Lisbon places that have an `opening_hours` tag (153 of 1,671) stay
+  `unknown`. The causes: free text or Portuguese words instead of OSM syntax (64), rules
+  joined by a comma such as `Mo-Sa 12:00-15:00, Su closed` (46), closures on fixed dates such
+  as `Jan 01,May 01,Dec 25 off` (32, mostly museums), seasonal month ranges such as the
+  Belem Tower `Oct-Apr: ...; May-Sep: ...` (9), and times past midnight such as `26:00` (2).
+  Reading comma rules and skipping fixed-date closures, as PH is skipped, would recover most
+  of the museums and restaurants.
 - Hand checked hours and prices for the Lisbon top sights. Raw OSM gives the Jeronimos
-  Monastery default hours and an assumed free entry, for example.
+  Monastery only the museum default hours and no price, for example.
 - Day trips need curated entries; OSM cannot say what a day trip is.
