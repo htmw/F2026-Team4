@@ -56,9 +56,11 @@ name, country and centre.
    Wikidata and Wikipedia links, heritage status and how well documented the place is.
 5. **Duplicates** ([`dedupe.py`](dedupe.py)):
    - City walls and aqueducts come as dozens of pieces with one name (Rome has 91 pieces of
-     the Aurelian Walls). Each structure becomes one stop, placed on its best piece. A
-     relation is never used for the position: its centre is the middle of a bounding box,
-     which for a ring of walls is next to the Colosseum.
+     the Aurelian Walls). Each structure becomes one stop, placed on its best node or way.
+     A relation that groups parts (site, route, building, waterway) is never used for the
+     position: its centre is the middle of a bounding box, which for the ring of the
+     Aurelian Walls is next to the Colosseum. A single area relation (a multipolygon) is
+     used only when the structure has no node or way at all.
    - Everything else is grouped around a seed, richest record first: same wikidata id within
      1 km of the seed (100 m when the names differ), or same name within 60 m. Distances are
      measured to the seed, so a row of neighbours cannot chain into one group. A venue never
@@ -107,9 +109,12 @@ because OSM has no reviews.
   only secondary sources exist or they disagree: the entry is then applied as `inferred`.
 - Hours are the doors-open times. Last entry, free Sundays and special closures go in `notes`.
 - Other records of the same place are folded in: anything within the entry's radius that
-  carries one of its names (the Ara Pacis altar next to the Ara Pacis museum). Venues are
-  never folded, so the San Clemente bar stays a bar. Two entries that match the same place
-  stop the run.
+  carries one of its names (the Ara Pacis altar next to the Ara Pacis museum). A venue is
+  never folded into a sight or a sight into a venue, so the San Clemente bar stays a bar,
+  and a neighbourhood is never folded. Two entries that match the same place stop the run.
+- Folding uses the same radius as matching, so keep the radius tight around the site. The
+  Colosseum uses 150 m: at 300 m it would swallow the free Colosseo viewpoint on the street
+  above it.
 - `exclude_within` drops every place inside a polygon except the ids in `keep`. Rome uses it
   for the Roman Forum and Palatine, and for the inside of the Vatican walls: OSM maps every
   temple and gallery there as its own sight, but they are visited with one ticket. A zone
@@ -169,6 +174,9 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 - Parts of one site that OSM tags with the site's wikidata under another name more than
   100 m away stay separate records. In Rome the one that mattered (Piazza Retta, part of
   St. Peter's Square) is excluded by hand.
+- A wall mapped only as one multipolygon keeps the centre of its bounding box, because the
+  pipeline fetches centres, not shapes. For a ring of walls that point is off the wall:
+  the Porto spike data has one (Muralhas Fernandinas do Porto). No Rome record is affected.
 
 ## License
 

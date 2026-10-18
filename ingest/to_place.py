@@ -32,7 +32,7 @@ _LONG_STRUCTURE_TAGS = {
 # Relations that group separate parts. Overpass places them at the centre of the bounding
 # box of all the parts, which can be far from every part: the ring of the Aurelian Walls
 # has its centre next to the Colosseum.
-_COLLECTION_RELATIONS = {"site", "route", "building"}
+_COLLECTION_RELATIONS = {"site", "route", "building", "waterway", "collection", "multilinestring"}
 
 
 def is_long_structure(tags: dict) -> bool:

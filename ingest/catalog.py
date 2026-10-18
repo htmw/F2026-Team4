@@ -112,8 +112,13 @@ def _fixture_entries() -> list[_Entry]:
 
 
 def _entries() -> list[_Entry]:
-    """Every city in lookup order. A key seen once is not served again by a later source."""
-    seen: set[str] = set()
+    """Every city in lookup order.
+
+    A later source never serves a city an earlier one already serves, whether the key
+    matches (rome) or only the name does (a local run in rome-italy is still Rome).
+    """
+    seen_keys: set[str] = set()
+    served_names: set[str] = set()
     out: list[_Entry] = []
     sources = [
         _dir_entries(CITIES_DIR, "snapshot"),
@@ -122,9 +127,11 @@ def _entries() -> list[_Entry]:
     ]
     for entries in sources:
         for e in entries:
-            if e.key not in seen:
-                seen.add(e.key)
-                out.append(e)
+            if e.key in seen_keys or normalize_name(e.name) in served_names:
+                continue
+            seen_keys.add(e.key)
+            served_names.update(e.names)
+            out.append(e)
     return out
 
 
