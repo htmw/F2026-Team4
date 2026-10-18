@@ -1,0 +1,1042 @@
+{
+  "city": "rome",
+  "checked_on": "2026-10-17",
+  "valid_for": "Winter timetable, 25 Oct 2026 to 28 Feb 2027 (covers the Nov and Dec demo)",
+  "notes": "Hours are when the doors are open, not the last entry. High and medium entries come from the official site of the venue or the managing authority. Low entries rely on secondary sources and are applied as inferred, not known. Prices are the full adult price for non-residents without optional online fees.",
+  "places": [
+    {
+      "name": "Colosseum",
+      "match": {
+        "names": [
+          "Colosseo",
+          "Colosseum",
+          "Anfiteatro Flavio"
+        ],
+        "near": [
+          41.8902,
+          12.4922
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 08:30-16:30",
+      "price": {
+        "amount": 18.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 75,
+      "confidence": "high",
+      "sources": [
+        "https://colosseo.it/orari-e-biglietti/",
+        "https://colosseo.it/biglietti/colosseo-foro-romano-palatino/"
+      ],
+      "notes": "Winter hours 25 Oct 2026 to 28 Feb 2027, last entry 15:30. Timed entry slot required, maximum stay 75 minutes. The 18 EUR ticket also covers the Roman Forum and Palatine within 24 hours. Closed 25 Dec and 1 Jan. Free on the first Sunday of the month."
+    },
+    {
+      "name": "Roman Forum and Palatine Hill",
+      "match": {
+        "names": [
+          "Forum Romanum",
+          "Foro Romano",
+          "Roman Forum"
+        ],
+        "near": [
+          41.8922,
+          12.4853
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:00-16:30",
+      "price": {
+        "amount": 18.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 150,
+      "confidence": "high",
+      "sources": [
+        "https://colosseo.it/biglietti/forum-pass-super/",
+        "https://colosseo.it/orari-e-biglietti/"
+      ],
+      "notes": "One site and one ticket with the Palatine, so it is one stop here. Winter hours, last entry 15:30. Forum Pass SUPER 18 EUR, or the same 18 EUR ticket as the Colosseum: a traveler who does both pays once. Closed 25 Dec and 1 Jan."
+    },
+    {
+      "name": "Pantheon",
+      "match": {
+        "names": [
+          "Pantheon"
+        ],
+        "near": [
+          41.8986,
+          12.4769
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:00-19:00",
+      "price": {
+        "amount": 7.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 30,
+      "confidence": "high",
+      "sources": [
+        "https://cultura.gov.it/luogo/pantheon",
+        "https://www.pantheonroma.com/"
+      ],
+      "notes": "Last entry 18:30. Price rose from 5 to 7 EUR on 1 Jul 2026. During Mass (Sat 17:00, Sun 10:30) only worshippers enter. Closed 25 Dec and 1 Jan."
+    },
+    {
+      "name": "Trevi Fountain",
+      "match": {
+        "names": [
+          "Fontana di Trevi",
+          "Trevi Fountain"
+        ],
+        "near": [
+          41.9009,
+          12.4833
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 2.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "medium",
+      "sources": [
+        "https://www.turismoroma.it/en/news/trevi-fountain-new-entry-fee-one-romes-symbols",
+        "https://www.agi.it/cronaca/news/2026-01-28/fontana-trevi-biglietto-35321864/"
+      ],
+      "notes": "Visible from the square at any hour. Since 2 Feb 2026 non-residents pay 2 EUR to enter the basin area, about 09:00 to 22:00 (sources differ on Monday and Friday times)."
+    },
+    {
+      "name": "Spanish Steps",
+      "match": {
+        "names": [
+          "Scalinata della Trinità dei Monti",
+          "Scalinata di Trinità dei Monti",
+          "Spanish Steps"
+        ],
+        "near": [
+          41.906,
+          12.4828
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "high",
+      "sources": [
+        "https://www.turismoroma.it/it/luoghi/scalinata-di-trinit%C3%A0-dei-monti"
+      ],
+      "notes": "Open public staircase, no gates, no fee."
+    },
+    {
+      "name": "Piazza Navona",
+      "match": {
+        "names": [
+          "Piazza Navona"
+        ],
+        "near": [
+          41.899,
+          12.4731
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 30,
+      "confidence": "high",
+      "sources": [
+        "https://www.turismoroma.it/it/luoghi/piazza-navona"
+      ],
+      "notes": "Public square, no gates, no fee."
+    },
+    {
+      "name": "Vatican Museums and Sistine Chapel",
+      "match": {
+        "names": [
+          "Musei Vaticani",
+          "Vatican Museums"
+        ],
+        "near": [
+          41.9065,
+          12.4537
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Sa 08:00-20:00; Su off",
+      "price": {
+        "amount": 20.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 180,
+      "confidence": "high",
+      "sources": [
+        "https://www.museivaticani.va/content/museivaticani-mobile/it/info/orari-musei-vaticani.html",
+        "https://www.museivaticani.va/content/museivaticani-mobile/it/organizza-visita/tariffe-e-biglietti.html"
+      ],
+      "notes": "Last entry 18:00. 20 EUR at the door, online booking adds 5 EUR. The Sistine Chapel and the Raphael Rooms are on the museum route. Free on the last Sunday of the month 09:00 to 14:00 (29 Nov, 27 Dec 2026). Closed 8, 25, 26 Dec 2026 and 1, 6 Jan 2027."
+    },
+    {
+      "name": "St. Peter's Basilica",
+      "match": {
+        "names": [
+          "Basilica di San Pietro"
+        ],
+        "near": [
+          41.9022,
+          12.4539
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 07:00-20:00",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 75,
+      "confidence": "medium",
+      "sources": [
+        "https://www.basilicasanpietro.va/en/opening-hours",
+        "https://www.basilicasanpietro.va/en/products/the-basilica"
+      ],
+      "notes": "Official site: 07:00 to 20:00 from 1 Jun 2026, no separate winter hours published. Older guides give 18:30 in winter, so avoid planning the last hour. Free entry, security check in the square. May open late on Wednesday mornings when there is a papal audience."
+    },
+    {
+      "name": "Castel Sant'Angelo",
+      "match": {
+        "names": [
+          "Castel Sant'Angelo"
+        ],
+        "near": [
+          41.9031,
+          12.4663
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 09:00-19:30; Mo off",
+      "price": {
+        "amount": 18.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 90,
+      "confidence": "high",
+      "sources": [
+        "https://cultura.gov.it/luogo/castel-santangelo"
+      ],
+      "notes": "Last entry 18:30. Closed Mondays, 25 Dec and 1 Jan, except the first Monday of the month (14:00 to 20:00, 5 EUR). Free on the first Sunday of the month."
+    },
+    {
+      "name": "Galleria Borghese",
+      "match": {
+        "names": [
+          "Galleria Borghese"
+        ],
+        "near": [
+          41.9142,
+          12.4921
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 09:00-19:00; Mo off",
+      "price": {
+        "amount": 18.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 120,
+      "confidence": "medium",
+      "sources": [
+        "https://galleriaborghese.cultura.gov.it/en/visita/info-biglietti/",
+        "https://galleriaborghese.cultura.gov.it/en/info/"
+      ],
+      "notes": "16 EUR plus a compulsory 2 EUR reservation, so 18 EUR in total. Timed entry every hour, 2 hour visit, booking required. Price may rise during temporary exhibitions."
+    },
+    {
+      "name": "Villa Borghese",
+      "match": {
+        "names": [
+          "Villa Borghese"
+        ],
+        "near": [
+          41.913,
+          12.485
+        ],
+        "radius_m": 600
+      },
+      "opening_hours": "Mo-Su 08:30-17:00",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 90,
+      "confidence": "medium",
+      "sources": [
+        "https://turismoroma.it/it/luoghi/villa-borghese"
+      ],
+      "notes": "Public park. November to February the gates open between 06:30 and 08:30 and close between 17:00 and 19:00; the hours here are the window when every gate is open."
+    },
+    {
+      "name": "Capitoline Museums",
+      "match": {
+        "names": [
+          "Musei Capitolini",
+          "Capitoline Museums"
+        ],
+        "near": [
+          41.893,
+          12.4827
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:30-19:30",
+      "price": {
+        "amount": 15.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 120,
+      "confidence": "high",
+      "sources": [
+        "https://www.museicapitolini.org/it/informazioni_pratiche/orari_e_indirizzi",
+        "https://www.museicapitolini.org/it/informazioni_pratiche/biglietti_e_videoguide"
+      ],
+      "notes": "Last entry 18:30. 15 EUR without an exhibition; buying ahead adds 1 EUR. Closed 25 Dec and 1 May."
+    },
+    {
+      "name": "Vittoriano",
+      "match": {
+        "names": [
+          "Altare della Patria",
+          "Vittoriano",
+          "Monumento a Vittorio Emanuele II"
+        ],
+        "near": [
+          41.8946,
+          12.4831
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:30-19:30",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 60,
+      "confidence": "medium",
+      "sources": [
+        "https://vive.cultura.gov.it/it/visita"
+      ],
+      "notes": "The monument is free. The panoramic terrace and the museums need the 18 EUR VIVE ticket. Last entry 18:45."
+    },
+    {
+      "name": "Baths of Caracalla",
+      "match": {
+        "names": [
+          "Terme di Caracalla",
+          "Baths of Caracalla"
+        ],
+        "near": [
+          41.8792,
+          12.4924
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 09:00-16:30; Mo off",
+      "price": {
+        "amount": 10.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 90,
+      "confidence": "medium",
+      "sources": [
+        "https://soprintendenzaspecialeroma.it/luoghi/terme-di-caracalla/",
+        "https://cultura.gov.it/luogo/terme-di-caracalla",
+        "https://turismoroma.it/it/node/175646"
+      ],
+      "notes": "Winter hours, last entry 15:30, closed Mondays. 8 EUR base price plus 2 EUR during the exhibition that runs to 10 Jan 2027."
+    },
+    {
+      "name": "Circus Maximus",
+      "match": {
+        "names": [
+          "Circo Massimo",
+          "Circus Maximus"
+        ],
+        "near": [
+          41.8861,
+          12.4851
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "medium",
+      "sources": [
+        "https://www.turismoroma.it/it/luoghi/circo-massimo"
+      ],
+      "notes": "Open public area. The excavations at the curved end are a separate paid visit."
+    },
+    {
+      "name": "Bocca della Verita",
+      "match": {
+        "names": [
+          "Chiesa di Santa Maria in Cosmedin",
+          "Santa Maria in Cosmedin",
+          "Bocca della Verità"
+        ],
+        "near": [
+          41.8881,
+          12.4816
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:30-13:00,14:00-17:50",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 15,
+      "confidence": "low",
+      "sources": [
+        "https://www.turismoroma.it/it/luoghi/bocca-della-verita",
+        "https://turismoroma.it/en/node/1787",
+        "https://visitrome.com/rome/travel-guides/santa-maria-in-cosmedin-rome-visitor-guide"
+      ],
+      "notes": "Sources disagree on the lunch break (12:30 to 15:00 is uncertain). Free."
+    },
+    {
+      "name": "Basilica di Santa Maria Maggiore",
+      "match": {
+        "names": [
+          "Basilica di Santa Maria Maggiore",
+          "Santa Maria Maggiore"
+        ],
+        "near": [
+          41.8976,
+          12.4984
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 07:00-18:45",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 45,
+      "confidence": "low",
+      "sources": [
+        "https://museionline.info/roma-musei-e-monumenti/basilica-di-santa-maria-maggiore-roma",
+        "https://visitrome.com/rome/travel-guides/rome-history-and-culture/basilica-di-santa-maria-maggiore"
+      ],
+      "notes": "Hours from secondary sources only. Free. Museum and loggia are ticketed separately."
+    },
+    {
+      "name": "Archbasilica of San Giovanni in Laterano",
+      "match": {
+        "names": [
+          "Basilica di San Giovanni in Laterano",
+          "Arcibasilica di San Giovanni in Laterano"
+        ],
+        "near": [
+          41.8859,
+          12.5057
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 07:00-18:30",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 45,
+      "confidence": "high",
+      "sources": [
+        "https://www.basilicasangiovanni.va/it/info-e-orari.html"
+      ],
+      "notes": "Free. Cloister Mon to Sat 09:00 to 17:00 for a fee. Hours may change for celebrations."
+    },
+    {
+      "name": "Basilica di San Clemente",
+      "match": {
+        "names": [
+          "Basilica di San Clemente al Laterano",
+          "Basilica di San Clemente",
+          "San Clemente"
+        ],
+        "near": [
+          41.8893,
+          12.4976
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Sa 09:00-12:30,14:00-18:00; Su 12:00-18:00",
+      "price": {
+        "amount": 10.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 60,
+      "confidence": "high",
+      "sources": [
+        "https://basilicasanclemente.com/eng/opening-hours-and-info/"
+      ],
+      "notes": "10 EUR is for the underground excavations, online booking required. The upper church is free. Last entry 12:00 and 17:30."
+    },
+    {
+      "name": "Campo de' Fiori market",
+      "match": {
+        "names": [
+          "Campo de' Fiori",
+          "Mercato di Campo de' Fiori",
+          "Campo de Fiori"
+        ],
+        "near": [
+          41.8956,
+          12.4722
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Sa 07:00-14:00; Su off",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 30,
+      "confidence": "low",
+      "sources": [
+        "https://www.inyourpocket.com/Italy/rome/venues/campo-de-fiori",
+        "https://www.rome.info/it/attrazioni/campo-de-fiori/"
+      ],
+      "notes": "Morning market stalls; hours from secondary sources only. The square itself is open at all times."
+    },
+    {
+      "name": "Mercato di Testaccio",
+      "match": {
+        "names": [
+          "Nuovo Mercato Testaccio",
+          "Mercato di Testaccio",
+          "Mercato Testaccio"
+        ],
+        "near": [
+          41.8777,
+          12.4744
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Sa 07:00-15:30; Su off",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 60,
+      "confidence": "medium",
+      "sources": [
+        "https://www.mercatoditestaccio.it/info/"
+      ],
+      "notes": "Official market site. Food stalls, good for lunch."
+    },
+    {
+      "name": "Palazzo Massimo alle Terme",
+      "match": {
+        "names": [
+          "Museo Nazionale Romano di Palazzo Massimo",
+          "Palazzo Massimo alle Terme",
+          "Museo Nazionale Romano - Palazzo Massimo"
+        ],
+        "near": [
+          41.9013,
+          12.4985
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 09:00-19:00; Mo off",
+      "price": {
+        "amount": 15.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 120,
+      "confidence": "medium",
+      "sources": [
+        "https://cultura.gov.it/luogo/museo-nazionale-romano-palazzo-massimo"
+      ],
+      "notes": "Ministry page. One 15 EUR ticket admits once to each Museo Nazionale Romano site within a week. Last entry 18:00."
+    },
+    {
+      "name": "Ara Pacis Museum",
+      "match": {
+        "names": [
+          "Museo dell'Ara Pacis",
+          "Ara Pacis Augustae",
+          "Ara Pacis"
+        ],
+        "near": [
+          41.9062,
+          12.4755
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:30-19:30",
+      "price": {
+        "amount": 14.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 60,
+      "confidence": "high",
+      "sources": [
+        "https://www.arapacis.it/it/informazioni_pratiche/orari_e_indirizzi",
+        "https://www.arapacis.it/en/node/516"
+      ],
+      "notes": "Last entry 18:30. Buying ahead adds 1 EUR. Closed 25 Dec and 1 May."
+    },
+    {
+      "name": "Galleria Doria Pamphilj",
+      "match": {
+        "names": [
+          "Palazzo Doria Pamphilj",
+          "Galleria Doria Pamphilj"
+        ],
+        "near": [
+          41.8979,
+          12.4813
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo,Tu,Th 09:00-19:00; Fr-Su 10:00-20:00; We off",
+      "price": {
+        "amount": 16.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 90,
+      "confidence": "high",
+      "sources": [
+        "https://www.doriapamphilj.it/roma/la-visita/"
+      ],
+      "notes": "Closed Wednesdays. 16 EUR at the door, 17 EUR online. Last entry one hour before closing."
+    },
+    {
+      "name": "Giardino degli Aranci",
+      "match": {
+        "names": [
+          "Giardino degli Aranci",
+          "Parco Savello"
+        ],
+        "near": [
+          41.8851,
+          12.4796
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 07:00-18:00",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "high",
+      "sources": [
+        "https://turismoroma.it/it/luoghi/parco-savello-o-giardino-degli-aranci"
+      ],
+      "notes": "October to February hours. Free public garden with a view over the city."
+    },
+    {
+      "name": "Gianicolo terrace",
+      "match": {
+        "names": [
+          "Terrazza del Gianicolo",
+          "Piazzale Giuseppe Garibaldi",
+          "Gianicolo"
+        ],
+        "near": [
+          41.8917,
+          12.4613
+        ],
+        "radius_m": 400
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "high",
+      "sources": [
+        "https://www.turismoroma.it/it/itinerari/i-punti-panoramici"
+      ],
+      "notes": "Public terrace by the Garibaldi monument, free."
+    },
+    {
+      "name": "Santa Maria in Trastevere",
+      "match": {
+        "names": [
+          "Basilica di Santa Maria in Trastevere",
+          "Santa Maria in Trastevere"
+        ],
+        "near": [
+          41.8894,
+          12.4703
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 07:30-21:00",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "low",
+      "sources": [
+        "https://www.museionline.info/roma-musei-e-monumenti/basilica-di-santa-maria-in-trastevere"
+      ],
+      "notes": "Hours from one secondary source only. Free."
+    },
+    {
+      "name": "Trajan's Market",
+      "match": {
+        "names": [
+          "Mercati di Traiano",
+          "Trajan's Market"
+        ],
+        "near": [
+          41.8957,
+          12.486
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 09:30-19:30",
+      "price": {
+        "amount": 15.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 75,
+      "confidence": "high",
+      "sources": [
+        "https://www.mercatiditraiano.it/it/informazioni_pratiche/orari_e_indirizzi",
+        "https://www.mercatiditraiano.it/it/informazioni_pratiche/biglietti_e_videoguide"
+      ],
+      "notes": "Houses the Museum of the Imperial Fora. Last entry 18:30. Exhibitions raise the price."
+    },
+    {
+      "name": "San Pietro in Vincoli",
+      "match": {
+        "names": [
+          "Basilica di San Pietro in Vincoli",
+          "San Pietro in Vincoli"
+        ],
+        "near": [
+          41.8938,
+          12.493
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Mo-Su 08:00-12:30,15:00-18:00",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "low",
+      "sources": [
+        "https://www.museionline.info/roma-musei-e-monumenti/basilica-di-san-pietro-in-vincoli-roma"
+      ],
+      "notes": "Michelangelo's Moses. Hours from secondary sources only. Free."
+    },
+    {
+      "name": "Piazza del Popolo",
+      "match": {
+        "names": [
+          "Piazza del Popolo"
+        ],
+        "near": [
+          41.9107,
+          12.4764
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 20,
+      "confidence": "high",
+      "sources": [
+        "https://www.turismoroma.it/it/luoghi/piazza-del-popolo"
+      ],
+      "notes": "Public square, free. Restoration work may fence off parts of it."
+    },
+    {
+      "name": "Palazzo Barberini",
+      "match": {
+        "names": [
+          "Palazzo Barberini",
+          "Galleria Nazionale d'Arte Antica",
+          "Gallerie Nazionali di Arte Antica - Palazzo Barberini"
+        ],
+        "near": [
+          41.9034,
+          12.4901
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 10:00-19:00; Mo off",
+      "price": {
+        "amount": 15.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 90,
+      "confidence": "high",
+      "sources": [
+        "https://barberinicorsini.org/palazzo-barberini/"
+      ],
+      "notes": "Last entry 18:00. The 15 EUR ticket also covers Galleria Corsini and is valid 20 days."
+    },
+    {
+      "name": "Largo di Torre Argentina",
+      "match": {
+        "names": [
+          "Largo di Torre Argentina",
+          "Area Sacra di Largo Argentina",
+          "Area sacra di Largo Argentina"
+        ],
+        "near": [
+          41.8955,
+          12.4768
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "Tu-Su 09:30-16:00; Mo off",
+      "price": {
+        "amount": 7.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 30,
+      "confidence": "high",
+      "sources": [
+        "https://www.sovraintendenzaroma.it/i_luoghi/roma_antica/aree_archeologiche/area_sacra_di_largo_argentina",
+        "https://turismoroma.it/it/luoghi/area-sacra-di-largo-di-torre-argentina"
+      ],
+      "notes": "Winter hours for the walkway among the temples, booking required. The ruins can also be seen from the street for free."
+    },
+    {
+      "name": "Knights of Malta keyhole",
+      "match": {
+        "names": [
+          "San Pietro dal Buco della serratura",
+          "Piazza dei Cavalieri di Malta",
+          "Buco della Serratura"
+        ],
+        "near": [
+          41.8829,
+          12.4784
+        ],
+        "radius_m": 300
+      },
+      "opening_hours": "24/7",
+      "price": {
+        "amount": 0.0,
+        "currency": "EUR"
+      },
+      "duration_minutes": 15,
+      "confidence": "high",
+      "sources": [
+        "https://turismoroma.it/it/node/2152"
+      ],
+      "notes": "Look through the keyhole of the Priory gate at the dome of St. Peter's. Free."
+    }
+  ],
+  "exclude": [
+    {
+      "id": "osm:way/123817455",
+      "reason": "Palazzo dei Conservatori is part of the Capitoline Museums"
+    },
+    {
+      "id": "osm:relation/1691910",
+      "reason": "Palazzo Senatorio is the city hall, seen from Piazza del Campidoglio"
+    },
+    {
+      "id": "osm:way/123817484",
+      "reason": "Palazzo Clementino is part of the Capitoline Museums"
+    },
+    {
+      "id": "osm:way/123817454",
+      "reason": "Palazzo Caffarelli is part of the Capitoline Museums"
+    },
+    {
+      "id": "osm:way/123817452",
+      "reason": "Exedra of Marcus Aurelius is inside the Capitoline Museums"
+    },
+    {
+      "id": "osm:node/2419664831",
+      "reason": "Portone di Bronzo is the palace door at the end of the colonnade, seen from St. Peter's Square"
+    }
+  ],
+  "exclude_within": [
+    {
+      "name": "Roman Forum and Palatine",
+      "reason": "Inside the ticketed archaeological park. Visited as part of the Roman Forum and Palatine stop.",
+      "polygon": [
+        [
+          41.89305,
+          12.4838
+        ],
+        [
+          41.89305,
+          12.4862
+        ],
+        [
+          41.8925,
+          12.487
+        ],
+        [
+          41.89235,
+          12.488
+        ],
+        [
+          41.892,
+          12.489
+        ],
+        [
+          41.8912,
+          12.4901
+        ],
+        [
+          41.8903,
+          12.49
+        ],
+        [
+          41.8885,
+          12.4895
+        ],
+        [
+          41.887,
+          12.4887
+        ],
+        [
+          41.8863,
+          12.4878
+        ],
+        [
+          41.8864,
+          12.4865
+        ],
+        [
+          41.8874,
+          12.485
+        ],
+        [
+          41.8885,
+          12.4847
+        ],
+        [
+          41.89,
+          12.4848
+        ],
+        [
+          41.8906,
+          12.4849
+        ],
+        [
+          41.8915,
+          12.4842
+        ],
+        [
+          41.8925,
+          12.4837
+        ]
+      ],
+      "keep": [
+        "osm:relation/1841080",
+        "osm:relation/1826131",
+        "osm:relation/1841087",
+        "osm:relation/13346196",
+        "osm:relation/1849827",
+        "osm:relation/1849833",
+        "osm:relation/13357824"
+      ]
+    },
+    {
+      "name": "Vatican Museums, Gardens and Apostolic Palace",
+      "reason": "Inside the Vatican walls: on the Vatican Museums route, or only open on guided tours, or not open to the public.",
+      "polygon": [
+        [
+          41.9069,
+          12.453
+        ],
+        [
+          41.9069,
+          12.4556
+        ],
+        [
+          41.9065,
+          12.4564
+        ],
+        [
+          41.9042,
+          12.45765
+        ],
+        [
+          41.9033,
+          12.457
+        ],
+        [
+          41.903,
+          12.4564
+        ],
+        [
+          41.9025,
+          12.4556
+        ],
+        [
+          41.9013,
+          12.4556
+        ],
+        [
+          41.901,
+          12.454
+        ],
+        [
+          41.9006,
+          12.451
+        ],
+        [
+          41.9013,
+          12.447
+        ],
+        [
+          41.9025,
+          12.447
+        ],
+        [
+          41.904,
+          12.4485
+        ],
+        [
+          41.905,
+          12.4495
+        ],
+        [
+          41.9062,
+          12.4515
+        ]
+      ],
+      "keep": [
+        "osm:way/112137587",
+        "osm:way/244159210",
+        "osm:node/5108555139",
+        "osm:way/244928138",
+        "osm:way/799694267",
+        "osm:relation/10044166"
+      ]
+    }
+  ]
+}
