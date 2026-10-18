@@ -57,7 +57,7 @@ def test_compare_skips_missing_routes():
 def test_render_states_a_verdict():
     places = _grid()
     result = compare(places, _table(places, ratio=1.25, speed_kmh=5.0))
-    text = render("Rome", result, "test server", "2026-10-17")
+    text = render("Lisbon", result, "test server", "2026-10-17")
 
     assert "| OSRM walking | (reference) |" in text
     assert "Good enough?" in text
