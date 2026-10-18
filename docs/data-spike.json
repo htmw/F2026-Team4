@@ -124,13 +124,13 @@
  },
  "Lisbon, Portugal": {
   "stats": {
-   "places": 6074,
+   "places": 6073,
    "hours_parsed": 1518,
    "hours_unparseable": 153,
-   "hours_absent": 4403,
+   "hours_absent": 4402,
    "price_known_paid": 33,
    "price_known_free": 22,
-   "price_assumed_free": 1184,
+   "price_assumed_free": 1183,
    "price_no_data": 4835,
    "top_sights": {
     "n": 100,
@@ -141,7 +141,7 @@
     "dropped_always_closed": 3,
     "dropped_unmapped_category": 460,
     "dropped_outside_bbox": 8,
-    "dropped_no_position": 1
+    "dropped_no_position": 2
    },
    "duplicates_merged": 127,
    "bbox": [
@@ -178,7 +178,7 @@
      "price_known": 0
     },
     "landmark": {
-     "n": 277,
+     "n": 276,
      "hours_known": 23,
      "price_known": 1
     },

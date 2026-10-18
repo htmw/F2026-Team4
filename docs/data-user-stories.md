@@ -52,11 +52,11 @@ pull request (`make test`). The test file is named in the last column.
 
 | Metric | Value | Where it comes from |
 |--------|-------|---------------------|
-| Rome places in the snapshot | 4,548 | `data/cities/rome/report.json` |
+| Rome places in the snapshot | 4,549 | `data/cities/rome/report.json` |
 | Duplicate records merged | 171, including 91 pieces of the Aurelian Walls into one stop | same report |
 | Places dropped inside the Forum and the Vatican walls | 124 | same report, curation zones |
-| Copies folded into curated sights | 6 | same report, curation |
+| Copies folded into curated sights | 5 | same report, curation |
 | Top sights with hand checked hours and prices | 33 (29 from official sources, 4 applied as inferred) | `data/curation/rome.json` |
 | OSM places with real opening hours | 21 to 28% across 4 cities | [`data-spike.md`](data-spike.md) |
 | Walking time error vs OSRM, walkable legs | 2.1 min mean, 5.7 min p95 | [`routing-spike.md`](routing-spike.md) |
-| Automated tests (Python, whole repo) | 197 passing | `make test-py` |
+| Automated tests (Python, whole repo) | 199 passing | `make test-py` |
