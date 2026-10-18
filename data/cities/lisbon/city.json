@@ -1,0 +1,26 @@
+{
+ "key": "lisbon",
+ "name": "Lisbon",
+ "country": "PT",
+ "country_name": "Portugal",
+ "aliases": [
+  "Lisboa",
+  "Lisboa, Portugal",
+  "Lisbon",
+  "Lisbon, Portugal"
+ ],
+ "lat": 38.7077507,
+ "lon": -9.1365919,
+ "bbox": [
+  38.6913994,
+  -9.2298356,
+  38.7967584,
+  -9.0863328
+ ],
+ "bbox_source": "geocoded",
+ "currency": "EUR",
+ "places": 6073,
+ "built_at": "2026-10-18T15:03:24+00:00",
+ "curation": null,
+ "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

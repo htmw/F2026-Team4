@@ -1,0 +1,192 @@
+{
+ "generated_at": "2026-10-18T15:03:24+00:00",
+ "query": "Lisbon, Portugal",
+ "destination": {
+  "name": "Lisbon",
+  "country": "PT",
+  "lat": 38.7077507,
+  "lon": -9.1365919
+ },
+ "bbox": [
+  38.6913994,
+  -9.2298356,
+  38.7967584,
+  -9.0863328
+ ],
+ "bbox_source": "geocoded",
+ "currency_fallback": "EUR",
+ "counts": {
+  "valid_records": 6202,
+  "dropped_always_closed": 3,
+  "dropped_unmapped_category": 460,
+  "dropped_outside_bbox": 8,
+  "dropped_no_position": 2,
+  "places": 6073
+ },
+ "duplicates": {
+  "merged": 127,
+  "examples": [
+   {
+    "kept": "osm:node/4822780021",
+    "name": "Museu Maçónico Português",
+    "dropped": [
+     "osm:node/13975246842"
+    ]
+   },
+   {
+    "kept": "osm:node/12609419502",
+    "name": "Palácio Nacional da Ajuda",
+    "dropped": [
+     "osm:relation/6053715"
+    ]
+   },
+   {
+    "kept": "osm:way/145116280",
+    "name": "Palácio Fronteira",
+    "dropped": [
+     "osm:way/145116279"
+    ]
+   },
+   {
+    "kept": "osm:node/5984944787",
+    "name": "Pastelaria Versailles",
+    "dropped": [
+     "osm:node/4591827743"
+    ]
+   },
+   {
+    "kept": "osm:node/3575234312",
+    "name": "A Padaria Portuguesa",
+    "dropped": [
+     "osm:node/6582455085"
+    ]
+   },
+   {
+    "kept": "osm:node/6168187986",
+    "name": "Restaurante Mili",
+    "dropped": [
+     "osm:node/6140316787"
+    ]
+   },
+   {
+    "kept": "osm:node/6549036987",
+    "name": "Alfama Cellar",
+    "dropped": [
+     "osm:node/13841181105"
+    ]
+   },
+   {
+    "kept": "osm:node/1805470973",
+    "name": "Pão de Canela",
+    "dropped": [
+     "osm:node/9405528986"
+    ]
+   },
+   {
+    "kept": "osm:node/2416265112",
+    "name": "A Valenciana",
+    "dropped": [
+     "osm:node/2414810222"
+    ]
+   },
+   {
+    "kept": "osm:node/4356687889",
+    "name": "Chiado Caffé",
+    "dropped": [
+     "osm:node/5929732688"
+    ]
+   }
+  ],
+  "long_structures": [
+   {
+    "kept": "osm:node/13950436040",
+    "name": "Aqueduto das Águas Livres",
+    "pieces": 36,
+    "placed_at": "osm:node/13950436040"
+   },
+   {
+    "kept": "osm:way/95408856",
+    "name": "Reservatório da Mãe d'Água das Amoreiras",
+    "pieces": 1,
+    "placed_at": "osm:way/95408856"
+   },
+   {
+    "kept": "osm:way/187314200",
+    "name": "Torre do Jogo da Péla",
+    "pieces": 1,
+    "placed_at": "osm:way/187314200"
+   },
+   {
+    "kept": "osm:way/1473998409",
+    "name": "Galeria do Loreto",
+    "pieces": 3,
+    "placed_at": "osm:way/1473998409"
+   },
+   {
+    "kept": "osm:node/9649632668",
+    "name": "Baluarte do Livramento",
+    "pieces": 1,
+    "placed_at": "osm:node/9649632668"
+   },
+   {
+    "kept": "osm:relation/8461878",
+    "name": "Aqueduto das Necessidades",
+    "pieces": 1,
+    "placed_at": "osm:relation/8461878"
+   },
+   {
+    "kept": "osm:way/1322921091",
+    "name": "Aqueduto da Rua de São Bento",
+    "pieces": 1,
+    "placed_at": "osm:way/1322921091"
+   },
+   {
+    "kept": "osm:way/162120449",
+    "name": "Aqueduto da Quinta de São João da Panasqueira",
+    "pieces": 1,
+    "placed_at": "osm:way/162120449"
+   }
+  ],
+  "dropped_no_position": [
+   "osm:relation/12888201",
+   "osm:relation/9487189"
+  ]
+ },
+ "hours_status": {
+  "parsed": 1518,
+  "absent": 4402,
+  "unparseable": 153
+ },
+ "cost_status": {
+  "no_data": 4787,
+  "default_free": 1183,
+  "charge_parsed": 33,
+  "fee_amount_missing": 48,
+  "fee_free": 22
+ },
+ "categories": {
+  "restaurant": 2827,
+  "cafe": 1155,
+  "bar": 367,
+  "shop": 194,
+  "bakery": 139,
+  "landmark": 276,
+  "gallery": 59,
+  "garden": 119,
+  "market": 47,
+  "viewpoint": 53,
+  "museum": 104,
+  "nightclub": 31,
+  "park": 228,
+  "neighborhood": 27,
+  "church": 251,
+  "palace": 150,
+  "castle": 36,
+  "monument": 10
+ },
+ "vocabulary_gaps": [
+  "day_trip"
+ ],
+ "curation": null,
+ "schema_error_samples": []
+}
