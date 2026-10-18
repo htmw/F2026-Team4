@@ -14,7 +14,7 @@ from optimizer.constraints import (
     to_hhmm,
     to_minutes,
 )
-from optimizer.scoring import score, recommendation_reason
+from optimizer.scoring import recommendation_reason, score
 from optimizer.travel import travel_between
 
 

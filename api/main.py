@@ -27,7 +27,6 @@ from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
 
-
 app = FastAPI(
     title="Wanderwise Travel Planning API",
     description=(
