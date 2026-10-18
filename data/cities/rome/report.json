@@ -1,0 +1,476 @@
+{
+ "generated_at": "2026-10-18T00:14:52+00:00",
+ "query": "Rome, Italy",
+ "destination": {
+  "name": "Rome",
+  "country": "IT",
+  "lat": 41.8933203,
+  "lon": 12.4829321
+ },
+ "bbox": [
+  41.87,
+  12.43,
+  41.94,
+  12.53
+ ],
+ "bbox_source": "explicit",
+ "currency_fallback": "EUR",
+ "counts": {
+  "valid_records": 4864,
+  "dropped_unmapped_category": 492,
+  "dropped_always_closed": 10,
+  "places": 4622
+ },
+ "duplicates": {
+  "merged": 111,
+  "examples": [
+   {
+    "kept": "osm:node/1649776329",
+    "name": "Galleria Colonna",
+    "dropped": [
+     "osm:relation/2054909"
+    ]
+   },
+   {
+    "kept": "osm:node/2296913458",
+    "name": "Stadio di Domiziano",
+    "dropped": [
+     "osm:node/12052719807"
+    ]
+   },
+   {
+    "kept": "osm:node/5108555139",
+    "name": "Cupola di San Pietro",
+    "dropped": [
+     "osm:way/117968816"
+    ]
+   },
+   {
+    "kept": "osm:way/516174441",
+    "name": "Piazza del Quirinale",
+    "dropped": [
+     "osm:node/5446426922"
+    ]
+   },
+   {
+    "kept": "osm:node/13397444401",
+    "name": "Mancini - Vicollo Della Campana",
+    "dropped": [
+     "osm:node/13397449001"
+    ]
+   },
+   {
+    "kept": "osm:way/23920927",
+    "name": "Centro della Fotografia",
+    "dropped": [
+     "osm:node/13838853822"
+    ]
+   },
+   {
+    "kept": "osm:way/23955329",
+    "name": "Largo di Torre Argentina",
+    "dropped": [
+     "osm:way/125374921"
+    ]
+   },
+   {
+    "kept": "osm:way/112137587",
+    "name": "Musei Vaticani",
+    "dropped": [
+     "osm:way/255959482"
+    ]
+   },
+   {
+    "kept": "osm:way/244928138",
+    "name": "Fontana di Maderno",
+    "dropped": [
+     "osm:way/244928574"
+    ]
+   },
+   {
+    "kept": "osm:relation/1841080",
+    "name": "Forum Romanum",
+    "dropped": [
+     "osm:relation/1849832"
+    ]
+   }
+  ]
+ },
+ "hours_status": {
+  "absent": 3507,
+  "parsed": 1009,
+  "unparseable": 106
+ },
+ "cost_status": {
+  "no_data": 3322,
+  "default_free": 1186,
+  "fee_free": 50,
+  "fee_amount_missing": 40,
+  "charge_parsed": 24
+ },
+ "categories": {
+  "restaurant": 1967,
+  "shop": 105,
+  "viewpoint": 19,
+  "bar": 303,
+  "cafe": 877,
+  "bakery": 93,
+  "museum": 115,
+  "landmark": 421,
+  "gallery": 18,
+  "park": 149,
+  "church": 376,
+  "nightclub": 23,
+  "monument": 42,
+  "market": 34,
+  "neighborhood": 25,
+  "castle": 4,
+  "garden": 47,
+  "palace": 4
+ },
+ "vocabulary_gaps": [
+  "day_trip"
+ ],
+ "curation": {
+  "applied": 33,
+  "unmatched": [],
+  "excluded": [
+   "osm:node/10774102105",
+   "osm:node/10774102106",
+   "osm:node/10774102107",
+   "osm:node/10774102205",
+   "osm:node/11359857923",
+   "osm:node/12640825738",
+   "osm:node/1272283718",
+   "osm:node/12813664034",
+   "osm:node/13004798413",
+   "osm:node/13094031501",
+   "osm:node/13256187380",
+   "osm:node/13735344022",
+   "osm:node/13947393775",
+   "osm:node/14107772324",
+   "osm:node/1416733018",
+   "osm:node/1447566609",
+   "osm:node/1447566610",
+   "osm:node/1448531164",
+   "osm:node/1490313730",
+   "osm:node/1510795500",
+   "osm:node/1987788474",
+   "osm:node/2263021094",
+   "osm:node/2419664831",
+   "osm:node/365475871",
+   "osm:node/3721907363",
+   "osm:node/5107467923",
+   "osm:node/5156841892",
+   "osm:node/5586787424",
+   "osm:node/5737556419",
+   "osm:node/5737557524",
+   "osm:node/6204294310",
+   "osm:node/6205592781",
+   "osm:node/6718428602",
+   "osm:node/6718428615",
+   "osm:node/6718428616",
+   "osm:node/6718428617",
+   "osm:node/8123195389",
+   "osm:node/9432155426",
+   "osm:relation/12988851",
+   "osm:relation/13357828",
+   "osm:relation/13357829",
+   "osm:relation/13402532",
+   "osm:relation/13402573",
+   "osm:relation/13402576",
+   "osm:relation/13402598",
+   "osm:relation/13426221",
+   "osm:relation/1691910",
+   "osm:relation/1765420",
+   "osm:relation/1765428",
+   "osm:relation/1765429",
+   "osm:relation/1765430",
+   "osm:relation/1766532",
+   "osm:relation/1766534",
+   "osm:relation/1767601",
+   "osm:relation/1767603",
+   "osm:relation/1805340",
+   "osm:relation/1805341",
+   "osm:relation/1805345",
+   "osm:relation/1805350",
+   "osm:relation/1805353",
+   "osm:relation/1805355",
+   "osm:relation/1805359",
+   "osm:relation/1807196",
+   "osm:relation/1835449",
+   "osm:relation/1835450",
+   "osm:relation/1836975",
+   "osm:relation/1836976",
+   "osm:relation/1841077",
+   "osm:relation/1841078",
+   "osm:relation/1841079",
+   "osm:relation/1841084",
+   "osm:relation/1841086",
+   "osm:relation/1841089",
+   "osm:relation/1841091",
+   "osm:relation/1842058",
+   "osm:relation/1842059",
+   "osm:relation/1842060",
+   "osm:relation/1842061",
+   "osm:relation/1842062",
+   "osm:relation/1849828",
+   "osm:relation/1849835",
+   "osm:relation/1854238",
+   "osm:relation/1854239",
+   "osm:relation/1854240",
+   "osm:relation/1856081",
+   "osm:relation/1857984",
+   "osm:relation/1857985",
+   "osm:relation/1860918",
+   "osm:relation/1860919",
+   "osm:relation/1860920",
+   "osm:relation/1860921",
+   "osm:relation/1861910",
+   "osm:relation/1861912",
+   "osm:relation/19372161",
+   "osm:relation/49690",
+   "osm:relation/5454237",
+   "osm:way/1016871040",
+   "osm:way/111659077",
+   "osm:way/111697743",
+   "osm:way/111699749",
+   "osm:way/111754961",
+   "osm:way/111978510",
+   "osm:way/111996197",
+   "osm:way/112956297",
+   "osm:way/113159729",
+   "osm:way/120654784",
+   "osm:way/123817452",
+   "osm:way/123817454",
+   "osm:way/123817455",
+   "osm:way/123817484",
+   "osm:way/130743575",
+   "osm:way/131451564",
+   "osm:way/131451776",
+   "osm:way/131451819",
+   "osm:way/131557337",
+   "osm:way/132581385",
+   "osm:way/132881964",
+   "osm:way/149714726",
+   "osm:way/1527652398",
+   "osm:way/205595971",
+   "osm:way/212488877",
+   "osm:way/215289671",
+   "osm:way/215302734",
+   "osm:way/23913953",
+   "osm:way/337888676",
+   "osm:way/35027800",
+   "osm:way/44402133",
+   "osm:way/44522478",
+   "osm:way/44527163",
+   "osm:way/44527277",
+   "osm:way/49824161"
+  ],
+  "excluded_by_zone": {
+   "Roman Forum and Palatine": 76,
+   "Vatican Museums, Gardens and Apostolic Palace": 49
+  },
+  "matches": [
+   {
+    "name": "Colosseum",
+    "id": "osm:relation/1834818",
+    "osm_name": "Colosseo",
+    "as": "known"
+   },
+   {
+    "name": "Roman Forum and Palatine Hill",
+    "id": "osm:relation/1841080",
+    "osm_name": "Forum Romanum",
+    "as": "known"
+   },
+   {
+    "name": "Pantheon",
+    "id": "osm:relation/3374342",
+    "osm_name": "Pantheon",
+    "as": "known"
+   },
+   {
+    "name": "Trevi Fountain",
+    "id": "osm:relation/13448560",
+    "osm_name": "Fontana di Trevi",
+    "as": "known"
+   },
+   {
+    "name": "Spanish Steps",
+    "id": "osm:way/134400816",
+    "osm_name": "Scalinata della Trinità dei Monti",
+    "as": "known"
+   },
+   {
+    "name": "Piazza Navona",
+    "id": "osm:way/4247138",
+    "osm_name": "Piazza Navona",
+    "as": "known"
+   },
+   {
+    "name": "Vatican Museums and Sistine Chapel",
+    "id": "osm:way/112137587",
+    "osm_name": "Musei Vaticani",
+    "as": "known"
+   },
+   {
+    "name": "St. Peter's Basilica",
+    "id": "osm:way/244159210",
+    "osm_name": "Basilica di San Pietro",
+    "as": "known"
+   },
+   {
+    "name": "Castel Sant'Angelo",
+    "id": "osm:way/8035487",
+    "osm_name": "Castel Sant’Angelo",
+    "as": "known"
+   },
+   {
+    "name": "Galleria Borghese",
+    "id": "osm:node/1440405490",
+    "osm_name": "Galleria Borghese",
+    "as": "known"
+   },
+   {
+    "name": "Villa Borghese",
+    "id": "osm:relation/2985896",
+    "osm_name": "Villa Borghese",
+    "as": "known"
+   },
+   {
+    "name": "Capitoline Museums",
+    "id": "osm:relation/9909127",
+    "osm_name": "Musei Capitolini",
+    "as": "known"
+   },
+   {
+    "name": "Vittoriano",
+    "id": "osm:relation/1849830",
+    "osm_name": "Altare della Patria",
+    "as": "known"
+   },
+   {
+    "name": "Baths of Caracalla",
+    "id": "osm:relation/13476232",
+    "osm_name": "Terme di Caracalla",
+    "as": "known"
+   },
+   {
+    "name": "Circus Maximus",
+    "id": "osm:relation/11384819",
+    "osm_name": "Circo Massimo",
+    "as": "known"
+   },
+   {
+    "name": "Bocca della Verita",
+    "id": "osm:way/120854225",
+    "osm_name": "Chiesa di Santa Maria in Cosmedin",
+    "as": "inferred"
+   },
+   {
+    "name": "Basilica di Santa Maria Maggiore",
+    "id": "osm:way/131564482",
+    "osm_name": "Basilica di Santa Maria Maggiore",
+    "as": "inferred"
+   },
+   {
+    "name": "Archbasilica of San Giovanni in Laterano",
+    "id": "osm:relation/36444",
+    "osm_name": "Basilica di San Giovanni in Laterano",
+    "as": "known"
+   },
+   {
+    "name": "Basilica di San Clemente",
+    "id": "osm:relation/326080",
+    "osm_name": "Basilica di San Clemente al Laterano",
+    "as": "known"
+   },
+   {
+    "name": "Campo de' Fiori market",
+    "id": "osm:way/4949430",
+    "osm_name": "Campo de' Fiori",
+    "as": "inferred"
+   },
+   {
+    "name": "Mercato di Testaccio",
+    "id": "osm:relation/15258037",
+    "osm_name": "Nuovo Mercato Testaccio",
+    "as": "known"
+   },
+   {
+    "name": "Palazzo Massimo alle Terme",
+    "id": "osm:node/12707172364",
+    "osm_name": "Museo Nazionale Romano di Palazzo Massimo",
+    "as": "known"
+   },
+   {
+    "name": "Ara Pacis Museum",
+    "id": "osm:way/201293294",
+    "osm_name": "Museo dell'Ara Pacis",
+    "as": "known"
+   },
+   {
+    "name": "Galleria Doria Pamphilj",
+    "id": "osm:node/706793341",
+    "osm_name": "Palazzo Doria Pamphilj",
+    "as": "known"
+   },
+   {
+    "name": "Giardino degli Aranci",
+    "id": "osm:relation/8437974",
+    "osm_name": "Giardino degli Aranci",
+    "as": "known"
+   },
+   {
+    "name": "Gianicolo terrace",
+    "id": "osm:node/1001130475",
+    "osm_name": "Terrazza del Gianicolo",
+    "as": "known"
+   },
+   {
+    "name": "Santa Maria in Trastevere",
+    "id": "osm:way/51368975",
+    "osm_name": "Basilica di Santa Maria in Trastevere",
+    "as": "inferred"
+   },
+   {
+    "name": "Trajan's Market",
+    "id": "osm:relation/13353039",
+    "osm_name": "Mercati di Traiano",
+    "as": "known"
+   },
+   {
+    "name": "San Pietro in Vincoli",
+    "id": "osm:way/201882369",
+    "osm_name": "Basilica di San Pietro in Vincoli",
+    "as": "inferred"
+   },
+   {
+    "name": "Piazza del Popolo",
+    "id": "osm:relation/318583",
+    "osm_name": "Piazza del Popolo",
+    "as": "known"
+   },
+   {
+    "name": "Palazzo Barberini",
+    "id": "osm:node/2122709063",
+    "osm_name": "Galleria Nazionale d'Arte Antica",
+    "as": "known"
+   },
+   {
+    "name": "Largo di Torre Argentina",
+    "id": "osm:way/23955329",
+    "osm_name": "Largo di Torre Argentina",
+    "as": "known"
+   },
+   {
+    "name": "Knights of Malta keyhole",
+    "id": "osm:node/3512305861",
+    "osm_name": "San Pietro dal Buco della serratura",
+    "as": "known"
+   }
+  ]
+ },
+ "schema_error_samples": []
+}
