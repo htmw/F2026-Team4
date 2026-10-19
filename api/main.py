@@ -27,9 +27,16 @@ from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
 
-app = FastAPI(title="Wanderwise API (stub)", version="0.0.1")
+app = FastAPI(
+    title="Wanderwise Travel Planning API",
+    description=(
+        "Personalized travel recommendations with "
+        "constraint-aware itinerary optimization."
+    ),
+    version="1.0.0",
+)
 
-# Dev-only: let the Vite frontend (localhost:5173) call us. Tighten before any real deploy.
+# Allow frontend communication during development
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -107,9 +114,20 @@ def health() -> dict[str, str]:
 
 @app.post("/plan")
 def plan(req: PlanRequest) -> dict[str, Any]:
-    profile_errors = validate("traveler-profile", req.profile)
+
+    # Step 1: Validate traveler profile
+    profile_errors = validate(
+        "traveler-profile",
+        req.profile
+    )
+
     if profile_errors:
-        raise HTTPException(status_code=422, detail={"profile_errors": profile_errors})
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "profile_errors": profile_errors
+            }
+        )
 
     request_errors = _request_errors(req)
     if request_errors:
