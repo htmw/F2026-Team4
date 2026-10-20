@@ -34,14 +34,26 @@ export function App() {
 
       <main className="layout">
         <PreferenceForm onSubmit={handleSubmit} submitting={submitting} />
-        <div>
-          {error && <div className="card error">Could not plan the trip: {error}</div>}
-          {itinerary ? (
-            <ItineraryView itinerary={itinerary} />
-          ) : (
-            !error && <div className="card muted">Fill the form and submit to see an itinerary.</div>
-          )}
-        </div>
+       
+<div>
+  {submitting ? (
+    <div className="card loading-card" role="status" aria-live="polite">
+      <div className="loading-spinner"></div>
+      <h3>Generating your personalized itinerary...</h3>
+      <p>Please wait while Wanderwise prepares your trip.</p>
+    </div>
+  ) : error ? (
+    <div className="card error">
+      Could not plan the trip: {error}
+    </div>
+  ) : itinerary ? (
+    <ItineraryView itinerary={itinerary} />
+  ) : (
+    <div className="card muted">
+      Fill the form and submit to see an itinerary.
+    </div>
+  )}
+</div>
       </main>
     </div>
   );
