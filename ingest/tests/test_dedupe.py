@@ -5,6 +5,8 @@ import pytest
 from ingest.dedupe import dedupe, distance_m
 
 M_PER_DEG_LAT = 111_195.0
+# A point in central Lisbon. Test places are put north of it at a given distance.
+BASE_LAT, BASE_LON = 38.72, -9.14
 
 
 def _hours(confidence):
@@ -36,32 +38,52 @@ def _signals(*places, wikidata=None, osm_type="node"):
     }
 
 
+def _north(place_id, name, metres, **kwargs):
+    return _place(place_id, name, BASE_LAT + metres / M_PER_DEG_LAT, BASE_LON, **kwargs)
+
+
 def test_distance_m_matches_a_known_offset():
-    a = {"lat": 41.9, "lon": 12.5}
-    b = {"lat": 41.9 + 100 / M_PER_DEG_LAT, "lon": 12.5}
+    a = {"lat": BASE_LAT, "lon": BASE_LON}
+    b = {"lat": BASE_LAT + 100 / M_PER_DEG_LAT, "lon": BASE_LON}
 
     assert distance_m(a, b) == pytest.approx(100, abs=0.5)
 
 
 def test_same_name_close_together_is_merged_and_richer_copy_wins():
-    node = _place("osm:node/1", "Museo X", 41.9, 12.5, hours="inferred", pop=0.2)
-    way = _place(
-        "osm:way/2", "Museo X", 41.9 + 30 / M_PER_DEG_LAT, 12.5,
-        cats=("landmark",), hours="known", pop=0.6,
-    )
+    node = _north("osm:node/1", "Museu X", 0, hours="inferred", pop=0.2)
+    way = _north("osm:way/2", "Museu X", 30, cats=("landmark",), hours="known", pop=0.6)
     kept, report = dedupe([node, way], _signals(node, way))
 
     assert report.merged == 1
     assert len(kept) == 1
     assert kept[0]["id"] == "osm:way/2"
-    assert kept[0]["categories"] == ["landmark", "museum"]
+    # The most specific category comes first, whichever record it came from.
+    assert kept[0]["categories"] == ["museum", "landmark"]
     # The museum category raises the visit length to the museum default.
     assert kept[0]["typical_duration_minutes"] == 90
 
 
+def test_defaults_follow_the_more_specific_category_of_a_copy():
+    # Like the Jeronimos Monastery: the richest record says landmark (open all day, free),
+    # a copy says museum. The merged place is a museum with museum default hours, and its
+    # price is unknown rather than assumed free.
+    landmark = _north("osm:relation/1", "Mosteiro dos Jerónimos", 0, cats=("landmark",), pop=0.7)
+    days = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
+    landmark["hours"] = {**{d: [["00:00", "23:59"]] for d in days}, "confidence": "inferred"}
+    landmark["cost"]["confidence"] = "inferred"
+    museum = _north("osm:node/2", "Mosteiro dos Jerónimos", 20, cats=("museum",), pop=0.1)
+    kept, _ = dedupe([landmark, museum], _signals(landmark, museum))
+
+    assert kept[0]["id"] == "osm:relation/1"
+    assert kept[0]["categories"] == ["museum", "landmark"]
+    assert kept[0]["hours"]["mon"] == [["10:00", "18:00"]]
+    assert kept[0]["hours"]["confidence"] == "inferred"
+    assert kept[0]["cost"]["confidence"] == "unknown"
+
+
 def test_same_name_far_apart_is_kept_twice():
-    a = _place("osm:node/1", "Bar Roma", 41.9, 12.5, cats=("bar",))
-    b = _place("osm:node/2", "Bar Roma", 41.9 + 500 / M_PER_DEG_LAT, 12.5, cats=("bar",))
+    a = _north("osm:node/1", "Tasca do Bairro", 0, cats=("bar",))
+    b = _north("osm:node/2", "Tasca do Bairro", 500, cats=("bar",))
     kept, report = dedupe([a, b], _signals(a, b))
 
     assert report.merged == 0
@@ -69,10 +91,11 @@ def test_same_name_far_apart_is_kept_twice():
 
 
 def test_same_wikidata_merges_different_names_but_not_far_away():
-    a = _place("osm:way/1", "Pantheon", 41.8986, 12.4769)
-    b = _place("osm:node/2", "Basilica di Santa Maria ad Martyres", 41.8988, 12.4770)
-    c = _place("osm:node/3", "Pantheon copy", 41.95, 12.60)  # about 11 km away
-    signals = _signals(a, b, c, wikidata="Q99309")
+    # The National Pantheon is housed in the church of Santa Engracia: one place, two names.
+    a = _place("osm:way/1", "Panteão Nacional", 38.7148, -9.1249)
+    b = _place("osm:node/2", "Igreja de Santa Engrácia", 38.7150, -9.1248)
+    c = _place("osm:node/3", "Panteão Nacional", 38.7800, -9.0500)  # about 10 km away
+    signals = _signals(a, b, c, wikidata="Q1001")
     signals["osm:way/1"]["osm_type"] = "way"  # a polygon beats a node when all else is equal
     kept, report = dedupe([a, b, c], signals)
 
@@ -81,8 +104,8 @@ def test_same_wikidata_merges_different_names_but_not_far_away():
 
 
 def test_winner_borrows_known_hours_and_cost_from_a_copy():
-    rich_hours = _place("osm:node/1", "Galleria", 41.9, 12.5, hours="known", pop=0.9)
-    rich_cost = _place("osm:node/2", "Galleria", 41.9, 12.5, cost="known", pop=0.1)
+    rich_hours = _north("osm:node/1", "Galeria", 0, hours="known", pop=0.9)
+    rich_cost = _north("osm:node/2", "Galeria", 0, cost="known", pop=0.1)
     kept, _ = dedupe([rich_cost, rich_hours], _signals(rich_hours, rich_cost))
 
     assert kept[0]["id"] == "osm:node/1"
@@ -91,15 +114,11 @@ def test_winner_borrows_known_hours_and_cost_from_a_copy():
     assert kept[0]["popularity"] == 0.9
 
 
-def _north(place_id, name, metres, **kwargs):
-    return _place(place_id, name, 41.9 + metres / M_PER_DEG_LAT, 12.5, **kwargs)
-
-
 def test_a_row_of_neighbours_does_not_chain_into_one_group():
     # 50 m apart each: B is close to A and to C, but C is 100 m from A.
-    a = _north("osm:node/1", "Edicola", 0, pop=0.9)
-    b = _north("osm:node/2", "Edicola", 50, pop=0.5)
-    c = _north("osm:node/3", "Edicola", 100, pop=0.1)
+    a = _north("osm:node/1", "Quiosque", 0, pop=0.9)
+    b = _north("osm:node/2", "Quiosque", 50, pop=0.5)
+    c = _north("osm:node/3", "Quiosque", 100, pop=0.1)
     kept, report = dedupe([a, b, c], _signals(a, b, c))
 
     assert report.merged == 1
@@ -107,40 +126,40 @@ def test_a_row_of_neighbours_does_not_chain_into_one_group():
 
 
 def test_shared_wikidata_with_other_names_needs_to_be_very_close():
-    # The two fountains of St Peter's Square share one item and stand about 120 m apart.
-    bernini = _north("osm:node/1", "Fontana di Bernini", 0, cats=("landmark",))
-    maderno = _north("osm:node/2", "Fontana di Maderno", 120, cats=("landmark",))
-    kept, report = dedupe([bernini, maderno], _signals(bernini, maderno, wikidata="Q3747467"))
+    # Two fountains on one square can share one wikidata item and stand 120 m apart.
+    north = _north("osm:node/1", "Fonte do Rossio Norte", 0, cats=("landmark",))
+    south = _north("osm:node/2", "Fonte do Rossio Sul", 120, cats=("landmark",))
+    kept, report = dedupe([north, south], _signals(north, south, wikidata="Q1002"))
 
     assert report.merged == 0
     assert len(kept) == 2
 
 
 def test_shared_wikidata_with_the_same_name_merges_up_to_a_kilometre():
-    gate = _north("osm:node/1", "Villa Ada", 0, cats=("park",), pop=0.2)
-    park = _north("osm:way/2", "Villa Ada", 800, cats=("park",), pop=0.7)
-    kept, report = dedupe([gate, park], _signals(gate, park, wikidata="Q1"))
+    gate = _north("osm:node/1", "Parque Eduardo VII", 0, cats=("park",), pop=0.2)
+    park = _north("osm:way/2", "Parque Eduardo VII", 800, cats=("park",), pop=0.7)
+    kept, report = dedupe([gate, park], _signals(gate, park, wikidata="Q1003"))
 
     assert report.merged == 1
     assert kept[0]["id"] == "osm:way/2"
 
 
 def test_same_name_with_different_wikidata_stays_apart():
-    a = _north("osm:node/1", "San Lorenzo", 0, cats=("church",))
-    b = _north("osm:node/2", "San Lorenzo", 30, cats=("church",))
+    a = _north("osm:node/1", "Capela de Santo António", 0, cats=("church",))
+    b = _north("osm:node/2", "Capela de Santo António", 30, cats=("church",))
     signals = _signals(a, b)
-    signals["osm:node/1"]["wikidata"] = "Q1"
-    signals["osm:node/2"]["wikidata"] = "Q2"
+    signals["osm:node/1"]["wikidata"] = "Q1004"
+    signals["osm:node/2"]["wikidata"] = "Q1005"
     kept, report = dedupe([a, b], signals)
 
     assert report.merged == 0
     assert len(kept) == 2
 
 
-@pytest.mark.parametrize("wikidata", [None, "Q5"])
+@pytest.mark.parametrize("wikidata", [None, "Q1006"])
 def test_a_venue_never_merges_with_a_sight(wikidata):
-    palace = _north("osm:way/1", "Palazzo Rosso", 0, cats=("landmark",), pop=0.6)
-    bar = _north("osm:node/2", "Palazzo Rosso", 15, cats=("bar",), hours="known", pop=0.1)
+    palace = _north("osm:way/1", "Palácio Foz", 0, cats=("landmark",), pop=0.6)
+    bar = _north("osm:node/2", "Palácio Foz", 15, cats=("bar",), hours="known", pop=0.1)
     kept, report = dedupe([palace, bar], _signals(palace, bar, wikidata=wikidata))
 
     assert report.merged == 0
@@ -160,16 +179,15 @@ def _wall_signals(places, wikidata=None, rough=()):
 
 
 def test_wall_pieces_across_the_city_become_one_stop_placed_on_a_piece():
-    # The ring relation sits at the centre of its bounding box, next to the Colosseum.
-    ring = _place(
-        "osm:relation/1", "Mura Aureliane", 41.8930, 12.4922, cats=("landmark",), pop=0.67
-    )
+    # The relation that groups the wall sits at the centre of its bounding box, in the
+    # middle of the old town, away from every piece of the wall.
+    ring = _north("osm:relation/1", "Cerca Fernandina", -900, cats=("landmark",), pop=0.67)
     pieces = [
-        _north("osm:way/2", "Mura Aureliane", 1800, cats=("landmark",), pop=0.53),
-        _north("osm:way/3", "Mura Aureliane", 4000, cats=("landmark",), pop=0.20),
-        _north("osm:way/4", "Mura Aureliane", 6000, cats=("landmark",), pop=0.10),
+        _north("osm:way/2", "Cerca Fernandina", 1800, cats=("landmark",), pop=0.53),
+        _north("osm:way/3", "Cerca Fernandina", 4000, cats=("landmark",), pop=0.20),
+        _north("osm:way/4", "Cerca Fernandina", 6000, cats=("landmark",), pop=0.10),
     ]
-    signals = _wall_signals([ring, *pieces], wikidata="Q625149", rough={"osm:relation/1"})
+    signals = _wall_signals([ring, *pieces], wikidata="Q1007", rough={"osm:relation/1"})
     kept, report = dedupe([ring, *pieces], signals)
 
     assert [p["id"] for p in kept] == ["osm:relation/1"]
@@ -178,17 +196,22 @@ def test_wall_pieces_across_the_city_become_one_stop_placed_on_a_piece():
     assert wall["popularity"] == 0.67
     assert report.merged == 3
     assert report.long_structures == [
-        {"kept": "osm:relation/1", "name": "Mura Aureliane", "pieces": 4, "placed_at": "osm:way/2"}
+        {
+            "kept": "osm:relation/1",
+            "name": "Cerca Fernandina",
+            "pieces": 4,
+            "placed_at": "osm:way/2",
+        }
     ]
 
 
 def test_ruins_sharing_the_wall_wikidata_join_the_wall_but_venues_do_not():
-    piece = _north("osm:way/1", "Mura Serviane", 0, cats=("landmark",), pop=0.5)
-    ruins = _north("osm:way/2", "Resti di Mura Serviane", 2500, cats=("landmark",), pop=0.3)
-    bar = _north("osm:node/3", "Mura Serviane", 20, cats=("bar",))
+    piece = _north("osm:way/1", "Cerca Moura", 0, cats=("landmark",), pop=0.5)
+    ruins = _north("osm:way/2", "Troço da Cerca Moura", 2500, cats=("landmark",), pop=0.3)
+    bar = _north("osm:node/3", "Cerca Moura", 20, cats=("bar",))
     signals = _wall_signals([piece])
-    signals["osm:way/1"]["wikidata"] = "Q281330"
-    signals.update(_signals(ruins, wikidata="Q281330", osm_type="way"))
+    signals["osm:way/1"]["wikidata"] = "Q1008"
+    signals.update(_signals(ruins, wikidata="Q1008", osm_type="way"))
     signals.update(_signals(bar))
     kept, report = dedupe([piece, ruins, bar], signals)
 
@@ -197,7 +220,7 @@ def test_ruins_sharing_the_wall_wikidata_join_the_wall_but_venues_do_not():
 
 
 def test_a_wall_known_only_as_a_collection_relation_is_dropped():
-    site = _place("osm:relation/1", "Mura di Roma", 41.8930, 12.4880, cats=("landmark",))
+    site = _north("osm:relation/1", "Muralhas de Lisboa", 0, cats=("landmark",))
     signals = _wall_signals([site], rough={"osm:relation/1"})
     kept, report = dedupe([site], signals)
 
@@ -206,16 +229,19 @@ def test_a_wall_known_only_as_a_collection_relation_is_dropped():
 
 
 def test_a_wall_mapped_as_one_area_keeps_its_own_position():
-    passetto = _place("osm:relation/1", "Passetto di Borgo", 41.9033, 12.4611, cats=("landmark",))
-    kept, report = dedupe([passetto], _wall_signals([passetto]))
+    # In the Lisbon data the Aqueduto das Necessidades is one area relation like this.
+    aqueduct = _place(
+        "osm:relation/1", "Aqueduto das Necessidades", 38.7090, -9.1690, cats=("landmark",)
+    )
+    kept, report = dedupe([aqueduct], _wall_signals([aqueduct]))
 
-    assert kept == [passetto]
+    assert kept == [aqueduct]
     assert report.no_position == []
 
 
 def test_result_does_not_depend_on_input_order():
-    a = _place("osm:node/1", "Fontana", 41.9, 12.5, pop=0.3)
-    b = _place("osm:node/2", "Fontana", 41.9, 12.5, pop=0.3)
+    a = _north("osm:node/1", "Chafariz", 0, pop=0.3)
+    b = _north("osm:node/2", "Chafariz", 0, pop=0.3)
     first, _ = dedupe([a, b], _signals(a, b))
     second, _ = dedupe([b, a], _signals(a, b))
 

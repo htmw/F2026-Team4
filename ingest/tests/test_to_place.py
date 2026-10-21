@@ -129,8 +129,8 @@ def test_restaurant_closed_on_one_day_is_kept_with_unknown_hours(validator):
         {
             "type": "node",
             "id": 6,
-            "lat": 41.89,
-            "lon": 12.47,
+            "lat": 38.71,
+            "lon": -9.14,
             "tags": {"name": "Trattoria", "amenity": "restaurant", "opening_hours": "Su off"},
         },
         currency="EUR",
@@ -147,9 +147,9 @@ def test_place_closed_every_day_is_dropped(validator):
         {
             "type": "node",
             "id": 7,
-            "lat": 41.89,
-            "lon": 12.47,
-            "tags": {"name": "Museo Chiuso", "tourism": "museum", "opening_hours": "off"},
+            "lat": 38.71,
+            "lon": -9.14,
+            "tags": {"name": "Museu Fechado", "tourism": "museum", "opening_hours": "off"},
         },
         currency="EUR",
         fetched_date="2026-10-17",
@@ -178,8 +178,8 @@ def test_signals_mark_wall_pieces_and_collection_relations(
     element = {
         "type": el_type,
         "id": 8,
-        "center": {"lat": 41.89, "lon": 12.49},
-        "tags": {"name": "Mura Aureliane", **tags},
+        "center": {"lat": 38.71, "lon": -9.13},
+        "tags": {"name": "Cerca Fernandina", **tags},
     }
     result = build_place(element, currency="EUR", fetched_date="2026-10-17", validator=validator)
 

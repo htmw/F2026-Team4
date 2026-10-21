@@ -1,184 +1,218 @@
-# /ingest: city data (Data team)
+# ingest: the Lisbon data (Data team)
 
-Turns a city name into `Place` records the ranker and the optimizer can trust, plus the
-travel times between them. Everything here speaks the shapes in [`/contracts`](../contracts).
+This folder turns OpenStreetMap data for Lisbon into a list of places that the ranker, the
+optimizer and the API use. The project covers one city, Lisbon.
 
-## What you get per city
+## Start here (two minutes)
 
-Each run writes one folder (`data/out/<city>/` by default, `data/cities/<city>/` for a
-committed snapshot):
+**Where the data is.** `data/cities/lisbon/places.json`: 6,073 Lisbon places, committed to
+the repo. Nothing is downloaded while the app runs.
+
+**How your code gets it.** Never open the JSON files yourself. Ask the catalog:
+
+```python
+from ingest.catalog import CityNotAvailable, load_places, travel_legs
+
+places = load_places("Lisbon")        # list of 6,073 dicts, see below
+# "Lisboa", "Lisbon, Portugal" and "Lisbon, PT" work too.
+# Any other city raises CityNotAvailable (the API answers 422).
+
+candidates = sorted(places, key=lambda p: -p["popularity"])[:100]
+legs = travel_legs(candidates, max_walk_minutes=20)
+legs[(a_id, b_id)]                    # {"minutes": 12.4, "mode": "walk"}
+```
+
+**What one place looks like.** A real record from the file:
+
+```json
+{
+  "id": "osm:relation/17036063",
+  "name": "Museu Calouste Gulbenkian",
+  "lat": 38.7378097,
+  "lon": -9.1535052,
+  "categories": ["museum"],
+  "typical_duration_minutes": 90,
+  "cost": {"amount": 0.0, "currency": "EUR", "confidence": "unknown"},
+  "hours": {
+    "mon": [["10:00", "18:00"]], "tue": null, "wed": [["10:00", "18:00"]],
+    "thu": [["10:00", "18:00"]], "fri": [["10:00", "18:00"]],
+    "sat": [["10:00", "18:00"]], "sun": [["10:00", "18:00"]],
+    "confidence": "known"
+  },
+  "source": "osm",
+  "last_verified": "2026-10-17",
+  "popularity": 0.59
+}
+```
+
+- `id`: the OpenStreetMap object. `osm:way/24341353` is way number 24341353 on
+  openstreetmap.org. It is stable, so use it as the key. It is not a name: show `name`.
+- `hours`: for each day a list of open windows, or `null` for closed that day. Here the
+  museum is closed on Tuesdays.
+- `cost.amount` is the entry price. The full contract is in
+  [`contracts/place.schema.json`](../contracts/place.schema.json).
+
+**Read the confidence before you use a value.** Every `hours` and `cost` carries one:
+
+| Confidence | Meaning | How to use it |
+|------------|---------|---------------|
+| `known` | Read from real data: a full OSM tag, or a hand checked official source | A hard fact. Do not schedule a visit outside known hours. |
+| `inferred` | A default for the category, for example a museum is open 10:00 to 18:00 | A soft guess. Fine for planning, but the app must say it is an estimate. |
+| `unknown` | The data exists but we could not read it, or there is no data | Not a value at all. See the two traps below. |
+
+Two traps:
+
+1. `cost` with `"amount": 0.0` and `"confidence": "unknown"` means **price not known**, not
+   free. Only `known` (or `inferred` for parks, churches and squares) with amount 0 means free.
+2. `hours` with `"confidence": "unknown"` has `null` on every day. Here `null` means **no
+   information**, not closed. Check the confidence first.
+
+**Travel times** come from `travel_legs()`, computed on the fly, in minutes:
+
+- walk: straight line distance x 1.3 at 4.5 km/h. Checked against real street routing on
+  600 pairs of popular Lisbon places: about 1.8 minutes off per walkable leg (p95 about 5.3).
+  See [`docs/routing-spike.md`](../docs/routing-spike.md). It ignores hills, and Lisbon has
+  many.
+- transit: 10 minutes to reach a stop and wait, then the distance x 1.4 at 15 km/h. A
+  planning estimate, not a timetable.
+- A leg is `walk` while it fits the traveler's `max_walk_minutes`, otherwise `transit`.
+
+## How the data is built
+
+You only need this to rebuild the data. One command does everything:
+
+```bash
+make snapshot-lisbon     # rebuild data/cities/lisbon (downloads once, then reads data/cache)
+make data-spike          # hours and price coverage  -> docs/data-spike.md
+make routing-spike       # walking time error vs OSRM -> docs/routing-spike.md
+```
+
+`ingest/pipeline.py` runs these steps. The code comments use the same numbers.
+
+| Step | File | What it does |
+|------|------|--------------|
+| 1 | [`geocode.py`](geocode.py) | Finds Lisbon with Nominatim: centre, country and the area to search (the bbox). |
+| 2 | [`overpass.py`](overpass.py) | Downloads nine groups of places from the Overpass API: sights, historic, worship, nature, food, nightlife, shopping, public spaces, neighborhoods. Every response is saved in `data/cache/` (not committed), so a rebuild works offline. |
+| 3 | [`to_place.py`](to_place.py) | Turns each OSM element into a Place. Uses [`categories.py`](categories.py) for the category, [`hours.py`](hours.py) for `opening_hours` and [`cost.py`](cost.py) for `fee` and `charge`. Drops elements with no name, no position, no category we map, or a centre outside the bbox. |
+| 4 | [`popularity.py`](popularity.py) | A 0 to 1 score from how well documented a place is in OSM: translated names, Wikidata and Wikipedia links, heritage status. A proxy, not visitor numbers. |
+| 5 | [`dedupe.py`](dedupe.py) | Merges records of the same real place (OSM often maps a sight twice), and turns the 36 pieces of the Aguas Livres aqueduct into one stop. |
+| 6 | [`curation.py`](curation.py) | Applies hand checked hours and prices from `data/curation/lisbon.json`. That file does not exist yet (see Known limits). |
+| 7 | `pipeline.py` | Writes `places.json`, `destination.json`, `city.json` and `report.json`. |
+
+The other files: [`catalog.py`](catalog.py) is how the app reads the data, [`matrix.py`](matrix.py)
+computes travel times, [`weather.py`](weather.py) gives a daily forecast for the trip dates
+(Open-Meteo, no key) and `is_outdoor(place)` for the what-if-it-rains flow,
+[`cache.py`](cache.py) reads and writes the cache, and [`spike.py`](spike.py) and
+[`routing_spike.py`](routing_spike.py) write the two reports in `docs/`.
+
+What is in `data/cities/lisbon/`:
 
 | File | What is in it |
 |------|---------------|
-| `places.json` | `Place[]`, every record valid against [`place.schema.json`](../contracts/place.schema.json) |
-| `destination.json` | name, country, lat, lon in the Itinerary `destination` shape |
-| `city.json` | aliases the API accepts, bbox, currency, build time, OSM attribution |
-| `report.json` | counts, drop reasons, duplicates merged, hours and price coverage, curation result |
-| `matrix.json` | walk and transit minutes for the most popular places (skipped with `--matrix-top 0`) |
+| `places.json` | the 6,073 places, one per line, every one valid against the Place contract |
+| `destination.json` | name, country and centre of Lisbon, in the Itinerary `destination` shape |
+| `city.json` | the names the API accepts (Lisbon, Lisboa...), the bbox, currency, build time, OSM attribution |
+| `report.json` | how many records were dropped and why, duplicates merged, hours and price coverage |
 
-Raw Nominatim and Overpass responses are cached in `data/cache/` (git-ignored). A cached
-file is only reused when the city, bbox and query text match exactly.
+A plain `make ingest` writes to `data/out/` instead. That folder is never served, so a test
+run cannot change what the app sees. To ship a rebuild, run `make snapshot-lisbon` and
+commit `data/cities/lisbon`.
 
-## Run it
+## Words used in the code
 
-```bash
-make ingest CITY="Porto, Portugal"     # any city -> data/out/porto-portugal/
-make snapshot-rome                     # rebuild the committed Rome snapshot
-make data-spike                        # hours and price coverage -> docs/data-spike.md
-make routing-spike                     # haversine vs OSRM walking -> docs/routing-spike.md
-```
+| Word | Meaning |
+|------|---------|
+| OSM | OpenStreetMap, the free map database all our places come from |
+| element | one OSM object: a `node` (a point), a `way` (a line or an outline) or a `relation` (a group of other objects) |
+| tags | the key=value facts on an OSM element, such as `tourism=museum` or `opening_hours=Tu-Su 10:00-18:00` |
+| Overpass | the public API we query to download OSM elements |
+| Nominatim | the OSM service that turns a name like Lisbon into a position and an area |
+| bbox | bounding box: the search area as south, west, north, east |
+| slug | a folder name made from a city name, for example `lisbon` |
+| snapshot | the committed output of one full run, in `data/cities/lisbon/` |
+| signals | facts kept from the OSM tags while building (names in other languages, wikidata id...) that dedupe and curation need. They are not written to `places.json`. |
+| seed | in dedupe, the richest record of a group; only records close to it can join |
+| long structure | a wall or aqueduct that OSM splits into many pieces with the same name |
+| curation | hand checked facts, from official websites, that overrule the OSM data |
+| confidence | `known`, `inferred` or `unknown`, see the table above |
 
-Direct use, with every option:
-
-```bash
-uv run python -m ingest "London, UK" --bbox 51.45,-0.25,51.56,0.02 --slug london --alias "Greater London"
-uv run python -m ingest --help
-```
-
-A geocoded area wider or taller than 80 km is refused (that is a region, not a city).
-Passing `--bbox` skips that check, because then the geocoded box is only used for the
-name, country and centre.
-
-## How a record is built
-
-1. **Geocode** the name with Nominatim: centre, country, default bbox.
-2. **Fetch** nine Overpass query groups for the bbox: sights, historic, worship, nature, food,
-   nightlife, shopping, public spaces, neighborhoods. Squares, fountains and neighborhoods
-   only come back when they carry a `wikidata` tag, otherwise every small piazza would.
-3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
-   OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
-   `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
-   A place whose hours name every day as closed is dropped. A place that only lists its
-   closed days ("Su off") keeps `unknown` hours: the open days are not stated. A place whose
-   centre falls outside the bbox is dropped too: Overpass returns anything that touches the
-   box, and a long relation can have its centre kilometres away.
-4. **Popularity** ([`popularity.py`](popularity.py)): a 0..1 proxy from translated names,
-   Wikidata and Wikipedia links, heritage status and how well documented the place is.
-5. **Duplicates** ([`dedupe.py`](dedupe.py)):
-   - City walls and aqueducts come as dozens of pieces with one name (Rome has 91 pieces of
-     the Aurelian Walls). Each structure becomes one stop, placed on its best node or way.
-     A relation that groups parts (site, route, building, waterway) is never used for the
-     position: its centre is the middle of a bounding box, which for the ring of the
-     Aurelian Walls is next to the Colosseum. A single area relation (a multipolygon) is
-     used only when the structure has no node or way at all.
-   - Everything else is grouped around a seed, richest record first: same wikidata id within
-     1 km of the seed (100 m when the names differ), or same name within 60 m. Distances are
-     measured to the seed, so a row of neighbours cannot chain into one group. A venue never
-     merges with a sight. The seed keeps its id and borrows known facts from its copies.
-6. **Curation** ([`curation.py`](curation.py)): hand checked hours, prices and visit lengths
-   for the sights that matter most, from `data/curation/<city>.json`.
-
-## Confidence: the one rule
+## The confidence rule in detail
 
 Never label a guess `known`.
 
 | Field | `known` | `inferred` | `unknown` |
 |-------|---------|------------|-----------|
-| `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag (category default), or a curated entry with only secondary sources | tag present but outside the supported syntax |
-| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...) | `fee=yes` without an amount, ambiguous charge, or no data |
+| `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag (category default), or a curated entry with only secondary sources | tag present but not in the syntax we read |
+| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...) | `fee=yes` without an amount, a charge with several prices, or no data |
 
-The hours parser is strict on purpose: if any part of the string is not understood, the whole
-value is `unknown` instead of half guessed. `PH` and `SH` (holiday) rules are skipped because
-the contract has no holiday field. `typical_duration_minutes` is a category default unless a
-curated entry sets it. `popularity` is a proxy, documented as one, and `rating` is never set
-because OSM has no reviews.
+The hours parser is strict on purpose: if any part of the tag is not understood, the whole
+value is `unknown` instead of half guessed. `PH` and `SH` (public and school holiday) rules
+are skipped because the contract has no holiday field. `typical_duration_minutes` is a
+category default unless a curated entry sets it. `rating` is never set because OSM has no
+reviews.
 
-## Curation
+## Duplicates in detail
 
-`data/curation/rome.json` holds the hand checked facts for the Rome demo. Each entry:
+- Walls and aqueducts come as many pieces with one name. Each structure becomes one stop,
+  placed on one of its real pieces. A relation that only groups parts is never used for the
+  position: its centre is the middle of a bounding box, which can lie far from every part.
+- Everything else is grouped around a seed, richest record first: same wikidata id within
+  1 km of the seed (100 m when the names differ), or same name within 60 m. Distances are
+  measured to the seed, so a row of neighbours cannot chain into one group. A venue (a bar,
+  a restaurant, a shop) never merges with a sight. The seed keeps its id and borrows known
+  facts from its copies.
+
+## The curation file
+
+A curation file holds the hand checked facts for the top sights. One entry looks like this
+(the values are only an illustration):
 
 ```json
 {
-  "name": "Pantheon",
-  "match": {"names": ["Pantheon"], "near": [41.8986, 12.4769], "radius_m": 250},
-  "opening_hours": "Mo-Su 09:00-19:00",
-  "price": {"amount": 7.0, "currency": "EUR"},
-  "duration_minutes": 30,
+  "name": "Example Museum",
+  "match": {"names": ["Museu Exemplo"], "near": [38.7100, -9.1400], "radius_m": 150},
+  "opening_hours": "Tu-Su 10:00-18:00",
+  "price": {"amount": 10.0, "currency": "EUR"},
+  "duration_minutes": 90,
   "confidence": "high",
-  "sources": ["https://cultura.gov.it/luogo/pantheon"],
-  "notes": "Last entry 18:30."
+  "sources": ["https://..."],
+  "notes": "Last entry 30 minutes before closing."
 }
 ```
 
 - `opening_hours` uses the OSM syntax and goes through the same strict parser. A typo stops
   the run instead of becoming a known fact.
-- Matching is by name (any language variant OSM has) near the given point. Use
+- Matching is by name (any language OSM has) near the given point. Use
   `"match": {"id": "osm:way/123"}` when a name is ambiguous.
 - Every entry needs a source URL. Entries that match nothing are listed in `report.json`.
-- `confidence` is `high` or `medium` when the facts come from the official site. Use `low` when
-  only secondary sources exist or they disagree: the entry is then applied as `inferred`.
-- Hours are the doors-open times. Last entry, free Sundays and special closures go in `notes`.
-- Other records of the same place are folded in: anything within the entry's radius that
-  carries one of its names (the Ara Pacis altar next to the Ara Pacis museum). A venue is
-  never folded into a sight or a sight into a venue, so the San Clemente bar stays a bar,
-  and a neighbourhood is never folded. Two entries that match the same place stop the run.
-- Folding uses the same radius as matching, so keep the radius tight around the site. The
-  Colosseum uses 150 m: at 300 m it would swallow the free Colosseo viewpoint on the street
-  above it.
-- `exclude_within` drops every place inside a polygon except the ids in `keep`. Rome uses it
-  for the Roman Forum and Palatine, and for the inside of the Vatican walls: OSM maps every
-  temple and gallery there as its own sight, but they are visited with one ticket. A zone
-  never drops a neighbourhood, because the label point of a whole district can fall inside.
+- `confidence` is `high` or `medium` when the facts come from the official site. Use `low`
+  when only secondary sources exist or they disagree: the entry is then applied as `inferred`.
+- Other records of the same place inside the entry's radius are folded into it, so they
+  cannot come back as a free extra stop. A venue is never folded into a sight.
+- `exclude_within` drops every place inside a polygon except the ids in `keep`, for a
+  ticketed site that OSM maps as many separate sights but people visit with one ticket.
 
-To refresh a city, check the sources again, update `checked_on`, then `make snapshot-rome`.
-
-## Travel times
-
-[`matrix.py`](matrix.py):
-
-- **walk**: straight line distance x 1.3 / 4.5 km/h. Against OSRM foot routing on 600 pairs of
-  popular Rome places this is off by about 2 minutes per walkable leg (p95 under 6), slightly
-  on the long side. See [`docs/routing-spike.md`](../docs/routing-spike.md).
-- **transit**: 10 minutes to reach and wait for a stop, then the distance x 1.4 at 15 km/h.
-  A planning estimate, not a timetable.
-
-A leg is `walk` while it fits the traveler's `max_walk_minutes`, otherwise `transit`.
-
-## Using the data from other folders
-
-```python
-from ingest.catalog import CityNotAvailable, load_city, travel_legs
-
-city = load_city("Rome")                  # also "Roma", "Rome, Italy"; raises CityNotAvailable
-candidates = sorted(city.places, key=lambda p: -p["popularity"])[:150]  # or the ranker top N
-legs = travel_legs(candidates, max_walk_minutes=profile["max_walk_minutes"])
-legs[(a_id, b_id)]                        # {"minutes": 12.4, "mode": "walk"}
-```
-
-`legs` is the shape `optimizer/travel.py` reads (that file is on the optimizer branch,
-PR 13, until it merges). Lookup order for a name: committed snapshots in `data/cities`,
-then `/fixtures`, then any folder in `WANDERWISE_EXTRA_CITIES`. `api/contracts.load_places()`
-goes through the same catalog, so Lisbon comes from the fixtures and Rome from the snapshot.
-
-A name matches the city name or an alias. "City, Region" also matches when the last part is
-the city's country, so "Rome, IT" and "Rome, Lazio, Italy" work but "Rome, Georgia" does
-not. A request without a city name gets the same clear error as an unknown city.
-
-A plain `make ingest` writes to `data/out` and is not served, so a test run on one laptop
-never changes what the API or the ranker sees. To try a local city in the app, point
-`WANDERWISE_EXTRA_CITIES=data/out` at it. It can add cities but never replace Rome or
-Lisbon. To ship a city, build it into `data/cities` (as `make snapshot-rome` does) and
-commit it. Output files are written with Unix line ends on every OS, so a rebuild on
-Windows gives the same bytes.
-
-For the what-if-it-rains flow, [`weather.py`](weather.py) gives a daily forecast for the trip
-dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
+To add the Lisbon file: check the sources, set `checked_on`, save it as
+`data/curation/lisbon.json`, add `--curation data/curation/lisbon.json` to the
+`snapshot-lisbon` target in the Makefile, then run `make snapshot-lisbon`.
 
 ## Known limits
 
-- One snapshot city so far (Rome, curated). Other cities work through `make ingest` but carry
-  raw OSM coverage only. See [`docs/data-spike.md`](../docs/data-spike.md) for how thin that is.
-- Seasonal hours: the contract holds one weekly pattern, so the curated hours are the winter
-  timetable that covers the demo dates. Change them when the season changes.
-- `day_trip` has no OSM mapping yet; it needs curated entries.
-- Parts of one site that OSM tags with the site's wikidata under another name more than
-  100 m away stay separate records. In Rome the one that mattered (Piazza Retta, part of
-  St. Peter's Square) is excluded by hand.
-- A wall mapped only as one multipolygon keeps the centre of its bounding box, because the
-  pipeline fetches centres, not shapes. For a ring of walls that point is off the wall:
-  the Porto spike data has one (Muralhas Fernandinas do Porto). No Rome record is affected.
+- No hand checked facts for Lisbon yet. The top sights carry raw OSM data only: the
+  Jeronimos Monastery, for example, has the museum default hours (`inferred`) and an
+  `unknown` price, and the Belem Tower has `unknown` hours because its tag uses seasons.
+  Checking the top sights on their official websites is the next data task.
+- The Lisbon Oceanarium and the Lisbon Zoo are missing: the sights query does not ask for
+  `tourism=aquarium` or `tourism=zoo`. Only the Oceanarium gift shop is in the data.
+- Itinerary items carry only `place_id`, so the app shows ids such as `Way/24341353`
+  instead of names until the team adds a name to each item or a place lookup.
+- About 9% of the hours tags (153 places) stay `unknown`: free text, rules joined by a comma,
+  closures on fixed dates, seasons. See [`docs/data-pipeline.md`](../docs/data-pipeline.md).
+- Hills: walking times use flat distances, so the climbs to the castle or the viewpoints take
+  longer than planned.
+- `day_trip` has no OSM mapping; it needs curated entries.
 
 ## License
 
 Place data comes from OpenStreetMap, (c) OpenStreetMap contributors, under the ODbL 1.0.
-`city.json` carries the attribution and anything that shows the data should too.
+`city.json` carries the attribution, and anything that shows the data should too.

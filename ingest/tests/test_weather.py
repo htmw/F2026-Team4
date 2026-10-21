@@ -9,8 +9,8 @@ from ingest.weather import DayWeather, daily_forecast, is_outdoor
 NOW = datetime(2026, 11, 9, 8, 0, tzinfo=UTC)
 
 PAYLOAD = {
-    "latitude": 41.89,
-    "longitude": 12.48,
+    "latitude": 38.72,
+    "longitude": -9.14,
     "daily_units": {"precipitation_sum": "mm"},
     "daily": {
         "time": ["2026-11-09", "2026-11-10", "2026-11-11"],
@@ -46,7 +46,7 @@ def fake_get(calls):
 
 
 def test_forecast_marks_rainy_days(tmp_path, fake_get):
-    days = daily_forecast(41.89, 12.48, "2026-11-09", "2026-11-11", tmp_path, get=fake_get, now=NOW)
+    days = daily_forecast(38.72, -9.14, "2026-11-09", "2026-11-11", tmp_path, get=fake_get, now=NOW)
 
     assert days["2026-11-09"].rainy is False
     assert days["2026-11-10"].rainy is True  # 85 percent and 7.4 mm
@@ -54,7 +54,7 @@ def test_forecast_marks_rainy_days(tmp_path, fake_get):
 
 
 def test_dates_past_the_forecast_are_none(tmp_path, fake_get):
-    days = daily_forecast(41.89, 12.48, "2026-11-11", "2026-11-12", tmp_path, get=fake_get, now=NOW)
+    days = daily_forecast(38.72, -9.14, "2026-11-11", "2026-11-12", tmp_path, get=fake_get, now=NOW)
 
     assert days["2026-11-11"] is not None
     assert days["2026-11-12"] is None
@@ -63,20 +63,20 @@ def test_dates_past_the_forecast_are_none(tmp_path, fake_get):
 def test_forecast_is_cached_for_a_few_hours(tmp_path, fake_get, calls):
     for hours in (0, 2):
         daily_forecast(
-            41.89, 12.48, "2026-11-09", "2026-11-09", tmp_path,
+            38.72, -9.14, "2026-11-09", "2026-11-09", tmp_path,
             get=fake_get, now=NOW + timedelta(hours=hours),
         )
     assert len(calls) == 1
 
     daily_forecast(
-        41.89, 12.48, "2026-11-09", "2026-11-09", tmp_path,
+        38.72, -9.14, "2026-11-09", "2026-11-09", tmp_path,
         get=fake_get, now=NOW + timedelta(hours=7),
     )
     assert len(calls) == 2
 
 
 def test_request_asks_for_the_daily_fields(tmp_path, fake_get, calls):
-    daily_forecast(41.89, 12.48, "2026-11-09", "2026-11-09", tmp_path, get=fake_get, now=NOW)
+    daily_forecast(38.72, -9.14, "2026-11-09", "2026-11-09", tmp_path, get=fake_get, now=NOW)
 
     assert "precipitation_probability_max" in calls[0]["daily"]
     assert calls[0]["timezone"] == "auto"
