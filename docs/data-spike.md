@@ -1,15 +1,15 @@
-# Data spike (Data team) — fill in a NUMBER
+# Data spike (Data team)
 
 **Question:** For tourist-relevant POIs, what fraction have real `opening_hours`? Real prices?
 
-Run ingest for 3 cities of differing data quality (e.g. Lisbon, Porto, Tbilisi) and fill this in.
+We ran the ingestion for Lisbon, Porto, and Tbilisi and checked the reports generated for each city.
 
 | City | POIs found | % with real hours | % with real price | Notes |
 |------|-----------:|------------------:|------------------:|-------|
-| Lisbon | | | | |
-| Porto  | | | | |
-| Tbilisi| | | | |
+| Lisbon | 6097 | 25.2% | 0.54% | 1536 hours parsed; 33 numeric prices |
+| Porto | 2991 | 21.2% | 1.24% | 635 hours parsed; 37 numeric prices |
+| Tbilisi | 2378 | 29.2% | 0.13% | 694 hours parsed; 3 numeric prices |
 
-**Decision this informs:** how much the optimizer must rely on `inferred` data, and whether a
-commercial free-tier source is worth wiring in for the dual-backend demo.
+**Observation:** The reports show that opening hours and numeric prices are missing for many places. The current results include restaurants, cafes, shops, and attractions, so they are not limited to tourist attractions.
 
+**Decision this informs:** Wanderwise needs to handle missing information and distinguish actual data from inferred data. We can also use these results to decide whether another data source would help.
