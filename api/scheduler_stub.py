@@ -18,10 +18,8 @@ import uuid
 from datetime import date, timedelta
 from typing import Any
 
-from api.contracts import load_categories, load_places
-
-# Fallback city centre if the request's destination has no coordinates yet.
-_LISBON_CENTRE = {"lat": 38.7223, "lon": -9.1393}
+from api.contracts import load_categories
+from ingest.catalog import load_city
 
 
 def _get_trained_scorer():
@@ -90,15 +88,19 @@ def plan_itinerary(
     destination: dict[str, Any],
     start_date: str,
     end_date: str,
-    city: str = "lisbon",
+    city: str | None = None,
     trip_id: str | None = None,
 ) -> dict[str, Any]:
-    """Build an Itinerary. Pass `trip_id` when re-planning an existing trip."""
+    """Build an Itinerary. Pass `trip_id` when re-planning an existing trip.
+
+    Places come from the city named in `destination` (or from `city` when given). Raises
+    ingest.catalog.CityNotAvailable when there is no data for that city.
+    """
     category_map = load_categories()["categories"]
-    # TODO(ingest): waiting for Place[] for the requested `destination`. Until ingest is
-    # merged, every trip is planned from the Lisbon fixtures (the response warns about it).
+    # No silent default: a request without a city name gets a clear 422, not Lisbon.
+    city_data = load_city(city or destination.get("name") or destination.get("city"))
     rejected = set(profile.get("feedback", {}).get("rejected", []))
-    places = [p for p in load_places(city) if p["id"] not in rejected]
+    places = [p for p in city_data.places if p["id"] not in rejected]
 
     # 1) Score every place, best first. Use the trained ranking model if one exists,
     #    otherwise the hand-coded stub.
@@ -174,12 +176,13 @@ def plan_itinerary(
 
     # 3) Assemble the Itinerary in the contract shape.
     dest = {
-        "name": destination.get("name", city.title()),
-        "lat": float(destination.get("lat", _LISBON_CENTRE["lat"])),
-        "lon": float(destination.get("lon", _LISBON_CENTRE["lon"])),
+        "name": destination.get("name") or city_data.name,
+        "lat": float(destination.get("lat", city_data.destination["lat"])),
+        "lon": float(destination.get("lon", city_data.destination["lon"])),
     }
-    if destination.get("country"):
-        dest["country"] = destination["country"]
+    country = destination.get("country") or city_data.destination.get("country")
+    if country:
+        dest["country"] = country
 
     # Naive "score": how full the days ended up. Saturates toward 1.0.
     # TODO(optimizer): waiting for a real itinerary quality score.
@@ -192,9 +195,12 @@ def plan_itinerary(
             f"Opening hours for {unverified_hours} place(s) could not be verified."
         )
     warnings.append(
-        "Stub scheduler: travel time, opening hours and budget are not yet enforced, "
-        "and every trip is planned from the Lisbon sample places."
+        "Stub scheduler: travel time, opening hours and budget are not yet enforced."
     )
+    if city_data.source == "fixture":
+        warnings.append(
+            f"Places for {city_data.name} come from the hand-made sample file, not live data."
+        )
 
     currency = profile.get("budget", {}).get("currency", "EUR")
     return {

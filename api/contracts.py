@@ -14,6 +14,8 @@ from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
+from ingest.catalog import load_places as _catalog_load_places
+
 ROOT = Path(__file__).resolve().parent.parent
 CONTRACTS = ROOT / "contracts"
 FIXTURES = ROOT / "fixtures"
@@ -49,8 +51,10 @@ def load_categories() -> dict[str, Any]:
 
 
 def load_places(city: str = "lisbon") -> list[dict[str, Any]]:
-    """Load fixture places for a city.
+    """Load the places for a city name, e.g. "rome" or "Rome, Italy".
 
-    TODO(ingest): waiting for ingest output. Until then this only reads /fixtures.
+    The Data team's catalog decides where they come from: a committed snapshot in
+    data/cities, or the hand-made /fixtures. Raises ingest.catalog.CityNotAvailable when
+    there is no data for the city.
     """
-    return _load_json(FIXTURES / f"{city}.places.json")
+    return _catalog_load_places(city)

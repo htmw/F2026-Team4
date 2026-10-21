@@ -26,6 +26,7 @@ from pydantic import BaseModel
 from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
+from ingest.catalog import CityNotAvailable
 
 app = FastAPI(
     title="Wanderwise Travel Planning API",
@@ -77,13 +78,17 @@ def _request_errors(req: PlanRequest) -> list[str]:
 
 
 def _build_itinerary(request: dict[str, Any], trip_id: str | None = None) -> dict[str, Any]:
-    itinerary = plan_itinerary(
-        request["profile"],
-        request["destination"],
-        request["start_date"],
-        request["end_date"],
-        trip_id=trip_id,
-    )
+    try:
+        itinerary = plan_itinerary(
+            request["profile"],
+            request["destination"],
+            request["start_date"],
+            request["end_date"],
+            trip_id=trip_id,
+        )
+    except CityNotAvailable as exc:
+        # Say so plainly instead of planning a trip in some other city.
+        raise HTTPException(status_code=422, detail={"destination_errors": [str(exc)]}) from exc
     # If our own output breaks the contract, fail loudly — that's a bug, not a bad request.
     itinerary_errors = validate("itinerary", itinerary)
     if itinerary_errors:
