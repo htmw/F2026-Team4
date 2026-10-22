@@ -1,6 +1,8 @@
+
 from fastapi.testclient import TestClient
 
 from api.main import app
+
 
 client = TestClient(app)
 
@@ -10,8 +12,6 @@ def _body(destination):
         "destination": destination,
         "preferences": {},
     }
-
-
 
 
 def test_a_city_without_data_is_rejected_with_a_clear_message():
