@@ -59,15 +59,21 @@ def _load(city_dir: Path) -> tuple[CityData, _Names]:
     meta = _read_json(city_dir / "city.json")
     destination = _read_json(city_dir / "destination.json")
     places = _read_json(city_dir / "places.json")
+
     return (
-        CityData(city_dir.name, destination["name"], destination, places),
+        CityData(
+            key=city_dir.name,
+            name=destination["name"],
+            destination=destination,
+            places=places,
+        ),
         _make_names(meta),
     )
 
 
 @cache
 def _city_entries() -> tuple[tuple[Path, _Names, str], ...]:
-    """Discover snapshots from data/cities."""
+    """Discover city snapshots in data/cities."""
     if not CITY_ROOT.is_dir():
         return ()
 
@@ -77,6 +83,7 @@ def _city_entries() -> tuple[tuple[Path, _Names, str], ...]:
     for city_dir in sorted(CITY_ROOT.iterdir()):
         if not city_dir.is_dir():
             continue
+
         if not all((city_dir / filename).is_file() for filename in required):
             continue
 
@@ -88,6 +95,7 @@ def _city_entries() -> tuple[tuple[Path, _Names, str], ...]:
 
 def _is_this_city(name: str, names: _Names) -> bool:
     normalized = normalize_name(name)
+
     if normalized in names.full:
         return True
 
@@ -96,6 +104,7 @@ def _is_this_city(name: str, names: _Names) -> bool:
         for part in name.split(",")
         if normalize_name(part)
     ]
+
     return (
         len(parts) > 1
         and parts[0] in names.city
@@ -112,7 +121,8 @@ def load_city(name: str | None) -> CityData:
     """Load a supported city or raise CityNotAvailable."""
     if not normalize_name(name or ""):
         raise CityNotAvailable(
-            f"The destination has no name. Cities with data: {_available_names()}."
+            f"The destination has no name. Cities with data: "
+            f"{_available_names()}."
         )
 
     for city_dir, names, _display_name in _city_entries():
@@ -120,7 +130,8 @@ def load_city(name: str | None) -> CityData:
             return _load(city_dir)[0]
 
     raise CityNotAvailable(
-        f"No place data for {name!r} yet. Cities with data: {_available_names()}."
+        f"No place data for {name!r} yet. "
+        f"Cities with data: {_available_names()}."
     )
 
 
@@ -134,5 +145,5 @@ def travel_legs(
     max_walk_minutes: float,
     model: TravelModel | None = None,
 ) -> dict[tuple[str, str], dict]:
-    """Calculate travel legs between the supplied candidate places."""
+    """Calculate travel legs between candidate places."""
     return _travel_legs(places, max_walk_minutes, model)
