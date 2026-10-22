@@ -1,0 +1,25 @@
+{
+  "key": "tbilisi",
+  "name": "Tbilisi",
+  "country": "GE",
+  "country_name": "Georgia",
+  "aliases": [
+    "Tbilisi",
+    "Tbilisi, GE",
+    "Tbilisi, Georgia"
+  ],
+  "lat": 41.6934591,
+  "lon": 44.8014495,
+  "bbox": [
+    41.6177901,
+    44.5962016,
+    41.8438777,
+    45.0172908
+  ],
+  "bbox_source": "geocoded",
+  "currency": "GEL",
+  "places": 2378,
+  "built_at": "2026-10-21T15:43:38+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

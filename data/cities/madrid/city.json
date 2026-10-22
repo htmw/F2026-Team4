@@ -1,0 +1,25 @@
+{
+  "key": "madrid",
+  "name": "Madrid",
+  "country": "ES",
+  "country_name": "Spain",
+  "aliases": [
+    "Madrid",
+    "Madrid, ES",
+    "Madrid, Spain"
+  ],
+  "lat": 40.416782,
+  "lon": -3.703507,
+  "bbox": [
+    40.3119774,
+    -3.8889539,
+    40.6437293,
+    -3.5183264
+  ],
+  "bbox_source": "geocoded",
+  "currency": "EUR",
+  "places": 13458,
+  "built_at": "2026-10-21T22:14:47+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

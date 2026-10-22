@@ -1,0 +1,58 @@
+{
+ "generated_at": "2026-10-21T23:06:19+00:00",
+ "query": "Rome",
+ "destination": {
+  "name": "Rome",
+  "country": "IT",
+  "lat": 41.8933203,
+  "lon": 12.4829321
+ },
+ "bbox": [
+  41.6556417,
+  12.2344416,
+  42.1410285,
+  12.8557603
+ ],
+ "currency_fallback": "EUR",
+ "counts": {
+  "places": 10727,
+  "dropped_unmapped_category": 833
+ },
+ "hours_status": {
+  "absent": 8683,
+  "unparseable": 194,
+  "parsed": 1850
+ },
+ "cost_status": {
+  "default_free": 3362,
+  "fee_amount_missing": 73,
+  "fee_free": 57,
+  "no_data": 7222,
+  "charge_parsed": 13
+ },
+ "categories": {
+  "restaurant": 3763,
+  "shop": 245,
+  "viewpoint": 56,
+  "bar": 700,
+  "gallery": 23,
+  "cafe": 2233,
+  "landmark": 1389,
+  "bakery": 275,
+  "museum": 211,
+  "nightclub": 66,
+  "park": 704,
+  "church": 656,
+  "castle": 54,
+  "monument": 101,
+  "beach": 4,
+  "market": 105,
+  "garden": 134,
+  "palace": 8
+ },
+ "vocabulary_gaps": [
+  "day_trip",
+  "neighborhood"
+ ],
+ "schema_error_samples": []
+}

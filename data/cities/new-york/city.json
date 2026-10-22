@@ -1,0 +1,25 @@
+{
+  "key": "new-york",
+  "name": "New York",
+  "country": "US",
+  "country_name": "United States",
+  "aliases": [
+    "New York",
+    "New York, US",
+    "New York, United States"
+  ],
+  "lat": 40.7127281,
+  "lon": -74.0060152,
+  "bbox": [
+    40.476578,
+    -74.258843,
+    40.91763,
+    -73.700233
+  ],
+  "bbox_source": "geocoded",
+  "currency": "USD",
+  "places": 20936,
+  "built_at": "2026-10-21T23:29:50+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}
