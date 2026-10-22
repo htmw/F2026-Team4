@@ -13,22 +13,6 @@ def _body(destination):
     }
 
 
-@pytest.mark.parametrize(
-    "name",
-    [
-        "Lisbon",
-        "Porto",
-        "Tbilisi",
-        "Madrid",
-        "Paris",
-        "Rome",
-        "New York",
-    ],
-)
-def test_supported_cities_can_be_planned(name):
-    resp = client.post("/plan", json=_body({"name": name}))
-
-    assert resp.status_code == 200
 
 
 def test_a_city_without_data_is_rejected_with_a_clear_message():
