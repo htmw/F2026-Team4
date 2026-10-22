@@ -22,7 +22,7 @@ USER_AGENT = os.environ.get(
 
 
 # A destination wider or taller than this is almost certainly a region or a country, not a
-# city. London (about 58 x 47 km) fits, Italy does not. Pass an explicit bbox to go bigger.
+# city. Lisbon is about 12 x 12 km. Pass an explicit bbox to go bigger.
 DEFAULT_MAX_SPAN_KM = 80.0
 _KM_PER_DEG_LAT = 111.32
 
@@ -53,7 +53,7 @@ class Geocoded:
     lon: float
     bbox: tuple[float, float, float, float]  # south, west, north, east
     display_name: str
-    country_name: str = ""  # in English, e.g. "Italy"; "" if unavailable
+    country_name: str = ""  # in English, e.g. "Portugal"; "" if unavailable
 
     def destination(self) -> dict:
         """Return the destination shape used by the Itinerary contract."""

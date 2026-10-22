@@ -1,0 +1,56 @@
+{
+ "generated_at": "2026-10-21T22:14:47+00:00",
+ "query": "Madrid",
+ "destination": {
+  "name": "Madrid",
+  "country": "ES",
+  "lat": 40.416782,
+  "lon": -3.703507
+ },
+ "bbox": [
+  40.3119774,
+  -3.8889539,
+  40.6437293,
+  -3.5183264
+ ],
+ "currency_fallback": "EUR",
+ "counts": {
+  "places": 13458,
+  "dropped_unmapped_category": 917
+ },
+ "hours_status": {
+  "unparseable": 234,
+  "absent": 11541,
+  "parsed": 1683
+ },
+ "cost_status": {
+  "no_data": 10926,
+  "fee_free": 46,
+  "default_free": 2458,
+  "fee_amount_missing": 28
+ },
+ "categories": {
+  "bar": 2817,
+  "restaurant": 5756,
+  "bakery": 525,
+  "cafe": 1556,
+  "nightclub": 166,
+  "shop": 334,
+  "landmark": 320,
+  "museum": 113,
+  "market": 99,
+  "viewpoint": 44,
+  "garden": 157,
+  "monument": 114,
+  "park": 1025,
+  "gallery": 30,
+  "church": 384,
+  "castle": 4,
+  "palace": 14
+ },
+ "vocabulary_gaps": [
+  "day_trip",
+  "neighborhood"
+ ],
+ "schema_error_samples": []
+}

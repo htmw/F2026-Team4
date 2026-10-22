@@ -18,7 +18,8 @@ import re
 _NAME_TRANSLATION = re.compile(r"^name:[a-z]{2,3}(?:-[A-Za-z]{2,4})?$")
 _SIGHT_TOURISM = {"attraction", "museum", "gallery", "viewpoint"}
 
-# Tags that say someone documented the place properly. Same list the matrix cap used before.
+# Tags that show someone documented the place properly. Dedupe also uses the count of these
+# to decide which of two copies of a place is the richer one.
 DOCUMENTATION_KEYS = (
     "wikidata",
     "wikipedia",
@@ -41,8 +42,9 @@ WEIGHTS = {
     "documented": 0.05,
 }
 
-# A place with this many translated names (or more) gets the full name weight. The big
-# Roman sights have well over a hundred; a well known church has ten to thirty.
+# A place with this many translated names (or more) gets the full name weight. In Lisbon
+# the most translated place, the Belem Tower, has 16, so no Lisbon place gets the full
+# weight. That is fine: the score is only used to order places.
 NAME_SATURATION = 40
 
 

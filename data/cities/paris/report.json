@@ -1,0 +1,58 @@
+{
+ "generated_at": "2026-10-21T22:36:31+00:00",
+ "query": "Paris",
+ "destination": {
+  "name": "Paris",
+  "country": "FR",
+  "lat": 48.8534951,
+  "lon": 2.3483915
+ },
+ "bbox": [
+  48.8155755,
+  2.224122,
+  48.902156,
+  2.4697602
+ ],
+ "currency_fallback": "EUR",
+ "counts": {
+  "places": 21216,
+  "dropped_unmapped_category": 1590
+ },
+ "hours_status": {
+  "unparseable": 1045,
+  "absent": 11801,
+  "parsed": 8370
+ },
+ "cost_status": {
+  "no_data": 18087,
+  "default_free": 2779,
+  "fee_amount_missing": 88,
+  "charge_parsed": 15,
+  "fee_free": 246,
+  "charge_ambiguous": 1
+ },
+ "categories": {
+  "restaurant": 10748,
+  "bar": 2308,
+  "cafe": 2885,
+  "shop": 713,
+  "gallery": 548,
+  "bakery": 1640,
+  "nightclub": 82,
+  "park": 870,
+  "landmark": 518,
+  "market": 134,
+  "garden": 229,
+  "museum": 160,
+  "viewpoint": 31,
+  "monument": 32,
+  "castle": 17,
+  "church": 293,
+  "palace": 8
+ },
+ "vocabulary_gaps": [
+  "day_trip",
+  "neighborhood"
+ ],
+ "schema_error_samples": []
+}

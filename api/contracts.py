@@ -51,10 +51,9 @@ def load_categories() -> dict[str, Any]:
 
 
 def load_places(city: str = "lisbon") -> list[dict[str, Any]]:
-    """Load the places for a city name, e.g. "rome" or "Rome, Italy".
+    """Load the places for a city name, e.g. "lisbon" or "Lisbon, Portugal".
 
-    The Data team's catalog decides where they come from: a committed snapshot in
-    data/cities, or the hand-made /fixtures. Raises ingest.catalog.CityNotAvailable when
-    there is no data for the city.
+    They come from the committed Lisbon snapshot in data/cities/lisbon, through the Data
+    team's catalog. Raises ingest.catalog.CityNotAvailable for any other city.
     """
     return _catalog_load_places(city)

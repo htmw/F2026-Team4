@@ -1,0 +1,58 @@
+{
+ "generated_at": "2026-10-21T23:29:50+00:00",
+ "query": "New York",
+ "destination": {
+  "name": "New York",
+  "country": "US",
+  "lat": 40.7127281,
+  "lon": -74.0060152
+ },
+ "bbox": [
+  40.476578,
+  -74.258843,
+  40.91763,
+  -73.700233
+ ],
+ "currency_fallback": "USD",
+ "counts": {
+  "places": 20936,
+  "dropped_unmapped_category": 845
+ },
+ "hours_status": {
+  "absent": 13003,
+  "parsed": 6865,
+  "unparseable": 1068
+ },
+ "cost_status": {
+  "default_free": 4994,
+  "no_data": 15792,
+  "fee_amount_missing": 70,
+  "fee_free": 78,
+  "charge_ambiguous": 1,
+  "charge_parsed": 1
+ },
+ "categories": {
+  "restaurant": 9500,
+  "cafe": 2923,
+  "bar": 1984,
+  "bakery": 762,
+  "shop": 700,
+  "landmark": 421,
+  "gallery": 351,
+  "market": 91,
+  "viewpoint": 58,
+  "garden": 531,
+  "museum": 201,
+  "monument": 93,
+  "park": 2439,
+  "nightclub": 120,
+  "beach": 63,
+  "castle": 27,
+  "church": 672
+ },
+ "vocabulary_gaps": [
+  "day_trip",
+  "neighborhood"
+ ],
+ "schema_error_samples": []
+}

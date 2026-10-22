@@ -1,0 +1,25 @@
+{
+  "key": "porto",
+  "name": "Porto",
+  "country": "PT",
+  "country_name": "Portugal",
+  "aliases": [
+    "Porto",
+    "Porto, PT",
+    "Porto, Portugal"
+  ],
+  "lat": 41.1502195,
+  "lon": -8.6103497,
+  "bbox": [
+    41.1383507,
+    -8.691289,
+    41.1859353,
+    -8.5520792
+  ],
+  "bbox_source": "geocoded",
+  "currency": "EUR",
+  "places": 2991,
+  "built_at": "2026-10-21T15:12:34+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

@@ -1,0 +1,25 @@
+{
+  "key": "paris",
+  "name": "Paris",
+  "country": "FR",
+  "country_name": "France",
+  "aliases": [
+    "Paris",
+    "Paris, FR",
+    "Paris, France"
+  ],
+  "lat": 48.8534951,
+  "lon": 2.3483915,
+  "bbox": [
+    48.8155755,
+    2.224122,
+    48.902156,
+    2.4697602
+  ],
+  "bbox_source": "geocoded",
+  "currency": "EUR",
+  "places": 21216,
+  "built_at": "2026-10-21T22:36:31+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

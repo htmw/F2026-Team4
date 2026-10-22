@@ -1,9 +1,13 @@
-"""OSM tags -> the controlled vocabulary in contracts/categories.json, plus per-category defaults.
+"""Which kind of place is this? OSM tags -> our category names, plus the defaults per category.
 
-One global mapping for every destination. It may only emit keys that exist in the
-vocabulary (checked at runtime by check_against_vocabulary). Vocabulary keys that OSM
-tags cannot express reliably (day_trip) are reported as gaps, not guessed. Neighborhoods
-are mapped, but the Overpass query only asks for ones that carry a wikidata tag.
+map_categories() turns OSM tags such as tourism=museum into the category names of
+contracts/categories.json (museum, church, park, restaurant...). The first category is the
+primary one. It decides the defaults below: the hours used when OSM has none, the visit
+length, and whether entry is assumed free.
+
+The mapping may only use names that exist in contracts/categories.json; the pipeline checks
+that at start (check_against_vocabulary). day_trip has no OSM tag, so it is reported as a
+gap, not guessed.
 """
 
 from __future__ import annotations
@@ -107,8 +111,9 @@ def map_categories(tags: dict) -> list[str]:
     return out
 
 
-# Representative tags for each mapping rule. This keeps category discovery tied to
-# map_categories() rather than maintaining a separate copy of its output vocabulary.
+# One example tag set per rule in map_categories(). Running them through map_categories()
+# tells us which categories the rules can produce, so the vocabulary check below follows
+# the rules without a second hand written list. Add an example when you add a rule.
 _CATEGORY_RULE_TAGS = (
     {"tourism": "museum"},
     {"tourism": "gallery"},
@@ -138,6 +143,29 @@ _CATEGORY_RULE_TAGS = (
 def mapped_categories() -> set[str]:
     """Return the categories that the current mapping rules can emit."""
     return {category for tags in _CATEGORY_RULE_TAGS for category in map_categories(tags)}
+
+
+# The four groups of map_categories(), most specific first.
+_GROUPS_IN_ORDER = (
+    {"restaurant", "cafe", "bakery", "market", "bar", "nightclub", "shop"},
+    {"museum", "gallery", "castle", "palace", "monument", "church", "viewpoint"},
+    {"park", "garden", "beach"},
+    {"neighborhood", "landmark", "day_trip"},
+)
+
+
+def most_specific_first(categories: list[str]) -> list[str]:
+    """Put the categories in the order map_categories() uses: venues, typed sights, green
+    spaces, then the generic buckets. The order inside a group is kept.
+
+    Dedupe needs this when it merges two records: a landmark record and a museum record of
+    the same monastery must become a museum first, not a landmark with a museum attached.
+    """
+
+    def group(category: str) -> int:
+        return next((i for i, g in enumerate(_GROUPS_IN_ORDER) if category in g), 4)
+
+    return sorted(categories, key=group)
 
 
 # --- Defaults. Always labelled `inferred`; they are guesses by category, never city data. ---

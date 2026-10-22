@@ -1,8 +1,8 @@
 """Routing spike: how far is straight line x detour factor from real street routing?
 
 Usage:
-    python -m ingest.routing_spike Rome --osrm-url https://routing.openstreetmap.de/routed-foot
-    python -m ingest.routing_spike Rome --table osrm_table.json   # a table saved earlier
+    python -m ingest.routing_spike Lisbon --osrm-url https://routing.openstreetmap.de/routed-foot
+    python -m ingest.routing_spike Lisbon --table docs/routing-spike-table.json  # saved table
 
 The sample is drawn from the city's most popular places, because those are the legs an
 itinerary actually contains. One OSRM /table request gives route distances and durations for
@@ -11,7 +11,7 @@ every ordered pair. Two comparisons come out of it:
 - geometry: our estimate against the real street distance walked at OUR speed. This isolates
   the detour factor, which is the only thing the cheap method can get wrong.
 - end to end: our estimate against OSRM's own foot durations. The public foot profile
-  measured about 4.5 km/h in the Rome run, the same speed we plan with, so there the two
+  measured about 4.5 km/h in the Lisbon run, the same speed we plan with, so there the two
   comparisons agree. The report says so when another server walks at a different speed.
 
 Writes docs/routing-spike.md and docs/routing-spike.json.
@@ -258,7 +258,7 @@ def render(city: str, result: dict, source: str, today: str) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Compare haversine x factor with OSRM walking.")
-    ap.add_argument("city", help="a city the catalog knows, e.g. Rome")
+    ap.add_argument("city", help="a city the catalog knows, e.g. Lisbon")
     source = ap.add_mutually_exclusive_group(required=True)
     source.add_argument("--osrm-url", help="OSRM base URL with a foot profile")
     source.add_argument("--table", help="saved OSRM table JSON (ids, durations, distances)")

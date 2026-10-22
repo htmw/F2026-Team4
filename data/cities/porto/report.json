@@ -1,0 +1,59 @@
+{
+ "generated_at": "2026-10-21T15:12:34+00:00",
+ "query": "Porto",
+ "destination": {
+  "name": "Porto",
+  "country": "PT",
+  "lat": 41.1502195,
+  "lon": -8.6103497
+ },
+ "bbox": [
+  41.1383507,
+  -8.691289,
+  41.1859353,
+  -8.5520792
+ ],
+ "currency_fallback": "EUR",
+ "counts": {
+  "places": 2991,
+  "dropped_unmapped_category": 202
+ },
+ "hours_status": {
+  "parsed": 635,
+  "absent": 2296,
+  "unparseable": 60
+ },
+ "cost_status": {
+  "fee_free": 40,
+  "default_free": 723,
+  "charge_parsed": 37,
+  "no_data": 2163,
+  "fee_amount_missing": 27,
+  "charge_ambiguous": 1
+ },
+ "categories": {
+  "restaurant": 1109,
+  "bar": 202,
+  "cafe": 639,
+  "bakery": 88,
+  "shop": 159,
+  "market": 27,
+  "nightclub": 31,
+  "gallery": 47,
+  "museum": 77,
+  "landmark": 187,
+  "viewpoint": 23,
+  "monument": 18,
+  "garden": 91,
+  "park": 78,
+  "castle": 31,
+  "church": 156,
+  "palace": 14,
+  "beach": 14
+ },
+ "vocabulary_gaps": [
+  "day_trip",
+  "neighborhood"
+ ],
+ "schema_error_samples": []
+}

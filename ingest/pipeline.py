@@ -1,14 +1,17 @@
-"""city name -> geocode -> Overpass -> contract-valid Place[] -> per-city output folder.
+"""Build the place data for one city: city name in, a folder of JSON files out.
 
-Steps, in order:
-1. geocode the name (Nominatim) for the centre, country and default bounding box,
-2. fetch every Overpass query group for the box (raw responses cached on disk),
-3. convert each OSM element to a Place, dropping the ones that cannot be valid or whose
-   centre falls outside the box,
-4. score popularity from the OSM tags,
-5. merge duplicate records of the same place, and the pieces of each wall or aqueduct,
-6. apply the hand checked curation file, if there is one,
-7. write places.json, destination.json, city.json, report.json and matrix.json.
+run_city() does these steps in order. The comments in the code use the same numbers.
+
+1. Geocode the name with Nominatim: centre, country and the area to search (the bbox).
+2. Download each Overpass query group for that area (cached on disk, see overpass.py).
+3. Turn every OSM element into a Place record (to_place.py). Elements with no name, no
+   position or no category we map are dropped, and so is anything outside the bbox.
+4. Give each place a popularity score from its OSM tags (popularity.py).
+5. Merge duplicate records of the same real place (dedupe.py).
+6. Apply the hand checked curation file, if there is one (curation.py).
+7. Write places.json, destination.json, city.json and report.json to out_dir/<slug>/.
+
+make snapshot-lisbon runs it for Lisbon and writes the result to data/cities/lisbon/.
 """
 
 from __future__ import annotations
@@ -20,24 +23,11 @@ from pathlib import Path
 import requests
 
 from .cache import slugify, utc_now_iso, write_json, write_json_lines_array
-from .categories import (
-    check_against_vocabulary,
-    load_vocabulary,
-    unmapped_vocabulary,
-)
+from .categories import check_against_vocabulary, load_vocabulary, unmapped_vocabulary
 from .cost import currency_for_country
 from .curation import apply_curation, load_curation
 from .dedupe import dedupe
 from .geocode import DEFAULT_MAX_SPAN_KM, geocode
-from .matrix import (
-    DEFAULT_DETOUR,
-    DEFAULT_SPEED_KMH,
-    TravelModel,
-    matrix_payload,
-    select_for_matrix,
-    transit_matrix,
-    walking_matrix,
-)
 from .overpass import GROUPS, fetch_group
 from .popularity import popularity
 from .to_place import build_place, make_validator
@@ -55,9 +45,6 @@ def run_city(
     groups: list[str] | None = None,
     bbox=None,
     max_span_km: float = DEFAULT_MAX_SPAN_KM,
-    matrix_top: int = 300,
-    speed_kmh: float = DEFAULT_SPEED_KMH,
-    detour_factor: float = DEFAULT_DETOUR,
     slug: str | None = None,
     aliases: list[str] | None = None,
     curation_path: Path | None = None,
@@ -66,14 +53,25 @@ def run_city(
     sleep=time.sleep,
     log=print,
 ) -> dict:
+    """Run every step for one city and return {destination, places, report, out_dir}.
+
+    query: the city name, e.g. Lisbon, Portugal.
+    bbox: an explicit search area (south, west, north, east). Without it the geocoded
+        city boundary is used.
+    slug: the output folder name, e.g. lisbon. Defaults to one made from the query.
+    aliases: extra names the API should accept for this city, e.g. Lisboa.
+    refresh: download again even when the cache has the data.
+    post, get, sleep and log let tests run the whole pipeline without the network.
+    """
     contracts_dir = Path(contracts_dir)
     vocab = load_vocabulary(contracts_dir / "categories.json")
     check_against_vocabulary(vocab)
     validator = make_validator(contracts_dir / "place.schema.json")
+    # Read the curation file first, so a typo in it stops the run before any download.
     curation = load_curation(curation_path) if curation_path else None
 
-    # With an explicit bbox the geocoded box is only used for the name, country and centre,
-    # so its size does not matter (London, Tokyo, or any city whose admin area is huge).
+    # 1. Geocode. With an explicit bbox the geocoded box is only used for the name,
+    # country and centre, so its size does not matter and the size check is skipped.
     geo = geocode(
         query,
         cache_dir,
@@ -86,18 +84,16 @@ def run_city(
     currency = currency_for_country(geo.country)
     cache_slug = slugify(query)
     out_slug = slug or cache_slug
-
     log(f"{geo.display_name}  bbox={bbox}  country={geo.country or '?'}  currency={currency}")
 
     places: list[dict] = []
-    signals: dict[str, dict] = {}
+    signals: dict[str, dict] = {}  # place id -> tag facts that dedupe and curation need
     seen: set[tuple] = set()
     counts: Counter = Counter()
-    hours_status: Counter = Counter()
-    cost_status: Counter = Counter()
     schema_errors: list[str] = []
 
     for group in groups or list(GROUPS):
+        # 2. Download one query group (or read it from the cache).
         wrapper = fetch_group(
             group,
             bbox,
@@ -111,57 +107,50 @@ def run_city(
         fetched = wrapper["fetched_at"][:10]
 
         for el in wrapper["payload"].get("elements", []):
+            # The same element can come back in two groups (a museum that is also historic).
             key = (el.get("type"), el.get("id"))
-
             if key in seen:
                 continue
             seen.add(key)
 
-            r = build_place(
-                el,
-                currency=currency,
-                fetched_date=fetched,
-                validator=validator,
-            )
-
+            # 3. Convert, or drop with a reason that ends up in report.json.
+            r = build_place(el, currency=currency, fetched_date=fetched, validator=validator)
             if r.place is None:
                 counts[f"dropped_{r.drop_reason}"] += 1
-
                 if r.error and len(schema_errors) < 5:
                     schema_errors.append(r.error)
-
                 continue
 
-            # Overpass returns ways and relations that only touch the box. Their centre can
-            # be far outside it (a Roman aqueduct relation lands 17 km east of the centre),
-            # and the planner only works inside the box.
+            # Overpass also returns ways and relations that only touch the box, and their
+            # centre can lie outside it. The Lisbon run drops 8 such places, for example a
+            # park in Loures 9 km from the city centre. The planner only works inside the box.
             if not _inside(r.place, bbox):
                 counts["dropped_outside_bbox"] += 1
                 continue
 
+            # 4. Popularity.
             r.place["popularity"] = popularity(r.signals)
             r.signals["cost_status"] = r.cost_status
             places.append(r.place)
             signals[r.place["id"]] = r.signals
             counts["valid_records"] += 1
 
+    # 5. Merge duplicates.
     places, dedupe_report = dedupe(places, signals)
     if dedupe_report.no_position:
         counts["dropped_no_position"] = len(dedupe_report.no_position)
 
+    # 6. Curation.
     curation_report = None
     if curation is not None:
-        places, report = apply_curation(places, curation, signals, validator)
-        curation_report = report.as_dict()
-        for name in report.unmatched:
+        places, applied = apply_curation(places, curation, signals, validator)
+        curation_report = applied.as_dict()
+        for name in applied.unmatched:
             log(f"  curation: no match for {name!r}")
 
+    # 7. Write the output folder.
     places.sort(key=lambda p: p["id"])
     counts["places"] = len(places)
-    for p in places:
-        hours_status[_hours_label(p)] += 1
-        cost_status[_cost_label(p, signals.get(p["id"], {}))] += 1
-
     destination = geo.destination()
     report = {
         "generated_at": utc_now_iso(),
@@ -172,8 +161,8 @@ def run_city(
         "currency_fallback": currency,
         "counts": dict(counts),
         "duplicates": dedupe_report.as_dict(),
-        "hours_status": dict(hours_status),
-        "cost_status": dict(cost_status),
+        "hours_status": dict(Counter(_hours_label(p) for p in places)),
+        "cost_status": dict(Counter(_cost_label(p, signals.get(p["id"], {})) for p in places)),
         "categories": dict(Counter(p["categories"][0] for p in places)),
         "vocabulary_gaps": unmapped_vocabulary(vocab),
         "curation": curation_report,
@@ -196,43 +185,14 @@ def run_city(
         "attribution": OSM_ATTRIBUTION,
     }
 
-    # Build the matrix before writing anything, so a failure here (bad speed, too many
-    # places) never leaves a new places.json next to an old matrix.json.
-    # matrix_top=0 means no matrix file at all (the API builds legs on demand).
-    matrix = None
-    if matrix_top > 0:
-        model = TravelModel(walk_speed_kmh=speed_kmh, walk_detour=detour_factor)
-        subset = select_for_matrix(places, matrix_top)
-        matrix = matrix_payload(
-            subset,
-            walking_matrix(subset, speed_kmh, detour_factor),
-            speed_kmh,
-            detour_factor,
-            transit=transit_matrix(subset, model),
-            model=model,
-        )
-
     out = Path(out_dir) / out_slug
     write_json_lines_array(out / "places.json", places)
     write_json(out / "destination.json", destination, indent=1)
     write_json(out / "city.json", city, indent=1)
     write_json(out / "report.json", report, indent=1)
-
-    # The matrix always describes the places.json written next to it, even after an empty run.
-    matrix_file = out / "matrix.json"
-    if matrix is not None:
-        write_json(matrix_file, matrix)
-    elif matrix_file.exists():
-        matrix_file.unlink()
-
     log(f"{len(places)} places ({dedupe_report.merged} duplicates merged) -> {out}")
 
-    return {
-        "destination": destination,
-        "places": places,
-        "report": report,
-        "out_dir": out,
-    }
+    return {"destination": destination, "places": places, "report": report, "out_dir": out}
 
 
 def _inside(place: dict, bbox) -> bool:
