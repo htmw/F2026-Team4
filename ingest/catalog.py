@@ -1,4 +1,3 @@
-
 """Load committed city snapshots for the Wanderwise app."""
 
 from __future__ import annotations
@@ -68,7 +67,7 @@ def _load(city_dir: Path) -> tuple[CityData, _Names]:
 
 @cache
 def _city_entries() -> tuple[tuple[Path, _Names, str], ...]:
-    """Discover committed snapshots from data/cities."""
+    """Discover snapshots from data/cities."""
     if not CITY_ROOT.is_dir():
         return ()
 
