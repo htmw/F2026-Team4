@@ -50,6 +50,9 @@ def test_country_currency_lookup():
     assert currency_for_country("pt") == "EUR"
     assert currency_for_country("??") == "XXX"
     assert currency_for_country("GE") == "GEL"
+    assert currency_for_country("PK") == "PKR"
+    assert currency_for_country("KE") == "KES"
+    assert currency_for_country("BG") == "EUR"  # joined the euro in 2026
 
 
 def test_parses_thousands_separators():

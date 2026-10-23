@@ -10,6 +10,7 @@ from fastapi.testclient import TestClient
 
 from api.main import app
 from ingest import catalog
+from ingest.overpass import LIVE_TIMEOUT
 
 PORTO = {
     "name": "Porto",
@@ -128,4 +129,4 @@ def test_a_hanging_server_does_not_keep_the_traveler_waiting(osm, monkeypatch):
     monkeypatch.setattr(catalog, "http_post", hangs)
 
     assert plan("Porto").status_code == 503
-    assert timeouts == [60] * 4, "two servers, two rounds, a minute each at most"
+    assert timeouts == [LIVE_TIMEOUT] * 4, "two servers, two rounds, then a clear 503"
