@@ -99,7 +99,8 @@ def geocode(
     None when the caller supplies an explicit bbox, because then the geocoded box is only
     used for the name, country and centre point.
     """
-    key = {"query": query.strip().lower()}
+    # Settlements only: without it "newyork" matched a shop called NEWYORK in Tokyo.
+    key = {"query": query.strip().lower(), "featureType": "settlement"}
     path = Path(cache_dir) / slugify(query) / "geocode.json"
     wrapper = None if refresh else load_cached(path, key)
 
@@ -111,6 +112,7 @@ def geocode(
                 "format": "jsonv2",
                 "addressdetails": 1,
                 "limit": 1,
+                "featureType": "settlement",
             },
             headers={
                 "User-Agent": USER_AGENT,

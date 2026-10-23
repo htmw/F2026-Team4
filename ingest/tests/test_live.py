@@ -53,6 +53,7 @@ def osm(tmp_path, monkeypatch):
     monkeypatch.setattr("ingest.overpass.time.sleep", lambda s: None)
 
     def nominatim(url, params, **kw):
+        assert params["featureType"] == "settlement", "never a shop or a hotel"
         found = {"porto": [PORTO], "portugal": [PORTUGAL]}
         return FakeResponse(found.get(params["q"].lower(), []))
 
