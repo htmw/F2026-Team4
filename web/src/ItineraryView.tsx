@@ -37,7 +37,7 @@ export function ItineraryView({ itinerary }: Props) {
                 </div>
                 <div className="stop-body">
                   <div className="stop-title">
-                    {prettifyPlaceId(item.place_id)}
+                    {item.name ?? prettifyPlaceId(item.place_id)}
                     {item.confidence !== "known" && (
                       <span className={`badge badge-${item.confidence}`}>
                         {confidenceLabel(item.confidence)}
