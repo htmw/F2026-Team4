@@ -36,3 +36,4 @@ npm-debug.log*
 # Generated data
 data/cache/
 data/out/
+data/live/

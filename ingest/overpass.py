@@ -148,3 +148,36 @@ def fetch_group(
     wrapper = store(path, key, payload, endpoint=endpoint)
     sleep(2)  # Be polite to the public API.
     return wrapper
+
+
+def build_combined_query(groups, bbox) -> str:
+    """One Overpass query for several groups: a single round trip instead of one per group."""
+    body = "\n  ".join(GROUPS[g].format(bbox=bbox_string(bbox)) for g in groups)
+    return f"[out:json][timeout:120];\n(\n  {body}\n);\nout center;"
+
+
+def fetch_combined(
+    groups,
+    bbox,
+    cache_dir: Path,
+    slug: str,
+    *,
+    refresh: bool = False,
+    post=requests.post,
+    sleep=time.sleep,
+    log=print,
+) -> dict:
+    """Like fetch_group, but every group in one request. Used by the live ingest on /plan,
+    where nine requests with a polite pause between them would keep the traveler waiting."""
+    groups = list(groups)
+    query = build_combined_query(groups, bbox)
+    key = {"groups": groups, "bbox": [round(v, 5) for v in bbox], "query": query}
+    path = Path(cache_dir) / slug / "overpass_combined.json"
+    wrapper = None if refresh else load_cached(path, key)
+
+    if wrapper is not None:
+        log("[combined] cache hit")
+        return wrapper
+
+    payload, endpoint = fetch_overpass(query, "combined", post=post, sleep=sleep, log=log)
+    return store(path, key, payload, endpoint=endpoint)

@@ -65,6 +65,27 @@ class Geocoded:
         }
 
 
+def clip_bbox(bbox, lat: float, lon: float, radius_km: float) -> tuple[float, float, float, float]:
+    """The part of bbox within radius_km (a square, not a circle) of the given centre.
+
+    The live ingest fetches the walkable middle of a city, not its whole admin area: a
+    smaller box keeps the Overpass query fast and the places within a day's reach.
+    """
+    south, west, north, east = bbox
+    dlat = radius_km / _KM_PER_DEG_LAT
+    dlon = radius_km / (_KM_PER_DEG_LAT * max(math.cos(math.radians(lat)), 0.01))
+    clipped = (
+        max(south, lat - dlat),
+        max(west, lon - dlon),
+        min(north, lat + dlat),
+        min(east, lon + dlon),
+    )
+    # Nominatim's centre can sit outside a tiny bbox; then the plain square is the better box.
+    if clipped[0] >= clipped[2] or clipped[1] >= clipped[3]:
+        return (lat - dlat, lon - dlon, lat + dlat, lon + dlon)
+    return clipped
+
+
 def parse_bbox(text: str) -> tuple[float, float, float, float]:
     """Parse and validate a bounding box in south,west,north,east order."""
     try:
