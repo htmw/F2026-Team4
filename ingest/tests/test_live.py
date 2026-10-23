@@ -107,3 +107,16 @@ def test_rome_and_lisbon_are_never_fetched(osm):
     assert catalog.load_city("Rome").source == "snapshot"
     assert catalog.load_city("Lisbon").source == "fixture"
     assert osm == []
+
+
+def test_a_hanging_server_does_not_keep_the_traveler_waiting(osm, monkeypatch):
+    timeouts = []
+
+    def hangs(url, data, timeout, **kw):
+        timeouts.append(timeout)
+        raise requests.Timeout("no answer")
+
+    monkeypatch.setattr(catalog, "http_post", hangs)
+
+    assert plan("Porto").status_code == 503
+    assert timeouts == [60] * 4, "two servers, two rounds, a minute each at most"
