@@ -150,6 +150,17 @@ PR 13, until it merges). Lookup order for a name: committed snapshots in `data/c
 then `/fixtures`, then any folder in `WANDERWISE_EXTRA_CITIES`. `api/contracts.load_places()`
 goes through the same catalog, so Lisbon comes from the fixtures and Rome from the snapshot.
 
+**Any other city is fetched live.** When a name has no committed data, `load_city()`
+geocodes it with Nominatim, fetches the area within 6 km of the centre from Overpass in one
+combined query, and runs it through the same pipeline (no curation, `matrix_top=0`). The
+result goes to `data/live/<name>-<country>/` (git-ignored) and is reused for 30 days, so
+only the first request for a city waits, usually 10 to 60 seconds. One live fetch runs at a
+time. A name OpenStreetMap does not know, a region or country (wider than 80 km), or an area
+with no places gives `CityNotAvailable` (422 from the API). OpenStreetMap being unreachable
+gives `CityFetchFailed` (503). Live places carry raw OSM coverage, so most hours and prices
+are `inferred`, and the itinerary says so in its warnings. Set `WANDERWISE_LIVE_INGEST=0`
+to turn live fetching off; the test suite does, so no test touches the network.
+
 A name matches the city name or an alias. "City, Region" also matches when the last part is
 the city's country, so "Rome, IT" and "Rome, Lazio, Italy" work but "Rome, Georgia" does
 not. A request without a city name gets the same clear error as an unknown city.

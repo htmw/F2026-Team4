@@ -26,7 +26,7 @@ from pydantic import BaseModel
 from api.contracts import validate
 from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
-from ingest.catalog import CityNotAvailable
+from ingest.catalog import CityFetchFailed, CityNotAvailable
 
 app = FastAPI(
     title="Wanderwise Travel Planning API",
@@ -86,6 +86,9 @@ def _build_itinerary(request: dict[str, Any], trip_id: str | None = None) -> dic
             request["end_date"],
             trip_id=trip_id,
         )
+    except CityFetchFailed as exc:
+        # The city may be fine; OpenStreetMap is down or rate limiting us. Worth a retry.
+        raise HTTPException(status_code=503, detail={"destination_errors": [str(exc)]}) from exc
     except CityNotAvailable as exc:
         # Say so plainly instead of planning a trip in some other city.
         raise HTTPException(status_code=422, detail={"destination_errors": [str(exc)]}) from exc
