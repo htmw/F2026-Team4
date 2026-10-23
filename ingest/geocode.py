@@ -54,6 +54,13 @@ class Geocoded:
     bbox: tuple[float, float, float, float]  # south, west, north, east
     display_name: str
     country_name: str = ""  # in English, e.g. "Italy"; "" if unavailable
+    kind: str = ""  # Nominatim's addresstype: city, town, state, country...
+
+    def box_around_centre(self, radius_km: float) -> tuple[float, float, float, float]:
+        """A square reaching radius_km from the centre each way: the walkable middle."""
+        dlat = radius_km / _KM_PER_DEG_LAT
+        dlon = dlat / math.cos(math.radians(self.lat))
+        return (self.lat - dlat, self.lon - dlon, self.lat + dlat, self.lon + dlon)
 
     def destination(self) -> dict:
         """Return the destination shape used by the Itinerary contract."""
@@ -63,27 +70,6 @@ class Geocoded:
             "lat": self.lat,
             "lon": self.lon,
         }
-
-
-def clip_bbox(bbox, lat: float, lon: float, radius_km: float) -> tuple[float, float, float, float]:
-    """The part of bbox within radius_km (a square, not a circle) of the given centre.
-
-    The live ingest fetches the walkable middle of a city, not its whole admin area: a
-    smaller box keeps the Overpass query fast and the places within a day's reach.
-    """
-    south, west, north, east = bbox
-    dlat = radius_km / _KM_PER_DEG_LAT
-    dlon = radius_km / (_KM_PER_DEG_LAT * max(math.cos(math.radians(lat)), 0.01))
-    clipped = (
-        max(south, lat - dlat),
-        max(west, lon - dlon),
-        min(north, lat + dlat),
-        min(east, lon + dlon),
-    )
-    # Nominatim's centre can sit outside a tiny bbox; then the plain square is the better box.
-    if clipped[0] >= clipped[2] or clipped[1] >= clipped[3]:
-        return (lat - dlat, lon - dlon, lat + dlat, lon + dlon)
-    return clipped
 
 
 def parse_bbox(text: str) -> tuple[float, float, float, float]:
@@ -163,4 +149,5 @@ def geocode(
         bbox=(south, west, north, east),
         display_name=r.get("display_name", ""),
         country_name=address.get("country") or "",
+        kind=r.get("addresstype") or "",
     )
