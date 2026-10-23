@@ -16,8 +16,9 @@ ENDPOINTS = [
 ]
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
-# A traveler is waiting on a live fetch, so it gives up sooner and says so.
-LIVE_TIMEOUT = 60
+# A traveler is waiting on a live fetch, so it tries fewer times. 120 s matches the query's
+# own [timeout:120]: a big city such as New York needs it, a smaller one answers in seconds.
+LIVE_TIMEOUT = 120
 LIVE_ATTEMPTS = 2
 BACKOFFS = [5, 15, 45]
 HEADERS = {

@@ -7,56 +7,31 @@ from dataclasses import dataclass
 
 from .categories import FREE_BY_DEFAULT
 
-# Fallback currency by ISO country. Only matters when the amount is 0 (a known-free place
-# or an unknown price), since a real `charge` carries its own currency. Unlisted -> "XXX"
-# (ISO 4217 "no currency"). Extend as needed.
-_EURO = "AT BE HR CY EE FI FR DE GR IE IT LV LT LU MT NL PT SK SI ES".split()
-
-COUNTRY_CURRENCY = {
-    **{c: "EUR" for c in _EURO},
-    "GB": "GBP",
-    "US": "USD",
-    "CA": "CAD",
-    "AU": "AUD",
-    "NZ": "NZD",
-    "JP": "JPY",
-    "CN": "CNY",
-    "IN": "INR",
-    "BR": "BRL",
-    "MX": "MXN",
-    "CH": "CHF",
-    "SE": "SEK",
-    "NO": "NOK",
-    "DK": "DKK",
-    "PL": "PLN",
-    "CZ": "CZK",
-    "HU": "HUF",
-    "RO": "RON",
-    "IS": "ISK",
-    "TR": "TRY",
-    "RU": "RUB",
-    "UA": "UAH",
-    "ZA": "ZAR",
-    "EG": "EGP",
-    "MA": "MAD",
-    "AE": "AED",
-    "SA": "SAR",
-    "IL": "ILS",
-    "TH": "THB",
-    "VN": "VND",
-    "ID": "IDR",
-    "MY": "MYR",
-    "SG": "SGD",
-    "KR": "KRW",
-    "HK": "HKD",
-    "TW": "TWD",
-    "PH": "PHP",
-    "AR": "ARS",
-    "CL": "CLP",
-    "CO": "COP",
-    "GE": "GEL",
-    "PE": "PEN",
-}
+# Currency by ISO country, for every country, so a live fetch anywhere prices in local
+# money. Only matters when the amount is 0 (a known-free place or an unknown price), since
+# a real `charge` carries its own currency. Unknown code -> "XXX" (ISO 4217 "no currency").
+_COUNTRY_CURRENCY_TABLE = """
+AD:EUR AE:AED AF:AFN AG:XCD AI:XCD AL:ALL AM:AMD AO:AOA AR:ARS AS:USD AT:EUR AU:AUD AW:AWG
+AX:EUR AZ:AZN BA:BAM BB:BBD BD:BDT BE:EUR BF:XOF BG:EUR BH:BHD BI:BIF BJ:XOF BL:EUR BM:BMD
+BN:BND BO:BOB BQ:USD BR:BRL BS:BSD BT:BTN BW:BWP BY:BYN BZ:BZD CA:CAD CD:CDF CF:XAF CG:XAF
+CH:CHF CI:XOF CK:NZD CL:CLP CM:XAF CN:CNY CO:COP CR:CRC CU:CUP CV:CVE CW:XCG CY:EUR CZ:CZK
+DE:EUR DJ:DJF DK:DKK DM:XCD DO:DOP DZ:DZD EC:USD EE:EUR EG:EGP ER:ERN ES:EUR ET:ETB FI:EUR
+FJ:FJD FK:FKP FM:USD FO:DKK FR:EUR GA:XAF GB:GBP GD:XCD GE:GEL GF:EUR GG:GBP GH:GHS GI:GIP
+GL:DKK GM:GMD GN:GNF GP:EUR GQ:XAF GR:EUR GT:GTQ GU:USD GW:XOF GY:GYD HK:HKD HN:HNL HR:EUR
+HT:HTG HU:HUF ID:IDR IE:EUR IL:ILS IM:GBP IN:INR IQ:IQD IR:IRR IS:ISK IT:EUR JE:GBP JM:JMD
+JO:JOD JP:JPY KE:KES KG:KGS KH:KHR KI:AUD KM:KMF KN:XCD KP:KPW KR:KRW KW:KWD KY:KYD KZ:KZT
+LA:LAK LB:LBP LC:XCD LI:CHF LK:LKR LR:LRD LS:LSL LT:EUR LU:EUR LV:EUR LY:LYD MA:MAD MC:EUR
+MD:MDL ME:EUR MF:EUR MG:MGA MH:USD MK:MKD ML:XOF MM:MMK MN:MNT MO:MOP MP:USD MQ:EUR MR:MRU
+MS:XCD MT:EUR MU:MUR MV:MVR MW:MWK MX:MXN MY:MYR MZ:MZN NA:NAD NC:XPF NE:XOF NG:NGN NI:NIO
+NL:EUR NO:NOK NP:NPR NR:AUD NU:NZD NZ:NZD OM:OMR PA:PAB PE:PEN PF:XPF PG:PGK PH:PHP PK:PKR
+PL:PLN PM:EUR PR:USD PS:ILS PT:EUR PW:USD PY:PYG QA:QAR RE:EUR RO:RON RS:RSD RU:RUB RW:RWF
+SA:SAR SB:SBD SC:SCR SD:SDG SE:SEK SG:SGD SH:SHP SI:EUR SK:EUR SL:SLE SM:EUR SN:XOF SO:SOS
+SR:SRD SS:SSP ST:STN SV:USD SX:XCG SY:SYP SZ:SZL TC:USD TD:XAF TG:XOF TH:THB TJ:TJS TL:USD
+TM:TMT TN:TND TO:TOP TR:TRY TT:TTD TV:AUD TW:TWD TZ:TZS UA:UAH UG:UGX US:USD UY:UYU UZ:UZS
+VA:EUR VC:XCD VE:VES VG:USD VI:USD VN:VND VU:VUV WF:XPF WS:WST XK:EUR YE:YER YT:EUR ZA:ZAR
+ZM:ZMW ZW:ZWG
+"""
+COUNTRY_CURRENCY = dict(pair.split(":") for pair in _COUNTRY_CURRENCY_TABLE.split())
 
 
 _SYMBOLS = {"€": "EUR", "£": "GBP"}
