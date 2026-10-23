@@ -9,13 +9,16 @@ import requests
 
 from .cache import load_cached, store
 
+# kumi.systems hung for the full timeout and nchc.org.tw no longer resolves (Oct 2026).
 ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
-    "https://overpass.nchc.org.tw/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
 ]
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
+# A traveler is waiting on a live fetch, so it gives up sooner and says so.
+LIVE_TIMEOUT = 60
+LIVE_ATTEMPTS = 2
 BACKOFFS = [5, 15, 45]
 HEADERS = {
     "User-Agent": "Wanderwise-Travel-Recommender/1.0 (OpenStreetMap data ingestion)",
@@ -63,19 +66,28 @@ def build_query(template: str, bbox) -> str:
     )
 
 
-def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sleep, log=print):
+def fetch_overpass(
+    query: str,
+    label: str,
+    *,
+    post=requests.post,
+    sleep=time.sleep,
+    log=print,
+    timeout=REQUEST_TIMEOUT,
+    attempts=MAX_ATTEMPTS,
+):
     """POST a query, retrying transient failures across available endpoints."""
     last_err: Exception | None = None
 
-    for attempt in range(1, MAX_ATTEMPTS + 1):
+    for attempt in range(1, attempts + 1):
         for endpoint in ENDPOINTS:
             try:
-                log(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}")
+                log(f"  [{label}] attempt {attempt}/{attempts} -> {endpoint}")
                 resp = post(
                     endpoint,
                     data={"data": query},
                     headers=HEADERS,
-                    timeout=REQUEST_TIMEOUT,
+                    timeout=timeout,
                 )
                 resp.raise_for_status()
                 payload = resp.json()
@@ -115,7 +127,7 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 last_err = exc
                 log(f"  [{label}] invalid Overpass response via {endpoint}: {exc}")
 
-        if attempt < MAX_ATTEMPTS:
+        if attempt < attempts:
             delay = BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)]
             log(f"  [{label}] retrying after {delay}s")
             sleep(delay)
@@ -173,5 +185,13 @@ def fetch_combined(
         log("[combined] cache hit")
         return wrapper
 
-    payload, endpoint = fetch_overpass(query, "combined", post=post, sleep=sleep, log=log)
+    payload, endpoint = fetch_overpass(
+        query,
+        "combined",
+        post=post,
+        sleep=sleep,
+        log=log,
+        timeout=LIVE_TIMEOUT,
+        attempts=LIVE_ATTEMPTS,
+    )
     return store(path, key, payload, endpoint=endpoint)
