@@ -155,7 +155,7 @@ returns everything within 5 km of its centre in one query, and the same pipeline
 into places (no curation). The result is kept in `data/live/<city>-<country>/`, so only the
 first request for a city waits. A name OpenStreetMap does not know, or a country or state,
 is a 422. OpenStreetMap being unreachable is a 503. Live hours and prices are mostly
-`inferred`, and the itinerary warns about it. `WANDERWISE_LIVE_INGEST=0` turns it off.
+`inferred`, and each stop is labelled so. `WANDERWISE_LIVE_INGEST=0` turns it off.
 
 A name matches the city name or an alias. "City, Region" also matches when the last part is
 the city's country, so "Rome, IT" and "Rome, Lazio, Italy" work but "Rome, Georgia" does

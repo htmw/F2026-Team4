@@ -202,11 +202,6 @@ def plan_itinerary(
         warnings.append(
             f"Places for {city_data.name} come from the hand-made sample file, not live data."
         )
-    elif city_data.source == "live":
-        warnings.append(
-            f"Places for {city_data.name} were fetched live from OpenStreetMap and are not "
-            "hand checked: most opening hours and prices are estimates."
-        )
 
     currency = profile.get("budget", {}).get("currency", "EUR")
     return {
