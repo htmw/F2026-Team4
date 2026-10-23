@@ -158,6 +158,7 @@ def plan_itinerary(
             items.append(
                 {
                     "place_id": place["id"],
+                    "name": place["name"],
                     "start": _to_hhmm(cursor),
                     "end": _to_hhmm(cursor + duration),
                     # TODO(ingest, optimizer): waiting for the travel matrix from ingest

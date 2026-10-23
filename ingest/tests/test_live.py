@@ -86,6 +86,7 @@ def test_plan_for_a_live_city(osm):
 
     assert resp.status_code == 200, resp.text
     assert any("live from OpenStreetMap" in w for w in resp.json()["warnings"])
+    assert resp.json()["days"][0]["items"][0]["name"] == "Torre dos Clérigos"
 
 
 def test_a_country_is_not_a_city(osm):
