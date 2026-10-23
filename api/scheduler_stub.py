@@ -177,7 +177,7 @@ def plan_itinerary(
 
     # 3) Assemble the Itinerary in the contract shape.
     dest = {
-        "name": destination.get("name") or city_data.name,
+        "name": city_data.name,  # the city's real name, not however the traveler typed it
         "lat": float(destination.get("lat", city_data.destination["lat"])),
         "lon": float(destination.get("lon", city_data.destination["lon"])),
     }
@@ -203,7 +203,11 @@ def plan_itinerary(
             f"Places for {city_data.name} come from the hand-made sample file, not live data."
         )
 
-    currency = profile.get("budget", {}).get("currency", "EUR")
+    # Costs are in the city's own currency (INR in Karimnagar), whatever the budget was typed in.
+    currency = next(
+        (p["cost"]["currency"] for p in city_data.places),
+        profile.get("budget", {}).get("currency", "EUR"),
+    )
     return {
         "trip_id": trip_id or str(uuid.uuid4()),
         "destination": dest,

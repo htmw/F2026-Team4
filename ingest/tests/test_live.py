@@ -88,6 +88,15 @@ def test_plan_for_a_live_city(osm):
     assert resp.json()["days"][0]["items"][0]["name"] == "Torre dos Clérigos"
 
 
+def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):
+    india = {**PORTO, "name": "Karimnagar", "address": {"country_code": "in", "country": "India"}}
+    monkeypatch.setattr(catalog, "http_get", lambda *a, **kw: FakeResponse([india]))
+    itinerary = plan("karimnagar").json()
+
+    assert itinerary["destination"]["name"] == "Karimnagar"
+    assert itinerary["totals"]["currency"] == "INR"
+
+
 def test_a_country_is_not_a_city(osm):
     with pytest.raises(catalog.CityNotAvailable, match="country, not a city"):
         catalog.load_city("Portugal")
