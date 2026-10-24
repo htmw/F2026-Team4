@@ -153,7 +153,8 @@ goes through the same catalog, so Lisbon comes from the fixtures and Rome from t
 **Any other city is fetched live** by `fetch_live()`: Nominatim finds the city, Overpass
 returns everything within 5 km of its centre in one query, and the same pipeline turns it
 into places (no curation). The result is kept in `data/live/<city>-<country>/`, so only the
-first request for a city waits. A name OpenStreetMap does not know, or a country or state,
+first request for a city waits. After 30 days it is fetched again, and the old copy is used
+if OpenStreetMap is down at that moment. A name OpenStreetMap does not know, or a country or state,
 is a 422. OpenStreetMap being unreachable is a 503. Live hours and prices are mostly
 `inferred`, and each stop is labelled so. `WANDERWISE_LIVE_INGEST=0` turns it off.
 

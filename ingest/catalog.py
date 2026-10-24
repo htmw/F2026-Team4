@@ -53,6 +53,7 @@ LIVE_DIR = ROOT / "data" / "live"
 CACHE_DIR = ROOT / "data" / "cache"
 
 LIVE_RADIUS_KM = 5  # fetch the centre of the city, not its whole admin area
+LIVE_MAX_AGE_DAYS = 30  # places open and close, so a saved city is fetched again after this
 NOT_A_CITY = {"country", "state", "region", "continent"}
 
 # The tests swap these for fakes.
@@ -209,7 +210,8 @@ def fetch_live(name: str) -> Path:
             raise CityNotAvailable(f"{name!r} is a {geo.kind}, not a city. Pick a city in it.")
 
         folder = LIVE_DIR / slugify(f"{geo.name}-{geo.country}")
-        if (folder / "places.json").exists():
+        saved = folder / "places.json"
+        if saved.exists() and time.time() - saved.stat().st_mtime < LIVE_MAX_AGE_DAYS * 86400:
             return folder
 
         def fetch(radius_km: float) -> dict:
@@ -225,6 +227,7 @@ def fetch_live(name: str) -> Path:
                 post=http_post,
                 get=http_get,
                 sleep=time.sleep,  # looked up now, so tests can skip the pauses
+                refresh=saved.exists(),  # an old city must not come back from the raw cache
             )
 
         try:
@@ -234,6 +237,8 @@ def fetch_live(name: str) -> Path:
                 # Central London is too much for one query. Its middle still fills a trip.
                 result = fetch(LIVE_RADIUS_KM / 2)
         except (RuntimeError, requests.RequestException) as exc:
+            if saved.exists():
+                return folder  # an old copy beats no trip; the next request tries again
             raise CityFetchFailed(f"Could not fetch {name!r} from OpenStreetMap: {exc}") from exc
 
         if not result["places"]:

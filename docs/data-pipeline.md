@@ -91,6 +91,8 @@ the traveler waits, then kept in `data/live/` so nobody waits twice. Choices mad
   The fetch is retried once for 2.5 km instead of 5 km: central London failed this way.
 - Prices use the city's own currency (every ISO country is listed), and the itinerary names
   the country, so "Columbia" (South Carolina) is not mistaken for Colombia.
+- A saved city is fetched again after 30 days, because places open and close. If
+  OpenStreetMap is down at that moment the old copy is served: an older plan beats none.
 - No curation for live cities: hours and prices are mostly `inferred`, and each stop says so.
 
 ## Data dictionary: where each Place field comes from

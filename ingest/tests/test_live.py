@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import time
 
 import pytest
 import requests
@@ -169,3 +171,25 @@ def test_a_city_too_dense_for_one_query_is_fetched_smaller(osm, monkeypatch):
 def _height(query):
     south, _, north, _ = map(float, re.search(r"\(([-\d.,]+)\)", query).group(1).split(","))
     return north - south
+
+
+def _age_saved_porto(days):
+    saved = catalog.LIVE_DIR / "porto-pt" / "places.json"
+    old = time.time() - days * 86400
+    os.utime(saved, (old, old))
+
+
+def test_a_city_older_than_a_month_is_fetched_again(osm):
+    catalog.load_city("Porto")
+    _age_saved_porto(31)
+    catalog.load_city("Porto")
+
+    assert len(osm) == 2, "fetched again, not read back from the raw cache"
+
+
+def test_an_old_city_is_still_served_when_openstreetmap_is_down(osm, monkeypatch):
+    catalog.load_city("Porto")
+    _age_saved_porto(31)
+    monkeypatch.setattr(catalog, "http_post", lambda *a, **kw: FakeResponse({}, status=502))
+
+    assert [p["name"] for p in catalog.load_city("Porto").places] == ["Torre dos Clérigos"]
