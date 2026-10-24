@@ -30,6 +30,7 @@ import json
 import os
 import shutil
 import threading
+import time
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -40,6 +41,7 @@ from .cache import slugify
 from .geocode import GeocodeError, geocode
 from .matrix import TravelModel
 from .matrix import travel_legs as _travel_legs
+from .overpass import QueryTooHeavy
 from .pipeline import run_city
 from .to_place import normalize_name
 
@@ -210,19 +212,27 @@ def fetch_live(name: str) -> Path:
         if (folder / "places.json").exists():
             return folder
 
-        try:
-            result = run_city(
+        def fetch(radius_km: float) -> dict:
+            return run_city(
                 name,
                 cache_dir=CACHE_DIR,
                 out_dir=LIVE_DIR,
                 contracts_dir=ROOT / "contracts",
-                bbox=geo.box_around_centre(LIVE_RADIUS_KM),
+                bbox=geo.box_around_centre(radius_km),
                 slug=folder.name,
                 matrix_top=0,
                 combine_groups=True,
                 post=http_post,
                 get=http_get,
+                sleep=time.sleep,  # looked up now, so tests can skip the pauses
             )
+
+        try:
+            try:
+                result = fetch(LIVE_RADIUS_KM)
+            except QueryTooHeavy:
+                # Central London is too much for one query. Its middle still fills a trip.
+                result = fetch(LIVE_RADIUS_KM / 2)
         except (RuntimeError, requests.RequestException) as exc:
             raise CityFetchFailed(f"Could not fetch {name!r} from OpenStreetMap: {exc}") from exc
 

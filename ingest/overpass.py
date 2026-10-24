@@ -10,9 +10,11 @@ import requests
 from .cache import load_cached, store
 
 # kumi.systems hung for the full timeout and nchc.org.tw no longer resolves (Oct 2026).
+# Mirrors tried in October 2026 all failed: kumi.systems and private.coffee never answered,
+# nchc.org.tw no longer resolves, maps.mail.ru gave 504, overpass.osm.jp was unreachable and
+# openstreetmap.fr refused (403). The main server is the only one that answered.
 ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.private.coffee/api/interpreter",
 ]
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
@@ -52,6 +54,11 @@ GROUPS = {
     ),
     "neighborhoods": 'nwr["place"~"^(neighbourhood|quarter)$"]["name"]["wikidata"]({bbox});',
 }
+
+
+class QueryTooHeavy(RuntimeError):
+    """Overpass gave up on the query itself (504). The same area will not get through, a
+    smaller one may."""
 
 
 def bbox_string(bbox) -> str:
@@ -111,6 +118,10 @@ def fetch_overpass(
                 last_err = exc
                 status = getattr(getattr(exc, "response", None), "status_code", None)
                 log(f"  [{label}] HTTP failure via {endpoint}: {exc}")
+
+                # Asking again for the same too-heavy query only makes the traveler wait.
+                if status == 504:
+                    raise QueryTooHeavy(f"[{label}] Overpass gave up on the query: {exc}") from exc
 
                 # Rate limiting and server-side errors may be temporary.
                 if status == 429 or (status is not None and status >= 500):
@@ -186,15 +197,9 @@ def fetch_combined(
         log("[combined] cache hit")
         return wrapper
 
-    # The main server is often busy for a moment (502) and fine seconds later, while the
-    # backup has timed out in every test. So: main, main again after 5 s, then the backup.
-    args = {"post": post, "sleep": sleep, "log": log, "timeout": LIVE_TIMEOUT}
-    try:
-        payload, endpoint = fetch_overpass(
-            query, "combined", endpoints=ENDPOINTS[:1], attempts=2, **args
-        )
-    except RuntimeError:
-        payload, endpoint = fetch_overpass(
-            query, "combined", endpoints=ENDPOINTS[1:], attempts=1, **args
-        )
+    # The main server is often busy for a moment (502) and fine a few seconds later, so it
+    # gets three tries with 5 s and 15 s pauses between them.
+    payload, endpoint = fetch_overpass(
+        query, "combined", post=post, sleep=sleep, log=log, timeout=LIVE_TIMEOUT, attempts=3
+    )
     return store(path, key, payload, endpoint=endpoint)

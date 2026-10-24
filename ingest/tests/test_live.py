@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 import pytest
 import requests
@@ -130,8 +131,7 @@ def test_a_hanging_server_does_not_keep_the_traveler_waiting(osm, monkeypatch):
     monkeypatch.setattr(catalog, "http_post", hangs)
 
     assert plan("Porto").status_code == 503
-    main, backup = ENDPOINTS
-    assert tried == [(main, LIVE_TIMEOUT), (main, LIVE_TIMEOUT), (backup, LIVE_TIMEOUT)]
+    assert tried == [(ENDPOINTS[0], LIVE_TIMEOUT)] * 3, "three tries, then a clear 503"
 
 
 def test_a_busy_main_server_is_tried_again_before_the_backup(osm, monkeypatch):
@@ -147,3 +147,25 @@ def test_a_busy_main_server_is_tried_again_before_the_backup(osm, monkeypatch):
 
     assert plan("Porto").status_code == 200
     assert tried == [ENDPOINTS[0], ENDPOINTS[0]]
+
+
+def test_a_city_too_dense_for_one_query_is_fetched_smaller(osm, monkeypatch):
+    boxes = []
+
+    def gives_up_on_the_big_box(url, data, **kw):
+        boxes.append(data["data"])
+        if len(boxes) == 1:
+            return FakeResponse({}, status=504)
+        return FakeResponse({"elements": [TOWER]})
+
+    monkeypatch.setattr(catalog, "http_post", gives_up_on_the_big_box)
+
+    assert plan("Porto").status_code == 200
+    assert len(boxes) == 2, "no second try of the same heavy query"
+    first, second = (_height(query) for query in boxes)
+    assert second == pytest.approx(first / 2), "the same query for half the distance"
+
+
+def _height(query):
+    south, _, north, _ = map(float, re.search(r"\(([-\d.,]+)\)", query).group(1).split(","))
+    return north - south
