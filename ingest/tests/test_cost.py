@@ -50,6 +50,9 @@ def test_country_currency_lookup():
     assert currency_for_country("pt") == "EUR"
     assert currency_for_country("??") == "XXX"
     assert currency_for_country("GE") == "GEL"
+    assert currency_for_country("PK") == "PKR"
+    assert currency_for_country("KE") == "KES"
+    assert currency_for_country("BG") == "EUR"  # joined the euro in 2026
 
 
 def test_parses_thousands_separators():
@@ -82,3 +85,22 @@ def test_euro_price_with_per_person_text():
     assert result.cost["currency"] == "EUR"
     assert result.cost["confidence"] == "known"
     assert result.status == "charge_parsed"
+
+
+ISO_COUNTRIES = """
+AD AE AF AG AI AL AM AO AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT
+BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG
+EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN
+HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI
+LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC
+NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA
+SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR
+TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW
+""".split()  # every ISO 3166 country except Antarctica, which has no currency
+
+
+def test_every_country_has_a_currency():
+    missing = [c for c in ISO_COUNTRIES if currency_for_country(c) == "XXX"]
+    assert missing == []
+    assert currency_for_country("CO") == "COP"
+    assert currency_for_country("JP") == "JPY"

@@ -27,6 +27,7 @@ export interface Destination {
 
 export interface ItineraryItem {
   place_id: string;
+  name?: string;
   start: string;
   end: string;
   travel_from_prev?: { minutes: number; mode: string };
