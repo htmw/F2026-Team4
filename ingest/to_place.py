@@ -102,6 +102,25 @@ def _unknown_hours() -> dict:
     return hours
 
 
+_SCHOOLS = {"school", "college", "university", "kindergarten"}
+
+
+def _unknown_school(tags: dict) -> bool:
+    """A school, college or university nobody outside it would visit.
+
+    Mappers sometimes tag one as an attraction or a viewpoint: a college in Karimnagar is
+    tagged tourism=viewpoint. Famous ones (Coimbra, the Oxford colleges) carry Wikidata,
+    Wikipedia or heritage tags and stay.
+    """
+    school = (
+        tags.get("amenity") in _SCHOOLS
+        or tags.get("building") in _SCHOOLS
+        or any(key in tags for key in _SCHOOLS)
+    )
+    famous = any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
+    return school and not famous
+
+
 def build_place(
     el: dict, *, currency: str, fetched_date: str, validator: Draft202012Validator
 ) -> BuildResult:
@@ -115,6 +134,8 @@ def build_place(
     cats = map_categories(tags)
     if not cats:
         return BuildResult(None, "unmapped_category")
+    if _unknown_school(tags):
+        return BuildResult(None, "school")
 
     parsed = parse_opening_hours(tags.get("opening_hours"))
     if parsed.status == "parsed":

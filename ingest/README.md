@@ -48,6 +48,8 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
+   A school, college or university is dropped unless it has Wikidata, Wikipedia or heritage
+   tags: mappers sometimes tag one as a sight (a college in Karimnagar is a "viewpoint").
    A place whose hours name every day as closed is dropped. A place that only lists its
    closed days ("Su off") keeps `unknown` hours: the open days are not stated. A place whose
    centre falls outside the bbox is dropped too: Overpass returns anything that touches the

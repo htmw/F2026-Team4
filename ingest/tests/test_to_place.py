@@ -185,3 +185,25 @@ def test_signals_mark_wall_pieces_and_collection_relations(
 
     assert result.signals["long_structure"] is long_structure
     assert result.signals["rough_point"] is rough_point
+
+
+def _build(tags, validator):
+    element = {"type": "node", "id": 1, "lat": 18.43, "lon": 79.13, "tags": tags}
+    return build_place(element, currency="INR", fetched_date="2026-10-24", validator=validator)
+
+
+def test_a_school_tagged_as_a_sight_is_left_out(validator):
+    karimnagar = {"name": "sree chaitanya clg", "tourism": "viewpoint", "college": "scce"}
+    result = _build(karimnagar, validator)
+
+    assert result.place is None
+    assert result.drop_reason == "school"
+    school = {"name": "A School", "tourism": "attraction", "amenity": "school"}
+    assert _build(school, validator).place is None
+
+
+def test_a_famous_university_stays(validator):
+    coimbra = {"name": "Universidade de Coimbra", "tourism": "attraction",
+               "amenity": "university", "wikidata": "Q368643"}
+
+    assert _build(coimbra, validator).place is not None

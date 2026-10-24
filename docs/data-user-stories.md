@@ -58,6 +58,7 @@ pull request (`make test`). The test file is named in the last column.
 | TC-D35 | DS-2 | Parse `Fr-Sa 19:00-26:00` and `Mo-Fr 09:00-12:00, We 14:00-18:00, Sa 10:00-14:00` | both `known`; the 26:00 tail lands on the next day; the comma rule adds Wednesday afternoon | `ingest/tests/test_hours.py` |
 | TC-D37 | DS-9 | Overpass answers 504 for the 5 km query | the same query is not repeated; it is sent once more for half the distance and the plan is made | `ingest/tests/test_live.py` |
 | TC-D38 | DS-9 | Ask for a saved city that is 31 days old, once with OpenStreetMap up and once with it down | fetched again (not from the raw cache); with OpenStreetMap down the old copy is served | `ingest/tests/test_live.py` |
+| TC-D39 | DS-9 | Convert a college tagged `tourism=viewpoint`, then a university with a Wikidata id | the college is dropped as `school`; the famous university stays | `ingest/tests/test_to_place.py` |
 | TC-D36 | DS-2 | Parse `Apr-Oct Mo-Su 09:00-18:00` | stays `unknown`: one weekly pattern cannot say which season | `ingest/tests/test_hours.py` |
 
 ## Metrics for the sprint review
