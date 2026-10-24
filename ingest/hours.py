@@ -6,10 +6,13 @@ always means the entire string was understood.
 
 Supported: `24/7`; rules separated by `;`; day lists/ranges (Mo-Fr, Mo,We, Sa-Mo);
 time ranges (comma separated for split hours); `off`/`closed`; `24:00` closing;
-overnight spans (22:00-02:00, split across two days); later rules override earlier
-ones for the same day. `PH`/`SH` (holiday) rules are ignored and recorded in
-`ignored`, because the contract has no holiday field.
-Not supported (-> unparseable): months, week numbers, sunrise/sunset, `+`, `[n]`, comments.
+overnight spans (22:00-02:00 or 19:00-26:00, split across two days); later rules
+override earlier ones for the same day, except a rule added with a comma
+("Mo-Fr 09:00-17:00, Sa 10:00-14:00"), which adds to them. `PH`/`SH` (holiday) rules
+are ignored and recorded in `ignored`, because the contract has no holiday field.
+Not supported (-> unparseable): months (the contract holds one weekly pattern, and which
+season a trip falls in is not known here), week numbers, sunrise/sunset, `+`, `[n]`,
+comments.
 """
 
 from __future__ import annotations
@@ -22,6 +25,9 @@ _OSM_DAY = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4, "Sa": 5, "Su": 6}
 _DAY_ITEM = re.compile(r"^(Mo|Tu|We|Th|Fr|Sa|Su)(?:-(Mo|Tu|We|Th|Fr|Sa|Su))?$")
 _TIME_RANGE = re.compile(r"^(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})$")
 _HOLIDAY = {"PH", "SH"}
+# A comma right after a time, followed by a day, starts an additional rule. A comma between
+# days ("Mo,We 10:00-12:00") is a day list and does not match.
+_ADDITIONAL_RULE = re.compile(r"(?<=\d),\s*(?=(?:Mo|Tu|We|Th|Fr|Sa|Su|PH|SH)\b)")
 
 
 class _Unsupported(Exception):
@@ -84,7 +90,11 @@ def _parse_times(rest: str):
         if not m:
             raise _Unsupported(f"unsupported time spec: {part.strip()!r}")
         h1, m1, h2, m2 = (int(x) for x in m.groups())
-        s, e = _to_min(h1, m1), _to_min(h2, m2)
+        s = _to_min(h1, m1)
+        # "19:00-26:00" is how OSM writes closing at 02:00 the next day.
+        e = _to_min(h2 - 24, m2) if h2 > 24 else _to_min(h2, m2)
+        if h2 > 24 and e >= s:
+            raise _Unsupported(f"open for more than a day: {part.strip()!r}")
         if s >= 1440 or s == e:
             raise _Unsupported(f"unsupported time range: {part.strip()!r}")
         ranges.append((s, e))
@@ -108,10 +118,14 @@ def _parse(text: str):
     spill = [[] for _ in range(7)]  # overnight tail that runs into the *next* day
     mentioned: set[int] = set()  # days some rule talks about
     ignored: list[str] = []
-    rules = [r for r in text.split(";") if r.strip()]
+    rules: list[tuple[str, bool]] = []  # (rule, adds to the earlier rules)
+    for part in text.split(";"):
+        first, *added = _ADDITIONAL_RULE.split(part)
+        rules += [(first, False)] + [(r, True) for r in added]
+    rules = [(r, adds) for r, adds in rules if r.strip()]
     if not rules:
         raise _Unsupported("empty value")
-    for rule in rules:
+    for rule, adds in rules:
         days_part, rest = _split_rule(rule)
         if days_part is None:
             days = list(range(7))
@@ -127,7 +141,8 @@ def _parse(text: str):
         parsed = _parse_times(rest)
         mentioned.update(days)
         for d in days:
-            own[d], spill[d] = [], []
+            if not adds or parsed is None:
+                own[d], spill[d] = [], []
             for s, e in parsed or []:
                 if e > s:
                     own[d].append((s, e))

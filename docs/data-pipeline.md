@@ -117,7 +117,8 @@ Weights add up to 1. Forty translated names (or more) earn the full name weight.
 - Training data for the ranker on real places: the Rome snapshot gives real candidates, but
   real relevance labels still need a public dataset (Sprint 2 plan). Real places never carry
   `rating`, so a model trained on synthetic ratings should be retrained before it ranks them.
-- About 2% of OSM `opening_hours` values stay `unknown` because the parser does not read
-  month ranges, extended times such as `19:00-26:00`, or rules joined by a comma. Supporting
-  them is a parser change worth doing once the demo city is settled.
+- Some OSM `opening_hours` values stay `unknown`: month ranges (`Apr-Oct ...`) on purpose,
+  because the contract holds one weekly pattern and the trip's season is not known here,
+  plus sunrise/sunset, week numbers and comments. Times past midnight (`19:00-26:00`) and
+  rules joined by a comma (`Mo-Fr 09:00-17:00, Sa 10:00-14:00`) are read since October 2026.
 - Day trips (Ostia Antica, Tivoli) need curated entries; OSM cannot say what a day trip is.
