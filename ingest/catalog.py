@@ -77,8 +77,9 @@ class CityData:
     name: str
     destination: dict  # Itinerary.destination shape: name, country, lat, lon
     places: list[dict]
-    source: str  # snapshot | fixture | local
+    source: str  # snapshot | fixture | local | live
     path: Path
+    country_name: str = ""  # "United States", so "Columbia" is not mistaken for Colombia
 
 
 @dataclass(frozen=True)
@@ -242,10 +243,12 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         country = FIXTURE_COUNTRIES.get(key, ("", ""))[0]
         if country:
             destination["country"] = country
-        return CityData(key, key.title(), destination, places, source, path)
+        return CityData(key, key.title(), destination, places, source, path, country[1])
     places = _read_json(path / "places.json")
     destination = _read_json(path / "destination.json")
-    return CityData(path.name, destination["name"], destination, places, source, path)
+    meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
+    country_name = meta.get("country_name", "")
+    return CityData(path.name, destination["name"], destination, places, source, path, country_name)
 
 
 def load_city(name: str | None) -> CityData:

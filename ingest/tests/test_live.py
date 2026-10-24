@@ -95,7 +95,7 @@ def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):
     monkeypatch.setattr(catalog, "http_get", lambda *a, **kw: FakeResponse([india]))
     itinerary = plan("karimnagar").json()
 
-    assert itinerary["destination"]["name"] == "Karimnagar"
+    assert itinerary["destination"]["name"] == "Karimnagar, India"
     assert itinerary["totals"]["currency"] == "INR"
 
 

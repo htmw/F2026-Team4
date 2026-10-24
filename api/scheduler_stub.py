@@ -177,7 +177,8 @@ def plan_itinerary(
 
     # 3) Assemble the Itinerary in the contract shape.
     dest = {
-        "name": city_data.name,  # the city's real name, not however the traveler typed it
+        # The city's real name and its country, not however the traveler typed it.
+        "name": ", ".join(filter(None, [city_data.name, city_data.country_name])),
         "lat": float(destination.get("lat", city_data.destination["lat"])),
         "lon": float(destination.get("lon", city_data.destination["lon"])),
     }
