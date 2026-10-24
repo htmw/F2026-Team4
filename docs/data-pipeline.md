@@ -83,9 +83,11 @@ the traveler waits, then kept in `data/live/` so nobody waits twice. Choices mad
 - Settlements only: an open search for "newyork" matched a shop called NEWYORK in Tokyo.
 - A country or state is refused by its OpenStreetMap type, not by size. The old 80 km check
   would have refused real cities whose admin area is large.
-- Retries are short: two servers, two rounds, 120 s per try, the query's own limit. The
-  first Porto run lost three minutes to a mirror that never answered, and another mirror no
-  longer exists, so both were dropped.
+- Retries follow what the test runs showed: the main server answers 502 for a moment and is
+  fine seconds later, while backups timed out. So a live fetch tries the main server, again
+  after 5 s, then one backup, 120 s per try (the query's own limit). The first Porto run
+  lost three minutes to a mirror that never answered, and another no longer exists, so both
+  were dropped.
 - Prices use the city's own currency (every ISO country is listed), and the itinerary names
   the country, so "Columbia" (South Carolina) is not mistaken for Colombia.
 - No curation for live cities: hours and prices are mostly `inferred`, and each stop says so.
