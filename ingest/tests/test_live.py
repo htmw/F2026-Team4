@@ -10,7 +10,7 @@ from fastapi.testclient import TestClient
 
 from api.main import app
 from ingest import catalog
-from ingest.overpass import LIVE_TIMEOUT
+from ingest.overpass import ENDPOINTS, LIVE_TIMEOUT
 
 PORTO = {
     "name": "Porto",
@@ -121,13 +121,29 @@ def test_rome_and_lisbon_are_never_fetched(osm):
 
 
 def test_a_hanging_server_does_not_keep_the_traveler_waiting(osm, monkeypatch):
-    timeouts = []
+    tried = []
 
     def hangs(url, data, timeout, **kw):
-        timeouts.append(timeout)
+        tried.append((url, timeout))
         raise requests.Timeout("no answer")
 
     monkeypatch.setattr(catalog, "http_post", hangs)
 
     assert plan("Porto").status_code == 503
-    assert timeouts == [LIVE_TIMEOUT] * 4, "two servers, two rounds, then a clear 503"
+    main, backup = ENDPOINTS
+    assert tried == [(main, LIVE_TIMEOUT), (main, LIVE_TIMEOUT), (backup, LIVE_TIMEOUT)]
+
+
+def test_a_busy_main_server_is_tried_again_before_the_backup(osm, monkeypatch):
+    tried = []
+
+    def busy_once(url, data, **kw):
+        tried.append(url)
+        if len(tried) == 1:
+            return FakeResponse({}, status=502)
+        return FakeResponse({"elements": [TOWER]})
+
+    monkeypatch.setattr(catalog, "http_post", busy_once)
+
+    assert plan("Porto").status_code == 200
+    assert tried == [ENDPOINTS[0], ENDPOINTS[0]]

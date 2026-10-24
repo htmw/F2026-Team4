@@ -16,10 +16,9 @@ ENDPOINTS = [
 ]
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
-# A traveler is waiting on a live fetch, so it tries fewer times. 120 s matches the query's
-# own [timeout:120]: a big city such as New York needs it, a smaller one answers in seconds.
+# 120 s matches the query's own [timeout:120]: a big city such as New York needs it, a
+# smaller one answers in seconds.
 LIVE_TIMEOUT = 120
-LIVE_ATTEMPTS = 2
 BACKOFFS = [5, 15, 45]
 HEADERS = {
     "User-Agent": "Wanderwise-Travel-Recommender/1.0 (OpenStreetMap data ingestion)",
@@ -76,12 +75,13 @@ def fetch_overpass(
     log=print,
     timeout=REQUEST_TIMEOUT,
     attempts=MAX_ATTEMPTS,
+    endpoints=ENDPOINTS,
 ):
     """POST a query, retrying transient failures across available endpoints."""
     last_err: Exception | None = None
 
     for attempt in range(1, attempts + 1):
-        for endpoint in ENDPOINTS:
+        for endpoint in endpoints:
             try:
                 log(f"  [{label}] attempt {attempt}/{attempts} -> {endpoint}")
                 resp = post(
@@ -186,13 +186,15 @@ def fetch_combined(
         log("[combined] cache hit")
         return wrapper
 
-    payload, endpoint = fetch_overpass(
-        query,
-        "combined",
-        post=post,
-        sleep=sleep,
-        log=log,
-        timeout=LIVE_TIMEOUT,
-        attempts=LIVE_ATTEMPTS,
-    )
+    # The main server is often busy for a moment (502) and fine seconds later, while the
+    # backup has timed out in every test. So: main, main again after 5 s, then the backup.
+    args = {"post": post, "sleep": sleep, "log": log, "timeout": LIVE_TIMEOUT}
+    try:
+        payload, endpoint = fetch_overpass(
+            query, "combined", endpoints=ENDPOINTS[:1], attempts=2, **args
+        )
+    except RuntimeError:
+        payload, endpoint = fetch_overpass(
+            query, "combined", endpoints=ENDPOINTS[1:], attempts=1, **args
+        )
     return store(path, key, payload, endpoint=endpoint)
