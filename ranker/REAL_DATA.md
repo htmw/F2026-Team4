@@ -246,3 +246,57 @@ Then regenerate both datasets and retrain the model.
 
 Do not invent ratings for unmatched places.
 
+## Other cities
+
+
+
+Rome is the default city. To select a city explicitly:
+
+
+
+```powershell
+
+uv run python -m ranker.real\_data --city rome
+
+```
+
+
+
+For another city, replace rome with its folder name.
+
+Its collected places must already exist at:
+
+
+
+data/cities/<city>/places.json
+
+
+
+Outputs are saved separately under:
+
+
+
+data/training/<city>/
+
+
+
+For a places file stored elsewhere, provide its path:
+
+
+
+```powershell
+
+uv run python -m ranker.real\_data --city rome --places "path/to/places.json"
+
+```
+
+
+
+This script prepares existing data; it does not download from OSM.
+
+Only Rome has been checked with actual city data so far.
+
+The current simulated profiles use EUR budgets, so other currencies
+
+need handling before preparing data for those cities.
+

@@ -107,16 +107,45 @@ def save_json(path: Path, value) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
+        "--city",
+        default="rome",
+        help="City folder name, for example rome. Default: rome.",
+    )
+    parser.add_argument(
         "--places",
         type=Path,
-        default=ROOT / "data" / "cities" / "rome" / "places.json",
+        default=None,
+        help="Optional path to the selected city's places.json.",
     )
     parser.add_argument(
         "--output",
         type=Path,
-        default=ROOT / "data" / "training" / "rome",
+        default=None,
+        help="Optional output folder for the generated datasets.",
     )
     args = parser.parse_args()
+
+    allowed = "abcdefghijklmnopqrstuvwxyz0123456789-_"
+    if not args.city or any(char not in allowed for char in args.city):
+        parser.error(
+            "--city must use lowercase letters, numbers, "
+            "hyphens or underscores."
+        )
+
+    if args.places is None:
+        args.places = (
+            ROOT / "data" / "cities" / args.city / "places.json"
+        )
+
+    if args.output is None:
+        args.output = ROOT / "data" / "training" / args.city
+
+    if not args.places.is_file():
+        parser.error(
+            f"Places file not found: {args.places}. "
+            "Provide the city's collected data first, "
+            "or specify its file using --places."
+        )
 
     queries = make_dataset(args.places)
     train, test = split_dataset(queries)
@@ -129,7 +158,7 @@ def main() -> None:
     rated = sum(place.get("rating") is not None for place in places)
 
     summary = {
-        "city": "rome",
+        "city": args.city,
         "seed": 42,
         "source_file": str(args.places),
         "source_places": len(places),
@@ -147,10 +176,13 @@ def main() -> None:
             "The same places may appear for different travelers in both sets.",
             "This split tests unseen travelers, not unseen places or cities.",
             "Existing cost and popularity estimates are preserved.",
+            "The city label is supplied by the caller; geographic location "
+            "and currency compatibility are not validated by this script.",
         ],
     }
     save_json(args.output / "summary.json", summary)
 
+    print(f"City: {args.city}")
     print(f"Training travelers: {len(train)}")
     print(f"Testing travelers: {len(test)}")
     print(f"Files saved to: {args.output}")
