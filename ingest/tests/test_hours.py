@@ -74,3 +74,34 @@ def test_closed_every_day_is_known_when_every_day_is_named():
         days = ("mon", "tue", "wed", "thu", "fri", "sat", "sun")
         assert result.status == "parsed", value
         assert all(result.hours[d] is None for d in days)
+
+
+def test_hours_past_midnight_written_as_26_00():
+    result = parse_opening_hours("Fr-Sa 19:00-26:00")
+
+    assert result.status == "parsed"
+    assert result.hours["fri"] == [["19:00", "23:59"]]
+    assert result.hours["sat"] == [["00:00", "02:00"], ["19:00", "23:59"]]
+    assert result.hours["sun"] == [["00:00", "02:00"]]
+    assert parse_opening_hours("Mo 10:00-35:00").status == "unparseable"
+
+
+def test_rules_joined_by_a_comma_add_to_each_other():
+    result = parse_opening_hours("Mo-Fr 09:00-12:00, We 14:00-18:00, Sa 10:00-14:00")
+
+    assert result.status == "parsed"
+    assert result.hours["mon"] == [["09:00", "12:00"]]
+    assert result.hours["wed"] == [["09:00", "12:00"], ["14:00", "18:00"]]
+    assert result.hours["sat"] == [["10:00", "14:00"]]
+    assert result.hours["sun"] is None
+
+
+def test_a_day_list_is_not_mistaken_for_an_added_rule():
+    result = parse_opening_hours("Mo,We 10:00-12:00")
+
+    assert result.hours["mon"] == result.hours["wed"] == [["10:00", "12:00"]]
+    assert result.hours["tue"] is None
+
+
+def test_seasonal_hours_stay_unknown():
+    assert parse_opening_hours("Apr-Oct Mo-Su 09:00-18:00").status == "unparseable"
