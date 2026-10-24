@@ -176,9 +176,9 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 - One curated city (Rome). Every other city is fetched live and carries raw OSM coverage
   only. See [`docs/data-spike.md`](../docs/data-spike.md) for how thin that is. Small cities
   can be very thin: Karimnagar has 23 places.
-- The first request for a live city waits for the fetch. The main Overpass server is tried
-  twice before the backup, because the backup timed out in every test so far; when both are
-  down the wait can run to a few minutes before the 503.
+- The first request for a live city waits for the fetch. Only the main Overpass server is
+  used (no public mirror worked in tests), so when it is down, new cities get a 503 after
+  three tries. Cities fetched before still load.
 - Seasonal hours: the contract holds one weekly pattern, so the curated hours are the winter
   timetable that covers the demo dates. Change them when the season changes.
 - `day_trip` has no OSM mapping yet; it needs curated entries.

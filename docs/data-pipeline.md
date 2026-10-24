@@ -84,10 +84,11 @@ the traveler waits, then kept in `data/live/` so nobody waits twice. Choices mad
 - A country or state is refused by its OpenStreetMap type, not by size. The old 80 km check
   would have refused real cities whose admin area is large.
 - Retries follow what the test runs showed: the main server answers 502 for a moment and is
-  fine seconds later, while backups timed out. So a live fetch tries the main server, again
-  after 5 s, then one backup, 120 s per try (the query's own limit). The first Porto run
-  lost three minutes to a mirror that never answered, and another no longer exists, so both
-  were dropped.
+  fine seconds later. So a live fetch tries it three times, 5 s and 15 s apart, 120 s per try
+  (the query's own limit). No mirror is used: in October 2026 every public mirror tried
+  either never answered, no longer existed, gave 504 or refused the request.
+- A 504 means Overpass gave up on the query itself, so the same query is not sent again.
+  The fetch is retried once for 2.5 km instead of 5 km: central London failed this way.
 - Prices use the city's own currency (every ISO country is listed), and the itinerary names
   the country, so "Columbia" (South Carolina) is not mistaken for Colombia.
 - No curation for live cities: hours and prices are mostly `inferred`, and each stop says so.
