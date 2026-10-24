@@ -74,6 +74,22 @@ wall or aqueduct is therefore placed on one of its pieces, never on a relation t
 groups parts (type site, route, building or waterway). A place whose centre falls outside
 the requested bbox is dropped (one aqueduct relation landed 17 km east of Rome).
 
+**11. Any other city is fetched live, on the first request.**
+The design says ingest is on demand, so the catalog no longer stops at Rome and Lisbon. A
+city with no committed data is geocoded, fetched and run through the same pipeline while
+the traveler waits, then kept in `data/live/` so nobody waits twice. Choices made on the way:
+- One combined Overpass query instead of nine, for 5 km around the centre rather than the
+  whole admin area, so a big city stays one fetch.
+- Settlements only: an open search for "newyork" matched a shop called NEWYORK in Tokyo.
+- A country or state is refused by its OpenStreetMap type, not by size. The old 80 km check
+  would have refused real cities whose admin area is large.
+- Retries are short: two servers, two rounds, 120 s per try, the query's own limit. The
+  first Porto run lost three minutes to a mirror that never answered, and another mirror no
+  longer exists, so both were dropped.
+- Prices use the city's own currency (every ISO country is listed), and the itinerary names
+  the country, so "Columbia" (South Carolina) is not mistaken for Colombia.
+- No curation for live cities: hours and prices are mostly `inferred`, and each stop says so.
+
 ## Data dictionary: where each Place field comes from
 
 | Field | Source | Notes |
