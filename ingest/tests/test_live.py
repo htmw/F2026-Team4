@@ -24,7 +24,19 @@ PORTO = {
     "boundingbox": ["41.1383", "41.1859", "-8.6912", "-8.5526"],
     "address": {"country_code": "pt", "country": "Portugal"},
 }
-PORTUGAL = {**PORTO, "name": "Portugal", "addresstype": "country"}
+PORTUGAL = {
+    **PORTO,
+    "name": "Portugal",
+    "addresstype": "country",
+    "boundingbox": ["36.96", "42.15", "-9.52", "-6.19"],
+}
+DELHI = {
+    **PORTO,
+    "name": "Delhi",
+    "addresstype": "state",
+    "boundingbox": ["28.40", "28.88", "76.84", "77.35"],
+    "address": {"country_code": "in", "country": "India"},
+}
 TOWER = {
     "type": "node",
     "id": 1,
@@ -57,7 +69,7 @@ def osm(tmp_path, monkeypatch):
 
     def nominatim(url, params, **kw):
         assert params["featureType"] == "settlement", "never a shop or a hotel"
-        found = {"porto": [PORTO], "portugal": [PORTUGAL]}
+        found = {"porto": [PORTO], "portugal": [PORTUGAL], "delhi": [DELHI]}
         return FakeResponse(found.get(params["q"].lower(), []))
 
     def overpass(url, data, **kw):
@@ -102,7 +114,8 @@ def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):
     assert itinerary["totals"]["currency"] == "INR"
 
 
-def test_a_country_is_not_a_city(osm):
+def test_a_country_is_not_a_city_but_a_city_state_is(osm):
+    assert catalog.load_city("Delhi").source == "live", "a city-state is a city"
     with pytest.raises(catalog.CityNotAvailable, match="country, not a city"):
         catalog.load_city("Portugal")
 

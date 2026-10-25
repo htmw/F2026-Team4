@@ -81,8 +81,10 @@ the traveler waits, then kept in `data/live/` so nobody waits twice. Choices mad
 - One combined Overpass query instead of nine, for 5 km around the centre rather than the
   whole admin area, so a big city stays one fetch.
 - Settlements only: an open search for "newyork" matched a shop called NEWYORK in Tokyo.
-- A country or state is refused by its OpenStreetMap type, not by size. The old 80 km check
-  would have refused real cities whose admin area is large.
+- A country or state is refused by its OpenStreetMap type, and only when it is over 100 km
+  across: Delhi and Mexico City are states in OpenStreetMap and Singapore is a country, but
+  all three are cities. The old 80 km check on every place would have refused real cities
+  whose admin area is large.
 - Retries follow what the test runs showed: the main server answers 502 for a moment and is
   fine seconds later. So a live fetch tries it three times, 5 s and 15 s apart, 120 s per try
   (the query's own limit). No mirror is used: in October 2026 every public mirror tried
