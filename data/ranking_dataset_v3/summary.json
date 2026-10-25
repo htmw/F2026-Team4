@@ -1,0 +1,834 @@
+{
+  "train_cities": [
+    "paris-fr",
+    "lisbon-pt",
+    "berlin-de",
+    "new-york-us",
+    "los-angeles-us",
+    "mexico-city-mx",
+    "singapore-sg",
+    "delhi-in",
+    "mumbai-in",
+    "cairo-eg",
+    "sydney-au",
+    "melbourne-au"
+  ],
+  "test_only_cities": [
+    "tokyo-jp",
+    "bogota-co",
+    "hyderabad-in"
+  ],
+  "travelers_per_city": 500,
+  "maximum_places_per_city": 500,
+  "candidates_per_traveler": 15,
+  "seed": 42,
+  "simulated_budget_options": {
+    "EUR": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "USD": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "SGD": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "INR": [
+      25000,
+      50000,
+      100000,
+      200000
+    ],
+    "MXN": [
+      6000,
+      12000,
+      24000,
+      40000
+    ],
+    "EGP": [
+      15000,
+      30000,
+      60000,
+      100000
+    ],
+    "AUD": [
+      500,
+      1000,
+      2000,
+      3000
+    ],
+    "JPY": [
+      30000,
+      60000,
+      120000,
+      200000
+    ],
+    "COP": [
+      1000000,
+      2000000,
+      4000000,
+      8000000
+    ]
+  },
+  "counts": {
+    "train": 4786,
+    "validation": 1214,
+    "test": 1500
+  },
+  "source_place_overlap_between_city_groups": 0,
+  "sources": [
+    {
+      "city": "paris-fr",
+      "role": "training-development",
+      "currency": "EUR",
+      "source_folder": "data\\out\\paris-fr",
+      "source_sha256": "f7a77ac1e4b93efefaff31fe3d64fd588d8d57174fa4c89828ac77891bfed3b6",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        48.80857954125045,
+        2.28012938945388,
+        48.898410658749555,
+        2.41665361054612
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "lisbon-pt",
+      "role": "training-development",
+      "currency": "EUR",
+      "source_folder": "data\\out\\lisbon-pt",
+      "source_sha256": "1953d3facf383c53a04886a0caa8e74b2ea62ae87ca093b19533db0140a82b24",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        38.66283514125045,
+        -9.194150430561933,
+        38.75266625874955,
+        -9.079033369438068
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "berlin-de",
+      "role": "training-development",
+      "currency": "EUR",
+      "source_folder": "data\\out\\berlin-de",
+      "source_sha256": "28965de1b08762081ab82f1dd5c66fe52d3263a44d4da7cb4088d41827ced3b8",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        52.47247294125045,
+        13.32131982997659,
+        52.562304058749554,
+        13.46894197002341
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "new-york-us",
+      "role": "training-development",
+      "currency": "USD",
+      "source_folder": "data\\out\\new-york-us",
+      "source_sha256": "615832bb5af803f3297283d8ca7204c3505c4a0743b8196990bc3fa79905b459",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        40.66781254125045,
+        -74.06527137885095,
+        40.75764365874955,
+        -73.94675902114903
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "los-angeles-us",
+      "role": "training-development",
+      "currency": "USD",
+      "source_folder": "data\\out\\los-angeles-us",
+      "source_sha256": "753753b0c813fccbfb3b82728f4bf7bc9ba3fc12443c2e39aeca1d1e9de6ab5e",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        34.00877674125045,
+        -118.29697984378055,
+        34.09860785874955,
+        -118.18855535621944
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "mexico-city-mx",
+      "role": "training-development",
+      "currency": "MXN",
+      "source_folder": "data\\out\\mexico-city-mx",
+      "source_sha256": "8b40b23629269f3fb0a31f75e95bab762006dd7455b138d032de987653625f91",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        19.387714041250447,
+        -99.18080731309176,
+        19.47754515874955,
+        -99.08554968690824
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "singapore-sg",
+      "role": "training-development",
+      "currency": "SGD",
+      "source_folder": "data\\out\\singapore-sg",
+      "source_sha256": "6b326cd4d71ff0f4f1ccb7ae413b5ebc98c836aeb8f474343bf5940a137c7148",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        1.2450019412504492,
+        103.80698025614278,
+        1.334833058749551,
+        103.89683414385722
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "delhi-in",
+      "role": "training-development",
+      "currency": "INR",
+      "source_folder": "data\\out\\delhi-in",
+      "source_sha256": "6930e006adc70311b20c54a3ed8be22f42792fff629efe20fdce1bc5b648b162",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        28.62153794125045,
+        77.16578803017423,
+        28.71136905874955,
+        77.26816816982578
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "mumbai-in",
+      "role": "training-development",
+      "currency": "INR",
+      "source_folder": "data\\out\\mumbai-in",
+      "source_sha256": "48302ee65ff18193660075cc95ebf20761d502445261b13b2a444ddba3dd289c",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        19.010083441250448,
+        72.8216841479459,
+        19.09991455874955,
+        72.9167228520541
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "cairo-eg",
+      "role": "training-development",
+      "currency": "EGP",
+      "source_folder": "data\\out\\cairo-eg",
+      "source_sha256": "fad14c40e5250f121fd79a50766f2f3e0cba63cd22e7bddd6d55ee3547f63dbf",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        29.99947234125045,
+        31.18383845633594,
+        30.08930345874955,
+        31.287612943664058
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "sydney-au",
+      "role": "training-development",
+      "currency": "AUD",
+      "source_folder": "data\\out\\sydney-au",
+      "source_sha256": "7011e24c4bf9c6e60dcc7e4c5b7027b196fade0e01215682b462199030acd397",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        -33.91475945874955,
+        151.15418959454314,
+        -33.82492834125045,
+        151.26238000545686
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "melbourne-au",
+      "role": "training-development",
+      "currency": "AUD",
+      "source_folder": "data\\out\\melbourne-au",
+      "source_sha256": "d42361b8c1b4939a0f1cdd43031fdc475f2ca015c56c0e7ec49510abbbfcfad2",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        -37.85916095874955,
+        144.90631824956105,
+        -37.769329841250446,
+        145.02002815043895
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "tokyo-jp",
+      "role": "test-only",
+      "currency": "JPY",
+      "source_folder": "data\\out\\tokyo-jp",
+      "source_sha256": "798b8af7f73bcf20ab36b928572b644c0a91702133d04e56ba63a60e2fe484f2",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        35.63194454125045,
+        139.70860170384597,
+        35.72177565874955,
+        139.81918769615405
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "bogota-co",
+      "role": "test-only",
+      "currency": "COP",
+      "source_folder": "data\\out\\bogota-co",
+      "source_sha256": "d4fae45b396e2b34c8f255bade26d430cd830d3d00985f738c80700ec13c06d6",
+      "source_places": 500,
+      "sampled_places": 500,
+      "bbox": [
+        4.608466141250449,
+        -74.12869720239681,
+        4.698297258749551,
+        -74.03856899760319
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    },
+    {
+      "city": "hyderabad-in",
+      "role": "test-only",
+      "currency": "INR",
+      "source_folder": "data\\out\\hyderabad-in",
+      "source_sha256": "f3311a67c75153812be36ce80fb77dfc07abac3ca9807b563e7d5d41a5eda3b0",
+      "source_places": 385,
+      "sampled_places": 385,
+      "bbox": [
+        17.31567344125045,
+        78.42700199205265,
+        17.405504558749552,
+        78.52112060794735
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+    }
+  ],
+  "limitations": [
+    "Travelers and relevance grades are simulated.",
+    "Budgets are explicit simulation inputs, not exchange rates.",
+    "Existing model features and label formula are unchanged.",
+    "Validation uses travelers from training cities.",
+    "Final testing uses reserved cities only.",
+    "City-held-out testing does not guarantee unseen travelers.",
+    "Unknown prices and missing ratings retain existing behavior.",
+    "Cross-currency model performance has not been evaluated."
+  ],
+  "manifest_sha256": "882c6f5e4907c493fc07d8941668f66b3d2bceedb2f3989dffb25d7485f15a53",
+  "snapshot_provenance": [
+    {
+      "city_spec": {
+        "key": "paris-fr",
+        "query": "Paris, France",
+        "country": "FR",
+        "currency": "EUR",
+        "region": "Europe",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Paris",
+      "resolved_source_key": "paris-fr",
+      "source_built_at": "2026-10-25T18:52:54+00:00",
+      "source_places": 18496,
+      "selected_places": 500,
+      "original_places_sha256": "cfa71f511d2efb54bcab28c590ee4dba783dc9d4bacfa6ede9562c7870f23b92",
+      "bbox": [
+        48.80857954125045,
+        2.28012938945388,
+        48.898410658749555,
+        2.41665361054612
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "f7a77ac1e4b93efefaff31fe3d64fd588d8d57174fa4c89828ac77891bfed3b6",
+        "city.json": "a7d1c7033bdd61d9a7e9dd0fedd20592258d18bc23f50bfec684a10363093e59",
+        "source_ids.json": "d1e11f93406450429da4b89296de872a7262b7ddd9590e8d42117bc6f705d3d8"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "lisbon-pt",
+        "query": "Lisbon, Portugal",
+        "country": "PT",
+        "currency": "EUR",
+        "region": "Europe",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Lisbon",
+      "resolved_source_key": "lisbon-pt",
+      "source_built_at": "2026-10-25T18:53:38+00:00",
+      "source_places": 4823,
+      "selected_places": 500,
+      "original_places_sha256": "7dbb3344934304439299db6f3eefb517b7c4a14a0640c55427b7388ccd42f578",
+      "bbox": [
+        38.66283514125045,
+        -9.194150430561933,
+        38.75266625874955,
+        -9.079033369438068
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "1953d3facf383c53a04886a0caa8e74b2ea62ae87ca093b19533db0140a82b24",
+        "city.json": "fb39a605cef51eb63efd9fff76dba89b7004e38ea4a6caa1835a2c81c878b61f",
+        "source_ids.json": "80536d09e5b3fddd60f6a5ce884f21850007be8a02d3d3b27fcf63b371032157"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "berlin-de",
+        "query": "Berlin, Germany",
+        "country": "DE",
+        "currency": "EUR",
+        "region": "Europe",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Berlin",
+      "resolved_source_key": "berlin-de",
+      "source_built_at": "2026-10-25T18:54:36+00:00",
+      "source_places": 7834,
+      "selected_places": 500,
+      "original_places_sha256": "be7091cff0c97992fc480050bf12e10ff4e2d7ab0392c14c3310160d12fbc3da",
+      "bbox": [
+        52.47247294125045,
+        13.32131982997659,
+        52.562304058749554,
+        13.46894197002341
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "28965de1b08762081ab82f1dd5c66fe52d3263a44d4da7cb4088d41827ced3b8",
+        "city.json": "72e8479a0e27452ece859ec74190fd4156438d68b57ab3e5ae9a79dc74385e13",
+        "source_ids.json": "789489fdc7dcde4887546b2b505af992a13f58dc7ed5ca060b5f0197e4450050"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "new-york-us",
+        "query": "New York City, New York, USA",
+        "country": "US",
+        "currency": "USD",
+        "region": "North America",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "New York",
+      "resolved_source_key": "new-york-us",
+      "source_built_at": "2026-10-25T17:22:19+00:00",
+      "source_places": 7772,
+      "selected_places": 500,
+      "original_places_sha256": "ac95b1cb41a5aecb9de0f2d1b999a5429deef87c0a026afbe9bac83fd58b614f",
+      "bbox": [
+        40.66781254125045,
+        -74.06527137885095,
+        40.75764365874955,
+        -73.94675902114903
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "615832bb5af803f3297283d8ca7204c3505c4a0743b8196990bc3fa79905b459",
+        "city.json": "ffd24b7283af4eb147ee152971f42e01ea5e72d749ce4ea725b87aacb52bebb1",
+        "source_ids.json": "3ab28ea2d89042f56176c80ba64ed4485f3bdb5ac451a1bb796307cbf0619071"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "los-angeles-us",
+        "query": "Los Angeles, California, USA",
+        "country": "US",
+        "currency": "USD",
+        "region": "North America",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Los Angeles",
+      "resolved_source_key": "los-angeles-us",
+      "source_built_at": "2026-10-25T18:55:19+00:00",
+      "source_places": 1489,
+      "selected_places": 500,
+      "original_places_sha256": "07128a3d0abf28c35c51b0fb83a2157aeab54e24789a2574c9a21bd70cfda8b2",
+      "bbox": [
+        34.00877674125045,
+        -118.29697984378055,
+        34.09860785874955,
+        -118.18855535621944
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "753753b0c813fccbfb3b82728f4bf7bc9ba3fc12443c2e39aeca1d1e9de6ab5e",
+        "city.json": "be8c652816a9dedb18934abb301b50696b5ae12074f183461a2f0531b3294569",
+        "source_ids.json": "d408cd9d449d9fad88a4954848422435e1573c9c021f0d895d9df4f9d30b71ba"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "mexico-city-mx",
+        "query": "Mexico City, Cuauhtémoc, Mexico City, Mexico",
+        "country": "MX",
+        "currency": "MXN",
+        "region": "Latin America",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Mexico City",
+      "resolved_source_key": "mexico-city-mx",
+      "source_built_at": "2026-10-25T19:04:27+00:00",
+      "source_places": 3152,
+      "selected_places": 500,
+      "original_places_sha256": "fae7f9ba4859ac30c244c129465f518141771a94a1f8fd8d3659cb3987710df9",
+      "bbox": [
+        19.387714041250447,
+        -99.18080731309176,
+        19.47754515874955,
+        -99.08554968690824
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "8b40b23629269f3fb0a31f75e95bab762006dd7455b138d032de987653625f91",
+        "city.json": "f7b3d103c7bc66cd0ab38a374f6bf7169c8265f5dc4e8c8c023ccd72d610bd34",
+        "source_ids.json": "04063ebd0dc826d0ba219db2f7a2079c16dfa05ac40727726c7d153fb2abb52f"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "singapore-sg",
+        "query": "Singapore",
+        "country": "SG",
+        "currency": "SGD",
+        "region": "Asia",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Singapore",
+      "resolved_source_key": "singapore-sg",
+      "source_built_at": "2026-10-25T19:05:24+00:00",
+      "source_places": 4753,
+      "selected_places": 500,
+      "original_places_sha256": "94485d5fd455f211c2c0f34cc97fafed98a9a25efebc4aad9e522f7a8323768f",
+      "bbox": [
+        1.2450019412504492,
+        103.80698025614278,
+        1.334833058749551,
+        103.89683414385722
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "6b326cd4d71ff0f4f1ccb7ae413b5ebc98c836aeb8f474343bf5940a137c7148",
+        "city.json": "345b4d5d5d1c18c44deb34da82681c300c380e54a29b8a8ec83ab84ecda032f1",
+        "source_ids.json": "b293b901cb32d69edacd0a370aa461307334cea0bd0b6b1ede121040035356c4"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "delhi-in",
+        "query": "Delhi, Old Delhi, Delhi, India",
+        "country": "IN",
+        "currency": "INR",
+        "region": "Asia",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Delhi",
+      "resolved_source_key": "delhi-in",
+      "source_built_at": "2026-10-25T19:08:48+00:00",
+      "source_places": 802,
+      "selected_places": 500,
+      "original_places_sha256": "16457e7c1829e72ff400b5b6dca91047e983e21b28d41a8785ea2b6f3aeb090c",
+      "bbox": [
+        28.62153794125045,
+        77.16578803017423,
+        28.71136905874955,
+        77.26816816982578
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "6930e006adc70311b20c54a3ed8be22f42792fff629efe20fdce1bc5b648b162",
+        "city.json": "2a963afba17360018263f1f5904683671dfcaf55d7c4c616ebd4fde825ea188f",
+        "source_ids.json": "f8bcc545c01d2bf8725da3692b0733a1ee5324213157ef7eb70def850c58b694"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "mumbai-in",
+        "query": "Mumbai, Maharashtra, India",
+        "country": "IN",
+        "currency": "INR",
+        "region": "Asia",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Mumbai",
+      "resolved_source_key": "mumbai-in",
+      "source_built_at": "2026-10-25T19:09:26+00:00",
+      "source_places": 776,
+      "selected_places": 500,
+      "original_places_sha256": "73d7c4bfcdf27b27745ab74fb09b0b180452b002a00d7c875619bfdf757119cf",
+      "bbox": [
+        19.010083441250448,
+        72.8216841479459,
+        19.09991455874955,
+        72.9167228520541
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "48302ee65ff18193660075cc95ebf20761d502445261b13b2a444ddba3dd289c",
+        "city.json": "cbfcc1b6a8567383ad6647651d5664c40a996ba18c5d4a6d5399771c9bc5797d",
+        "source_ids.json": "585a9106458ebde290bb056e98eeb4ea1c0e0c4861c4b4ca444fa34dd12603ea"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "cairo-eg",
+        "query": "Cairo, Egypt",
+        "country": "EG",
+        "currency": "EGP",
+        "region": "Africa",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Cairo",
+      "resolved_source_key": "cairo-eg",
+      "source_built_at": "2026-10-25T19:10:05+00:00",
+      "source_places": 596,
+      "selected_places": 500,
+      "original_places_sha256": "00f624c279abc75a15285bfdeac9d3dae44b7f4804fdf71a2f3583e4984969fc",
+      "bbox": [
+        29.99947234125045,
+        31.18383845633594,
+        30.08930345874955,
+        31.287612943664058
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "fad14c40e5250f121fd79a50766f2f3e0cba63cd22e7bddd6d55ee3547f63dbf",
+        "city.json": "ffda4d54baa3d4e05a9041218cd103ade81a6b4f67130f8fcd019e3afd3dcf7b",
+        "source_ids.json": "53e6b90b830c095da2d2efc8aa9d26a3ea3ff9529d56ccb8874cf450f9e378c8"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "sydney-au",
+        "query": "Sydney, Australia",
+        "country": "AU",
+        "currency": "AUD",
+        "region": "Oceania",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Sydney",
+      "resolved_source_key": "sydney-au",
+      "source_built_at": "2026-10-25T19:10:44+00:00",
+      "source_places": 4208,
+      "selected_places": 500,
+      "original_places_sha256": "92492b80fd4aa87eb2bffe1653555eef7981661f30f8224983d3fdef426873ef",
+      "bbox": [
+        -33.91475945874955,
+        151.15418959454314,
+        -33.82492834125045,
+        151.26238000545686
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "7011e24c4bf9c6e60dcc7e4c5b7027b196fade0e01215682b462199030acd397",
+        "city.json": "03448f4596d607e4d87ad9b811b3319af27b3fdb8531d941fda198adb6e05221",
+        "source_ids.json": "d7fdbf0175333e6229344ea777055d65417a08b1b22ff38f561e03e48e7002c0"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "melbourne-au",
+        "query": "Melbourne, Australia",
+        "country": "AU",
+        "currency": "AUD",
+        "region": "Oceania",
+        "role": "train"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Melbourne",
+      "resolved_source_key": "melbourne-au",
+      "source_built_at": "2026-10-25T19:11:33+00:00",
+      "source_places": 4165,
+      "selected_places": 500,
+      "original_places_sha256": "9b3ebd82a9964c208fddb85153160a7a95d35e285a5c9f7f7fb2620c103767a6",
+      "bbox": [
+        -37.85916095874955,
+        144.90631824956105,
+        -37.769329841250446,
+        145.02002815043895
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "d42361b8c1b4939a0f1cdd43031fdc475f2ca015c56c0e7ec49510abbbfcfad2",
+        "city.json": "db6b0884d600a6e1423e6e501d3261c4b1d7694b373a9b906e8a707683856227",
+        "source_ids.json": "85dadf526a022369406149b629cb36bc5325455b08e585b62caeb1f56c9836e4"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "tokyo-jp",
+        "query": "Tokyo, Japan",
+        "country": "JP",
+        "currency": "JPY",
+        "region": "Asia",
+        "role": "test"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Tokyo",
+      "resolved_source_key": "tokyo-jp",
+      "source_built_at": "2026-10-25T19:12:34+00:00",
+      "source_places": 13078,
+      "selected_places": 500,
+      "original_places_sha256": "19b4f59f96063bec659b948ea6119c5651cbad1c9091dba494e97ebc6221844a",
+      "bbox": [
+        35.63194454125045,
+        139.70860170384597,
+        35.72177565874955,
+        139.81918769615405
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "798b8af7f73bcf20ab36b928572b644c0a91702133d04e56ba63a60e2fe484f2",
+        "city.json": "c419e5364a27bda3ebd60932185f9fede2accd3bb8f8fa85ae547672c5e3bb65",
+        "source_ids.json": "2ac80f727c9fa445d72a7b76cd31dcf52f8288ea585677c3b2213075d8e39340"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "bogota-co",
+        "query": "Bogota, Colombia",
+        "country": "CO",
+        "currency": "COP",
+        "region": "Latin America",
+        "role": "test"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Bogota",
+      "resolved_source_key": "bogota-co",
+      "source_built_at": "2026-10-25T19:13:20+00:00",
+      "source_places": 4388,
+      "selected_places": 500,
+      "original_places_sha256": "cc1b4f783080c8818ffae9ec0f83dad3f2a3c56916dc3c2d120407fef054646e",
+      "bbox": [
+        4.608466141250449,
+        -74.12869720239681,
+        4.698297258749551,
+        -74.03856899760319
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "d4fae45b396e2b34c8f255bade26d430cd830d3d00985f738c80700ec13c06d6",
+        "city.json": "e1062728feafa2a185729cce2007d8dc58f142460ad882c8bb1bc51285ab7beb",
+        "source_ids.json": "db688cef6719efd63230ca0341048e1918f1510587f38cde4fe469218c07e0a3"
+      }
+    },
+    {
+      "city_spec": {
+        "key": "hyderabad-in",
+        "query": "Hyderabad, Telangana, India",
+        "country": "IN",
+        "currency": "INR",
+        "region": "Asia",
+        "role": "test"
+      },
+      "sampling": {
+        "maximum_places": 500,
+        "seed": 42
+      },
+      "resolved_name": "Hyderabad",
+      "resolved_source_key": "hyderabad-in",
+      "source_built_at": "2026-10-25T19:14:01+00:00",
+      "source_places": 385,
+      "selected_places": 385,
+      "original_places_sha256": "a1bada5b52972501af27261d68556ff972ca46338cb0a807f6d099eeb705ceb1",
+      "bbox": [
+        17.31567344125045,
+        78.42700199205265,
+        17.405504558749552,
+        78.52112060794735
+      ],
+      "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+      "files": {
+        "places.json": "f3311a67c75153812be36ce80fb77dfc07abac3ca9807b563e7d5d41a5eda3b0",
+        "city.json": "e1f15d3db9e9428b464e55fca65d0dd464aa9cb150d027556b983240a45a000e",
+        "source_ids.json": "01aecfc1a6924b93f2a42b0eb7e4fd749cf3e3a50df6db952c2ef5a7c521bc69"
+      }
+    }
+  ],
+  "python_hash_seed": 0,
+  "full_source_place_id_overlap": 0,
+  "rebuild_note": "Exact comparison requires these snapshots, manifest, matching code and dependencies. Fresh OSM fetches may produce different data.",
+  "code_sha256": {
+    "prepare_manifest.py": "72cccfc7deebd20e9a5dc3ad6acc08b3449928632f1b823f1433cd17758f88e5",
+    "prepare_dataset.py": "149ae9589200b2e33d68c2f902dc6c20073c43f1756dae764a49c2b6a6471990",
+    "prepare_live.py": "8eb8deb793b7bf1997bea2644cedcc66fcc254a4a8cb3deefb2f188da8842376",
+    "dataset_io.py": "167b67ce9ba8966e49bd5f81536a2f511ec50aa145c8a04f11c16f90371461a0",
+    "real_data.py": "18cd71acc026a821406b4ae8a96044406591dfd2f6d26c9f719d92ef7489268f",
+    "features.py": "e0183ad18e6ad995a2c1972b34cae1b96ad77783decc9d044455791d568d4719",
+    "synthetic.py": "c17ef5d72018c48aab2cc1b72076ebe2abd31cc5163a441ab97bb3c5178e89b2"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "key": "sydney-au",
+  "name": "Sydney",
+  "country": "AU",
+  "country_name": "Australia",
+  "aliases": [
+    "Sydney",
+    "Sydney, Australia"
+  ],
+  "lat": -33.8698439,
+  "lon": 151.2082848,
+  "bbox": [
+    -33.91475945874955,
+    151.15418959454314,
+    -33.82492834125045,
+    151.26238000545686
+  ],
+  "bbox_source": "explicit",
+  "currency": "AUD",
+  "places": 4208,
+  "built_at": "2026-10-25T19:10:44+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

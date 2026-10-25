@@ -1,0 +1,24 @@
+{
+  "key": "delhi-in",
+  "name": "Delhi",
+  "country": "IN",
+  "country_name": "India",
+  "aliases": [
+    "Delhi",
+    "Delhi, Old Delhi, Delhi, India"
+  ],
+  "lat": 28.6664535,
+  "lon": 77.2169781,
+  "bbox": [
+    28.62153794125045,
+    77.16578803017423,
+    28.71136905874955,
+    77.26816816982578
+  ],
+  "bbox_source": "explicit",
+  "currency": "INR",
+  "places": 802,
+  "built_at": "2026-10-25T19:08:48+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

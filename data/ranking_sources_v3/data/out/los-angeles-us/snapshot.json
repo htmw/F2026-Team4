@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "los-angeles-us",
+    "query": "Los Angeles, California, USA",
+    "country": "US",
+    "currency": "USD",
+    "region": "North America",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Los Angeles",
+  "resolved_source_key": "los-angeles-us",
+  "source_built_at": "2026-10-25T18:55:19+00:00",
+  "source_places": 1489,
+  "selected_places": 500,
+  "original_places_sha256": "07128a3d0abf28c35c51b0fb83a2157aeab54e24789a2574c9a21bd70cfda8b2",
+  "bbox": [
+    34.00877674125045,
+    -118.29697984378055,
+    34.09860785874955,
+    -118.18855535621944
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "753753b0c813fccbfb3b82728f4bf7bc9ba3fc12443c2e39aeca1d1e9de6ab5e",
+    "city.json": "be8c652816a9dedb18934abb301b50696b5ae12074f183461a2f0531b3294569",
+    "source_ids.json": "d408cd9d449d9fad88a4954848422435e1573c9c021f0d895d9df4f9d30b71ba"
+  }
+}

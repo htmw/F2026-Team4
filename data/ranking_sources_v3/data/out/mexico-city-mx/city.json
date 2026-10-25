@@ -1,0 +1,24 @@
+{
+  "key": "mexico-city-mx",
+  "name": "Mexico City",
+  "country": "MX",
+  "country_name": "Mexico",
+  "aliases": [
+    "Mexico City",
+    "Mexico City, Cuauhtémoc, Mexico City, Mexico"
+  ],
+  "lat": 19.4326296,
+  "lon": -99.1331785,
+  "bbox": [
+    19.387714041250447,
+    -99.18080731309176,
+    19.47754515874955,
+    -99.08554968690824
+  ],
+  "bbox_source": "explicit",
+  "currency": "MXN",
+  "places": 3152,
+  "built_at": "2026-10-25T19:04:27+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

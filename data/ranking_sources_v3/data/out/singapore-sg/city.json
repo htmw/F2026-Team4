@@ -1,0 +1,23 @@
+{
+  "key": "singapore-sg",
+  "name": "Singapore",
+  "country": "SG",
+  "country_name": "Singapore",
+  "aliases": [
+    "Singapore"
+  ],
+  "lat": 1.2899175,
+  "lon": 103.8519072,
+  "bbox": [
+    1.2450019412504492,
+    103.80698025614278,
+    1.334833058749551,
+    103.89683414385722
+  ],
+  "bbox_source": "explicit",
+  "currency": "SGD",
+  "places": 4753,
+  "built_at": "2026-10-25T19:05:24+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

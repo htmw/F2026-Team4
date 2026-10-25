@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "delhi-in",
+    "query": "Delhi, Old Delhi, Delhi, India",
+    "country": "IN",
+    "currency": "INR",
+    "region": "Asia",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Delhi",
+  "resolved_source_key": "delhi-in",
+  "source_built_at": "2026-10-25T19:08:48+00:00",
+  "source_places": 802,
+  "selected_places": 500,
+  "original_places_sha256": "16457e7c1829e72ff400b5b6dca91047e983e21b28d41a8785ea2b6f3aeb090c",
+  "bbox": [
+    28.62153794125045,
+    77.16578803017423,
+    28.71136905874955,
+    77.26816816982578
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "6930e006adc70311b20c54a3ed8be22f42792fff629efe20fdce1bc5b648b162",
+    "city.json": "2a963afba17360018263f1f5904683671dfcaf55d7c4c616ebd4fde825ea188f",
+    "source_ids.json": "f8bcc545c01d2bf8725da3692b0733a1ee5324213157ef7eb70def850c58b694"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "key": "bogota-co",
+  "name": "Bogota",
+  "country": "CO",
+  "country_name": "Colombia",
+  "aliases": [
+    "Bogota",
+    "Bogota, Colombia"
+  ],
+  "lat": 4.6533817,
+  "lon": -74.0836331,
+  "bbox": [
+    4.608466141250449,
+    -74.12869720239681,
+    4.698297258749551,
+    -74.03856899760319
+  ],
+  "bbox_source": "explicit",
+  "currency": "COP",
+  "places": 4388,
+  "built_at": "2026-10-25T19:13:20+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

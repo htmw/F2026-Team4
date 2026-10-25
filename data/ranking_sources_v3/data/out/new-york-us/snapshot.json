@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "new-york-us",
+    "query": "New York City, New York, USA",
+    "country": "US",
+    "currency": "USD",
+    "region": "North America",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "New York",
+  "resolved_source_key": "new-york-us",
+  "source_built_at": "2026-10-25T17:22:19+00:00",
+  "source_places": 7772,
+  "selected_places": 500,
+  "original_places_sha256": "ac95b1cb41a5aecb9de0f2d1b999a5429deef87c0a026afbe9bac83fd58b614f",
+  "bbox": [
+    40.66781254125045,
+    -74.06527137885095,
+    40.75764365874955,
+    -73.94675902114903
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "615832bb5af803f3297283d8ca7204c3505c4a0743b8196990bc3fa79905b459",
+    "city.json": "ffd24b7283af4eb147ee152971f42e01ea5e72d749ce4ea725b87aacb52bebb1",
+    "source_ids.json": "3ab28ea2d89042f56176c80ba64ed4485f3bdb5ac451a1bb796307cbf0619071"
+  }
+}
