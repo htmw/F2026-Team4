@@ -1,6 +1,5 @@
 """Check manifest snapshots, offline reuse and city separation."""
 
-import copy
 import json
 
 import pytest

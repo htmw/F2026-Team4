@@ -172,7 +172,7 @@ def build(
         places = sorted(entry["places"], key=lambda p: p["id"])
         city_seed = int.from_bytes(
             hashlib.sha256(
-                f"{seed}:{city}".encode("utf-8")
+                f"{seed}:{city}".encode()
             ).digest()[:8],
             "big",
         )

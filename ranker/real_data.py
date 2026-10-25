@@ -104,7 +104,7 @@ def split_dataset(
 
         # Identical profiles always receive the same assignment,
         # regardless of their city or position in the dataset.
-        key = f"{seed}:{profile_text}".encode("utf-8")
+        key = f"{seed}:{profile_text}".encode()
         digest = hashlib.sha256(key).digest()
         bucket = int.from_bytes(digest[:8], "big") % 100
 

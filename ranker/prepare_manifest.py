@@ -176,7 +176,7 @@ def ensure_snapshot(
     ordered = sorted(places, key=lambda place: place["id"])
     city_seed = int.from_bytes(
         hashlib.sha256(
-            f"{seed}:{key}".encode("utf-8")
+            f"{seed}:{key}".encode()
         ).digest()[:8],
         "big",
     )
