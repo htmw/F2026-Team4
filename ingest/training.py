@@ -7,8 +7,9 @@ and never goes to OpenStreetMap itself.
     uv run python -m ingest.training        # writes data/training/dataset.json
 
 Places are real (OSM). Travelers and their grades are simulated with the ranker's own
-synthetic formula, because OSM has no reviews. Test cities are never used for training,
-so the test asks whether the model works in a city it has not seen.
+synthetic formula, because OSM has no reviews; their budgets are in the city's currency.
+Test cities are never used for training, so the test asks whether the model works in a
+city it has not seen.
 
 Each place is stored once and travelers refer to places by id, which keeps the file a few
 MB. load_queries() rebuilds the shape ranker.synthetic.make_dataset() returns, so
@@ -54,6 +55,33 @@ TRAVELERS = 120  # simulated travelers per city
 CANDIDATES = 15  # places each traveler ranks
 SEED = 0  # same input, same file
 
+# Travelers get budgets in the city's own money, so price_fits_budget compares like with
+# like (a 1,000 yen ticket against a 30,000 yen budget, not against 300). The EUR options
+# are ranker.synthetic's; each currency's factor is a rough October 2026 rate, used only to
+# set simulation budgets, never to convert a price.
+EUR_BUDGETS = [300, 600, 1200, 2000]
+BUDGET_FACTOR = {
+    "EUR": 1,
+    "GBP": 0.85,
+    "USD": 1.1,
+    "AUD": 1.65,
+    "MXN": 20,
+    "COP": 4500,
+    "JMD": 170,
+    "JPY": 165,
+    "KRW": 1500,
+    "THB": 38,
+    "INR": 92,
+    "EGP": 53,
+    "KES": 140,
+}
+
+
+def local_budgets(currency: str) -> list[float]:
+    if currency not in BUDGET_FACTOR:
+        raise ValueError(f"No budget factor for {currency}. Add it to BUDGET_FACTOR.")
+    return [round(b * BUDGET_FACTOR[currency], 2) for b in EUR_BUDGETS]
+
 
 def compact(place: dict) -> dict:
     """Only what ranker/features.py and the popularity baseline read."""
@@ -77,9 +105,12 @@ def sample_places(places: list[dict], per_city: int, rng: random.Random) -> list
 
 
 def make_queries(city: str, places: list[dict], travelers: int, rng: random.Random) -> list:
+    currency = places[0]["cost"]["currency"]
+    budgets = local_budgets(currency)
     queries = []
     for _ in range(travelers):
         profile = _random_profile(rng)
+        profile["budget"] = {"total": rng.choice(budgets), "currency": currency}
         candidates = rng.sample(places, min(CANDIDATES, len(places)))
         grades = _graded_relevance([_true_utility(profile, p, rng) for p in candidates])
         items = [

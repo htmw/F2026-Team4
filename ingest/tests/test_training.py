@@ -11,7 +11,7 @@ from ingest.training import build, load_queries
 from ranker.features import FEATURE_NAMES
 
 
-def _place(city: str, i: int) -> dict:
+def _place(city: str, i: int, currency: str = "EUR") -> dict:
     return {
         "id": f"osm:node/{city}{i}",
         "name": f"Place {i}",
@@ -19,7 +19,7 @@ def _place(city: str, i: int) -> dict:
         "lon": 2.0,
         "categories": ["museum" if i % 2 else "cafe"],
         "typical_duration_minutes": 45,
-        "cost": {"amount": 0.0, "currency": "EUR", "confidence": "inferred"},
+        "cost": {"amount": 0.0, "currency": currency, "confidence": "inferred"},
         "hours": {"mon": None, "confidence": "known"},
         "popularity": i / 40,
         "source": "osm",
@@ -28,9 +28,9 @@ def _place(city: str, i: int) -> dict:
 
 @pytest.fixture
 def live(tmp_path):
-    for city, n in [("big", 40), ("small", 6), ("unseen", 20)]:
+    for city, n, currency in [("big", 40, "EUR"), ("small", 6, "EUR"), ("unseen", 20, "JPY")]:
         (tmp_path / city).mkdir()
-        places = [_place(city, i) for i in range(n)]
+        places = [_place(city, i, currency) for i in range(n)]
         (tmp_path / city / "places.json").write_text(json.dumps(places), encoding="utf-8")
     return tmp_path
 
@@ -74,3 +74,21 @@ def test_load_queries_gives_the_ranker_its_usual_shape(live, tmp_path):
 def test_a_city_not_fetched_yet_is_named(live):
     with pytest.raises(FileNotFoundError, match="porto-pt"):
         build(live, ["big", "porto-pt"], [])
+
+
+def test_travelers_have_budgets_in_the_city_currency(live):
+    data = build(live, ["big"], ["unseen"], per_city=10, travelers=5)
+    euro = {q["profile"]["budget"]["currency"] for q in data["train"]}
+    yen = [q["profile"]["budget"] for q in data["test"]]
+
+    assert euro == {"EUR"}
+    assert {b["currency"] for b in yen} == {"JPY"}
+    assert min(b["total"] for b in yen) >= 300 * 165
+
+
+def test_a_currency_without_a_budget_factor_stops_the_build(live):
+    (live / "big" / "places.json").write_text(
+        json.dumps([_place("big", i, "XXX") for i in range(5)]), encoding="utf-8"
+    )
+    with pytest.raises(ValueError, match="XXX"):
+        build(live, ["big"], [])

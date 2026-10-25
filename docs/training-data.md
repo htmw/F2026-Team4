@@ -18,7 +18,7 @@ uv run python -m ingest.training
 | Part | Source |
 |------|--------|
 | Places | Real OpenStreetMap records from the live ingest, up to 500 per city, sampled with a fixed seed so sights and cafes both stay in |
-| Travelers | Simulated, 120 per city (`ranker.synthetic`) |
+| Travelers | Simulated, 120 per city (`ranker.synthetic`), with budgets in the city's own currency |
 | Grades 0..4 | Simulated with the ranker's own synthetic formula. OSM has no reviews, so these are not real travelers' judgments |
 
 **Train cities (13):** Paris, London, New York, Mexico City, Bogotá, Kingston, Tokyo, Seoul,
@@ -32,6 +32,15 @@ Each place is stored once and travelers refer to places by id, so the file stays
 `load_queries("train")` and `load_queries("test")` rebuild the shape
 `ranker.synthetic.make_dataset()` returns, so `ranker/train.py` and `ranker/evaluate.py` take
 it without changes.
+
+## Budgets in local currency
+
+A traveler in Tokyo gets a budget in yen, one in Delhi in rupees. Otherwise the
+`price_fits_budget` feature would compare a 1,000 yen ticket with a budget of 300. The
+budgets are `ranker.synthetic`'s euro options (300, 600, 1200, 2000) times a rough October 2026
+rate per currency (`BUDGET_FACTOR` in `ingest/training.py`). The rate only sets simulated
+budgets; no price is converted. A city in a currency with no factor stops the build, so a
+new city cannot slip in with a euro budget. Idea from Bala's ranking-data review.
 
 ## Limits
 
