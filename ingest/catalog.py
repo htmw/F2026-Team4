@@ -38,7 +38,7 @@ from pathlib import Path
 import requests
 
 from .cache import slugify
-from .geocode import GeocodeError, geocode
+from .geocode import GeocodeError, bbox_span_km, geocode
 from .matrix import TravelModel
 from .matrix import travel_legs as _travel_legs
 from .overpass import QueryTooHeavy
@@ -55,6 +55,9 @@ CACHE_DIR = ROOT / "data" / "cache"
 LIVE_RADIUS_KM = 5  # fetch the centre of the city, not its whole admin area
 LIVE_MAX_AGE_DAYS = 30  # places open and close, so a saved city is fetched again after this
 NOT_A_CITY = {"country", "state", "region", "continent"}
+# Delhi and Mexico City are states in OpenStreetMap, Singapore is a country: a city-state
+# is a few tens of km across, a real state or country is hundreds.
+CITY_STATE_MAX_KM = 100
 
 # The tests swap these for fakes.
 http_get = requests.get
@@ -206,7 +209,7 @@ def fetch_live(name: str) -> Path:
             raise CityNotAvailable(str(exc)) from exc
         except requests.RequestException as exc:
             raise CityFetchFailed(f"Could not reach OpenStreetMap to look up {name!r}.") from exc
-        if geo.kind in NOT_A_CITY:
+        if geo.kind in NOT_A_CITY and max(bbox_span_km(geo.bbox)) > CITY_STATE_MAX_KM:
             raise CityNotAvailable(f"{name!r} is a {geo.kind}, not a city. Pick a city in it.")
 
         folder = LIVE_DIR / slugify(f"{geo.name}-{geo.country}")
