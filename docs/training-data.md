@@ -18,7 +18,7 @@ uv run python -m ingest.training
 | Part | Source |
 |------|--------|
 | Places | Real OpenStreetMap records from the live ingest, up to 500 per city, sampled with a fixed seed so sights and cafes both stay in |
-| Travelers | Simulated, 120 per city (`ranker.synthetic`), with budgets in the city's own currency |
+| Travelers | Simulated, 250 per city (`ranker.synthetic`), with budgets in the city's own currency |
 | Grades 0..4 | Simulated with the ranker's own synthetic formula. OSM has no reviews, so these are not real travelers' judgments |
 
 **Train cities (13):** Paris, London, New York, Mexico City, Bogotá, Kingston, Tokyo, Seoul,
@@ -28,8 +28,19 @@ Bangkok, Delhi, Hyderabad, Cairo, Sydney.
 size and region, so the test asks whether the model works in a city it has not seen, which is
 what the content-based features in `ranker/features.py` are meant to allow.
 
+**Three sets:**
+
+| Set | Travelers | Use |
+|-----|-----------|-----|
+| `train` | 4 of every 5 from the training cities | fit the model |
+| `validation` | every 5th from the training cities | choose settings and compare model versions |
+| `test` | all from the 4 test cities | the final number only, never for tuning |
+
+A place sampled for training is left out of the test cities, so the test never sees a place
+the model trained on.
+
 Each place is stored once and travelers refer to places by id, so the file stays a few MB.
-`load_queries("train")` and `load_queries("test")` rebuild the shape
+`load_queries("train")`, `load_queries("validation")` and `load_queries("test")` rebuild the shape
 `ranker.synthetic.make_dataset()` returns, so `ranker/train.py` and `ranker/evaluate.py` take
 it without changes.
 
@@ -40,7 +51,8 @@ A traveler in Tokyo gets a budget in yen, one in Delhi in rupees. Otherwise the
 budgets are `ranker.synthetic`'s euro options (300, 600, 1200, 2000) times a rough October 2026
 rate per currency (`BUDGET_FACTOR` in `ingest/training.py`). The rate only sets simulated
 budgets; no price is converted. A city in a currency with no factor stops the build, so a
-new city cannot slip in with a euro budget. Idea from Bala's ranking-data review.
+new city cannot slip in with a euro budget. Local budgets, the validation set and the
+no-shared-places check come from Bala's ranking-data reviews.
 
 ## Limits
 

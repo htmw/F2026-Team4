@@ -92,3 +92,29 @@ def test_a_currency_without_a_budget_factor_stops_the_build(live):
     )
     with pytest.raises(ValueError, match="XXX"):
         build(live, ["big"], [])
+
+
+def test_a_validation_set_comes_from_the_training_cities(live):
+    data = build(live, ["big"], ["unseen"], per_city=10, travelers=10)
+
+    assert len(data["train"]) == 8 and len(data["validation"]) == 2
+    assert {q["city"] for q in data["validation"]} == {"big"}
+    assert len(load_queries_from(data, live, "validation")) == 2
+
+
+def test_a_place_in_training_never_shows_up_in_a_test_city(live):
+    shared = _place("big", 1)
+    places = json.loads((live / "unseen" / "places.json").read_text(encoding="utf-8"))
+    (live / "unseen" / "places.json").write_text(json.dumps(places + [shared]), encoding="utf-8")
+    data = build(live, ["big"], ["unseen"], per_city=100, travelers=2)
+
+    train_ids = {p["id"] for p in data["cities"]["big"]}
+    test_ids = {p["id"] for p in data["cities"]["unseen"]}
+    assert shared["id"] in train_ids
+    assert not train_ids & test_ids
+
+
+def load_queries_from(data, folder, split):
+    path = folder / "dataset.json"
+    write_json(path, data)
+    return load_queries(split, path)

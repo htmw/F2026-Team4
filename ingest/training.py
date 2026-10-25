@@ -9,7 +9,8 @@ and never goes to OpenStreetMap itself.
 Places are real (OSM). Travelers and their grades are simulated with the ranker's own
 synthetic formula, because OSM has no reviews; their budgets are in the city's currency.
 Test cities are never used for training, so the test asks whether the model works in a
-city it has not seen.
+city it has not seen. A fifth of each training city's travelers form a validation set for
+tuning, and no place in a test city was also sampled for training.
 
 Each place is stored once and travelers refer to places by id, which keeps the file a few
 MB. load_queries() rebuilds the shape ranker.synthetic.make_dataset() returns, so
@@ -51,7 +52,8 @@ TRAIN_CITIES = [
 TEST_CITIES = ["kyoto-jp", "karimnagar-in", "nairobi-ke", "columbia-us"]
 
 PER_CITY = 500  # places kept per city
-TRAVELERS = 120  # simulated travelers per city
+TRAVELERS = 250  # simulated travelers per city
+VALIDATION_EVERY = 5  # every 5th traveler of a training city is held out for tuning
 CANDIDATES = 15  # places each traveler ranks
 SEED = 0  # same input, same file
 
@@ -134,12 +136,20 @@ def build(
             f"Not fetched yet: {', '.join(missing)}. Plan a trip to each once in the app."
         )
     rng = random.Random(SEED)
-    cities, queries = {}, {"train": [], "test": []}
-    for split, keys in (("train", train), ("test", test)):
-        for key in keys:
-            raw = json.loads((live_dir / key / "places.json").read_text(encoding="utf-8"))
-            cities[key] = sample_places(raw, per_city, rng)
-            queries[split] += make_queries(key, cities[key], travelers, rng)
+    cities, queries = {}, {"train": [], "validation": [], "test": []}
+    for key in train:
+        raw = json.loads((live_dir / key / "places.json").read_text(encoding="utf-8"))
+        cities[key] = sample_places(raw, per_city, rng)
+        for i, query in enumerate(make_queries(key, cities[key], travelers, rng)):
+            split = "validation" if i % VALIDATION_EVERY == VALIDATION_EVERY - 1 else "train"
+            queries[split].append(query)
+
+    # A place seen in training must not turn up again in a test city.
+    seen = {p["id"] for key in train for p in cities[key]}
+    for key in test:
+        raw = json.loads((live_dir / key / "places.json").read_text(encoding="utf-8"))
+        cities[key] = sample_places([p for p in raw if p["id"] not in seen], per_city, rng)
+        queries["test"] += make_queries(key, cities[key], travelers, rng)
     return {
         "source": "Places: OpenStreetMap via the live ingest (ODbL 1.0). "
         "Travelers and grades: simulated with ranker.synthetic.",
@@ -151,7 +161,10 @@ def build(
 
 
 def load_queries(split: str, path: Path = OUT) -> list[dict]:
-    """The train or test queries, in the shape ranker.synthetic.make_dataset() returns."""
+    """The "train", "validation" or "test" queries, in make_dataset()'s shape.
+
+    Tune on validation; keep test for the final number only.
+    """
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     places = {p["id"]: p for city in data["cities"].values() for p in city}
     out = []
@@ -173,6 +186,7 @@ def main() -> int:
         return 2
     write_json(OUT, data)
     print(f"train: {len(data['train'])} travelers from {len(data['train_cities'])} cities")
+    print(f"validation: {len(data['validation'])} travelers from the same cities")
     print(f"test:  {len(data['test'])} travelers from {len(data['test_cities'])} unseen cities")
     print(f"-> {OUT} ({OUT.stat().st_size // 1024} KB)")
     return 0
