@@ -180,3 +180,131 @@ def test_multi_day_schedule():
     assert len(result["days"]) == 2
     assert result["start_date"] == "2026-10-19"
     assert result["end_date"] == "2026-10-20"
+
+
+def _ids(result):
+    return [
+        item["place_id"]
+        for day in result["days"]
+        for item in day["items"]
+    ]
+
+
+def test_rejected_place_not_selected():
+    profile = deepcopy(PROFILE)
+    profile["feedback"] = {"accepted": [], "rejected": ["a"]}
+
+    result = run(
+        [make_place("a"), make_place("b")],
+        profile,
+    )
+
+    assert "a" not in _ids(result)
+    assert "b" in _ids(result)
+
+
+def test_trip_id_is_kept_when_replanning():
+    result = schedule(
+        places=[make_place("a")],
+        profile=PROFILE,
+        dates=["2026-10-19"],
+        category_map=CATEGORIES,
+        destination=DESTINATION,
+        trip_id="trip-123",
+    )
+
+    assert result["trip_id"] == "trip-123"
+
+
+def test_strongest_interest_wins():
+    # A traveler who loves food should get the restaurant before a palace that
+    # matches two weaker interests.
+    profile = deepcopy(PROFILE)
+    profile["interests"] = {"food": 0.9, "history": 0.4, "architecture": 0.4}
+    profile["pace"] = 0.0  # two stops a day
+
+    restaurant = make_place("restaurant")
+    restaurant["categories"] = ["restaurant"]
+    palace = make_place("palace")
+    palace["categories"] = ["palace"]
+
+    result = schedule(
+        places=[palace, restaurant],
+        profile=profile,
+        dates=["2026-10-19"],
+        category_map={
+            "restaurant": ["food"],
+            "palace": ["history", "architecture"],
+        },
+        destination=DESTINATION,
+    )
+
+    assert _ids(result)[0] == "restaurant"
+
+
+def test_place_matching_no_interest_is_skipped():
+    unrelated = make_place("bar")
+    unrelated["categories"] = ["bar"]
+
+    result = run([unrelated, make_place("museum")])
+
+    assert _ids(result) == ["museum"]
+
+
+def test_verified_hours_preferred_over_inferred():
+    inferred = deepcopy(HOURS)
+    inferred["confidence"] = "inferred"
+
+    result = run([
+        make_place("guess", hours=inferred),
+        make_place("verified"),
+    ])
+
+    assert _ids(result)[0] == "verified"
+    assert result["days"][0]["items"][0]["confidence"] == "known"
+
+
+def test_stray_currency_is_skipped_and_warned():
+    dollars = make_place("usd")
+    dollars["cost"]["currency"] = "USD"
+
+    result = run([dollars, make_place("eur"), make_place("eur-2")])
+
+    assert "usd" not in _ids(result)
+    assert any("not in EUR" in warning for warning in result["warnings"])
+
+
+def test_city_currency_is_used_when_budget_differs():
+    # A budget typed in USD for a city priced in EUR: plan anyway, total in EUR,
+    # and say the budget could not be applied instead of returning an empty trip.
+    profile = deepcopy(PROFILE)
+    profile["budget"] = {"total": 1, "currency": "USD"}
+
+    result = run([make_place("a", cost=50), make_place("b", cost=50)], profile)
+
+    assert len(_ids(result)) == 2
+    assert result["totals"]["currency"] == "EUR"
+    assert any("budget was not applied" in w for w in result["warnings"])
+
+
+def test_items_carry_the_place_name():
+    result = run([make_place("museum-1")])
+
+    assert result["days"][0]["items"][0]["name"] == "Place museum-1"
+
+
+def test_travel_matrix_can_be_built_for_the_candidates():
+    seen = []
+
+    def legs(candidates):
+        seen.extend(place["id"] for place in candidates)
+        return {
+            ("a", "b"): {"minutes": 7, "mode": "walk"},
+            ("b", "a"): {"minutes": 7, "mode": "walk"},
+        }
+
+    result = run([make_place("a"), make_place("b")], matrix=legs)
+
+    assert sorted(seen) == ["a", "b"]
+    second = result["days"][0]["items"][1]["travel_from_prev"]
+    assert second == {"minutes": 7, "mode": "walk"}
