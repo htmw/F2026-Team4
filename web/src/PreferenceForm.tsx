@@ -116,6 +116,11 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
       next.dayEnd = "End time must be later than start time.";
     }
 
+    if (INTEREST_KEYS.every((key) => (interests[key] ?? 0) === 0)) {
+      next.interests =
+        "Please set at least one interest above zero so we know what you care about.";
+    }
+
     return next;
   }
 
@@ -314,11 +319,18 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                         ...previous,
                         [key]: value,
                       }));
+
+                      if (value > 0) {
+                        clearError("interests");
+                      }
                     }}
+                    {...errorAttributes("interests")}
                   />
                 </label>
               ))}
             </div>
+
+            {errorMessage("interests")}
 
             <h4>Travel style</h4>
 
