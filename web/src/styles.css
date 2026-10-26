@@ -681,3 +681,105 @@ form.card .travel-style-grid input {
 }
 
 
+/* Append to the END of web/src/styles.css */
+.preference-wizard .wizard-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  list-style: none;
+}
+
+.preference-wizard .wizard-steps li {
+  opacity: 0.65;
+}
+
+.preference-wizard .wizard-steps .wizard-step-current {
+  opacity: 1;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
+.preference-wizard .wizard-fields {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.preference-wizard .form-error {
+  display: block;
+  margin-top: 0.25rem;
+  color: #b42318;
+  font-size: 0.875rem;
+}
+
+.preference-wizard [aria-invalid="true"] {
+  border-color: #b42318;
+}
+
+.preference-wizard .wizard-actions,
+.preference-wizard .wizard-review-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.preference-wizard .wizard-actions {
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.preference-wizard .wizard-review-heading {
+  justify-content: space-between;
+}
+
+.preference-wizard .wizard-review section + section {
+  margin-top: 1.5rem;
+}
+
+.preference-wizard .wizard-review dl {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) 2fr;
+  gap: 0.75rem 1rem;
+}
+
+.preference-wizard .wizard-review dt {
+  font-weight: 600;
+}
+
+.preference-wizard .wizard-review dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.preference-wizard .wizard-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .preference-wizard .wizard-review dl {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .preference-wizard .wizard-review dd {
+    margin-bottom: 0.75rem;
+  }
+
+  .preference-wizard .wizard-actions > button {
+    flex: 1;
+  }
+}
