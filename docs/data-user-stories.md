@@ -59,6 +59,8 @@ pull request (`make test`). The test file is named in the last column.
 | TC-D37 | DS-9 | Overpass answers 504 for the 5 km query | the same query is not repeated; it is sent once more for half the distance and the plan is made | `ingest/tests/test_live.py` |
 | TC-D38 | DS-9 | Ask for a saved city that is 31 days old, once with OpenStreetMap up and once with it down | fetched again (not from the raw cache); with OpenStreetMap down the old copy is served | `ingest/tests/test_live.py` |
 | TC-D39 | DS-9 | Convert a college tagged `tourism=viewpoint`, then a university with a Wikidata id | the college is dropped as `school`; the famous university stays | `ingest/tests/test_to_place.py` |
+| TC-D40 | DS-9 | Refresh a 31-day-old city when OpenStreetMap returns no places | the old copy is kept and served; nothing half-written is left behind | `ingest/tests/test_live.py` |
+| TC-D41 | DS-1 | POST `/plan` for Lisbon (fixture city) | destination name "Lisbon, Portugal", not "Lisbon, T" | `ingest/tests/test_live.py` |
 | TC-D36 | DS-2 | Parse `Apr-Oct Mo-Su 09:00-18:00` | stays `unknown`: one weekly pattern cannot say which season | `ingest/tests/test_hours.py` |
 
 ## Metrics for the sprint review
