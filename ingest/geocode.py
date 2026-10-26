@@ -54,6 +54,13 @@ class Geocoded:
     bbox: tuple[float, float, float, float]  # south, west, north, east
     display_name: str
     country_name: str = ""  # in English, e.g. "Italy"; "" if unavailable
+    kind: str = ""  # Nominatim's addresstype: city, town, state, country...
+
+    def box_around_centre(self, radius_km: float) -> tuple[float, float, float, float]:
+        """A square reaching radius_km from the centre each way: the walkable middle."""
+        dlat = radius_km / _KM_PER_DEG_LAT
+        dlon = dlat / math.cos(math.radians(self.lat))
+        return (self.lat - dlat, self.lon - dlon, self.lat + dlat, self.lon + dlon)
 
     def destination(self) -> dict:
         """Return the destination shape used by the Itinerary contract."""
@@ -92,7 +99,8 @@ def geocode(
     None when the caller supplies an explicit bbox, because then the geocoded box is only
     used for the name, country and centre point.
     """
-    key = {"query": query.strip().lower()}
+    # Settlements only: without it "newyork" matched a shop called NEWYORK in Tokyo.
+    key = {"query": query.strip().lower(), "featureType": "settlement"}
     path = Path(cache_dir) / slugify(query) / "geocode.json"
     wrapper = None if refresh else load_cached(path, key)
 
@@ -104,6 +112,7 @@ def geocode(
                 "format": "jsonv2",
                 "addressdetails": 1,
                 "limit": 1,
+                "featureType": "settlement",
             },
             headers={
                 "User-Agent": USER_AGENT,
@@ -142,4 +151,5 @@ def geocode(
         bbox=(south, west, north, east),
         display_name=r.get("display_name", ""),
         country_name=address.get("country") or "",
+        kind=r.get("addresstype") or "",
     )

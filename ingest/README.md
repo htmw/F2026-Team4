@@ -48,6 +48,8 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
+   A school, college or university is dropped unless it has Wikidata, Wikipedia or heritage
+   tags: mappers sometimes tag one as a sight (a college in Karimnagar is a "viewpoint").
    A place whose hours name every day as closed is dropped. A place that only lists its
    closed days ("Su off") keeps `unknown` hours: the open days are not stated. A place whose
    centre falls outside the bbox is dropped too: Overpass returns anything that touches the
@@ -150,6 +152,14 @@ PR 13, until it merges). Lookup order for a name: committed snapshots in `data/c
 then `/fixtures`, then any folder in `WANDERWISE_EXTRA_CITIES`. `api/contracts.load_places()`
 goes through the same catalog, so Lisbon comes from the fixtures and Rome from the snapshot.
 
+**Any other city is fetched live** by `fetch_live()`: Nominatim finds the city, Overpass
+returns everything within 5 km of its centre in one query, and the same pipeline turns it
+into places (no curation). The result is kept in `data/live/<city>-<country>/`, so only the
+first request for a city waits. After 30 days it is fetched again, and the old copy is used
+if OpenStreetMap is down at that moment. A name OpenStreetMap does not know, or a country or state
+over 100 km across, is a 422 (Delhi and Mexico City, states in OSM, still plan). OpenStreetMap being unreachable is a 503. Live hours and prices are mostly
+`inferred`, and each stop is labelled so. `WANDERWISE_LIVE_INGEST=0` turns it off.
+
 A name matches the city name or an alias. "City, Region" also matches when the last part is
 the city's country, so "Rome, IT" and "Rome, Lazio, Italy" work but "Rome, Georgia" does
 not. A request without a city name gets the same clear error as an unknown city.
@@ -166,8 +176,12 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 
 ## Known limits
 
-- One snapshot city so far (Rome, curated). Other cities work through `make ingest` but carry
-  raw OSM coverage only. See [`docs/data-spike.md`](../docs/data-spike.md) for how thin that is.
+- One curated city (Rome). Every other city is fetched live and carries raw OSM coverage
+  only. See [`docs/data-spike.md`](../docs/data-spike.md) for how thin that is. Small cities
+  can be very thin: Karimnagar has 23 places.
+- The first request for a live city waits for the fetch. Only the main Overpass server is
+  used (no public mirror worked in tests), so when it is down, new cities get a 503 after
+  three tries. Cities fetched before still load.
 - Seasonal hours: the contract holds one weekly pattern, so the curated hours are the winter
   timetable that covers the demo dates. Change them when the season changes.
 - `day_trip` has no OSM mapping yet; it needs curated entries.
