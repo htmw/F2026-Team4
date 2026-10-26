@@ -58,7 +58,8 @@ def travel_between(
         if minutes < 0:
             raise ValueError("Negative travel time")
 
-        return round(minutes), mode, False
+        # The Data team's legs are estimates too (no live routing), unless a leg says so.
+        return round(minutes), mode, bool(leg.get("estimated", True))
 
     straight_km = distance_km(first, second)
 

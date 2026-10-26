@@ -36,13 +36,19 @@ def score(
     interests = profile.get("interests", {})
     matched = matched_interests(place, category_map)
 
-    interest_score = sum(
-        float(interests.get(name, 0.0))
-        for name in matched
+    # Use the traveler's strongest matching interest. Summing and dividing by the
+    # number of interests favoured places tagged with many categories, so a
+    # traveler whose top interest is food got palaces instead of restaurants.
+    interest_score = max(
+        (float(interests.get(name, 0.0)) for name in matched),
+        default=0.0,
     )
+    interest_score = max(0.0, min(1.0, interest_score))
 
-    interest_score /= max(1, len(interests))
-    interest_score = min(1.0, interest_score)
+    # A place that matches none of the traveler's interests is not a recommendation,
+    # however popular it is.
+    if interest_score <= 0:
+        return 0.0
 
     popularity = float(place.get("popularity", 0.5))
     rating = float(place.get("rating", 3.0)) / 5.0
