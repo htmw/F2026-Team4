@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 import { INTEREST_KEYS } from "./interests";
@@ -30,6 +30,15 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
   // State stays here so switching steps preserves all inputs.
   const [destination, setDestination] = useState("Lisbon");
+  const [suggestions, setSuggestions] = useState<
+    Array<{ label: string; value: string }>
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggesting, setSuggesting] = useState(false);
+  const [highlighted, setHighlighted] = useState(-1);
+  const suggestSeq = useRef(0);
+  const hasTyped = useRef(false);
+  const justSelected = useRef(false);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [interests, setInterests] = useState<Record<string, number>>({
@@ -60,6 +69,75 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const headingRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+
+  // Live city suggestions while typing, from OpenStreetMap's Nominatim
+  // geocoder — the same OSM stack the backend's live ingest uses, so any
+  // city picked here is one the backend can plan for. Suggestions are a
+  // convenience only: typing a city name by hand still works.
+  useEffect(() => {
+    const query = destination.trim();
+    if (!hasTyped.current || justSelected.current) {
+      justSelected.current = false;
+      setSuggesting(false);
+      setShowSuggestions(false);
+      return;
+    }
+    if (query.length < 2) {
+      setSuggestions([]);
+      setSuggesting(false);
+      setShowSuggestions(false);
+      return;
+    }
+    const seq = ++suggestSeq.current;
+    setSuggesting(true);
+    setShowSuggestions(true);
+    const timer = window.setTimeout(async () => {
+      try {
+        const resp = await fetch(
+          `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=5&q=${encodeURIComponent(query)}`
+        );
+        if (!resp.ok || seq !== suggestSeq.current) return;
+        const data = (await resp.json()) as Array<{
+          display_name: string;
+          addresstype?: string;
+        }>;
+        const cities = data
+          .filter((item) =>
+            ["city", "town", "village", "municipality"].includes(
+              item.addresstype ?? ""
+            )
+          )
+          .slice(0, 5)
+          .map((item) => {
+            const parts = item.display_name
+              .split(",")
+              .map((part) => part.trim());
+            const value =
+              parts.length > 1
+                ? `${parts[0]}, ${parts[parts.length - 1]}`
+                : parts[0];
+            return { label: value, value };
+          });
+        setSuggestions(cities);
+        setHighlighted(-1);
+      } catch {
+        // No suggestions on network failure; the typed text still works.
+      } finally {
+        if (seq === suggestSeq.current) setSuggesting(false);
+      }
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [destination]);
+
+  function selectSuggestion(value: string) {
+    suggestSeq.current += 1;
+    justSelected.current = true;
+    setDestination(value);
+    setSuggestions([]);
+    setShowSuggestions(false);
+    setHighlighted(-1);
+    clearError("destination");
+  }
 
   function changeStep(nextStep: Step) {
     setStep(nextStep);
@@ -271,16 +349,79 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
         {step === 0 && (
           <div className="row trip-dates">
-            <label className="field">
+            <label className="field destination-field">
               Destination
               <input
                 value={destination}
                 onChange={(event) => {
+                  hasTyped.current = true;
                   setDestination(event.target.value);
                   clearError("destination");
                 }}
+                onFocus={() => {
+                  if (suggestions.length > 0) setShowSuggestions(true);
+                }}
+                onBlur={() => {
+                  window.setTimeout(() => setShowSuggestions(false), 150);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "ArrowDown" && suggestions.length > 0) {
+                    event.preventDefault();
+                    setShowSuggestions(true);
+                    setHighlighted((prev) => (prev + 1) % suggestions.length);
+                  } else if (event.key === "ArrowUp" && suggestions.length > 0) {
+                    event.preventDefault();
+                    setShowSuggestions(true);
+                    setHighlighted(
+                      (prev) =>
+                        (prev - 1 + suggestions.length) % suggestions.length
+                    );
+                  } else if (
+                    event.key === "Enter" &&
+                    showSuggestions &&
+                    highlighted >= 0 &&
+                    suggestions[highlighted]
+                  ) {
+                    event.preventDefault();
+                    selectSuggestion(suggestions[highlighted].value);
+                  } else if (event.key === "Escape") {
+                    setShowSuggestions(false);
+                  }
+                }}
                 {...errorAttributes("destination")}
               />
+              {showSuggestions && (
+                <ul className="destination-suggestions" role="listbox">
+                  {suggesting && suggestions.length === 0 && (
+                    <li className="suggestion-note">Searching…</li>
+                  )}
+                  {!suggesting && suggestions.length === 0 && (
+                    <li className="suggestion-note">
+                      No matching cities found.
+                    </li>
+                  )}
+                  {suggestions.map((suggestion, index) => (
+                    <li
+                      key={suggestion.value}
+                      role="option"
+                      aria-selected={index === highlighted}
+                    >
+                      <button
+                        type="button"
+                        className={
+                          index === highlighted
+                            ? "suggestion-highlighted"
+                            : undefined
+                        }
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => selectSuggestion(suggestion.value)}
+                      >
+                        {suggestion.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
               {errorMessage("destination")}
             </label>
 
