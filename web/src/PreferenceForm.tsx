@@ -41,9 +41,23 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const [budget, setBudget] = useState("1200");
   const [dayStart, setDayStart] = useState("09:30");
   const [dayEnd, setDayEnd] = useState("22:00");
-  const [dietary, setDietary] = useState("vegetarian");
+  const [dietary, setDietary] = useState<string[]>(["vegetarian"]);
 
   const currency = "EUR";
+
+  const DIETARY_OPTIONS = [
+    "vegetarian",
+    "vegan",
+    "halal",
+    "kosher",
+    "gluten-free",
+    "nut allergy",
+    "lactose-free",
+  ];
+
+  // Local "today" in YYYY-MM-DD form, used to block past dates.
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
   const headingRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -64,6 +78,14 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
     });
   }
 
+  function toggleDietary(option: string) {
+    setDietary((previous) =>
+      previous.includes(option)
+        ? previous.filter((item) => item !== option)
+        : [...previous, option]
+    );
+  }
+
   function validateTripDetails(): Errors {
     const next: Errors = {};
 
@@ -73,6 +95,8 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
     if (!startDate) {
       next.startDate = "Please select a start date.";
+    } else if (startDate < today) {
+      next.startDate = "Start date cannot be in the past.";
     }
 
     if (!endDate) {
@@ -183,10 +207,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
         total: Number(budget),
         currency,
       },
-      dietary: dietary
-        .split(",")
-        .map((value) => value.trim())
-        .filter(Boolean),
+      dietary,
       accessibility: [],
       avoid: [],
       novelty_appetite: 0.3,
@@ -267,6 +288,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
               Start date
               <input
                 type="date"
+                min={today}
                 value={startDate}
                 onChange={(event) => {
                   setStartDate(event.target.value);
@@ -411,13 +433,21 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
               </label>
             </div>
 
-            <label className="field">
-              Dietary preferences (comma-separated)
-              <input
-                value={dietary}
-                onChange={(event) => setDietary(event.target.value)}
-              />
-            </label>
+            <fieldset className="field">
+              <legend>Dietary preferences</legend>
+              <div className="checkbox-group">
+                {DIETARY_OPTIONS.map((option) => (
+                  <label key={option} className="checkbox">
+                    <input
+                      type="checkbox"
+                      checked={dietary.includes(option)}
+                      onChange={() => toggleDietary(option)}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
           </>
         )}
 
@@ -426,7 +456,11 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             <section aria-labelledby="review-trip-heading">
               <div className="wizard-review-heading">
                 <h4 id="review-trip-heading">Trip details</h4>
-                <button type="button" onClick={() => changeStep(0)}>
+                <button
+                  type="button"
+                  className="wizard-button wizard-button-secondary"
+                  onClick={() => changeStep(0)}
+                >
                   Edit trip details
                 </button>
               </div>
@@ -443,7 +477,11 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             <section aria-labelledby="review-preferences-heading">
               <div className="wizard-review-heading">
                 <h4 id="review-preferences-heading">Preferences</h4>
-                <button type="button" onClick={() => changeStep(1)}>
+                <button
+                  type="button"
+                  className="wizard-button wizard-button-secondary"
+                  onClick={() => changeStep(1)}
+                >
                   Edit preferences
                 </button>
               </div>
@@ -469,7 +507,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                 <dd>{dayStart}–{dayEnd}</dd>
 
                 <dt>Dietary preferences</dt>
-                <dd>{dietary.trim() || "None specified"}</dd>
+                <dd>{dietary.join(", ") || "None specified"}</dd>
               </dl>
             </section>
           </div>
@@ -479,6 +517,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
           {step > 0 && (
             <button
               type="button"
+              className="wizard-button wizard-button-secondary"
               onClick={() => changeStep(step === 2 ? 1 : 0)}
             >
               Back
@@ -486,11 +525,18 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
           )}
 
           {step < 2 ? (
-            <button type="button" onClick={goNext}>
+            <button
+              type="button"
+              className="wizard-button wizard-button-primary"
+              onClick={goNext}
+            >
               Next
             </button>
           ) : (
-            <button type="submit">
+            <button
+              type="submit"
+              className="wizard-button wizard-button-primary"
+            >
               {submitting ? "Planning…" : "Plan my trip"}
             </button>
           )}
