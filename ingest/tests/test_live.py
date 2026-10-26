@@ -206,3 +206,16 @@ def test_an_old_city_is_still_served_when_openstreetmap_is_down(osm, monkeypatch
     monkeypatch.setattr(catalog, "http_post", lambda *a, **kw: FakeResponse({}, status=502))
 
     assert [p["name"] for p in catalog.load_city("Porto").places] == ["Torre dos Clérigos"]
+
+
+def test_an_empty_refresh_keeps_the_old_city(osm, monkeypatch):
+    catalog.load_city("Porto")
+    _age_saved_porto(31)
+    monkeypatch.setattr(catalog, "http_post", lambda *a, **kw: FakeResponse({"elements": []}))
+
+    assert [p["name"] for p in catalog.load_city("Porto").places] == ["Torre dos Clérigos"]
+    assert not (catalog.LIVE_DIR / ".incoming" / "porto-pt").exists()
+
+
+def test_lisbon_is_shown_with_its_country_name():
+    assert plan("Lisbon").json()["destination"]["name"] == "Lisbon, Portugal"

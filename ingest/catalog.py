@@ -217,11 +217,16 @@ def fetch_live(name: str) -> Path:
         if saved.exists() and time.time() - saved.stat().st_mtime < LIVE_MAX_AGE_DAYS * 86400:
             return folder
 
+        # Fetch into a side folder and swap it in only when it holds places, so a failed or
+        # empty refresh never costs the copy a traveler could still use.
+        incoming = LIVE_DIR / ".incoming"
+        shutil.rmtree(incoming / folder.name, ignore_errors=True)
+
         def fetch(radius_km: float) -> dict:
             return run_city(
                 name,
                 cache_dir=CACHE_DIR,
-                out_dir=LIVE_DIR,
+                out_dir=incoming,
                 contracts_dir=ROOT / "contracts",
                 bbox=geo.box_around_centre(radius_km),
                 slug=folder.name,
@@ -245,8 +250,12 @@ def fetch_live(name: str) -> Path:
             raise CityFetchFailed(f"Could not fetch {name!r} from OpenStreetMap: {exc}") from exc
 
         if not result["places"]:
-            shutil.rmtree(folder)  # so the next request tries again instead of planning nothing
+            shutil.rmtree(result["out_dir"])
+            if saved.exists():
+                return folder  # keep the old copy; the next request tries again
             raise CityNotAvailable(f"OpenStreetMap has no places mapped in {geo.display_name}.")
+        shutil.rmtree(folder, ignore_errors=True)
+        shutil.move(str(result["out_dir"]), str(folder))
         return folder
 
 
@@ -258,10 +267,10 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         lat = sum(p["lat"] for p in places) / len(places)
         lon = sum(p["lon"] for p in places) / len(places)
         destination = {"name": key.title(), "lat": round(lat, 4), "lon": round(lon, 4)}
-        country = FIXTURE_COUNTRIES.get(key, ("", ""))[0]
-        if country:
-            destination["country"] = country
-        return CityData(key, key.title(), destination, places, source, path, country[1])
+        country_code, country_name = FIXTURE_COUNTRIES.get(key, ("", ""))
+        if country_code:
+            destination["country"] = country_code
+        return CityData(key, key.title(), destination, places, source, path, country_name)
     places = _read_json(path / "places.json")
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
