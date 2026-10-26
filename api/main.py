@@ -8,8 +8,9 @@ Endpoints:
 Every incoming profile and every outgoing itinerary is validated against the contracts,
 so the moment any component drifts from the agreed shapes, we find out here.
 
-This is the seam the Optimizer team plugs into: swap `plan_itinerary` for the
-real `/optimizer` schedule() and nothing else in the system needs to change.
+Planning goes through `optimizer.scheduler.plan_itinerary`, which respects opening
+hours, travel time, budget and walking limits. `api/scheduler_stub.py` is kept as the
+original baseline.
 """
 
 from __future__ import annotations
@@ -24,9 +25,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from api.contracts import validate
-from api.scheduler_stub import plan_itinerary
 from api.trips import TripStore
 from ingest.catalog import CityFetchFailed, CityNotAvailable
+from optimizer.scheduler import plan_itinerary
 
 app = FastAPI(
     title="Wanderwise Travel Planning API",
@@ -157,7 +158,7 @@ def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     """Record accepted/rejected places on the trip's profile, then re-plan the trip.
 
     Rejected places are left out of the new plan. Accepted places are only recorded for
-    now; the stub scheduler doesn't use them.
+    now; the scheduler does not use them yet.
     """
     both = set(feedback.accepted) & set(feedback.rejected)
     if both:
@@ -171,8 +172,8 @@ def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     profile = request["profile"]
     profile["feedback"] = _merge_feedback(profile.get("feedback", {}), feedback)
 
-    # TODO(optimizer): waiting for re-optimization of only the affected days, keeping the
-    # rest of the trip as it was. Until then the whole trip is re-planned from scratch.
+    # TODO(optimizer, Sprint 2): re-optimize only the affected days, keeping the rest
+    # of the trip as it was. Until then the whole trip is re-planned from scratch.
     itinerary = _build_itinerary(request, trip_id=trip_id)
     store.save(trip_id, request, itinerary)
     return itinerary
