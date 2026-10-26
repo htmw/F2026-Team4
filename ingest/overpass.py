@@ -9,13 +9,18 @@ import requests
 
 from .cache import load_cached, store
 
+# kumi.systems hung for the full timeout and nchc.org.tw no longer resolves (Oct 2026).
+# Mirrors tried in October 2026 all failed: kumi.systems and private.coffee never answered,
+# nchc.org.tw no longer resolves, maps.mail.ru gave 504, overpass.osm.jp was unreachable and
+# openstreetmap.fr refused (403). The main server is the only one that answered.
 ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
-    "https://overpass.kumi.systems/api/interpreter",
-    "https://overpass.nchc.org.tw/api/interpreter",
 ]
 REQUEST_TIMEOUT = 180
 MAX_ATTEMPTS = 3
+# 120 s matches the query's own [timeout:120]: a big city such as New York needs it, a
+# smaller one answers in seconds.
+LIVE_TIMEOUT = 120
 BACKOFFS = [5, 15, 45]
 HEADERS = {
     "User-Agent": "Wanderwise-Travel-Recommender/1.0 (OpenStreetMap data ingestion)",
@@ -51,6 +56,11 @@ GROUPS = {
 }
 
 
+class QueryTooHeavy(RuntimeError):
+    """Overpass gave up on the query itself (504). The same area will not get through, a
+    smaller one may."""
+
+
 def bbox_string(bbox) -> str:
     """Format a bounding box in Overpass order: south, west, north, east."""
     return ",".join(f"{v:.6f}" for v in bbox)
@@ -63,19 +73,29 @@ def build_query(template: str, bbox) -> str:
     )
 
 
-def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sleep, log=print):
+def fetch_overpass(
+    query: str,
+    label: str,
+    *,
+    post=requests.post,
+    sleep=time.sleep,
+    log=print,
+    timeout=REQUEST_TIMEOUT,
+    attempts=MAX_ATTEMPTS,
+    endpoints=ENDPOINTS,
+):
     """POST a query, retrying transient failures across available endpoints."""
     last_err: Exception | None = None
 
-    for attempt in range(1, MAX_ATTEMPTS + 1):
-        for endpoint in ENDPOINTS:
+    for attempt in range(1, attempts + 1):
+        for endpoint in endpoints:
             try:
-                log(f"  [{label}] attempt {attempt}/{MAX_ATTEMPTS} -> {endpoint}")
+                log(f"  [{label}] attempt {attempt}/{attempts} -> {endpoint}")
                 resp = post(
                     endpoint,
                     data={"data": query},
                     headers=HEADERS,
-                    timeout=REQUEST_TIMEOUT,
+                    timeout=timeout,
                 )
                 resp.raise_for_status()
                 payload = resp.json()
@@ -99,6 +119,10 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 status = getattr(getattr(exc, "response", None), "status_code", None)
                 log(f"  [{label}] HTTP failure via {endpoint}: {exc}")
 
+                # Asking again for the same too-heavy query only makes the traveler wait.
+                if status == 504:
+                    raise QueryTooHeavy(f"[{label}] Overpass gave up on the query: {exc}") from exc
+
                 # Rate limiting and server-side errors may be temporary.
                 if status == 429 or (status is not None and status >= 500):
                     continue
@@ -115,7 +139,7 @@ def fetch_overpass(query: str, label: str, *, post=requests.post, sleep=time.sle
                 last_err = exc
                 log(f"  [{label}] invalid Overpass response via {endpoint}: {exc}")
 
-        if attempt < MAX_ATTEMPTS:
+        if attempt < attempts:
             delay = BACKOFFS[min(attempt - 1, len(BACKOFFS) - 1)]
             log(f"  [{label}] retrying after {delay}s")
             sleep(delay)
@@ -148,3 +172,34 @@ def fetch_group(
     wrapper = store(path, key, payload, endpoint=endpoint)
     sleep(2)  # Be polite to the public API.
     return wrapper
+
+
+def fetch_combined(
+    groups,
+    bbox,
+    cache_dir: Path,
+    slug: str,
+    *,
+    refresh: bool = False,
+    post=requests.post,
+    sleep=time.sleep,
+    log=print,
+) -> dict:
+    """Like fetch_group, but every group in one request. The live fetch uses it so the
+    traveler waits for one query, not nine with a pause between each."""
+    groups = list(groups)
+    query = build_query("\n  ".join(GROUPS[g] for g in groups), bbox)
+    key = {"groups": groups, "bbox": [round(v, 5) for v in bbox], "query": query}
+    path = Path(cache_dir) / slug / "overpass_combined.json"
+    wrapper = None if refresh else load_cached(path, key)
+
+    if wrapper is not None:
+        log("[combined] cache hit")
+        return wrapper
+
+    # The main server is often busy for a moment (502) and fine a few seconds later, so it
+    # gets three tries with 5 s and 15 s pauses between them.
+    payload, endpoint = fetch_overpass(
+        query, "combined", post=post, sleep=sleep, log=log, timeout=LIVE_TIMEOUT, attempts=3
+    )
+    return store(path, key, payload, endpoint=endpoint)

@@ -2,7 +2,8 @@
 
 Steps, in order:
 1. geocode the name (Nominatim) for the centre, country and default bounding box,
-2. fetch every Overpass query group for the box (raw responses cached on disk),
+2. fetch every Overpass query group for the box, one request per group or all in one
+   (combine_groups, used by the live fetch); raw responses cached on disk,
 3. convert each OSM element to a Place, dropping the ones that cannot be valid or whose
    centre falls outside the box,
 4. score popularity from the OSM tags,
@@ -38,7 +39,7 @@ from .matrix import (
     transit_matrix,
     walking_matrix,
 )
-from .overpass import GROUPS, fetch_group
+from .overpass import GROUPS, fetch_combined, fetch_group
 from .popularity import popularity
 from .to_place import build_place, make_validator
 
@@ -61,6 +62,7 @@ def run_city(
     slug: str | None = None,
     aliases: list[str] | None = None,
     curation_path: Path | None = None,
+    combine_groups: bool = False,
     post=requests.post,
     get=requests.get,
     sleep=time.sleep,
@@ -97,17 +99,14 @@ def run_city(
     cost_status: Counter = Counter()
     schema_errors: list[str] = []
 
-    for group in groups or list(GROUPS):
-        wrapper = fetch_group(
-            group,
-            bbox,
-            cache_dir,
-            cache_slug,
-            refresh=refresh,
-            post=post,
-            sleep=sleep,
-            log=log,
-        )
+    groups = groups or list(GROUPS)
+    fetch_args = {"refresh": refresh, "post": post, "sleep": sleep, "log": log}
+    if combine_groups:
+        wrappers = [fetch_combined(groups, bbox, cache_dir, cache_slug, **fetch_args)]
+    else:
+        wrappers = (fetch_group(g, bbox, cache_dir, cache_slug, **fetch_args) for g in groups)
+
+    for wrapper in wrappers:
         fetched = wrapper["fetched_at"][:10]
 
         for el in wrapper["payload"].get("elements", []):

@@ -46,6 +46,7 @@
       "additionalProperties": false,
       "properties": {
         "place_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
         "start": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
         "end": { "type": "string", "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$" },
         "travel_from_prev": {

@@ -74,6 +74,29 @@ wall or aqueduct is therefore placed on one of its pieces, never on a relation t
 groups parts (type site, route, building or waterway). A place whose centre falls outside
 the requested bbox is dropped (one aqueduct relation landed 17 km east of Rome).
 
+**11. Any other city is fetched live, on the first request.**
+The design says ingest is on demand, so the catalog no longer stops at Rome and Lisbon. A
+city with no committed data is geocoded, fetched and run through the same pipeline while
+the traveler waits, then kept in `data/live/` so nobody waits twice. Choices made on the way:
+- One combined Overpass query instead of nine, for 5 km around the centre rather than the
+  whole admin area, so a big city stays one fetch.
+- Settlements only: an open search for "newyork" matched a shop called NEWYORK in Tokyo.
+- A country or state is refused by its OpenStreetMap type, and only when it is over 100 km
+  across: Delhi and Mexico City are states in OpenStreetMap and Singapore is a country, but
+  all three are cities. The old 80 km check on every place would have refused real cities
+  whose admin area is large.
+- Retries follow what the test runs showed: the main server answers 502 for a moment and is
+  fine seconds later. So a live fetch tries it three times, 5 s and 15 s apart, 120 s per try
+  (the query's own limit). No mirror is used: in October 2026 every public mirror tried
+  either never answered, no longer existed, gave 504 or refused the request.
+- A 504 means Overpass gave up on the query itself, so the same query is not sent again.
+  The fetch is retried once for 2.5 km instead of 5 km: central London failed this way.
+- Prices use the city's own currency (every ISO country is listed), and the itinerary names
+  the country, so "Columbia" (South Carolina) is not mistaken for Colombia.
+- A saved city is fetched again after 30 days, because places open and close. If
+  OpenStreetMap is down at that moment the old copy is served: an older plan beats none.
+- No curation for live cities: hours and prices are mostly `inferred`, and each stop says so.
+
 ## Data dictionary: where each Place field comes from
 
 | Field | Source | Notes |
@@ -117,7 +140,8 @@ Weights add up to 1. Forty translated names (or more) earn the full name weight.
 - Training data for the ranker on real places: the Rome snapshot gives real candidates, but
   real relevance labels still need a public dataset (Sprint 2 plan). Real places never carry
   `rating`, so a model trained on synthetic ratings should be retrained before it ranks them.
-- About 2% of OSM `opening_hours` values stay `unknown` because the parser does not read
-  month ranges, extended times such as `19:00-26:00`, or rules joined by a comma. Supporting
-  them is a parser change worth doing once the demo city is settled.
+- Some OSM `opening_hours` values stay `unknown`: month ranges (`Apr-Oct ...`) on purpose,
+  because the contract holds one weekly pattern and the trip's season is not known here,
+  plus sunrise/sunset, week numbers and comments. Times past midnight (`19:00-26:00`) and
+  rules joined by a comma (`Mo-Fr 09:00-17:00, Sa 10:00-14:00`) are read since October 2026.
 - Day trips (Ostia Antica, Tivoli) need curated entries; OSM cannot say what a day trip is.
