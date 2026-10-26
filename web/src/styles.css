@@ -957,3 +957,44 @@ body {
   border: 0;
   padding: 0;
 }
+/* Destination autocomplete — append to the END of web/src/styles.css */
+
+.preference-wizard .destination-field {
+  position: relative;
+}
+
+.preference-wizard .destination-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0.25rem 0 0;
+  padding: 0.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  list-style: none;
+}
+
+.preference-wizard .destination-suggestions button {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.preference-wizard .destination-suggestions button:hover,
+.preference-wizard .destination-suggestions button.suggestion-highlighted {
+  background: #eff6ff;
+}
+
+.preference-wizard .destination-suggestions .suggestion-note {
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+}
