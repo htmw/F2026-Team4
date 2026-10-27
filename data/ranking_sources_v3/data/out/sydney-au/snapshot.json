@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "sydney-au",
+    "query": "Sydney, Australia",
+    "country": "AU",
+    "currency": "AUD",
+    "region": "Oceania",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Sydney",
+  "resolved_source_key": "sydney-au",
+  "source_built_at": "2026-10-25T19:10:44+00:00",
+  "source_places": 4208,
+  "selected_places": 500,
+  "original_places_sha256": "92492b80fd4aa87eb2bffe1653555eef7981661f30f8224983d3fdef426873ef",
+  "bbox": [
+    -33.91475945874955,
+    151.15418959454314,
+    -33.82492834125045,
+    151.26238000545686
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "7011e24c4bf9c6e60dcc7e4c5b7027b196fade0e01215682b462199030acd397",
+    "city.json": "03448f4596d607e4d87ad9b811b3319af27b3fdb8531d941fda198adb6e05221",
+    "source_ids.json": "d7fdbf0175333e6229344ea777055d65417a08b1b22ff38f561e03e48e7002c0"
+  }
+}

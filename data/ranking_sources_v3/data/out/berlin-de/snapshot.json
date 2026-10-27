@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "berlin-de",
+    "query": "Berlin, Germany",
+    "country": "DE",
+    "currency": "EUR",
+    "region": "Europe",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Berlin",
+  "resolved_source_key": "berlin-de",
+  "source_built_at": "2026-10-25T18:54:36+00:00",
+  "source_places": 7834,
+  "selected_places": 500,
+  "original_places_sha256": "be7091cff0c97992fc480050bf12e10ff4e2d7ab0392c14c3310160d12fbc3da",
+  "bbox": [
+    52.47247294125045,
+    13.32131982997659,
+    52.562304058749554,
+    13.46894197002341
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "28965de1b08762081ab82f1dd5c66fe52d3263a44d4da7cb4088d41827ced3b8",
+    "city.json": "72e8479a0e27452ece859ec74190fd4156438d68b57ab3e5ae9a79dc74385e13",
+    "source_ids.json": "789489fdc7dcde4887546b2b505af992a13f58dc7ed5ca060b5f0197e4450050"
+  }
+}

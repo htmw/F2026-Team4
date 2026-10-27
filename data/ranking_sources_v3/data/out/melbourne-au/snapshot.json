@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "melbourne-au",
+    "query": "Melbourne, Australia",
+    "country": "AU",
+    "currency": "AUD",
+    "region": "Oceania",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Melbourne",
+  "resolved_source_key": "melbourne-au",
+  "source_built_at": "2026-10-25T19:11:33+00:00",
+  "source_places": 4165,
+  "selected_places": 500,
+  "original_places_sha256": "9b3ebd82a9964c208fddb85153160a7a95d35e285a5c9f7f7fb2620c103767a6",
+  "bbox": [
+    -37.85916095874955,
+    144.90631824956105,
+    -37.769329841250446,
+    145.02002815043895
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "d42361b8c1b4939a0f1cdd43031fdc475f2ca015c56c0e7ec49510abbbfcfad2",
+    "city.json": "db6b0884d600a6e1423e6e501d3261c4b1d7694b373a9b906e8a707683856227",
+    "source_ids.json": "85dadf526a022369406149b629cb36bc5325455b08e585b62caeb1f56c9836e4"
+  }
+}

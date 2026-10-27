@@ -1,0 +1,24 @@
+{
+  "key": "melbourne-au",
+  "name": "Melbourne",
+  "country": "AU",
+  "country_name": "Australia",
+  "aliases": [
+    "Melbourne",
+    "Melbourne, Australia"
+  ],
+  "lat": -37.8142454,
+  "lon": 144.9631732,
+  "bbox": [
+    -37.85916095874955,
+    144.90631824956105,
+    -37.769329841250446,
+    145.02002815043895
+  ],
+  "bbox_source": "explicit",
+  "currency": "AUD",
+  "places": 4165,
+  "built_at": "2026-10-25T19:11:33+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

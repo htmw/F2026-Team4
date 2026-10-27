@@ -1,0 +1,24 @@
+{
+  "key": "mumbai-in",
+  "name": "Mumbai",
+  "country": "IN",
+  "country_name": "India",
+  "aliases": [
+    "Mumbai",
+    "Mumbai, Maharashtra, India"
+  ],
+  "lat": 19.054999,
+  "lon": 72.8692035,
+  "bbox": [
+    19.010083441250448,
+    72.8216841479459,
+    19.09991455874955,
+    72.9167228520541
+  ],
+  "bbox_source": "explicit",
+  "currency": "INR",
+  "places": 776,
+  "built_at": "2026-10-25T19:09:26+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

@@ -1,0 +1,24 @@
+{
+  "key": "cairo-eg",
+  "name": "Cairo",
+  "country": "EG",
+  "country_name": "Egypt",
+  "aliases": [
+    "Cairo",
+    "Cairo, Egypt"
+  ],
+  "lat": 30.0443879,
+  "lon": 31.2357257,
+  "bbox": [
+    29.99947234125045,
+    31.18383845633594,
+    30.08930345874955,
+    31.287612943664058
+  ],
+  "bbox_source": "explicit",
+  "currency": "EGP",
+  "places": 596,
+  "built_at": "2026-10-25T19:10:05+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

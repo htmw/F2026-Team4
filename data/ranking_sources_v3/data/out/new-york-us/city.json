@@ -1,0 +1,24 @@
+{
+  "key": "new-york-us",
+  "name": "New York",
+  "country": "US",
+  "country_name": "United States",
+  "aliases": [
+    "New York",
+    "New York City, New York, USA"
+  ],
+  "lat": 40.7127281,
+  "lon": -74.0060152,
+  "bbox": [
+    40.66781254125045,
+    -74.06527137885095,
+    40.75764365874955,
+    -73.94675902114903
+  ],
+  "bbox_source": "explicit",
+  "currency": "USD",
+  "places": 7772,
+  "built_at": "2026-10-25T17:22:19+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

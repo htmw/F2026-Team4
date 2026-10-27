@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "lisbon-pt",
+    "query": "Lisbon, Portugal",
+    "country": "PT",
+    "currency": "EUR",
+    "region": "Europe",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Lisbon",
+  "resolved_source_key": "lisbon-pt",
+  "source_built_at": "2026-10-25T18:53:38+00:00",
+  "source_places": 4823,
+  "selected_places": 500,
+  "original_places_sha256": "7dbb3344934304439299db6f3eefb517b7c4a14a0640c55427b7388ccd42f578",
+  "bbox": [
+    38.66283514125045,
+    -9.194150430561933,
+    38.75266625874955,
+    -9.079033369438068
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "1953d3facf383c53a04886a0caa8e74b2ea62ae87ca093b19533db0140a82b24",
+    "city.json": "fb39a605cef51eb63efd9fff76dba89b7004e38ea4a6caa1835a2c81c878b61f",
+    "source_ids.json": "80536d09e5b3fddd60f6a5ce884f21850007be8a02d3d3b27fcf63b371032157"
+  }
+}

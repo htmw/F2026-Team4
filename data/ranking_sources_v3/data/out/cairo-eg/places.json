@@ -1,0 +1,8512 @@
+[
+  {
+    "id": "osm:node/10024425991",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Contemporary Image Collective (CIC) - مركز الصورة المعاصرة",
+    "popularity": 0.244
+  },
+  {
+    "id": "osm:node/10197496118",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Al Hamra street",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10244339913",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "El Zahraa Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10266039836",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوه التركي",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10268323752",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "صبحى كابر",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/10298573002",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sednaoui Mall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10563245329",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كشري افندينا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/10568227867",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بالون دور",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/10694272503",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10797729814",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bab El-Sharq",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10852792805",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Abou El Sid Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10926808469",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "راديو كافيه",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/10945120179",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "التوحيد والنور",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11168835105",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Carniche",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11171800435",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pane Vino",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1128012830",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كافيتريا واحة النخيل",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1128012839",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لو نوتر",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1133540892",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة وكالة البلح",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/11429487540",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "House of Kharazati",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/11494546511",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Social Specialty Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11570610536",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم اكرم جاد",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11903296189",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوة كامل",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11962649664",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Caf",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11990401369",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نادي اليخت بالقاهرة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/11993695169",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الشركه المصريه لخيوط المكرميه",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11994416187",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tasha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11994576949",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "E-raiak",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12059903469",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cinnabon",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12090589661",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Giannini's - New York Italian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12169116330",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Expresso",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12273057505",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dalida Cuisine",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12273057506",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Murano Restaurant & Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12273057508",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The COOQ",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12273088620",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coffee Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12273151810",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coffee & Tea",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12273641235",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Baytal Qadi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12279353598",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "PS Restaurant & Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12279353599",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "L'Aubergine",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12287913337",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Orangette",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12287937938",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "طابون",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/12301575401",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hegazy Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12301787202",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Holm Café",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12304236988",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rouh Beirut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12304384901",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Juice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307136002",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Caribou",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307630601",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أسماك الشامي",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12309397301",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Beetle",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12309591801",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Up Town",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12309787002",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم السوق",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12309794203",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مستر كوكو وسط البلد",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12309799401",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مشويات ابو على الطرش",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12312169201",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bennu",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1240978957",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج السّاعة",
+    "popularity": 0.195
+  },
+  {
+    "id": "osm:node/1244550049",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المدرسة الصالحية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1259516982",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم البرنس",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1262216203",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوة ريش",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:node/1262216226",
+    "categories": [
+      "cafe",
+      "bakery"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "جروبي",
+    "popularity": 0.356
+  },
+  {
+    "id": "osm:node/12723679045",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "COVA.",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12730239174",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مخبز و حلواني الصياد",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12802366401",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المتحف الحربي القومي",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/12802396501",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سبيل وكتاب عبدالرحمن كتخدا",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/12896677001",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سعد الحرامي",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12913139103",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Al Gnani Al Demeshqi (Dokki Chillout branch)",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/12926752901",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم فول ام عادل",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13019264201",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم بجه",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13177651504",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Burger king",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13196461401",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم محمد رفاعي الكبابجي",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13230500387",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Falak",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/13230508845",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Falak Art Gallery",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/13311049584",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cilantro",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/13326057801",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "توم اند بسل",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/13337968891",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بيت السناري",
+    "popularity": 0.239
+  },
+  {
+    "id": "osm:node/13440354901",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Art Space",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13442278363",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف قصر عابدين",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/13449109727",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Giza Lounge",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13449109793",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "5 stars",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13519437801",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Yamatako",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13624605101",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vasko",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13634304901",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مقهى نجيب محفوظ",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/13639121801",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tablya Balady",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13691289802",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "التوحيد و النور",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13710602201",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "EUGÉNIE CAFE",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13732063154",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tabali Zamalek",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13735379601",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Volo‘s Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13927953060",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطرانية الشهيد العظيم مارجرجس",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/1399692058",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "TGI Fridays",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1399695202",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fusion Resturant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14060367859",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Martabak sinar bintang 99,darrosah",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14060367868",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "kampung Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14060367870",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yalla Cafe Simpang X",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14060397204",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "angkringan darrosah",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14114157456",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "jajanan ARAU",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14114340646",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Buffalo Burger - Zamalek",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/14114508512",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Roma Pizza to Go - Zamalek",
+    "popularity": 0.101
+  },
+  {
+    "id": "osm:node/14116048644",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Champions resto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14116069536",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Space kafe and resto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14116154134",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chiken dodi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14116244033",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ammu karim",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14138469072",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "براميز مول",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14144985268",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مقهى البستان",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/14166587468",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "روتو",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/14189043518",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gramophone",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/14189270914",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "il Nilo Garden City",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/14189277093",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cairopolitan",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/14189312335",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Room Art Space",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14189677632",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "BTTR MRNGS",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14189677633",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "CaiRoma",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14189760885",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mazeej Balad Rooftop",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14189768121",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "مطعم الفي بك",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/14189773847",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Samak Laban",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14190041514",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "FOAM | Brunch & Brews",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14190061985",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Auntie loulou",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/14190068397",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Fornalia artisan bakery and Café",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/14196219015",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "التوحيد والنور",
+    "popularity": 0.144
+  },
+  {
+    "id": "osm:node/14196554306",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم محطة سمك",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/14307603532",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم و كافيه بيت نينة",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14310894630",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف الخزف الإسلامي",
+    "popularity": 0.585
+  },
+  {
+    "id": "osm:node/1444950696",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سوق الليمون",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1772677318",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cilantro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1779349581",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cairo Jazz Club",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1912904268",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kunst Gallery and Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1922176937",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مخبز الفاروق",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/1930276302",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Retro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1930277498",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "TBS",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2112432272",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Costa",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2116839324",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Setup",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2116839349",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Peking",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2116839457",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pangea",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2116839458",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sugar Rush",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2116839461",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Purple",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2189631914",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم كايرو كيتشن Cairo Kitchen",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/2229198573",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Car Cafe Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229198576",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chop Chop - Far Eastern Cuisine",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229198800",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "le Chateau; le Chalet - Swiss Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229244939",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "tortina - beyond desert",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229263059",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Costa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229263085",
+    "categories": [
+      "cafe",
+      "bakery"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mandarine Koueider",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2229263093",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pure Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2247052536",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عروض الذكر الصوفى",
+    "popularity": 0.295
+  },
+  {
+    "id": "osm:node/2298901401",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سيلانترو",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2300909316",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سوق الحمام",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2300920750",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سوق الجمعة لبيع الحيوانات",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2383518242",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لاكازيتا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2523455428",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لؤلؤة الميدان",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/2668434195",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Egyptian Textile Museum",
+    "popularity": 0.201
+  },
+  {
+    "id": "osm:node/2707905714",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sattva Steps",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2789855480",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Felfela",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2789865735",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2789898695",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مزيكا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2955198268",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الجحش",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/2955199529",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الجحش",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3008775413",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kanaka",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3220023870",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kapri",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3220050770",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Al Bustan",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/3220050771",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "King bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3220052503",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Stella bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3228271272",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Lifeguard",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3232173026",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Spotaia",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3232726005",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سيتي درنك عرابي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/324257246",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "باب المحروق",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/328954748",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مار يوسف",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/328955627",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة أبو سفن",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:node/328965969",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف جاير أندرسون",
+    "popularity": 0.585
+  },
+  {
+    "id": "osm:node/330151894",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "القديسة مريم",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/330152005",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة رؤاساء الملائكة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/330152034",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كاتدرائية الأرمن",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/330160485",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سانتا دميانا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/330162899",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الصعود",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/330163025",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "البعثة الأمريكية",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/330163939",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مار مينا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/331166343",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سانت تيريزا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/331166542",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة الملاك ميخائيل بخماروية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3311930429",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coffee Island",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3323245671",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Poire",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3323245675",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coffee Berry",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3323245682",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Bread Basket Bakery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3358845694",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Talaat Harb Culture Center",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/3395909412",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "سوق الجمعة",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/3413150216",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rokn Elsham",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3413152166",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "صهلله",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3441497146",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pottery Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3441504328",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "coffee bean",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/366456632",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سيلانترو",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/366467852",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Maison Thomas",
+    "popularity": 0.144
+  },
+  {
+    "id": "osm:node/366472696",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سيموندس",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3796625093",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "مطعم أبو السيد",
+    "popularity": 0.144
+  },
+  {
+    "id": "osm:node/3796672725",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ديلز",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3802055757",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "5 Bells",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3815394181",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لا بيترا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/3824503829",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سوق الخليفة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/384960175",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة محافظة القاهرة",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/384964690",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بلو نيل بوت",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/3966622151",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ogo cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/411873737",
+    "categories": [
+      "viewpoint",
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "باب المزهرية",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:node/4130237594",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوه افريكانو",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/414554343",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة مار أطنازيوس",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4214196244",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كورنيش المقطم",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:node/4214211407",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "خان الخليلي و ش الحسين",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/4216570590",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "استقبال",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4225510908",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "قهوة المعلم احمد يونس",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/4235494301",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عروس البحر",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4235684702",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أبو ردة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4236642891",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الوالي",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4280211689",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Home",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/4286090989",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Didos Al Dente",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4303630290",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ziznia",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4317958955",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عمر افندي",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4346070740",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Overdose",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4351818790",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Free time",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4373610089",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "تلة المقطم",
+    "popularity": 0.19
+  },
+  {
+    "id": "osm:node/4401746193",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نفسين",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4413229289",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coffee shop meeting place",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/4598707493",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "القبيصي",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:node/4599698789",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "فلافل غازي",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4657643090",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "هانى حكاية ٢",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4657643091",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "العائلات",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4657745089",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "هانى حكاية ١",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4657745890",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الاخلاص",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4663341124",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مكتبة الفا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4663398934",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم و حاتى الإمام",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4674795492",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Eish wa Malh",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/4764007325",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كوبري قصر النيل",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:node/478582302",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم كازينو الإيطالي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4814031122",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ئمائماد",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4842632822",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حلواني العبد",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/485923915",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم و مقهى شرقي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4965115142",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم كبدة وشاورما",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5002853824",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "منزل اسماعيل",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/5082705770",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ebn El Shekh",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5112028121",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "تمثال قصر النيل",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/513586595",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chili's",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/513586597",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "استديو مصر",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/5171801197",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Andrea",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5188719326",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Masa Syrian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5291501558",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Keji",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5291501563",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Grand Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5291501564",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fish Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5314628360",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Virgin Mary's Church / Massarra",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5317142837",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Virgin Mary Church",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5346018581",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Azar Hotek***",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/5427474723",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ابوعمار السوري",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5455136022",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Virginian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5458241922",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Elabd patisserie",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5498217580",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "danessi caffe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5510611423",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كاتدرائية مار يوسف المارونية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5527232221",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كافتريا المنيرة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5531723894",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "البرنس",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5536183377",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mince Burgers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5582223221",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "El Omda",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5585377321",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Al Lord Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5608865621",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كبدة البرنس",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5659022821",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "2GO",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/573794410",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "النخيلي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5784657561",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Koshary Achmat",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5873539789",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سهر الليالي كافيه",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5990013673",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rooftop Bar Zamalek",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5990064842",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pier 88 Cairo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5990086671",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mori Sushi",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5991677085",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "آخر ساعة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6188718574",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Four Fat Ladies",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6274342091",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حاتي اولاد سليمان",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6332479585",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "الشيف صابر",
+    "popularity": 0.174
+  },
+  {
+    "id": "osm:node/6422499185",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Latino",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6449626685",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flying Fish",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6455942986",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم الشيباني يمني",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6455945794",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "اسواق العثيم",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6455945885",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قيس عبه",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/6455946185",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "شارع الهرم اختصار",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/6464367186",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Djibouti Embassy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6553526587",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sharia al Muizz Li Din Allah",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/6553803486",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O's Pasta",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6553803585",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sabaya",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6554665285",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "At Tabei Ad Dumyati",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6554665286",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Koshary Goha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6557076288",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Greek club",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/6594771431",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ميدان محمد فريد",
+    "popularity": 0.479
+  },
+  {
+    "id": "osm:node/6629632000",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Arabiata",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/663393691",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نيلوميتر",
+    "popularity": 0.451
+  },
+  {
+    "id": "osm:node/6681476091",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كبابجى الشيخ ريحان",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/669231981",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لارين",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/670111590",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نيل بيكينغ",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/670115369",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف أم كلثوم",
+    "popularity": 0.579
+  },
+  {
+    "id": "osm:node/6771435270",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Location Cafe",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/6776903985",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الوليمة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6782862827",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "المصطبه",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/6788748061",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "أهل اليمن",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6799916451",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Echo Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6807931386",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ElFishawy",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/6808096706",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jordi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6815626784",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أقاشي",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6822487085",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Very cheap local food (falafel)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6851413792",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dos canas",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6855588085",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sufi Bookstore",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/689813202",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cilantro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6955851271",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "chairs on walking way",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/6985546985",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "باب المندب يمني",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/7057585987",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الشيباني الحديث",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/7097896485",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gad",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/7159412212",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "جامايكا",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/7159432290",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم بو عمار السوري",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/7159476585",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "لبيسترو",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/7159479085",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "فسحة سمية",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/7170099233",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zamalek tree",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/7192614124",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bogali Resturant W Marriott",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7192614125",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Torii Japanese Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7228334552",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Waves Snack Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7228334556",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Garden Promenade Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7228334558",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gu Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7228334559",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Abdel Wahab Egypt Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/746025788",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/768552664",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "القاهرة القديمة",
+    "popularity": 0.528
+  },
+  {
+    "id": "osm:node/768552665",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أرمة",
+    "popularity": 0.195
+  },
+  {
+    "id": "osm:node/768552671",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حدائق الأرمان",
+    "popularity": 0.195
+  },
+  {
+    "id": "osm:node/8119594226",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Crimson Bar & Grill",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8228254617",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "About basem restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8283116417",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الشركة الاسلامية للمعدات الكهربائية",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8319810217",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوة شيشة مهندسين",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/8409145794",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "مطحن بن تبارك",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/8422419806",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة دير الملاك البحرى",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8431427104",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم فول و طعمية",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8440208218",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الڤيلا",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/8461742826",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة مار جرجس منشية الصدر",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/8525210818",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم اليمن السعيد",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8612016753",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوة علاء الدين",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8612016755",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قهوة الفلاح",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/8757346324",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عصائر جمال القبيصي ملك المانجو و الفراولة",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8991571759",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أسماك الجمهورية",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/9175406749",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مسلة ميدان التحرير",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/9312931774",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jarat Al-Qamar Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9318123793",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عجايبى",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9439248064",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كشرى الحلو",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/9454528094",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة الشهيد العظيم مار جرجس",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/946548113",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pakistani restaurant",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/9570993749",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "التوحيد والنور",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9584890422",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "القهوة",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9641413193",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سهرانه",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/96621123",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ميدان طلعت حرب",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:node/9674976971",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Le Delice Cafe",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/9739594048",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Onaty",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/9761871290",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "التوحيد والنور",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9809758872",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "دارى",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9819935629",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Citadel Plaza",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9922901179",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كافيه المحروسه",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/9924692470",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مخبز عيش بلدى",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/16794597",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بيت السحيمي",
+    "popularity": 0.306
+  },
+  {
+    "id": "osm:relation/16841660",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "دار الضرب",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:relation/16842115",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف الشرطة",
+    "popularity": 0.268
+  },
+  {
+    "id": "osm:relation/16868326",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "المتحف القومى للحضارة المصرية",
+    "popularity": 0.669
+  },
+  {
+    "id": "osm:relation/16886724",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الزهرية",
+    "popularity": 0.174
+  },
+  {
+    "id": "osm:way/1000245073",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1014117762",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "شارع ٣٠٦",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/10873198",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "المتحف المصري",
+    "popularity": 0.797
+  },
+  {
+    "id": "osm:way/1099630125",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Aspero Restaurant",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/1106450714",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mostafa Mahmoud Mosque Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1106451988",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vacant Land",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1110837772",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Green Square",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110840587",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Street Median",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110840591",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Street Median",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110840592",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Street Median",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110840593",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Street Median",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110877469",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Garden",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1110964373",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Setbacks Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1113389435",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سباي سباي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1123846177",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بون آبيتيت",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1137678600",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الفنون",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1148815015",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Aspero Restobar",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:way/1176776810",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "البرج الوسطانى",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1190220460",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة السيدة العذراء العمرانية",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/1229272963",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Church of Saint Paula",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:way/1229272972",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Church of Saint Mark",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1230273207",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "دير القديس سمعان الخراز",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/1230328824",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف المركبات الملكية",
+    "popularity": 0.579
+  },
+  {
+    "id": "osm:way/1230328825",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج الطرفة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1234661055",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Poire",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1236604414",
+    "categories": [
+      "park",
+      "landmark"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بحيرة القاهرة",
+    "popularity": 0.268
+  },
+  {
+    "id": "osm:way/1238606986",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج المطار",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606987",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج كر كيلان",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606988",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج المقطم",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:way/1238606990",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "باب العزب",
+    "popularity": 0.479
+  },
+  {
+    "id": "osm:way/1238606991",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج الصحراء",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606993",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج الرملة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606994",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج القرافة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606995",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج المقوصر",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238606996",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج المبلط",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1238794740",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج العلوة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1240459640",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المعبد اليهودى",
+    "popularity": 0.663
+  },
+  {
+    "id": "osm:way/1240729445",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الكنيسة المعلقة",
+    "popularity": 0.677
+  },
+  {
+    "id": "osm:way/1243656706",
+    "categories": [
+      "palace",
+      "landmark"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قصر عائشة فهمي",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:way/1244575526",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Virgin Mary Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1244575533",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة القديس جورج",
+    "popularity": 0.647
+  },
+  {
+    "id": "osm:way/1244575543",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة القديسة برباره الأثرية",
+    "popularity": 0.606
+  },
+  {
+    "id": "osm:way/1316037821",
+    "categories": [
+      "museum",
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قصر الأمير بشتاك",
+    "popularity": 0.579
+  },
+  {
+    "id": "osm:way/1421696074",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "منفز سوبر التوفير مستقبل مصر لبيع المخبوزات الجاهزه",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1464590146",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة العبور",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/1467270537",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة ضريح سعد زغلول",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/1474162388",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "تريانون كافيه",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1475275866",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة النهر",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/1475275868",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "هنا القاهرة",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1486823324",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الحدائق التراثية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1486823326",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "منطقة الحفائر",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1486836564",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المخزن المتحفي",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:way/1489433324",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة روضة النيل",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/1551665003",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "kafe antara",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/162381959",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الأمل",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/197958374",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بيت الكريتلية",
+    "popularity": 0.274
+  },
+  {
+    "id": "osm:way/197960952",
+    "categories": [
+      "church",
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة المغارة والشهيدين سرجيوس وواخس",
+    "popularity": 0.628
+  },
+  {
+    "id": "osm:way/197961520",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Prince Amr Ibrahim Palace",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/201188348",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف محمود خليل",
+    "popularity": 0.544
+  },
+  {
+    "id": "osm:way/211631757",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم البحيرة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/213181178",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف الفن الحديث",
+    "popularity": 0.268
+  },
+  {
+    "id": "osm:way/215304755",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المتحف القبطى",
+    "popularity": 0.669
+  },
+  {
+    "id": "osm:way/215304756",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "البرج الروماني",
+    "popularity": 0.195
+  },
+  {
+    "id": "osm:way/219022044",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سفاري بارك",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/24942979",
+    "categories": [
+      "palace",
+      "landmark"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قصر عابدين",
+    "popularity": 0.628
+  },
+  {
+    "id": "osm:way/24986650",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "حديقة جيلاية الأسماك",
+    "popularity": 0.3
+  },
+  {
+    "id": "osm:way/25011349",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قصر منيل",
+    "popularity": 0.174
+  },
+  {
+    "id": "osm:way/25026300",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة على أبو النور المتميزة",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/25054998",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نافورة النيل",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:way/28800605",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حدائق تلال الفسطاط",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/28800637",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة روض الفرج",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/28801283",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الحرية",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/28821197",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة عرب المحمدي",
+    "popularity": 0.289
+  },
+  {
+    "id": "osm:way/28827708",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "القاهرة القبطية",
+    "popularity": 0.663
+  },
+  {
+    "id": "osm:way/28829955",
+    "categories": [
+      "museum",
+      "park"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "المتحف الزراعي",
+    "popularity": 0.606
+  },
+  {
+    "id": "osm:way/29222836",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة  المبدعين",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/29421555",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سور القاهرة الشمالي",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/29421571",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ayyubid Historic Wall",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:way/29421753",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سور مجرى العيون",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/29973724",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "وكالة السلطان الغورى",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/29974285",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف مصطفى كامل",
+    "popularity": 0.268
+  },
+  {
+    "id": "osm:way/30065918",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف أحمد شوقي",
+    "popularity": 0.544
+  },
+  {
+    "id": "osm:way/30925727",
+    "categories": [
+      "park",
+      "landmark"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "ميدان التحرير",
+    "popularity": 0.547
+  },
+  {
+    "id": "osm:way/325002945",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "zed",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/334214427",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sea Gull",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/376242531",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "اليمامة سنتر",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/379077235",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قبة وضريح السلطان الأشرف خليل ابن قلاوون",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/379083884",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قبة أم الصالح",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/379083885",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مشهد السيدة رقية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/380799318",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "قبة أحمد باشا حسنين",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/39700935",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "طلعت حرب مول",
+    "popularity": 0.289
+  },
+  {
+    "id": "osm:way/40287031",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "أركاديا مول",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/41415058",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الأندلس",
+    "popularity": 0.534
+  },
+  {
+    "id": "osm:way/41721787",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "نيل سيتي بوت",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:way/420391135",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة مريم العذراء",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:way/459054511",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مار مرقص",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:way/459056951",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Saints Peter and Paul",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/461688691",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "وكالة قايتباي",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:way/464104478",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nady El Seed",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/464104479",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nady El Seed",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/46579853",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف الفنون الأسلامية",
+    "popularity": 0.628
+  },
+  {
+    "id": "osm:way/48981070",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hekma Square",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/503835260",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Executive Lounge Marriott",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/547646553",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pharaonic Boat",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/547646561",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "VIOLA ROOFTOP",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/547653391",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kasr Al-Ainy Greenery",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/686194642",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kasr El Dobara Evangelical Church",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/704372303",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الظاهر",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:way/730667668",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الفنون",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/739052748",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gezira Youth Club Tea Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/739053578",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gezira Club Tea Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/751628795",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة طبية",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/751954216",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pavillion",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/751954217",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف قصر محمد علي",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:way/751954220",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Side Gate",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/751954231",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hunting Hall Museum",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/751954232",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Throne Hall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/751954233",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palace Gate",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/761734538",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "All Saints",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/762740018",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة سيدة الكرمل للآباء الفرنسيسكان بولاق",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/767656893",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "شارع شقة الزاهرة",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/767656908",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Carlton Roof Garden",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/767656909",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كرلتون",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/767933342",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "برج القاهرة",
+    "popularity": 0.677
+  },
+  {
+    "id": "osm:way/768977207",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مطعم الجمهورية",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:way/769092471",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Harry's Pub",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/769736578",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Abu Khaled",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/771960598",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "omkalsoum cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/772030018",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Église Saint Georges",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/772279695",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sudan Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/772279716",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Crafted Home كرافتيد هوم",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/775853319",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "باب زويلة",
+    "popularity": 0.585
+  },
+  {
+    "id": "osm:way/818052387",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Atlantis",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/874221003",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "vinzoula park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/884560303",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Snow Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/964316376",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Zööba",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/97145191",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الملحق التجاري",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/97229401",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "الباشا",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/97229402",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف الفن الحديث",
+    "popularity": 0.579
+  },
+  {
+    "id": "osm:way/97229403",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مكسيم",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/97827956",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة أم كلثوم",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/97937687",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "متحف المركبات الملكية",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:way/98244292",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "سوق خضار باب اللوق",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/98244300",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "مكرونة رضة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/98244304",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vent",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/98246972",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "كنيسة البشارة الأرمنية الكسليكية",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/98308861",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "مركز البستان التجاري",
+    "popularity": 0.174
+  },
+  {
+    "id": "osm:way/989399682",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "عين الحياة",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/991443253",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "بلاتنيوم مول",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/99842004",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الأزبكية",
+    "popularity": 0.174
+  },
+  {
+    "id": "osm:way/99842808",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EGP",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "حديقة الحوض المرصود",
+    "popularity": 0.133
+  }
+]

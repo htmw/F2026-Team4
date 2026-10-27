@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "cairo-eg",
+    "query": "Cairo, Egypt",
+    "country": "EG",
+    "currency": "EGP",
+    "region": "Africa",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Cairo",
+  "resolved_source_key": "cairo-eg",
+  "source_built_at": "2026-10-25T19:10:05+00:00",
+  "source_places": 596,
+  "selected_places": 500,
+  "original_places_sha256": "00f624c279abc75a15285bfdeac9d3dae44b7f4804fdf71a2f3583e4984969fc",
+  "bbox": [
+    29.99947234125045,
+    31.18383845633594,
+    30.08930345874955,
+    31.287612943664058
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "fad14c40e5250f121fd79a50766f2f3e0cba63cd22e7bddd6d55ee3547f63dbf",
+    "city.json": "ffda4d54baa3d4e05a9041218cd103ade81a6b4f67130f8fcd019e3afd3dcf7b",
+    "source_ids.json": "53e6b90b830c095da2d2efc8aa9d26a3ea3ff9529d56ccb8874cf450f9e378c8"
+  }
+}

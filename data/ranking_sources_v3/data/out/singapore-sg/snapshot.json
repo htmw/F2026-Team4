@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "singapore-sg",
+    "query": "Singapore",
+    "country": "SG",
+    "currency": "SGD",
+    "region": "Asia",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Singapore",
+  "resolved_source_key": "singapore-sg",
+  "source_built_at": "2026-10-25T19:05:24+00:00",
+  "source_places": 4753,
+  "selected_places": 500,
+  "original_places_sha256": "94485d5fd455f211c2c0f34cc97fafed98a9a25efebc4aad9e522f7a8323768f",
+  "bbox": [
+    1.2450019412504492,
+    103.80698025614278,
+    1.334833058749551,
+    103.89683414385722
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "6b326cd4d71ff0f4f1ccb7ae413b5ebc98c836aeb8f474343bf5940a137c7148",
+    "city.json": "345b4d5d5d1c18c44deb34da82681c300c380e54a29b8a8ec83ab84ecda032f1",
+    "source_ids.json": "b293b901cb32d69edacd0a370aa461307334cea0bd0b6b1ede121040035356c4"
+  }
+}

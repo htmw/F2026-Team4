@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "mumbai-in",
+    "query": "Mumbai, Maharashtra, India",
+    "country": "IN",
+    "currency": "INR",
+    "region": "Asia",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Mumbai",
+  "resolved_source_key": "mumbai-in",
+  "source_built_at": "2026-10-25T19:09:26+00:00",
+  "source_places": 776,
+  "selected_places": 500,
+  "original_places_sha256": "73d7c4bfcdf27b27745ab74fb09b0b180452b002a00d7c875619bfdf757119cf",
+  "bbox": [
+    19.010083441250448,
+    72.8216841479459,
+    19.09991455874955,
+    72.9167228520541
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "48302ee65ff18193660075cc95ebf20761d502445261b13b2a444ddba3dd289c",
+    "city.json": "cbfcc1b6a8567383ad6647651d5664c40a996ba18c5d4a6d5399771c9bc5797d",
+    "source_ids.json": "585a9106458ebde290bb056e98eeb4ea1c0e0c4861c4b4ca444fa34dd12603ea"
+  }
+}

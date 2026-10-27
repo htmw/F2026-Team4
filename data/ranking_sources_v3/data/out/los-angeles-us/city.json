@@ -1,0 +1,24 @@
+{
+  "key": "los-angeles-us",
+  "name": "Los Angeles",
+  "country": "US",
+  "country_name": "United States",
+  "aliases": [
+    "Los Angeles",
+    "Los Angeles, California, USA"
+  ],
+  "lat": 34.0536923,
+  "lon": -118.2427676,
+  "bbox": [
+    34.00877674125045,
+    -118.29697984378055,
+    34.09860785874955,
+    -118.18855535621944
+  ],
+  "bbox_source": "explicit",
+  "currency": "USD",
+  "places": 1489,
+  "built_at": "2026-10-25T18:55:19+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

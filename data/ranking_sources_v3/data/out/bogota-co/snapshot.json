@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "bogota-co",
+    "query": "Bogota, Colombia",
+    "country": "CO",
+    "currency": "COP",
+    "region": "Latin America",
+    "role": "test"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Bogota",
+  "resolved_source_key": "bogota-co",
+  "source_built_at": "2026-10-25T19:13:20+00:00",
+  "source_places": 4388,
+  "selected_places": 500,
+  "original_places_sha256": "cc1b4f783080c8818ffae9ec0f83dad3f2a3c56916dc3c2d120407fef054646e",
+  "bbox": [
+    4.608466141250449,
+    -74.12869720239681,
+    4.698297258749551,
+    -74.03856899760319
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "d4fae45b396e2b34c8f255bade26d430cd830d3d00985f738c80700ec13c06d6",
+    "city.json": "e1062728feafa2a185729cce2007d8dc58f142460ad882c8bb1bc51285ab7beb",
+    "source_ids.json": "db688cef6719efd63230ca0341048e1918f1510587f38cde4fe469218c07e0a3"
+  }
+}

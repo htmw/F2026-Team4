@@ -1,0 +1,8505 @@
+[
+  {
+    "id": "osm:node/10279364947",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "CoCo Fresh Tea & Juice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10290561664",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sir William Wallace Hotel",
+    "popularity": 0.322
+  },
+  {
+    "id": "osm:node/10290561668",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Bells Hotel",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10290585145",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Old Commodore Hotel",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10290612760",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Golden Sheaf",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10290612761",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Annandale Hotel",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10292266556",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lord Raglan Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10312416444",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Justin Miller Art",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/10569296317",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rozelle Bay Lookout",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/10571683814",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar Stranger",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10605114188",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tokki",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10679626476",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Izakaya Fujiyama",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10689683738",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Machi machi",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10700618865",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fonda",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10703264372",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lucky Kwong",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10740658805",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotel Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10774453668",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zaffi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10813115205",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charmed",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1084662522",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar Cleveland",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10869993140",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ume Burger",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10908516346",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "New Star Take-away",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10915460947",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Collina",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11113323632",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Monument Lookout",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/11121090193",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Divino Osteria",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11128850604",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Truffles",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11128867906",
+    "categories": [
+      "cafe",
+      "bakery"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Igniis Bake & Roast",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11128867910",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Cross Art Projects",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/11148986547",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ramblin Rascal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11162086070",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bellevue Woolloomooloo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11164405564",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Caravin",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11177865408",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yellow",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11273263417",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yirranma Place",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/11331924872",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bootsdarling",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11358013667",
+    "categories": [
+      "cafe",
+      "bakery"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Grumpy Baker",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11378641774",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Marina Cafe & Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11406622736",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jan Cork’s Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11458881769",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cockle Bay Yacht Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11607203357",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kings Tavern",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11608909640",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Passage",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/1167607535",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Recess",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11794962494",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Arthouse Gallery",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/11815694732",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Qtopia",
+    "popularity": 0.122
+  },
+  {
+    "id": "osm:node/11982371043",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Garden Gallery",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/11989830597",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Drummoyne Sailing Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12012852139",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lemongrass Takrai",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12017195926",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Madam Lynn",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12048699759",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Headland Park Lookout",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/12086272387",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Brews Brothers",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12089720381",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr. T's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12089720392",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Juniper",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12114416672",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Top Impressions Bakery",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12117849333",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Maido",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12117849345",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "San Java 2.0",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12177991230",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Locomotive Workshop",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12183738507",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mappen",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12184028777",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Kiln",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12200476480",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "KOI",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12254169132",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Now And Then",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12287451221",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mumchies Sushi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12296049859",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gong Cha",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12298854699",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Top Juice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12319821005",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rose Espresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12319821007",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sharetea",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/12326779636",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Momos Hub",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12357441085",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Joji",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12408083874",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Studio 25B",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12456329277",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "LinQ Bar",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12483743286",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jagalchi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12513658098",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Arturo’s",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12555141162",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bistro Gadi",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12584396601",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hikaru Japanese Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12591836219",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Thaii",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12599787123",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "4A Centre for Contemporary Asian Art",
+    "popularity": 0.117
+  },
+  {
+    "id": "osm:node/1262764790",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1268355153",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bottom of the Harbour",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12735454879",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dipacci",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12791216728",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar Fredas",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12808878345",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mooring Anchors",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12810866590",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Herbs",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12811065653",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Joe’s Cafe Chino",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12876891952",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Piccolo Me",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12882299546",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gallery Shop",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12963884534",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Skittle Lane",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12974889225",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Studio W",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/12982188829",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Studio Gallery",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12982188830",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Todman Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13013053111",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coco Cloud",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13016230935",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "House Bar & Bistrot",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13028125814",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Angus",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13030523084",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Garage",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13059119988",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Haven",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13059143309",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Iiko Mazesoba",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13115653368",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe On R",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1312610263",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Francis",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13127418426",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "2315",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13143540101",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gumshara",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/13192264073",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chinese Noodle House",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13194895710",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Daydream Sweet",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13240110359",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Moda",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13248873873",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Poor Toms Oltra",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13253266287",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Loulou",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13274843861",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Winghaus",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13274843866",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jamaica blue",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13347335117",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yolo&co",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13357308426",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brazico Brazilian churrasco",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13365900811",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Humm Coffee Roasters",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13441959470",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ceylon & Curry",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13457737376",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Icebergs Harbour Bar",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13459678001",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Berempah Restaurant & Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13551049889",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Baja Cantina",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13568549601",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "J&M Whisky Bar",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13571590577",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cardea",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13646960201",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Social Butterfly Tea & Dessert",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13657161001",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ipoh Town on York",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13687537987",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sixnature Thai",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13705567546",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "NEL",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13707141471",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fortunate Son",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13707155913",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Grandfather's",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13738878201",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Sambal",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13751606239",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Roma Espresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13758102884",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capo Pizza",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13758173189",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Lode Pies & Pastries",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13837005129",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Milson's Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13870244774",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Saravanaa Bhavan",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14005538814",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Curtains Jazz Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14016730351",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Emperor's Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14016885099",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Harbor Watch",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14019388373",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ramen Zundo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14023238055",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DEA Store Redfern West",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14023361946",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Sorrel Cafe & Kitchen",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14038553595",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Maiz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14047578147",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Blue 36",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14047589716",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cu ee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14047987453",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mooii",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14051107083",
+    "categories": [
+      "cafe",
+      "bakery"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Waverley Bakery",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14051232613",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Swich N Grind",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14067578101",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kokoro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093439825",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gacha Cafe",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14179865302",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "At Home Thai Cuisine",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14188426301",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Connection & Co",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14221188622",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Momiji",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14254057796",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Banksia",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1613883956",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blue Eye Dragon",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1613895191",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kura",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1613895192",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wokstation",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1613895196",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "PiOik",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1653959469",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Belgian Beer Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1736838307",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Naked Brew",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1736838308",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Bitton Room",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1812101951",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wild Flour",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1812389142",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chinta Ria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/18249982",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bristol Arms",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:node/1833107577",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St. Barnabas",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1833228379",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Woolstore Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1833317180",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Green Room",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1840056392",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Gallery Cafe",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/18454495",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Iron Duke Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1865257852",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr Tipley's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/18825495",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Lord Gladstone",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/18825536",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Vincent de Paul Catholic Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1962213802",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Coffee Alchemy",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/197315607",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Royal Oak",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:node/20152891",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St. Brendan's Catholic Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2072463134",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe 8",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/20930452",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kafe Kaz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/20930458",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotel Downing",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/20930468",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cheers Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/20930650",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bar Broadway",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/20958840",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Mill Hill Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/20959037",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Como",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/20959057",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Justice & Police Museum",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:node/2138868228",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Twelve Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2170430682",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Parma Cucina and Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2262414276",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palmer & Co",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2271246919",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "3 Weeds Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2295333489",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bravo Trattoria",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2312211336",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Occidental Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2337760355",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hoochie Mamma Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2623046557",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Lifehouse Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/26526157",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Farm Cove Eatery",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2690659483",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Saint Marks Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2759995337",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Macleay Street Bistro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2791884178",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Osteria Mucca",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2839253033",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cellini's Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2841108302",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Brickfields",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2874264581",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Yuzu",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2911988526",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Malacca Straits",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2958861483",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Matty & John's Espresso Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2961963535",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Young Henry's",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/3108418391",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Trinity Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3278495070",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3338958594",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Mia",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3915727959",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Inspire Nature",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/392527429",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Soho on miller",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3928112554",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fundamen al Food",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3930018359",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cupcakes on Pitt",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3949642061",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kozy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3979136664",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "6.AM by dedy's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3979140560",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Dough Collective",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3996822857",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ichiban Boshi",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4057788790",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Peace Harmony",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4184416833",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Two Good Eggs Cafe",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4225124389",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kingsleys Steak & Crabhouse",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4242649252",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "caffe tiamo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4242649789",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Thai Fusion",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4265330848",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "So Cal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4265330851",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tanpopo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4269671654",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Four Frogs Creperie",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4290935389",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vapiano",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4305154596",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "est.",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4338266001",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blaq Biq",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4354728872",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sydney Jewish Museum",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:node/4424492852",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Corduroy Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4466584796",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Barber Shop",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4467893689",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr Wong",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4469809890",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Spring Street Social",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4483303390",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bellagio Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4484797889",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jumbo Thai",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4516417851",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bridge Room",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4540273489",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Red Chilli Sechwan Chinese Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4653453391",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Storehouse",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4689171659",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "10 William St",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4739118621",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Australia The Gift",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4812691922",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Naked Duck",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/4844904524",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "GPO Colonnade",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/4860760253",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ladda's The Thai Takeaway",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4860772409",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Martini",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/488904867",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Campos Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4904993121",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gondos",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4978562832",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Artificer",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5007822721",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Kyo Yakiniku",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/5029983717",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yellow Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5035997123",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cook Archie's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5042081721",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "BridgeClimb Sydney",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/5083542082",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hunter's Corner",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5099993436",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste Baguette",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5110562421",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ken’s Continental",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5165260127",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "North Indian Cuisine",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5222607323",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Coffee Box Espresso Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5246538695",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Eastern Flair",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5300089045",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Handcraft Specialty Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5359966544",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chico's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5359966723",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Kirribilli Woodfire Kitchen",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/536763962",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sails",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5453206521",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5469438922",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Fiveways",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5526425108",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bacino Espresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5532255338",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Burger Project Black Label",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5608349136",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Komachi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5609320601",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nada's Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5641015698",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Daughters of Our Lady of the Sacred Heart",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5738839970",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Carter's Pork Rolls",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5739975353",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Attenzione Food & Wine",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/5744788923",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The hanging ladder",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5748029012",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "2.0 Coffee Co.",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5748633429",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Meyer Gallery",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/5748678509",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Little Bishop",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5839127573",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Alley",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5839606785",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "JIGO Samgyetang",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5843429122",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Avenue On Chifley",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5844879535",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boss Lady Food & Co.",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5862427155",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Toastettes",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5872600640",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Indian Paradise",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5872687900",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Eggshellent",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5886006993",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Showchef Teppanyaki",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5897977917",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ampersand Cafe & Bookstore",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5897978230",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jackie's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5902814220",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fred's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5931284426",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Old Wares",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/594438633",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Toast Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5976672638",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Appizza",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5977074076",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Regiment",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6009432985",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Momo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6067710086",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cuppa Flower",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/6075296894",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Barrio Cellar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6077594224",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sushi Hon",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6077594227",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lok Lok",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6138478485",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Bella Brutta",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6223005298",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Korean BBQ Yang San Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6269418385",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Surly's American Tavern",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6326534586",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6329849885",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6363139085",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bamboo Thai Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6366969385",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mas Tinto",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6395667317",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bowery Lane",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6424612289",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pho Mo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6442329171",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Angel Hotel",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6460914872",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Manjit's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6461159801",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Scoota Café",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6498939114",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Common Room",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6548791117",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hungry Hunter",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6594234550",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Marigold Restaurant",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6669730485",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Love Tilly Devine",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/669410502",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Met Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6698395875",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pondok Buyung",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6742226631",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shell Park",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:node/6819714773",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Q Cafe & Roastery",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6961251016",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pancakes on the Rocks",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6961581887",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gun emplacement",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/6979353862",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boost Juice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7012999585",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Black Star Pastry & Café",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7050613785",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charlottes Little Sister Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7055623287",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ash St Cellar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7368620548",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Saint Mary MacKillop Place",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/743322923",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Rocks Discovery Museum",
+    "popularity": 0.351
+  },
+  {
+    "id": "osm:node/7732728718",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Timbah Wine Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7732728721",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Madame Frou Frou",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7732738337",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Glebe Point Diner",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7742454987",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bellevue Cottage",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7765353715",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bakery Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7791593113",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Bariloche",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7791593118",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bakers Delight",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7802490451",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cooper Park Café",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/7811338130",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Michael's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7844972949",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Southside Charmers",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8288988126",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Café Imparo",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/8288988128",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cafe 0.6",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/8329454404",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sushi & More",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8334234143",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Huang Cook Chinese Cuisine",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8334234145",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Crazy Fried Chicken",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8334234151",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste of Nanking",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/837054768",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Terrace",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8383496028",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Northeastern Family Chinese Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8456132520",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ryan's Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8585140004",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Inherit of the Classic",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8597096432",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Philips Foot",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8662078610",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ten",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8692189817",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "David Jones",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/871670316",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blues Point Lookout",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/8848115918",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Navy Bear",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9329081673",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Park Sydney Village",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/936409848",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Paul's Lutheran Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/936416956",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Time to Vino",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/936428754",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Quattro Passi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9465706817",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cantina OK!",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9494265913",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nam2",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/9506774616",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cotti Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9509642217",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Artisans' Nest",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9515188917",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Janvs",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9520753750",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Satang Thai",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9567319235",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Adamo's Pasta",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9567329031",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Black and Gold Espresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9569984754",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Great Aunty Three",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9635392017",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Otto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9647283687",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Indu",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9664443817",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bloc 145",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/976978465",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Doncaster Hotel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9886162095",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pattison's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9892668321",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Incanto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9901010178",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Pieno",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9908633145",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Butcher's Buffet",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/9908633748",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Maopai Dishes of Hotpot",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9920797023",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Corner 75 Hungarian",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/9933161577",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bouillon L'Entrecôte",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/17354337",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "White Bay Power Station",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:relation/18581145",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "East Village",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/20274846",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Edgecliff Square",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/20613819",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Goat Paddock",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/21146091",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cooper Park",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/2293483",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Balls Head Reserve",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:relation/2295431",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Badangi Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/2794667",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Manns Point Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/2959623",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Federal Park",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/5919987",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sacred Heart Monastery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/102757068",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rose Bay Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1035594005",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bridge Street Rest Area",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1047327153",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Red Lemon Thai Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1047327174",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Dumpling & Noodle House",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1064504519",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Saint Peter's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1089403645",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Comber Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1092590811",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lacrozia Playground",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/110163360",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Memory Park",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/110165875",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Balmoral Park",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/110165876",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rawson Park",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/112973864",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Figtree Avenue Closure",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1138530742",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Banh Cuon Ba Oanh",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/117759134",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Luna Lounge",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1178506704",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charlie's Garden",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1187042178",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Magic Lane",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1187042180",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nestor Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1192861900",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rotor",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/1225573749",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Buruwan Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1226419911",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Winnie Street Laneway Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1239394251",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Double Roasters",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:way/1240347962",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 7.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Darling Harbour Carousel",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:way/1245515110",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Harry's Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1248794842",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bed Boyd Road Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1270332070",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Argyle Cut",
+    "popularity": 0.411
+  },
+  {
+    "id": "osm:way/1281873035",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boomerang",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:way/1296313534",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Matinee Cafe",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/1305348015",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Milson Community Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1305666252",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar 83",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1315658574",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bay 14",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1315658581",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bay 6",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1364135150",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rose Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1383490191",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Freaky Frogs",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/1462444212",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Aidan's Anglican Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/147146675",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pelican",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:way/147147651",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sun Bear",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/147226908",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tasmanian Devil",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:way/1479937493",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Balmain Watch House",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1481434448",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Eveleigh Hotel",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/1501808589",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wearns Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1507697342",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Dock",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/151181055",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gorilla",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:way/1519565410",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St. Johns",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/152424430",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Munn Reserve",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/152424432",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Clyne Reserve",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/1529323287",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Spains Wharf",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1533767108",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Munro Succulent Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/16765958",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Powerhouse Museum",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:way/16785291",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Millard Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/170058932",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vine Street Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/17178713",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Goodsir Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/172735167",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Newtown Baptist Church",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/173156830",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mountain Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/173165122",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ballaarat Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/173175336",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hotel Hollywood",
+    "popularity": 0.322
+  },
+  {
+    "id": "osm:way/173539637",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Forsyth Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/173586201",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Paints Lane Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/174756690",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Weekley Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/175000747",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Crown Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/175697930",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Quinn Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/175699422",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ryan Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/175998123",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Matt Hogan Reserve",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/175998189",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Enmore TAFE Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/191624662",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Harry's Cafe de Wheels",
+    "popularity": 0.117
+  },
+  {
+    "id": "osm:way/193989909",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hickson Road Reserve",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/195508394",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "McKell Park",
+    "popularity": 0.172
+  },
+  {
+    "id": "osm:way/197713330",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hinsby Park",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/197801072",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sydney Tower",
+    "popularity": 0.417
+  },
+  {
+    "id": "osm:way/200148267",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Keolis Downer",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/202623013",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Peace Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/232431377",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "McConville Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/241886076",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Waterfront Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/246435266",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Burnie Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/247424751",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O'Hara Street Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/256777584",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shenkin Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/256782566",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Winery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/271666503",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "MCA Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/273252070",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St James Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/273948488",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lough Playing Fields",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/279681992",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "M.J Hayes Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/282035313",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Domain Crescent Precinct",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/290321469",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Al Aseel",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/301881295",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Simpson Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/31029589",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Phillips Street Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/326466942",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Endeavour Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/335700575",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Goods Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/34551285",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Alfred Street North Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/386564451",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Westfield 111 Castlereagh",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/387628628",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Rope Walk",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/38811177",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Mater Gardens",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/409047621",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bradley Avenue Reserve",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/409331812",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Elm's Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/409347586",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Waterloo Congregational Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/414107743",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Waterloo Green",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/431517981",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Stave's Brewery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/4331586",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kurraba Point Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/441071540",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Illoura Reserve",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/444228569",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Big Dig",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/445377932",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Centennial Park",
+    "popularity": 0.406
+  },
+  {
+    "id": "osm:way/452953652",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Francis Playground",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/4631765",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Clifton Gardens Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/4688664",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Camdenville Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/4864647",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Anzac Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/496302998",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fingleton Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/521235954",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Douglas St Peoples Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/532634098",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kirsova 2 Playground",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/544428484",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Patrick's Catholic Church",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/547810736",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Black Lizard",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/548521952",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St Constantine and Helen Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/550183744",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jack Haynes Rest Area",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/555056359",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "雪梨华人基督教会;Chinese Christian Church Sydney",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/556368817",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Greendale Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/560066442",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hudson Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/560905867",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gunners Barracks",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/561132259",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lawry Plunkett Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/6111029",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ted Mack Civic Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/614781888",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Quarry Green",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/627805920",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Village Church Annandale",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/652552645",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Coal Loader",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:way/702177269",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wimbo Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/717895640",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mary Carlson Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/73547271",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mil Mil Street Road Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/804046181",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ryan Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/816363283",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pope Paul VI Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/817425268",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Minogue Crescent Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/82465736",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ballast Point Park",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/875980318",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Green",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/901827206",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Jimmys Bar & Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/902619029",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gadigal Avenue Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/938290228",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lyons Road Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/951837910",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Railway Parade Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/961026346",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cooper Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/965317710",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adelaide Street Reserve",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/973964482",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hume Street Park Expansion",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/985373033",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Koala",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/985668260",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Meerkats",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/985816946",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "AUD",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tortoise",
+    "popularity": 0.1
+  }
+]

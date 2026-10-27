@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "hyderabad-in",
+    "query": "Hyderabad, Telangana, India",
+    "country": "IN",
+    "currency": "INR",
+    "region": "Asia",
+    "role": "test"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Hyderabad",
+  "resolved_source_key": "hyderabad-in",
+  "source_built_at": "2026-10-25T19:14:01+00:00",
+  "source_places": 385,
+  "selected_places": 385,
+  "original_places_sha256": "a1bada5b52972501af27261d68556ff972ca46338cb0a807f6d099eeb705ceb1",
+  "bbox": [
+    17.31567344125045,
+    78.42700199205265,
+    17.405504558749552,
+    78.52112060794735
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "f3311a67c75153812be36ce80fb77dfc07abac3ca9807b563e7d5d41a5eda3b0",
+    "city.json": "e1f15d3db9e9428b464e55fca65d0dd464aa9cb150d027556b983240a45a000e",
+    "source_ids.json": "01aecfc1a6924b93f2a42b0eb7e4fd749cf3e3a50df6db952c2ef5a7c521bc69"
+  }
+}

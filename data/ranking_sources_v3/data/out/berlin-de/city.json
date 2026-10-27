@@ -1,0 +1,24 @@
+{
+  "key": "berlin-de",
+  "name": "Berlin",
+  "country": "DE",
+  "country_name": "Germany",
+  "aliases": [
+    "Berlin",
+    "Berlin, Germany"
+  ],
+  "lat": 52.5173885,
+  "lon": 13.3951309,
+  "bbox": [
+    52.47247294125045,
+    13.32131982997659,
+    52.562304058749554,
+    13.46894197002341
+  ],
+  "bbox_source": "explicit",
+  "currency": "EUR",
+  "places": 7834,
+  "built_at": "2026-10-25T18:54:36+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "mexico-city-mx",
+    "query": "Mexico City, Cuauhtémoc, Mexico City, Mexico",
+    "country": "MX",
+    "currency": "MXN",
+    "region": "Latin America",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 500,
+    "seed": 42
+  },
+  "resolved_name": "Mexico City",
+  "resolved_source_key": "mexico-city-mx",
+  "source_built_at": "2026-10-25T19:04:27+00:00",
+  "source_places": 3152,
+  "selected_places": 500,
+  "original_places_sha256": "fae7f9ba4859ac30c244c129465f518141771a94a1f8fd8d3659cb3987710df9",
+  "bbox": [
+    19.387714041250447,
+    -99.18080731309176,
+    19.47754515874955,
+    -99.08554968690824
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "8b40b23629269f3fb0a31f75e95bab762006dd7455b138d032de987653625f91",
+    "city.json": "f7b3d103c7bc66cd0ab38a374f6bf7169c8265f5dc4e8c8c023ccd72d610bd34",
+    "source_ids.json": "04063ebd0dc826d0ba219db2f7a2079c16dfa05ac40727726c7d153fb2abb52f"
+  }
+}

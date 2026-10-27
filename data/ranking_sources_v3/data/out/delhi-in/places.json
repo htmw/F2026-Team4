@@ -1,0 +1,8508 @@
+[
+  {
+    "id": "osm:node/10116901517",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kallu Nihari",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10129613417",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "New Madras Restraunt (NMR)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10178890717",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Red lights district of Deli",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/10262566439",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Museum on Netaji Subhas Chandra Bose and Indian National Army",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/10262580128",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Red fort center",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/10278723609",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Albero nel muro",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/10570234009",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "San Gimignano",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10579381741",
+    "categories": [
+      "restaurant",
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chido",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10579643041",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hawkers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10607717809",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "1469",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10608920048",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Luv Indiya",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10674115159",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bhaja Govindam",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10721000650",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tara Bhutanese Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10773291097",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dāsaprakāsh",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10810808432",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Samrat Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10815131298",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Roop Nagar",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:node/10815131303",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "South Patel Nagar",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:node/10867382705",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "War of 1857 museum",
+    "popularity": 0.19
+  },
+  {
+    "id": "osm:node/10867382805",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "World War I museum",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/10867382806",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kashmiri Gate",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/10867382905",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bose museum",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/10905351895",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Harlequin",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10910516588",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Andhra Canteen",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/10924124873",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mount Fuji",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10969186086",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotel Adarsh Vegetarian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10969477047",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tewari Brothers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11064409807",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dhaba",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11225066964",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "OTB Courtyard",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11226466037",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aggarwal Sweets",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/11242857871",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nazeer Foods",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11242857873",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "IRCTC Food Plaza",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11242865005",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jan-Aahar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11242951120",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11252471885",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Diggin",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11289000834",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "FuiyOh!",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11442913958",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ministry of Beer",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11449264969",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Starbucks",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11496980431",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Barista",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11601332069",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Guru Kirpa Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11633581169",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brahmin's Pure veg",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11637351388",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Monginis",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11645782069",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gumbad Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11684986917",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Delhi-Topra Pillar",
+    "popularity": 0.495
+  },
+  {
+    "id": "osm:node/11764334602",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Naivedyam",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11786953775",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Machandra Snacks",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11795527561",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gokulam",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11795597388",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Beer Cafè",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11799184120",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Xero Degrees",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11801338398",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bikanervala",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11802147562",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zaika Muradabadi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11802205274",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistro 57",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11802205278",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Starbucks",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11802232769",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Labib's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11805134682",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fat Tiger",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11808931822",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "California Burrito",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11816338569",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tirupati Bhawan",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/11869013790",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Foodieez",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11937020351",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Himachal Bhawan Dining Hall",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11971465774",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Del Bite",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11971465784",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Konnect Awards",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11982517643",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The House Of Commons",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11982519975",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The G.T. Road",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11982519987",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Imperial Spice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12039057569",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Delhi Haat",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12039057669",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ind Odyseyy (incenses)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12052454984",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Crossroads",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12052474064",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vee Bona",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12054358703",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flavours Of China",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12054358705",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12119996228",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Nagori Tea",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12135624519",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Craft Bazaar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12135627822",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chawlas2",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12135641575",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Radhey Krishna Udupi Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12135670084",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistro 57",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307165299",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Amritsari Chaap Corner",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307167502",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Om Corner",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12338239856",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "JP Tea Stall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1241932078",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bangla Foods",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12422394301",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tirumala",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12440473687",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nazeer Foods",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12495360621",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hudson Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12495402167",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Veshno Dabha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12495408218",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Annapurna Bhojnalai",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12495415121",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Annapurna Bhojanalaya",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12495427253",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Archies",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12639638609",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Babu Ram Devi Dayal",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/12639638632",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sharma Milk Point",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12718410901",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Vagabond by Saffron",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12752242099",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chillax And Relax",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12759227341",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Delhi University Women's Association Souvenir Shop",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12896534719",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flavours of Chaap",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12896614406",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dayal Da Dhaba",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12896633913",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Manu Art Gallery",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12989819007",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Partition Museum",
+    "popularity": 0.501
+  },
+  {
+    "id": "osm:node/12993334150",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kalandak Rooftop",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12994356559",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tis Hazari",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:node/13042682332",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flos Music And Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13110018819",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nirula's",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/13110027571",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Oasis Baklawa",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/13110035509",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Satyawati Grocery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13110035511",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Agarwal Traders",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/13110127599",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charcha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13127356568",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Empire Cafe House",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13136033401",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nellai Annapoorna",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13137464261",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yellow house",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13335517602",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Karan South Indian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13387061707",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13387065426",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Indus Flavour",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13447585295",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mocha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13447601864",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ganpati Chole Bhature",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13447614053",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Darshini Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13447987233",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Po",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13457483764",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13457483767",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/13457483771",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Delish Mama",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13462006001",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kalsang",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13534261384",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13543967106",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Masson's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13543967197",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Meltora",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13566044186",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Barbeque Nation",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13566044188",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gift Studio",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13566076286",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mishran",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13566077528",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gelato and Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13566101977",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chote Lal Tea Store",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13566117905",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Puri Bakers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13566176413",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kayosm",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13566176417",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dashi Dimsum & Sushi Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13566176433",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Womancart Luxe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13568834273",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The King Royal Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13568834325",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "KofiKafi",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13568849204",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Chain Chulha",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13569891601",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mirabai Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13575135701",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gola Sizzlers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13640635882",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Eleven Course",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13640908050",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zero Degrees",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13644931603",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gangaur Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13644931615",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Eden's Home Concept",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13644931641",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Monnta Cafe & Restro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13644931683",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Frontier",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264747",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DU Diaries",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264749",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Let's Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264756",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tealogy Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264769",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Organic Chai Wallah",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264771",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sudershan",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264783",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bread & Sippp",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13645264787",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chai Bay",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13664207180",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Saint Jude Thaddeus Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13671007998",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chaayos",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13671008000",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistro 87",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13691559694",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Udupi Krishna",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13691615116",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Softyboy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13722738063",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tea Stall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13739518601",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Steve and Dodo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13830835376",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dhamija Collection",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13830892501",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Navratan Tea Stall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13904238292",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brew Berry Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1402114314",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Picnic Hut",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14057544001",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Trikona park",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/14070731115",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Narang Gift House",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14082118656",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adyar Ananda Bhavan",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14082118657",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bikanervala",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093702367",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistro 57",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093702368",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste of Tibet",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093702372",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Roll Express",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093702374",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Diana Cold Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14093702382",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr. Crust",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14101601590",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Broma",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14105308762",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boba Bhai",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14105308770",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Decent",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14105308778",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "736 AD",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14105308784",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Urban Jungle",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314023",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Berco's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314036",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sethi's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314037",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Galaxy Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314039",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Black Panther",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314040",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Master Bakers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314042",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Paparizza",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314048",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr. Crust",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314081",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "V4U",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314082",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "League of Nations",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314094",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sambookas",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107314099",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Delifrance",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341401",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "QD",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341405",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bagheera",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341406",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Welcome Boss",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341408",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Araba Coffee",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341417",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mute",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341426",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Silent Burr",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341448",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Telegram",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341455",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Indus Flavour",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14107341466",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kawaii",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14188781504",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Bleau",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14292547980",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "5 Taara",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/1431224461",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Juice",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1563325267",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nathus Sweets",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1563325307",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bengali Sweet House",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1669067086",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shankar Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1940318533",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Madan Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2106101596",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Karim's",
+    "popularity": 0.401
+  },
+  {
+    "id": "osm:node/2106110096",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pandit Kanhaiya Lal Durga Prashad Dixit Paranthe Wala",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/2210990632",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "sam",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2410180166",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/2445994140",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jogger's Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2445994438",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Central Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2446006349",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Haathi Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2446007242",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sita Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2592537223",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hira Sweets",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2592537225",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sayam Roof Top Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2702748543",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lahori Gate",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:node/2709534496",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Keshav Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2714430425",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Telegraph Memorial",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/2714497362",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Raziya Begum's Tomb",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2714555470",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kunwari Begum ka Burj",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2722906932",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ghata Masjid",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2837341338",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "East Patel Nagar",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:node/2934400029",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Shanker's International Doll Museum",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:node/2940449157",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ajitgarh",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:node/2940449158",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ashoka Pillar",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:node/2940614717",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pir Ghaib",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2940758785",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shah Wajid Mosque",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2962182563",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "National Children Museum",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/2981346624",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Graveyard",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2981414567",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Graves",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3242109751",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Madras Coffee House",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3268595170",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Meena Bazaar",
+    "popularity": 0.289
+  },
+  {
+    "id": "osm:node/3476217443",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Big Yellow Door",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3555955507",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miglani restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3704734413",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Nando's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3991742063",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "OMG Bar & Kitchen",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3991743216",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bahi Mati Dass museum",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/4052563405",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "kamla market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4069815728",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Colonnade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4209873991",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Imly",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4211994391",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Malhotra",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4219631340",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sam's Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4241254891",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/4262365091",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Festa Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4336565091",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kitchen Cafe Roof Top",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4336790092",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café office office",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4338129371",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Barbeque Nation",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4350455497",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sam's bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4391613189",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rajdhani",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4401493065",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Neelam Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4460479219",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fa Yian The Chinese Restaurant",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4476183091",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "PAR Tech. Cyber Cafe",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/4565027989",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wow Cafe",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4654555590",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "U-Like",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4656714717",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "NATRAJ restaurant",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4679882984",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Biryani Blues",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4710013193",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kaliva sweets and restaurant",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4710053589",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bikanerwala Sweet",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4710053689",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bikanervala  Sweet",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4710074292",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shiv misthan Bander",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4710222498",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aljawahir",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4711298789",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bengali Sweet house & Pastry",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4711354394",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Janta Sweets ( kashori samosa)",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4715157790",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Malabar Hotel",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4715157791",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotel Madras Dx",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4752292921",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Everest Bakery Cafe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4772064342",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Safari Restro Lounge",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4772753924",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rishi Vaishno Dhaba",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4799120034",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adyar Ananda Bhavan",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4857522521",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Everest kitchen",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4881470724",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Shankar's Doll Museum",
+    "popularity": 0.195
+  },
+  {
+    "id": "osm:node/4882164023",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chaayos",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4893145422",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shri Krishna Daba",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4897911422",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "My Bar",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:node/4959734022",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kovil",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4984196226",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gazebo by the Lake",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4984199234",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gazebo by the Hillock",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4985058921",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Thalee",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/5005710330",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tafree",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5017491421",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza Hut",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5017912424",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mughlai Junction",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/5068243449",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Narian manzil Mini garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5109849421",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Immigrant Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5126547839",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "GB Road",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5143628924",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ingerpuri",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5143628925",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Kake di Hatti",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/5389381021",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Snooker tashi",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/5419789350",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "AMA Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5521617170",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Barbeque Nation",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5545575720",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Khadi India",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5644078224",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Walled City",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5647754113",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chili's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5647754300",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Chaayos",
+    "popularity": 0.144
+  },
+  {
+    "id": "osm:node/5649286023",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Salaam Balaak Trust",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/5656397310",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rodeo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5656398300",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dhoomimal Gallery",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/5658411221",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Madame Tussaud’s Museum",
+    "popularity": 0.417
+  },
+  {
+    "id": "osm:node/5732543220",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5784310848",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Si Nonna's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5784312104",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Xero Degrees",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5839835585",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "goats market",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/5841372887",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "भारतीय राष्ट्रीय विज्ञान अकादमी",
+    "popularity": 0.501
+  },
+  {
+    "id": "osm:node/5977002497",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Karachi Bakery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5995059734",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bawarchi khana",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6021411485",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jain coffee house",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6073119985",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Junkyard Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6094909115",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Grand Singh restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/611105438",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "MyBar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161689895",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Excuse Me Boss",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161689896",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "United Coffee House",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161690587",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wagh Bakri Tea Lounge",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161690690",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kill The Bill",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161987877",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Sandoz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161987878",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hard Rock Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6161987883",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Local",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6187928085",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mittal Teas",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6203987736",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6223280149",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yamuna Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6225479823",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6278106187",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotmess",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6419518541",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sardarji Bakhsh Coffee and Company",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6419518544",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Crypto Door",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6470072751",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Free Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6495330860",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/6495330876",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Zen",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6495346838",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Big Chill",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6566966468",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "OTB Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6633282287",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "빨래",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:node/6657141286",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistrot 55",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6707994776",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shake Square",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6734411085",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Open Hand Cafe (top top ;)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6799103996",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cannon",
+    "popularity": 0.233
+  },
+  {
+    "id": "osm:node/7041400209",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sandoz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7043098989",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Museum of Musical Instruments",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/7083796923",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Caffè Tonino",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7083916145",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hashery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7110019814",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "National Restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7222985985",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Singh’s café & restaurant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7389579738",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "market place",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7514577467",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Freedom-Struggle Museum",
+    "popularity": 0.239
+  },
+  {
+    "id": "osm:node/8151189592",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Govardhan Vegetarian",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8241891434",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Dashi",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/8509374244",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blackmail lounge&Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8916577176",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Shyam Bakery",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8916577192",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rohan Hotel",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/8916737861",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Manish Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8985017288",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bablu Kebab Shop",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8985481421",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shiv Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8985586579",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Master Cakes and Sweets",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8985863062",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Big Bazaar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8987610244",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Laaltein",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8989461713",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charkhi Wala Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9037075911",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Plum",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9239861671",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blues",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9239861673",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Castle's Barbeque",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9239861674",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste of China",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9279741260",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brown Sugar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9378736182",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Talli Station Rajendra Place",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/938523891",
+    "categories": [
+      "landmark",
+      "monument"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Diwan-e-Aam",
+    "popularity": 0.495
+  },
+  {
+    "id": "osm:node/9952989417",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe Coffee Day",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/3926057",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Jama Masjid",
+    "popularity": 0.713
+  },
+  {
+    "id": "osm:relation/5246853",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wholesale Spice Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/103850013",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "William Fraser's Bungalow/Office of CAO, Northern Railway",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/1121647750",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Fariha Jame Mosque",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:way/1136942137",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Front Lawn",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1137558567",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jai Prakash Yantra",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/1161756184",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shri Guru Nanak Vatika",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/1162855915",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Meena Bazaar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1233269501",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Warehouse Café",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/123406193",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tooti Chowk (Subzi Mandi)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1251938032",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Openhouse Cafe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1252056678",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafe MRP",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1252224959",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chai 24/7",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1265084174",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chetak Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1274070899",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dargah Peer Banwasi Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1274531606",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kamla Nehru Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1279460301",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Pandit Ramkeval Mishra Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1306328982",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "My Bar Square",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1306328990",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Third Wave Coffee Roasters",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1317316786",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "New Delhi Municipal Corporation Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1320954787",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shiv Vatika",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1348458206",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Doctor Ambedkar National Memorial",
+    "popularity": 0.417
+  },
+  {
+    "id": "osm:way/1350182598",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sukhmani Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1350182694",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Japji Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1350609527",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Wadhwa Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1364873684",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jalan Market",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/1377216730",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bagh Diwar Sabzi Mandi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1381609927",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chowdhury Ramji Lal Chawri Vatika",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1386084972",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kali Bari Marg Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1410331570",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flagstaff Tower",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/1413438938",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shahi Masjid",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1448399385",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Raj Ghat",
+    "popularity": 0.479
+  },
+  {
+    "id": "osm:way/1448399387",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kisan Ghat",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/1448399391",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shantivan",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/1454838166",
+    "categories": [
+      "market",
+      "landmark"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Mahilla Haat",
+    "popularity": 0.19
+  },
+  {
+    "id": "osm:way/1463700048",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shri Krishna Dhaba",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1475265592",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sagar Ratna",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/1482472717",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Namah 25° north Xpress",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1490254293",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Koja",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1490254306",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sopa Kitchen",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1493039982",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Blue Tokai Coffee Roasters",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:way/1493860109",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Janpath Old Mini Market",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1494117348",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Charti Lal Goel Heritage Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1510743786",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tan Coffee",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/1513777624",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Old Magazine Gate",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1513777993",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Old Magazine Gate",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1537377155",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tripolia Gate (North)",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/1544845574",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Sudama Tea stall",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1552351164",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flag Pole",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1552351165",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tuck Shop",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/155441683",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shalimar Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1561323611",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "India's First Carbon Garden",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/223456559",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Jantar Mantar",
+    "popularity": 0.617
+  },
+  {
+    "id": "osm:way/231369851",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chawla Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/231414759",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Prasad Nagar Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/264863907",
+    "categories": [
+      "castle",
+      "landmark"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Red Fort",
+    "popularity": 0.731
+  },
+  {
+    "id": "osm:way/264904087",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dilli Chalo Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/265824675",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dara Shikoh Library",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/265972476",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "City Wall South of Daryaganj",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/266768779",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Purdah Bagh",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/276480531",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vaishnavi DDA Park & Nursery",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/278577239",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gole Market",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/289694487",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shaheedi Park",
+    "popularity": 0.256
+  },
+  {
+    "id": "osm:way/289747212",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Deen Dayal Upadhyay Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/289912655",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gandhi Darshan",
+    "popularity": 0.184
+  },
+  {
+    "id": "osm:way/290559810",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Roshanara Bagh",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/291408836",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DDA Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/320348674",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Central Baptist Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/320353008",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zafar Mahal",
+    "popularity": 0.245
+  },
+  {
+    "id": "osm:way/348991854",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "IGDTUW Playground",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/351418767",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "National Gandhi Museum",
+    "popularity": 0.279
+  },
+  {
+    "id": "osm:way/351621253",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tripolia Gate (South)",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/357288762",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sita Mata Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/437448251",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jhandewalan Extension Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/464253915",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lok Nayak Jaya Prakash Narayan Memorial Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/464312287",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Punjabi Dhaba",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/464312321",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Omaxe Mall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/470210367",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nanak Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/470210368",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chatri Wala Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/470211702",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jhule Wala Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/470211705",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Train Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/473647188",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ratan Wala Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/485053607",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palika Park",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/485053609",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "National Charkha Museum",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/487680014",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "B Block Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/487680015",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Small Park, B Block",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/487680016",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Central Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/499889060",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Baba Baghel Sikh Museum",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/500411689",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Agrasen ki Baoli",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/500413797",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ram Yantra",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/509140348",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Spark Mall",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/510048484",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tomb Premesis",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/544708860",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rock Garden",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/553845693",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Talkatora Gardens",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/628961520",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vice Chancellor's Lawn",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/637962999",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "azad park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/637963022",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mahavir Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/637963025",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "green space",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/637964008",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "central park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/655602863",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "durga park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/656792169",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nadiya Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/660683718",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "tikona park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/665150686",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ambedkar Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/665150687",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pusa Harit Kranti Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/685855130",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Park No 2",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/685855823",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Park No 3",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/691050189",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "EDMC Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/698892682",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shahi Burj",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/700293873",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mandi House Gol Chakkar Park",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/700293882",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bengali Market Park",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/700305761",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "RWA Central Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/700310538",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "BK Ganjoo Memorial Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/707596728",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lala Murlidhar Kawad Park",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/707860003",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ankur Park",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/751275343",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Doctor Shyama Prasad Mukherjee Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/77967766",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "CH Lekharam Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/78154704",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Janak Vatika",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/78154942",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ashoka Garden",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/78164714",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Radhe Lal Park",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/793211979",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "St. Mary's Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/80429793",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hindi Park",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/80429830",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Diwan-e-Khaas",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/80429900",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Naubat Khana",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/80429907",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lahori Gate",
+    "popularity": 0.444
+  },
+  {
+    "id": "osm:way/80429915",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rang Mahal",
+    "popularity": 0.395
+  },
+  {
+    "id": "osm:way/80431096",
+    "categories": [
+      "castle",
+      "landmark"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Salimgarh Fort",
+    "popularity": 0.495
+  },
+  {
+    "id": "osm:way/80926769",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sacred Heart Catholic Cathedral",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/80936826",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ajmal Khan Park",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:way/80940704",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Kaccha Bagh",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:way/817913102",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Park  Z-Type",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/818318810",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Legha Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/851773077",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kohli Vatika",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/87354076",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Saint James' Anglican Church",
+    "popularity": 0.569
+  },
+  {
+    "id": "osm:way/970800863",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Private Park",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/970800872",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Temple Grounds",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/970867252",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Teacher's Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/970872139",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DDA Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/970876932",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aarush Garg Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/970876934",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Uma Park",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/971502571",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Murli Wala Kuan Sabzi Bazar",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:way/97230893",
+    "categories": [
+      "castle",
+      "landmark"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Kotla Firoz Shah Ruins",
+    "popularity": 0.59
+  },
+  {
+    "id": "osm:way/97230898",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kotla Firoz Shah Palace",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:way/97230899",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Baoli",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/973086049",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ajmeri Gate",
+    "popularity": 0.34
+  },
+  {
+    "id": "osm:way/973086053",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Turkman Gate",
+    "popularity": 0.389
+  },
+  {
+    "id": "osm:way/973086054",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Delhi Gate",
+    "popularity": 0.544
+  },
+  {
+    "id": "osm:way/991702386",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "INR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Maharaja Agrasen Park",
+    "popularity": 0.0
+  }
+]

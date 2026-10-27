@@ -1,0 +1,8510 @@
+[
+  {
+    "id": "osm:node/10009627750",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Esperança",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10024143435",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hello Beijing",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10130721867",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Seher Palace",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10137428117",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Street art - Draw & Ergo Bandits",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/10143222648",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pica-Pau",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10266002762",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Padaria Tempo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10269538904",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taberna Albricoque",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10272443948",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cervejaria Bairrada",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10314946512",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cerveja Canil",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10314946513",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Café Wundergarten",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10579116114",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Matta",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10586552200",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mercado da Baixa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10589770061",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O Adriano",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10589895280",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafetaria Nando",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10592195805",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Yaso Lamen & Gyoza Saldanha",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10599701437",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Papillon",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10693990906",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bom Apetite",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11017534007",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Chez Boulle",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11046690096",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Minha Avó",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11065030230",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fala Barato",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11105597119",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Gulden Draak",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/11128529005",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fonte da pipa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11169197029",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Torra Roasting & Coffee",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11245940100",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Boulangerie - Lapa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11256938140",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "WC/BD",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/11275669126",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Radhe Krishna",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11288404421",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Folks",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11307420569",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bacaro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11400954272",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kabuki",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11404332160",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Montra de Almada",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11478489439",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Veramente",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11582750237",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Titanic Sur Mer",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11584433282",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Primorosa de Alvalade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11598838933",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boubou's",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11616234969",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brazilian Concept",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11642322839",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Onigiri-A",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11690657412",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11694583076",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Starbucks",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11756475969",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Oji",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/11781131701",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Leitaria Brasil",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11802163687",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Oficina da Carne",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11849844099",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Forno Emilia",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11849930082",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante OK",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11849930093",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cantinho do Sorriso",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11869392792",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cantarinha Beirão",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11871552875",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Grilo Beato",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11871552876",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Conventu's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11872158073",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Bayou",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11873000102",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ehal Bistro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11873071441",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "zaafran",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11873791036",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "São Luís",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11873857889",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "De Bolos",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11875228203",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Curva",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11876716264",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casa nossa senhora do rosário",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11878608378",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mesa do Bairro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11881545867",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pak Lok Tak",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11882458904",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Empanadas MBQ",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11884174695",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Tasca do Manel",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11884282837",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casa Dona Rosita",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11884789654",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adega Popular 33",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11885054779",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tasca do Miguel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11887169584",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ribeirinha de Alcântara",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11887169585",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O Alves",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11887453984",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mascote do Sacramento",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11892515106",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Simpli coffee",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/11893446120",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Marias de Vinho Tinto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11893807940",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Antiguidades Canapé",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/11894754013",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Missionários de Espírito Santo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11895371681",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pão da Ribeira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11895987299",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Francesinha do Bairro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11927777214",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hamburgueria 21",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11927777242",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Xiang - Comida Tradicional Chinesa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1194938018",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "1º de Maio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11964868512",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Melhor Croissant da Minha Rua",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11969098897",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Prego Da Piexaria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/11985343569",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Honest Greens",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12014583421",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Caffé di Marzano Vermuteira",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12020561835",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Centro Comercial Sol",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12077024461",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cantina do Cellar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12134354644",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Tati",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12138604800",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hygge House (Baixa)",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/12177117321",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Panificadora do Areeiro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12193459201",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Milkman",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12209366631",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Jeronymo Riverside",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12209621658",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sajna",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12228438800",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Portugues traditional azulejos and cork store",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12246404901",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "IF IF IF",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12246701088",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cister",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12248358997",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Leitaria Tejo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12258423413",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rosetta's",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1225927073",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Padaria Portuguesa",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12296974466",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cervejaria Cais Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12302117860",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Shun - Open Kitchen",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12302117880",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "La Bottega di Gio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12302117890",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "de além mar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12304698514",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Empanadas de Maxi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12306830545",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Amélia Lisboa",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12307074413",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pasteleria mirante",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307074423",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "(Sin nombre)",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307102128",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "sabores da penha",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12307130585",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Primavera",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12307145702",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sumaya",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12307812625",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fatucha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12309850256",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "cafetaria bombom",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12312306942",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mini Copa",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12312633202",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Templo da Restauração",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12314098141",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ardina Caffé",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12314098158",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boa Kitchens",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12314202054",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mariposa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12314206279",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kebab Amin",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12314505556",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sol e Sombra",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12316430101",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Sol",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12319024740",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pastelaria Nanda",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12319469104",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Que Pasa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12320177372",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DR. Croissant",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12320495059",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Peixola",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12320497493",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The room",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12320497497",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Galeria Municipak da Mitra",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12320744311",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Real Honda's Ramen",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12323339275",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mural dos tubarões de Marvila",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12323339276",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "MAD Gallery",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/12323348855",
+    "categories": [
+      "restaurant",
+      "cafe"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Bar Ajuda",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12323438488",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Rebel Asian",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12323799002",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Grupeto Bike Café CAIS",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/12329523385",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Folks",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12329523393",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Maison Belle",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12352005356",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bali no Cais",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12354242277",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Planalto",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/12355103581",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Coringa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12376613329",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja Fruto da Oliveira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12378712525",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Garage Ristorante Pizzeria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12390460792",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "alperce",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12667420216",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hachi の Kare-ya!",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/12769849985",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Santa Joana",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12810457202",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "TGB: The Good Burger",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12812528106",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Fam Kitchen",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1284045623",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Capoeira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12889545362",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Han Table Barbecue",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12914036331",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Seara Verde",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1294645908",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Tia Matilde",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12971340008",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Индийский",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/12972114472",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Salsifré",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13004827105",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O Portas",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13028535454",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Defuse Cafe",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/13056898901",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chato",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13147060224",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tasca do Husil",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13147064226",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bullguer",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13147938981",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Dias dos Caracóis",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13159427179",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Selllva",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13174527080",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 8.0,
+      "currency": "EUR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Museu de São Roque",
+    "popularity": 0.283
+  },
+  {
+    "id": "osm:node/13184668744",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Josefino Pizza",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13191058101",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taberna Sal Grasso São Bento",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13261222201",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Blue Fantasy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13343189801",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Antonia Petiscos Portuguese",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/13439821065",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13689129601",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "XXL Lisbon Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13730643068",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Boteco do Baiano",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/13838994601",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mercedes-Benz Oceanic Lounge / Dolphin watching tour",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/13935077049",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bicho do Mato - Restaurante",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14045474701",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Put It On Lisbon",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/14143368301",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Gaúcha",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14144299403",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Inception Specialty Coffee & Specialty Brunch",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14276868548",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Madam Bō",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14287338675",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Daily Dose",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/14300934353",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ammazza!",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/14305758145",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Balança",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1468380139",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Lagar do Xisto",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1468392632",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Baloiço",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1743801705",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bora-Bora",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1941632384",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yes",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/1952693681",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Cevicheria",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/1987677520",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O Polícia",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2003531113",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "sKones",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2066948684",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Eric Kayser",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/207597971",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Alfama",
+    "popularity": 0.311
+  },
+  {
+    "id": "osm:node/2146523275",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miradouro da Casa da Cerca",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/2156327904",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Último Porto",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2210005491",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria Danubio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2234481734",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Doca do Peixe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2361431799",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Núcleo Medieval Moderno",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:node/2368339127",
+    "categories": [
+      "monument"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Monumento à Multiculturalidade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2446054144",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante \"O Táxi\"",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2458246798",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Flórida do Areeiro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2473989529",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Choupana Caffe",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2474724210",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "A Muralha Tasca Tipica",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2503425772",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ginginha do Carmo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2505381524",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zambeze",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2518995669",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tertúlia Maravilha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2536621721",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Memória",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2536621725",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "NUKO",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2536815895",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sol Brasil",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2577016516",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Tentadora",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2589281364",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Quiosque das Amoreiras",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2607963678",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Musicbox",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2609607222",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Galeria Municipal de Arte",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/2643049324",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria Barrosã",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2758771047",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Solar Beirão",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2760634914",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cova Funda",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2782179211",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Laranjinha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2889413561",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Internacional",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2931441117",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Carmo",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/2933990242",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adega da Mó",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/2949661487",
+    "categories": [
+      "restaurant",
+      "cafe"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cozinha d'Avó Celeste",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/2949661490",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dama e Vagabundo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3101149571",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "The Food Temple",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/3156214509",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Casa de Pasto São Sebastião",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3203198795",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Metropolitan Caffé",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3232293866",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Liverpool",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3243165812",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Churrasqueira Riviera",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3243165820",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Arroz Sem Piedade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3280298607",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Regresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3283996706",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Villa Caffè",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3298617683",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pérola do Cristo Rei",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/3298617724",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chaparral",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3304669368",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Dragão Azul",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3304669385",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sal Grelha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3304669451",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Tasca do Zé",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3314735069",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Cerca",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3328718649",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Canoa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3340450781",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Golfinho",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3343875409",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Os Unidos",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3376597067",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Churrasqueira Delícia de São Domingos de Benfica",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3377697824",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sofapa - Sociedade Fabril de Panificação, LDA",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3392888770",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Simplesmente Pizza Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3403816734",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Claras em Castelo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3403816735",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Restaurant Cerqueira",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/3441172490",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Carlos dos Frangos",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3441173695",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lagoa Azul",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3450698419",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Xandite",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3450698430",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mr. Masala",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3450698451",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Trapo Azul",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3530687934",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Margem Sul Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3551225137",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Malo caffe",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3575235694",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Triángulo da Ribeira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3642925341",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Quiosque Avenida de Roma",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3669256654",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Valdo Gatti",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/3756021430",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Sardinha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3762547874",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Santa Marta",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3800186767",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Doce Albatroz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3818779757",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flor do Rego",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3830138590",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Celeiro do Calhariz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/3884624760",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tacos e Burritos",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4010894702",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Orthodox Church",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4104977571",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria D. Filipa de Vilhena",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4107748435",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pomme Eatery",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4227113889",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Restaurante yak and yeti",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4231508456",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Volta dos Sabores",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4292149891",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Prazeres da Picanha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4301738645",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Esquina da Fé",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4312017989",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tatu",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4320825289",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tanite",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4355929807",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café do Rio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4355939830",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bistro Gato Pardo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4361839890",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Delidelux",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4368486838",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Pastelaria Santa Cruz",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4374485378",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Bus",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4383338489",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Fabrica Coffee Roasters",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4404632410",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Grande Palácio de Hong Kong",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4416857831",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Copenhagen",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4417975391",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Marisqueria",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4425409091",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Check In",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4472023285",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miradouro do Largo Trindade Coelho",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/4474286989",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "India Gate",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4548015245",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chicken Piri Piri",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4563630589",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Rubro Avenida",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/4569935591",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Paleio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4574595189",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mona",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4585688514",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Favela Lx",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4612094392",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sr. Fado",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4658437789",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Skybar Seen by Olivier",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4692271425",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rosa Da Bica",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4692271836",
+    "categories": [
+      "nightclub"
+    ],
+    "typical_duration_minutes": 150,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Posh Club Lisbon",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4692271884",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Kenji by Katsuo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4692791805",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "151 da Rosa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4696453435",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miss Jappa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4703791802",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante O Freixo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4703791881",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cafetaria Pampulha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4727712111",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Namur",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/474976351",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Brown's Bistro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4753551921",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "The Old Pharmacy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4753650322",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar do Ricardo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4757003421",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Praca",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4768318522",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casa Liège",
+    "popularity": 0.168
+  },
+  {
+    "id": "osm:node/4771391278",
+    "categories": [
+      "viewpoint",
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miradouro do Torel",
+    "popularity": 0.417
+  },
+  {
+    "id": "osm:node/4771408880",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miradouro do Carmo",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/4773880682",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "AronSushi",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4781638130",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste Me Café",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4799785783",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Flor de Arroios",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4799785787",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Snack Bar Nepali",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4802190723",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ground Burger",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/4808145123",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Restaurante Zé Dos Cornos",
+    "popularity": 0.144
+  },
+  {
+    "id": "osm:node/4824117990",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Charrete",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4824120232",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Grill'n'Chill",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4824205762",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cabana do Chile",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4829695778",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Capim Limão",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4840804463",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Floresta da Estefânia",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4841373022",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casinha Boutique Cafe",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/4853563821",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "known"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Museu da Sociedade de Geografia de Lisboa",
+    "popularity": 0.351
+  },
+  {
+    "id": "osm:node/4854554522",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Adega do Tagarro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4856251410",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bica e Água",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4872600421",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tágide Wine & Tapas Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/490185689",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Adega da Condessa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/490185698",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Carioca da Trindade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4917825406",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "À Parte Lounge",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/4925299223",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tanaka Sushi",
+    "popularity": 0.139
+  },
+  {
+    "id": "osm:node/4974769022",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Há Café No Alfarrabista",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/4983904342",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Duetos da Sé",
+    "popularity": 0.095
+  },
+  {
+    "id": "osm:node/4986521252",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chapitô",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5018721322",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Buffet Leão",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5068291723",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Café Parreirinha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5070392852",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "O Bom Café",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5081504524",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Choco & Mousse",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5090471913",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante - Cafetaria do Museu de São Roque",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5135844621",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Macau Dim Sum",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5144720865",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Frankie Saldanha",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/5218043470",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aziz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5233891508",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Café Limiana",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5233895368",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pho Ha Noi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5262931679",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Tendinha Arganilense",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5296274247",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ponte Velha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/530674344",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bar Charh",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5371196534",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hamburgueria Portuguesa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5418292665",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Taste of Everest",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5427721797",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Restaurante Colina",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/5438138421",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Ruca",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5448423386",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim sobre a Fonte Monumental - Alameda Dom Afonso Henriques",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5470684988",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Árvore de fogo",
+    "popularity": 0.211
+  },
+  {
+    "id": "osm:node/5489706639",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "El  Bulo Social Club",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5516250321",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lavazza",
+    "popularity": 0.084
+  },
+  {
+    "id": "osm:node/5518015410",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bela",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5760208371",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Galeria de Arte Beltrão Coelho",
+    "popularity": 0.256
+  },
+  {
+    "id": "osm:node/5781984990",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bacalhau DOC",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5782234039",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Restaurante Coradinho",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5884229542",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Campinas",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/5929732689",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ginjinha Das Gaveas",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/5948470586",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Arte da Terra",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6008664705",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Grilled and Company",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6110156037",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Má Língua",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6122307332",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Katana Sushi Santos",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6124520285",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "My Mother's Daughter",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6131309986",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Suave Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6206342999",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lisbon Café - Shisha Bar",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6206754987",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Cafetaria Estádio Universitário",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6216037596",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de Nossa Senhora do Rosário",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6326009249",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria Pato Real",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6326669586",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Faz Frio",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6366304914",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Brew",
+    "popularity": 0.101
+  },
+  {
+    "id": "osm:node/6414367075",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Zona Coberta com Mesa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6431165346",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pastelaria O Regresso",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6431619597",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Leitaria",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6434331785",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Acarajé do Carol",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6436616532",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bela Vista",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6436616554",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Caravela",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6436617112",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Panorama",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6438524424",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pérola de Pragal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6441102495",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "pita gourmet",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6441102496",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Apna",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6441703158",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Simpatia e Qualidade",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6441703176",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja do Poder de Deus",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6441703407",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Xandite",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6539873485",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Dr. Bernard Boavida",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6546320487",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Fishtail - restaurante nepalês e indiano",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6575376746",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "MAS Specialty Coffee & Brunch",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/6643999253",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Esplanada do Cantinho",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6663044196",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Restaurante Molha O Bico",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6670305085",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Farès",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/6704284723",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Natraj",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6720945586",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vale dos Tigres",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/6724912486",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Caneca de Prata",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/6806487336",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Local",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7090383895",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Milano",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7200000898",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Casa dos Cedros",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/7200035125",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Ajitama Ramen Bistro",
+    "popularity": 0.017
+  },
+  {
+    "id": "osm:node/7280556910",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Bacchanal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7280589453",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Quatro Estações",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/7283430642",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chiado",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7283436355",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "COPA Barafina",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7667260483",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mara, Agouti",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/7667311898",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Lémures, Hipopótamo-pigmeu",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/7683226766",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pita Gourmet",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/7975055824",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Panda Cantina",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8289383518",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Farol de Santa Luzia",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8382459620",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "We Pokē",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8382459622",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Joshua’s Shoarma",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8382459623",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capri",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8433020918",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Vincente",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8659600600",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jó-jó",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8660673033",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Antiguidades Cerqueira",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8662329365",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gurkha Restaurant & Bar II",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8662752752",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Gula's for kitchen lovers",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8664721275",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rosa de Baunilha",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8685881380",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Nood",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8687846388",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Abelha D'ouro",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8687846409",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Leiloeira Santo Eloy",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8688630333",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Food Moments",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8688630359",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Sabor das Laranjeiras",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8688630376",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Melhor Croissant da Minha Rua",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8694797460",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "A Virtuosa",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/8766243180",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cucina Amici",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/8766249143",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aki Brasil",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/886222732",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Rubro",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9174591617",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Koppu Ramen Izakaya",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9212227617",
+    "categories": [
+      "shop"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "JS Cork",
+    "popularity": 0.133
+  },
+  {
+    "id": "osm:node/9405526281",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Kaya",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9415406617",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Horacio Esteves E Justo LDA",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9415574717",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "El Cabron",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9460723974",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Tainadas",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9689364253",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "NowHere",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:node/970768059",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Torre de São Lourenço",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:node/9720189039",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Mini Café Bar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9720223744",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Cubo",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9722790142",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Remi",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9729790202",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DUK",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9729970819",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Honest Greens",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9737284118",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Alvez & Vaz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9737954957",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "O Foguete",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/9943824590",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Yallah",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/9947140718",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Marquise",
+    "popularity": 0.09
+  },
+  {
+    "id": "osm:relation/1426801",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Lavradio",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/1438586",
+    "categories": [
+      "church",
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Convento de Nossa Senhora da Encarnação",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/17408164",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio dos Condes de Penafiel",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/17506631",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Anadia",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/18073831",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Jardim High Lapa",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/20308167",
+    "categories": [
+      "church",
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Convento do Beato",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:relation/3324508",
+    "categories": [
+      "monument",
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Convento da Graça",
+    "popularity": 0.267
+  },
+  {
+    "id": "osm:relation/8131598",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim do Marquês de Marialva",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:relation/8302952",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Sobral",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/8383344",
+    "categories": [
+      "church",
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Convento das Mónicas",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:relation/8461878",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Aqueduto das Necessidades",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:relation/9631694",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim do Rio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/100609457",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de São Pedro de Alcântara",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1123088659",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio da Cova da Moura",
+    "popularity": 0.267
+  },
+  {
+    "id": "osm:way/1189777056",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Jardim do Caracol da Penha",
+    "popularity": 0.167
+  },
+  {
+    "id": "osm:way/1194682709",
+    "categories": [
+      "viewpoint"
+    ],
+    "typical_duration_minutes": 20,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Miradouro do Parque Eduardo VII",
+    "popularity": 0.111
+  },
+  {
+    "id": "osm:way/1196921875",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim Manuel Meirinho",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1196922332",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capela de São João XXIII",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1205944042",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Camarro Louge",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/1225126349",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Topo Chiado",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/1301226315",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Praça da Figueira",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/1317749306",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Praça Dom Pedro IV",
+    "popularity": 0.628
+  },
+  {
+    "id": "osm:way/1345105004",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Il Giardinetto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1374444042",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "H3 New Hamburgology",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/1419231243",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Hot Dog Lovers",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/149309259",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de Nossa Senhora de Jesus",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/163713724",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capela de Santo Amaro",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:way/172003934",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim Augusto Gil",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/188143627",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Museu Calouste Gulbenkian - Centro de Arte Moderna",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/189781497",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cais das Colunas",
+    "popularity": 0.495
+  },
+  {
+    "id": "osm:way/206020382",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja São Jorge de Arroios",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/222708086",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Largo Honório Barreto",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/238112912",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ermida de Nossa Senhora do Rosário",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:way/238557226",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim Luís Ferreira",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/243451511",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Zuru Japanese Street Food",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/254497277",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja da Santa Casa da Misericórdia de Almada",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/258759264",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jesus Cristo é o Senhor Universal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/27283581",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim Fialho de Almeida",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/272937510",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio do Machadinho",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/276243247",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palacete do Conde de Agrolongo",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/317549565",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mercado de Campo de Ourique",
+    "popularity": 0.455
+  },
+  {
+    "id": "osm:way/323689006",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Ermida Velha do Pragal",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/330664916",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mercado de São Domingos de Benfica",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/412107418",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim da Burra",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/425351222",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Salão do Reino das Testemunhas de Jeová",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/427210030",
+    "categories": [
+      "neighborhood"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Quinta do Jacinto",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/443569509",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Geomonumento da Rua Sampaio Bruno",
+    "popularity": 0.261
+  },
+  {
+    "id": "osm:way/523092854",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Olissippo Lapa Palace Hotel",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/54754719",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Cantina Velha",
+    "popularity": 0.24
+  },
+  {
+    "id": "osm:way/551157823",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capela do Colégio Universitário Pio XII",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/562920100",
+    "categories": [
+      "garden"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim da Quinta de São Lourenço",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:way/573286518",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio do Conde de Farrobo",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/579539846",
+    "categories": [
+      "garden",
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Hotel Pestana Palace",
+    "popularity": 0.506
+  },
+  {
+    "id": "osm:way/581275270",
+    "categories": [
+      "park"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Jardim do Edifício Egas Moniz",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/585944652",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chafariz de São Pedro de Alcântara",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/585949891",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chafariz da Rua do Arco a São Mamede",
+    "popularity": 0.261
+  },
+  {
+    "id": "osm:way/586624968",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chafariz da Penha de França",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:way/588966591",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Condes da Ribeira Grande",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/591059450",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio dos Copeiros-Mor",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/603233028",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Geomonumento do Parque da Bela Vista",
+    "popularity": 0.106
+  },
+  {
+    "id": "osm:way/608149630",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Chafariz da Meia-laranja",
+    "popularity": 0.1
+  },
+  {
+    "id": "osm:way/636432779",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Jeronymo",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/677181958",
+    "categories": [
+      "landmark"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Praça do Comércio",
+    "popularity": 0.796
+  },
+  {
+    "id": "osm:way/678805876",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Quiosque do Arco do Cego",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:way/938457971",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Arcadas da Boa Hora",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/96299647",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casa do Alentejo",
+    "popularity": 0.422
+  },
+  {
+    "id": "osm:way/96306192",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Flor de São Mamede",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/96321716",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Museu Nacional de Arte Contemporânea - Museu do Chiado",
+    "popularity": 0.59
+  },
+  {
+    "id": "osm:way/96359436",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Capela de Nossa Senhora de Monserrate",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/96359444",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de São Mamede",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/96497160",
+    "categories": [
+      "museum"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Museu Militar de Lisboa",
+    "popularity": 0.428
+  },
+  {
+    "id": "osm:way/96502783",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Praia e Monforte",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/96715414",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Dona Ajuda",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:way/96758889",
+    "categories": [
+      "market"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mercado de Santa Clara",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/96758906",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de Santa Cruz do Castelo",
+    "popularity": 0.317
+  },
+  {
+    "id": "osm:way/96851680",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Massimo Dutti",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/97042744",
+    "categories": [
+      "castle"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palacete do Visconde de Santo Ambrósio",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:way/97821487",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja do Convento de Santo António",
+    "popularity": 0.156
+  },
+  {
+    "id": "osm:way/98045026",
+    "categories": [
+      "church"
+    ],
+    "typical_duration_minutes": 30,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "inferred"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Igreja de São Luís da Pena",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/98389345",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio da Calçada de Santana",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/98544532",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Casa Lambertini",
+    "popularity": 0.161
+  },
+  {
+    "id": "osm:way/99714017",
+    "categories": [
+      "palace"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Palácio Sinel de Cordes",
+    "popularity": 0.311
+  }
+]

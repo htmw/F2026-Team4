@@ -1,0 +1,24 @@
+{
+  "key": "hyderabad-in",
+  "name": "Hyderabad",
+  "country": "IN",
+  "country_name": "India",
+  "aliases": [
+    "Hyderabad",
+    "Hyderabad, Telangana, India"
+  ],
+  "lat": 17.360589,
+  "lon": 78.4740613,
+  "bbox": [
+    17.31567344125045,
+    78.42700199205265,
+    17.405504558749552,
+    78.52112060794735
+  ],
+  "bbox_source": "explicit",
+  "currency": "INR",
+  "places": 385,
+  "built_at": "2026-10-25T19:14:01+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}
