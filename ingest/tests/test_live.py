@@ -235,4 +235,5 @@ def test_a_restaurant_gets_a_typical_price_and_the_plan_says_it_is_an_estimate(o
     itinerary = plan("Porto").json()
 
     assert itinerary["days"][0]["items"][0]["cost"] == 25.0
+    assert itinerary["days"][0]["items"][0]["cost_confidence"] == "inferred"
     assert any("typical estimates" in w for w in itinerary["warnings"])

@@ -59,6 +59,7 @@
           }
         },
         "cost": { "type": "number", "minimum": 0 },
+        "cost_confidence": { "$ref": "#/$defs/confidence" },
         "reason": { "type": "string" },
         "confidence": { "$ref": "#/$defs/confidence" }
       }
