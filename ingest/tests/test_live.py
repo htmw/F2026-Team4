@@ -219,3 +219,20 @@ def test_an_empty_refresh_keeps_the_old_city(osm, monkeypatch):
 
 def test_lisbon_is_shown_with_its_country_name():
     assert plan("Lisbon").json()["destination"]["name"] == "Lisbon, Portugal"
+
+
+def test_a_restaurant_gets_a_typical_price_and_the_plan_says_it_is_an_estimate(osm, monkeypatch):
+    restaurant = {
+        "type": "node",
+        "id": 2,
+        "lat": 41.1460,
+        "lon": -8.6112,
+        "tags": {"name": "Café Santiago", "amenity": "restaurant"},
+    }
+    monkeypatch.setattr(
+        catalog, "http_post", lambda *a, **kw: FakeResponse({"elements": [restaurant]})
+    )
+    itinerary = plan("Porto").json()
+
+    assert itinerary["days"][0]["items"][0]["cost"] == 25.0
+    assert any("typical estimates" in w for w in itinerary["warnings"])

@@ -84,7 +84,7 @@ Never label a guess `known`.
 | Field | `known` | `inferred` | `unknown` |
 |-------|---------|------------|-----------|
 | `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag (category default), or a curated entry with only secondary sources | tag present but outside the supported syntax |
-| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...) | `fee=yes` without an amount, ambiguous charge, or no data |
+| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...), or a typical price per person for a restaurant, cafe, bar or ticketed sight in that currency (`TYPICAL_PRICE` in `cost.py`) | `fee=yes` without an amount, ambiguous charge, or no data |
 
 The hours parser is strict on purpose: if any part of the string is not understood, the whole
 value is `unknown` instead of half guessed. `PH` and `SH` (holiday) rules are skipped because

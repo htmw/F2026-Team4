@@ -251,6 +251,6 @@ def _cost_label(place: dict, signals: dict) -> str:
     if cost["confidence"] == "known":
         return "charge_parsed" if cost["amount"] > 0 else "fee_free"
     if cost["confidence"] == "inferred":
-        return "default_free"
+        return "typical_price" if cost["amount"] > 0 else "default_free"
     status = signals.get("cost_status")
     return status if status in {"fee_amount_missing", "charge_ambiguous"} else "no_data"
