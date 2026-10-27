@@ -22,7 +22,7 @@ FEATURE_NAMES: list[str] = [
     "interest_match_avg",   # same, averaged over the interests the place touches
     "popularity",           # 0..1 how popular the place is
     "rating_norm",          # rating / 5
-    "price",                # ticket/cost amount
+    "price_ratio",             # ticket/cost amount
     "price_fits_budget",    # 1 if cheap relative to budget, else 0
     "duration_norm",        # typical visit length / 240 min
     "hours_known",          # 1 if opening hours are verified data
@@ -60,7 +60,9 @@ def extract_features(place: dict, profile: dict, context: dict | None = None) ->
     rating_norm = float(place.get("rating", 0.0)) / 5.0
     price = float(place["cost"]["amount"])
     budget = float(profile.get("budget", {}).get("total", 0.0)) or 1.0
-    price_fits_budget = 1.0 if price <= 0.10 * budget else 0.0
+
+    price_ratio = price / budget
+    price_fits_budget = 1.0 if price_ratio <= 0.10 else 0.0 
     duration_norm = float(place.get("typical_duration_minutes", 0)) / 240.0
     hours_known = 1.0 if place.get("hours", {}).get("confidence") == "known" else 0.0
     cost_known = 1.0 if place.get("cost", {}).get("confidence") == "known" else 0.0
@@ -72,7 +74,7 @@ def extract_features(place: dict, profile: dict, context: dict | None = None) ->
         match_avg,
         popularity,
         rating_norm,
-        price,
+        price_ratio,
         price_fits_budget,
         duration_norm,
         hours_known,
