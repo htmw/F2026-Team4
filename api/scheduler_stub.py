@@ -136,6 +136,8 @@ def plan_itinerary(
     days_out: list[dict[str, Any]] = []
     total_cost = 0.0
     unverified_hours = 0
+    estimated_prices = 0
+    unknown_prices = 0
 
     for day_date in dates:
         cursor = day_start
@@ -154,6 +156,10 @@ def plan_itinerary(
             hours_confidence = place["hours"]["confidence"]
             if hours_confidence != "known":
                 unverified_hours += 1
+            if place["cost"]["confidence"] == "inferred" and cost > 0:
+                estimated_prices += 1
+            elif place["cost"]["confidence"] == "unknown":
+                unknown_prices += 1
 
             items.append(
                 {
@@ -196,6 +202,12 @@ def plan_itinerary(
         warnings.append(
             f"Opening hours for {unverified_hours} place(s) could not be verified."
         )
+    if estimated_prices:
+        warnings.append(
+            f"Prices for {estimated_prices} place(s) are typical estimates, not real prices."
+        )
+    if unknown_prices:
+        warnings.append(f"No price is known for {unknown_prices} place(s); they show 0.")
     warnings.append(
         "Stub scheduler: travel time, opening hours and budget are not yet enforced."
     )

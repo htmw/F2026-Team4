@@ -37,8 +37,23 @@ def test_ambiguous_price_is_not_marked_known():
     assert result.status == "charge_ambiguous"
 
 
-def test_missing_price_is_unknown_for_regular_category():
-    result = parse_cost({}, ["restaurant"], "USD")
+def test_a_missing_price_gets_a_typical_estimate_never_a_known_one():
+    meal = parse_cost({}, ["restaurant"], "INR")
+    ticket = parse_cost({"fee": "yes"}, ["museum"], "EUR")
+
+    assert meal.cost == {"amount": 700.0, "currency": "INR", "confidence": "inferred"}
+    assert meal.status == "typical_price"
+    assert ticket.cost == {"amount": 12.0, "currency": "EUR", "confidence": "inferred"}
+
+
+def test_a_real_price_or_free_entry_beats_the_estimate():
+    assert parse_cost({"charge": "15 EUR"}, ["museum"], "EUR").cost["amount"] == 15.0
+    assert parse_cost({"fee": "no"}, ["museum"], "EUR").cost["amount"] == 0.0
+    assert parse_cost({}, ["park"], "INR").cost["amount"] == 0.0
+
+
+def test_without_a_typical_price_the_price_stays_unknown():
+    result = parse_cost({}, ["restaurant"], "NPR")
 
     assert result.cost["confidence"] == "unknown"
     assert result.status == "no_data"
