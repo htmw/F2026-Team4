@@ -18,24 +18,33 @@ def train_model(
     queries: list[dict] | None = None,
     out_path: Path = DEFAULT_MODEL,
     seed: int = 0,
+    validation_queries: list[dict] | None = None,
 ) -> lgb.Booster:
     """Train LambdaRank with a separate validation set."""
 
     if queries is None:
         queries = make_dataset(seed=seed)
 
-    if len(queries) < 2:
-        raise ValueError("At least two traveler queries are required.")
+    if validation_queries is not None:
+        train_queries = queries
+        val_queries = validation_queries
 
-    # Split by traveler rather than individual places.
-    rng = np.random.default_rng(seed)
-    indices = rng.permutation(len(queries))
+        if not train_queries or not val_queries:
+            raise ValueError(
+                "Training and validation queries must not be empty."
+            )
+    else:
+        if len(queries) < 2:
+            raise ValueError("At least two traveler queries are required.")
 
-    split = max(1, min(len(indices) - 1, int(len(indices) * 0.8)))
+        # Preserve the original Sprint 1 behavior.
+        rng = np.random.default_rng(seed)
+        indices = rng.permutation(len(queries))
+        split = max(1, min(len(indices) - 1, int(len(indices) * 0.8)))
 
-    train_queries = [queries[i] for i in indices[:split]]
-    val_queries = [queries[i] for i in indices[split:]]
-
+        train_queries = [queries[i] for i in indices[:split]]
+        val_queries = [queries[i] for i in indices[split:]]
+    
     x_train, y_train, group_train = to_matrix(train_queries)
     x_val, y_val, group_val = to_matrix(val_queries)
 
@@ -89,7 +98,18 @@ def train_model(
 
 
 def main() -> None:
-    booster = train_model()
+    from ingest.training import load_queries
+
+    train_queries = load_queries("train")
+    validation_queries = load_queries("validation")
+
+    print(f"Training queries: {len(train_queries)}")
+    print(f"Validation queries: {len(validation_queries)}")
+
+    booster = train_model(
+        queries=train_queries,
+        validation_queries=validation_queries,
+    )
 
     print(f"Trained LightGBM ranker -> {DEFAULT_MODEL.relative_to(ROOT)}")
     print(f"Best iteration: {booster.best_iteration}")
