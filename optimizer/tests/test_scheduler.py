@@ -217,29 +217,28 @@ def test_trip_id_is_kept_when_replanning():
 
 
 def test_strongest_interest_wins():
-    # A traveler who loves food should get the restaurant before a palace that
-    # matches two weaker interests.
+    # A traveler who loves food should get the cafe before a palace that matches
+    # two weaker interests.
     profile = deepcopy(PROFILE)
     profile["interests"] = {"food": 0.9, "history": 0.4, "architecture": 0.4}
-    profile["pace"] = 0.0  # two stops a day
 
-    restaurant = make_place("restaurant")
-    restaurant["categories"] = ["restaurant"]
+    cafe = make_place("cafe")
+    cafe["categories"] = ["cafe"]
     palace = make_place("palace")
     palace["categories"] = ["palace"]
 
     result = schedule(
-        places=[palace, restaurant],
+        places=[palace, cafe],
         profile=profile,
         dates=["2026-10-19"],
         category_map={
-            "restaurant": ["food"],
+            "cafe": ["food"],
             "palace": ["history", "architecture"],
         },
         destination=DESTINATION,
     )
 
-    assert _ids(result)[0] == "restaurant"
+    assert _ids(result)[0] == "cafe"
 
 
 def test_place_matching_no_interest_is_skipped():
@@ -308,3 +307,111 @@ def test_travel_matrix_can_be_built_for_the_candidates():
     assert sorted(seen) == ["a", "b"]
     second = result["days"][0]["items"][1]["travel_from_prev"]
     assert second == {"minutes": 7, "mode": "walk"}
+
+
+# ---- interests, time of day, day length -----------------------------------------------
+
+ALL_DAY = {day: [["08:00", "23:30"]] for day in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")}
+ALL_DAY["confidence"] = "known"
+
+LONG_DAY = {
+    **PROFILE,
+    "day_start": "09:00",
+    "day_end": "22:30",
+    "daily_active_hours": 9,
+    "budget": {"total": 1000, "currency": "EUR"},
+}
+
+MAP = {
+    "museum": ["history", "art"],
+    "church": ["history", "architecture"],
+    "gallery": ["art"],
+    "restaurant": ["food"],
+    "cafe": ["food"],
+    "bar": ["nightlife"],
+    "park": ["nature"],
+}
+
+
+def place_of(place_id, category, duration=60):
+    place = make_place(place_id, cost=0, duration=duration, hours=ALL_DAY)
+    place["categories"] = [category]
+    return place
+
+
+def plan(places, interests, **overrides):
+    profile = deepcopy(LONG_DAY)
+    profile["interests"] = interests
+    profile.update(overrides)
+    return schedule(
+        places=places,
+        profile=profile,
+        dates=["2026-10-19"],
+        category_map=MAP,
+        destination=DESTINATION,
+    )
+
+
+def _items(result):
+    return [item for day in result["days"] for item in day["items"]]
+
+
+def test_reason_lists_every_matched_interest():
+    result = plan([place_of("church", "church")], {"history": 0.8, "architecture": 0.7})
+
+    reason = _items(result)[0]["reason"]
+    assert "history" in reason and "architecture" in reason
+
+
+def test_bars_only_in_the_evening():
+    places = [place_of("bar", "bar")] + [place_of(f"park-{i}", "park") for i in range(3)]
+
+    result = plan(places, {"nightlife": 1.0, "nature": 0.5})
+
+    bar = next(i for i in _items(result) if i["place_id"] == "bar")
+    assert bar["start"] >= "18:00"
+
+
+def test_lunch_and_dinner_at_meal_times():
+    places = [place_of(f"r{i}", "restaurant", 75) for i in range(4)]
+    places += [place_of(f"m{i}", "museum", 90) for i in range(6)]
+
+    result = plan(places, {"food": 0.8, "history": 0.8, "art": 0.5})
+
+    meals = [i for i in _items(result) if i["place_id"].startswith("r")]
+    assert len(meals) == 2
+    lunch, dinner = sorted(meal["start"] for meal in meals)
+    assert "12:00" <= lunch <= "14:30"
+    assert "19:00" <= dinner <= "21:30"
+
+
+def test_day_is_filled_by_time_not_a_fixed_stop_count():
+    places = [place_of(f"p{i}", "park", 45) for i in range(12)]
+
+    result = plan(places, {"nature": 1.0}, pace=1.0)
+
+    # The old rule capped a packed day at 6 stops; 9 active hours fit more.
+    assert len(_items(result)) > 6
+
+
+def test_relaxed_pace_gets_more_breathing_room():
+    places = [place_of(f"p{i}", "park", 45) for i in range(12)]
+
+    packed = plan(places, {"nature": 1.0}, pace=1.0)
+    relaxed = plan(places, {"nature": 1.0}, pace=0.0)
+
+    assert len(_items(relaxed)) < len(_items(packed))
+
+
+def test_interest_mix_follows_the_weights():
+    # Art weighs twice as much as nature: art gets more stops, but nature still gets some.
+    places = [place_of(f"g{i}", "gallery", 45) for i in range(10)]
+    places += [place_of(f"p{i}", "park", 45) for i in range(10)]
+
+    result = plan(places, {"art": 1.0, "nature": 0.5}, pace=1.0)
+
+    ids = [i["place_id"] for i in _items(result)]
+    art = sum(pid.startswith("g") for pid in ids)
+    nature = sum(pid.startswith("p") for pid in ids)
+    assert nature >= 1
+    assert art > nature
