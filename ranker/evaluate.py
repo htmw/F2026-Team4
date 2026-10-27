@@ -70,7 +70,15 @@ def evaluate(queries: list[dict] | None = None, booster=None, k: int = 5) -> dic
 
 
 def main() -> None:
-    results = evaluate()
+    from ingest.training import load_queries
+
+    test_queries = load_queries("test")
+    print(f"Testing on {len(test_queries)} unseen-city queries")
+
+    if not DEFAULT_MODEL.exists():
+        raise FileNotFoundError("Train the model before evaluating.")
+
+    results = evaluate(queries=test_queries)
     print("NDCG@5 over held-out travelers (higher is better):\n")
     for name, value in sorted(results.items(), key=lambda pair: pair[1], reverse=True):
         bar = "#" * int(value * 40)
