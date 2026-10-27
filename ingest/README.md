@@ -48,6 +48,9 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
+   Names are shown in English: `name:en` when mapped, otherwise the name if it is in Latin
+   letters ("Musée du Louvre"), otherwise `int_name`. A place with none of these (only an
+   Urdu, Thai or Korean name) is dropped. Duplicates still match on the mapped name.
    A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage
    tags: OSM maps every vegetable and footwear market and every plaque, and only the famous
    ones are sights (Crawford Market stays, "Sabji Market" goes). Typed sights such as museums,

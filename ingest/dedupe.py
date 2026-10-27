@@ -91,6 +91,10 @@ def _names(place: dict, signals: dict) -> set[str]:
     return set(signals.get(place["id"], {}).get("names") or []) | {normalize_name(place["name"])}
 
 
+def _local_name(place: dict, signals: dict) -> str:
+    return signals.get(place["id"], {}).get("local_name") or normalize_name(place["name"])
+
+
 def merge_group(group: list[dict], signals: dict) -> dict:
     """Fold copies into one record. group[0] wins; the rest are its copies.
 
@@ -226,7 +230,7 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
             continue
         if qid(i):
             by_qid.setdefault(qid(i), []).append(i)
-        by_name.setdefault(normalize_name(places[i]["name"]), []).append(i)
+        by_name.setdefault(_local_name(places[i], signals), []).append(i)
 
     for i in order:
         if taken[i]:
@@ -246,7 +250,7 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
                 taken[j] = True
                 members.append(j)
 
-        for j in by_name[normalize_name(seed["name"])]:
+        for j in by_name[_local_name(seed, signals)]:
             if taken[j] or distance_m(seed, places[j]) > SAME_NAME_RADIUS_M:
                 continue
             other_qid = qid(j)
