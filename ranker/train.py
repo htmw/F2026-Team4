@@ -69,7 +69,7 @@ def train_model(
         "metric": "ndcg",
         "ndcg_eval_at": [5],
         "learning_rate": 0.05,
-        "num_leaves": 15,
+        "num_leaves":11,
         "min_data_in_leaf": 10,
         "num_threads": 1,
         "seed": seed,
