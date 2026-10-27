@@ -48,6 +48,10 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
+   A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage
+   tags: OSM maps every vegetable and footwear market and every plaque, and only the famous
+   ones are sights (Crawford Market stays, "Sabji Market" goes). Typed sights such as museums,
+   restaurants and cafes, and the pieces of a city wall or aqueduct, are kept.
    A school, college or university is dropped unless it has Wikidata, Wikipedia or heritage
    tags: mappers sometimes tag one as a sight (a college in Karimnagar is a "viewpoint").
    A place whose hours name every day as closed is dropped. A place that only lists its

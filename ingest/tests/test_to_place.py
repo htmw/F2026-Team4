@@ -169,7 +169,7 @@ def test_place_closed_every_day_is_dropped(validator):
         ("relation", {"historic": "citywalls", "type": "site"}, True, True),
         ("relation", {"historic": "aqueduct", "type": "waterway"}, True, True),
         ("relation", {"historic": "citywalls", "type": "multipolygon"}, True, False),
-        ("way", {"historic": "ruins"}, False, False),
+        ("way", {"historic": "ruins", "wikidata": "Q1"}, False, False),
     ],
 )
 def test_signals_mark_wall_pieces_and_collection_relations(
@@ -207,3 +207,33 @@ def test_a_famous_university_stays(validator):
                "amenity": "university", "wikidata": "Q368643"}
 
     assert _build(coimbra, validator).place is not None
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Sabji Market", "amenity": "marketplace"},
+        {"name": "Footware market", "amenity": "marketplace"},
+        {"name": "Plaque", "historic": "memorial", "tourism": "attraction"},
+        {"name": "Some Hill View", "tourism": "viewpoint"},
+    ],
+)
+def test_an_unknown_market_landmark_or_viewpoint_is_left_out(validator, tags):
+    result = _build(tags, validator)
+
+    assert result.place is None
+    assert result.drop_reason == "not_famous"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Crawford Market", "amenity": "marketplace", "wikidata": "Q3631430"},
+        {"name": "Gateway of India", "tourism": "attraction", "wikidata": "Q190711"},
+        {"name": "Local History Museum", "tourism": "museum"},
+        {"name": "Sharma Dhaba", "amenity": "restaurant"},
+        {"name": "Old City Wall", "historic": "citywalls"},
+    ],
+)
+def test_famous_places_typed_sights_venues_and_wall_pieces_stay(validator, tags):
+    assert _build(tags, validator).place is not None

@@ -42,7 +42,7 @@ TOWER = {
     "id": 1,
     "lat": 41.1458,
     "lon": -8.6110,
-    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction"},
+    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction", "wikidata": "Q1145985"},
 }
 
 
