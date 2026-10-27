@@ -103,6 +103,15 @@ def _unknown_hours() -> dict:
 
 
 _SCHOOLS = {"school", "college", "university", "kindergarten"}
+# Kinds of place OSM tags by the thousand, most of them unknown outside their street: every
+# vegetable and footwear market, every memorial plaque, every named viewpoint. Only the
+# famous ones are sights. Typed sights (museum, palace, park...), venues, and the pieces of
+# a city wall or aqueduct (dedupe joins them into one stop) stay.
+_ONLY_FAMOUS = {"market", "landmark", "viewpoint"}
+
+
+def _famous(tags: dict) -> bool:
+    return any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
 
 
 def _unknown_school(tags: dict) -> bool:
@@ -117,8 +126,7 @@ def _unknown_school(tags: dict) -> bool:
         or tags.get("building") in _SCHOOLS
         or any(key in tags for key in _SCHOOLS)
     )
-    famous = any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
-    return school and not famous
+    return school and not _famous(tags)
 
 
 def build_place(
@@ -136,6 +144,8 @@ def build_place(
         return BuildResult(None, "unmapped_category")
     if _unknown_school(tags):
         return BuildResult(None, "school")
+    if cats[0] in _ONLY_FAMOUS and not _famous(tags) and not is_long_structure(tags):
+        return BuildResult(None, "not_famous")
 
     parsed = parse_opening_hours(tags.get("opening_hours"))
     if parsed.status == "parsed":
