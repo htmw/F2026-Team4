@@ -129,13 +129,33 @@ def _unknown_school(tags: dict) -> bool:
     return school and not _famous(tags)
 
 
+def _latin(text: str) -> bool:
+    """True when every letter is a Latin one ("Musée du Louvre" yes, "پستا ہاؤس" no)."""
+    return all(unicodedata.name(c, "").startswith("LATIN") for c in text if c.isalpha())
+
+
+def english_name(tags: dict) -> str | None:
+    """The name a traveler reading English can use: name:en, else a Latin-script name.
+
+    In Hyderabad Pista House is mapped as "پستا ہاؤس" with name:en "Pista House". A place
+    with no English or Latin-script name at all gets None and is left out.
+    """
+    for key in ("name:en", "name", "int_name"):
+        value = (tags.get(key) or "").strip()
+        if value and (key == "name:en" or _latin(value)):
+            return value
+    return None
+
+
 def build_place(
     el: dict, *, currency: str, fetched_date: str, validator: Draft202012Validator
 ) -> BuildResult:
     tags = el.get("tags") or {}
-    name = (tags.get("name") or "").strip()
-    if not name:
+    if not (tags.get("name") or "").strip():
         return BuildResult(None, "no_name")
+    name = english_name(tags)
+    if name is None:
+        return BuildResult(None, "no_english_name")
     lat, lon = _coords(el)
     if lat is None or lon is None:
         return BuildResult(None, "no_coords")
@@ -179,6 +199,9 @@ def build_place(
     signals = signals_from_tags(tags)
     signals["osm_type"] = el.get("type")
     signals["names"] = name_variants(tags)
+    # The mapped name, not the English one shown: two records of one place must still match
+    # when only one of them has name:en (Colosseo / Colosseum).
+    signals["local_name"] = normalize_name(tags["name"])
     signals["long_structure"] = is_long_structure(tags)
     signals["rough_point"] = el.get("type") == "relation" and tags.get("type") in (
         _COLLECTION_RELATIONS

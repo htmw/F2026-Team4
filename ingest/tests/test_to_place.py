@@ -237,3 +237,23 @@ def test_an_unknown_market_landmark_or_viewpoint_is_left_out(validator, tags):
 )
 def test_famous_places_typed_sights_venues_and_wall_pieces_stay(validator, tags):
     assert _build(tags, validator).place is not None
+
+
+@pytest.mark.parametrize(
+    "tags, shown",
+    [
+        ({"name": "پستا ہاؤس", "name:en": "Pista House", "amenity": "restaurant"}, "Pista House"),
+        ({"name": "Musée du Louvre", "tourism": "museum"}, "Musée du Louvre"),
+        ({"name": "東京国立博物館", "int_name": "Tokyo National Museum", "tourism": "museum"},
+         "Tokyo National Museum"),
+    ],
+)
+def test_places_are_shown_with_an_english_or_latin_name(validator, tags, shown):
+    assert _build(tags, validator).place["name"] == shown
+
+
+def test_a_place_with_no_english_name_is_left_out(validator):
+    result = _build({"name": "امپیریل ملٹی کزن ریسٹورنٹ", "amenity": "restaurant"}, validator)
+
+    assert result.place is None
+    assert result.drop_reason == "no_english_name"

@@ -62,6 +62,7 @@ pull request (`make test`). The test file is named in the last column.
 | TC-D40 | DS-9 | Refresh a 31-day-old city when OpenStreetMap returns no places | the old copy is kept and served; nothing half-written is left behind | `ingest/tests/test_live.py` |
 | TC-D41 | DS-1 | POST `/plan` for Lisbon (fixture city) | destination name "Lisbon, Portugal", not "Lisbon, T" | `ingest/tests/test_live.py` |
 | TC-D42 | DS-9 | Convert a marketplace, a memorial and a viewpoint without Wikidata, then the same with Wikidata, a museum, a restaurant and a wall piece | the unknown three are dropped as `not_famous`; the rest stay | `ingest/tests/test_to_place.py` |
+| TC-D43 | DS-9 | Convert "پستا ہاؤس" with name:en "Pista House", "Musée du Louvre", a Japanese name with an int_name, and an Urdu-only name; merge a Colosseo record with and without name:en | Pista House, Musée du Louvre, the int_name; the Urdu-only place dropped as `no_english_name`; the two Colosseo records merge into one "Colosseum" | `ingest/tests/test_to_place.py`, `ingest/tests/test_dedupe.py` |
 | TC-D36 | DS-2 | Parse `Apr-Oct Mo-Su 09:00-18:00` | stays `unknown`: one weekly pattern cannot say which season | `ingest/tests/test_hours.py` |
 
 ## Metrics for the sprint review
