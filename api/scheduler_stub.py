@@ -165,6 +165,7 @@ def plan_itinerary(
                 {
                     "place_id": place["id"],
                     "name": place["name"],
+                    "cost_confidence": place["cost"]["confidence"],
                     "start": _to_hhmm(cursor),
                     "end": _to_hhmm(cursor + duration),
                     # TODO(ingest, optimizer): waiting for the travel matrix from ingest
