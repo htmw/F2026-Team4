@@ -14,3 +14,27 @@ export async function postPlan(req: PlanRequest): Promise<Itinerary> {
   }
   return (await resp.json()) as Itinerary;
 }
+
+export interface Feedback {
+  accepted: string[];
+  rejected: string[];
+}
+
+export async function postFeedback(
+  tripId: string,
+  feedback: Feedback,
+): Promise<Itinerary> {
+  const resp = await fetch(
+    `${API_BASE}/trips/${encodeURIComponent(tripId)}/feedback`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(feedback),
+    },
+  );
+  if (!resp.ok) {
+    const detail = await resp.text();
+    throw new Error(`Feedback request failed (${resp.status}): ${detail}`);
+  }
+  return (await resp.json()) as Itinerary;
+}
