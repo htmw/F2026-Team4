@@ -257,3 +257,15 @@ def test_a_place_with_no_english_name_is_left_out(validator):
 
     assert result.place is None
     assert result.drop_reason == "no_english_name"
+
+
+def test_a_famous_temple_or_mosque_is_a_sight_an_unknown_shrine_is_not(validator):
+    siddhivinayak = {"name": "Siddhivinayak Temple", "amenity": "place_of_worship",
+                     "religion": "hindu", "wikidata": "Q3349434"}
+    haji_ali = {"name": "Haji Ali Dargah", "amenity": "place_of_worship",
+                "religion": "muslim", "wikidata": "Q1567553"}
+    shrine = {"name": "Hanuman Mandir", "amenity": "place_of_worship", "religion": "hindu"}
+
+    assert _build(siddhivinayak, validator).place["categories"] == ["landmark"]
+    assert _build(haji_ali, validator).place is not None
+    assert _build(shrine, validator).drop_reason == "not_famous"

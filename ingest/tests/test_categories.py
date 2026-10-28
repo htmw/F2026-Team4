@@ -65,10 +65,11 @@ def test_christian_place_of_worship_without_building_tag_is_a_church():
     assert map_categories(tags) == ["church"]
 
 
-def test_other_places_of_worship_are_not_churches():
-    tags = {"amenity": "place_of_worship", "religion": "muslim"}
+def test_other_places_of_worship_are_landmarks_not_churches():
+    for religion in ("hindu", "muslim", "sikh", "buddhist", "jewish"):
+        tags = {"amenity": "place_of_worship", "religion": religion}
 
-    assert "church" not in map_categories(tags)
+        assert map_categories(tags) == ["landmark"], religion
 
 
 def test_square_and_fountain_are_landmarks():

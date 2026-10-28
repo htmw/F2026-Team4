@@ -36,7 +36,10 @@ GROUPS = {
     "worship": (
         'nwr["amenity"="place_of_worship"]'
         '["building"~"^(church|cathedral|chapel|basilica)$"]["name"]({bbox});\n'
-        '  nwr["amenity"="place_of_worship"]["religion"="christian"]["name"]({bbox});'
+        '  nwr["amenity"="place_of_worship"]["religion"="christian"]["name"]({bbox});\n'
+        # Temples, mosques, gurdwaras, synagogues: only the famous ones, or Mumbai alone
+        # would bring thousands of street shrines.
+        '  nwr["amenity"="place_of_worship"]["name"]["wikidata"]({bbox});'
     ),
     "nature": (
         'nwr["leisure"~"^(park|garden)$"]["name"]({bbox});\n'

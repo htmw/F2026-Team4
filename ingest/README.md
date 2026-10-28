@@ -42,7 +42,8 @@ name, country and centre.
 ## How a record is built
 
 1. **Geocode** the name with Nominatim: centre, country, default bbox.
-2. **Fetch** nine Overpass query groups for the bbox: sights, historic, worship, nature, food,
+2. **Fetch** nine Overpass query groups for the bbox: sights, historic, worship (every church,
+   and temples, mosques and other places of worship that have Wikidata), nature, food,
    nightlife, shopping, public spaces, neighborhoods. Squares, fountains and neighborhoods
    only come back when they carry a `wikidata` tag, otherwise every small piazza would.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
