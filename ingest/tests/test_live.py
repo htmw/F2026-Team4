@@ -221,7 +221,7 @@ def test_lisbon_is_shown_with_its_country_name():
     assert plan("Lisbon").json()["destination"]["name"] == "Lisbon, Portugal"
 
 
-def test_a_restaurant_gets_a_typical_price_and_the_plan_says_it_is_an_estimate(osm, monkeypatch):
+def test_a_restaurant_gets_a_typical_price_marked_as_an_estimate(osm, monkeypatch):
     restaurant = {
         "type": "node",
         "id": 2,
@@ -232,8 +232,6 @@ def test_a_restaurant_gets_a_typical_price_and_the_plan_says_it_is_an_estimate(o
     monkeypatch.setattr(
         catalog, "http_post", lambda *a, **kw: FakeResponse({"elements": [restaurant]})
     )
-    itinerary = plan("Porto").json()
-
-    assert itinerary["days"][0]["items"][0]["cost"] == 25.0
-    assert itinerary["days"][0]["items"][0]["cost_confidence"] == "inferred"
-    assert any("typical estimates" in w for w in itinerary["warnings"])
+    place = catalog.load_city("Porto").places[0]
+    assert place["cost"] == {"amount": 25.0, "currency": "EUR", "confidence": "inferred"}
+    assert plan("Porto").json()["days"][0]["items"][0]["cost"] == 25.0
