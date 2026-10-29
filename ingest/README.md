@@ -49,9 +49,10 @@ name, country and centre.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
-   Names are shown in English: `name:en` when mapped, otherwise the name if it is in Latin
-   letters ("Musée du Louvre"), otherwise `int_name`. A place with none of these (only an
-   Urdu, Thai or Korean name) is dropped. Duplicates still match on the mapped name.
+   Names stay as mapped when they are in Latin letters ("Grand Palais", not the "Great
+   Palace" of its `name:en`); another script gets `name:en`, else `int_name` (Sion Fort for
+   सायन किल्ला). A place with no Latin-script name at all (only an Urdu, Thai or Korean name) is
+   dropped. Duplicates still match on the mapped name.
    An outlet of a global chain (Domino's, Starbucks, KFC... by `brand` or name) is dropped;
    local chains such as Pista House stay.
    A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage

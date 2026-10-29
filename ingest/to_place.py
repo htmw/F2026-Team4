@@ -160,14 +160,15 @@ def _latin(text: str) -> bool:
 
 
 def english_name(tags: dict) -> str | None:
-    """The name a traveler reading English can use: name:en, else a Latin-script name.
+    """A name a traveler reading English can use, translated only when it has to be.
 
-    In Hyderabad Pista House is mapped as "پستا ہاؤس" with name:en "Pista House". A place
-    with no English or Latin-script name at all gets None and is left out.
+    A Latin-script name stays as mapped: Grand Palais, not the "Great Palace" of its
+    name:en. Another script gets name:en, else int_name: in Hyderabad "پستا ہاؤس" becomes
+    Pista House. A place with no Latin-script name at all gets None and is left out.
     """
-    for key in ("name:en", "name", "int_name"):
+    for key in ("name", "name:en", "int_name"):
         value = (tags.get(key) or "").strip()
-        if value and (key == "name:en" or _latin(value)):
+        if value and _latin(value):
             return value
     return None
 

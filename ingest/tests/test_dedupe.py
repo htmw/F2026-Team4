@@ -240,4 +240,4 @@ def test_records_still_merge_when_only_one_has_an_english_name():
 
     merged, _ = dedupe(places, signals)
 
-    assert [p["name"] for p in merged] == ["Colosseum"]
+    assert [p["name"] for p in merged] == ["Colosseo"]

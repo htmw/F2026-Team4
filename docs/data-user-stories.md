@@ -66,6 +66,7 @@ pull request (`make test`). The test file is named in the last column.
 | TC-D44 | DS-2 | A restaurant in India and a museum with `fee=yes` in France, both without a price; then a real charge, `fee=no`, a park, and a currency with no typical price | ₹700 and €12, both `inferred`; the real charge and free entries win; the last stays `unknown`; the itinerary warns that prices are typical estimates | `ingest/tests/test_cost.py`, `ingest/tests/test_live.py` |
 | TC-D45 | DS-9 | Map places of worship of five religions, then convert Siddhivinayak Temple and Haji Ali Dargah (Wikidata) and an unknown shrine | non-Christian ones are landmarks, churches stay churches; the famous temple and dargah stay, the shrine is dropped as `not_famous` | `ingest/tests/test_categories.py`, `ingest/tests/test_to_place.py` |
 | TC-D46 | DS-9 | Convert Domino's, Starbucks and "KFC Banjara Hills", then Pista House, Paradise, a bar called Subway Inn and a cafe called Kfcafe Corner | the three global chain outlets are dropped as `global_chain`; the local chains and look-alike names stay | `ingest/tests/test_to_place.py` |
+| TC-D47 | DS-9 | Convert Grand Palais (name:en "Great Palace") and सायन किल्ला (name:en "Sion Fort") | Grand Palais keeps its French name; the Marathi name becomes Sion Fort | `ingest/tests/test_to_place.py` |
 | TC-D36 | DS-2 | Parse `Apr-Oct Mo-Su 09:00-18:00` | stays `unknown`: one weekly pattern cannot say which season | `ingest/tests/test_hours.py` |
 
 ## Metrics for the sprint review

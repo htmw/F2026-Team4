@@ -244,6 +244,8 @@ def test_famous_places_typed_sights_venues_and_wall_pieces_stay(validator, tags)
     [
         ({"name": "پستا ہاؤس", "name:en": "Pista House", "amenity": "restaurant"}, "Pista House"),
         ({"name": "Musée du Louvre", "tourism": "museum"}, "Musée du Louvre"),
+        ({"name": "Grand Palais", "name:en": "Great Palace", "tourism": "museum"}, "Grand Palais"),
+        ({"name": "सायन किल्ला", "name:en": "Sion Fort", "historic": "fort"}, "Sion Fort"),
         ({"name": "東京国立博物館", "int_name": "Tokyo National Museum", "tourism": "museum"},
          "Tokyo National Museum"),
     ],
