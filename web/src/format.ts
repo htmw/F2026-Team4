@@ -30,3 +30,12 @@ export function prettifyPlaceId(placeId: string): string {
     .map((word) => (word.length ? word[0].toUpperCase() + word.slice(1) : word))
     .join(" ");
 }
+
+// "Free" when nobody pays, "≈ ₹700" for a typical estimate, "Price unknown" when no one knows.
+// An itinerary without cost_confidence (older trips) just shows the amount.
+export function priceLabel(cost: number, currency: string, confidence?: Confidence): string {
+  if (confidence === "unknown") return "Price unknown";
+  if (confidence && cost === 0) return "Free";
+  if (confidence === "inferred") return `≈ ${formatMoney(cost, currency)}`;
+  return formatMoney(cost, currency);
+}

@@ -109,6 +109,45 @@ def _amounts(charge: str) -> set[tuple[float, str]]:
     return found
 
 
+# Typical price per person when OSM has none (it almost never does: 0.1 to 1.2% of places in
+# the data spike). Rough October 2026 figures for a mid-range meal, coffee, drink or ticket,
+# applied as `inferred`, never `known`, and named as estimates in the itinerary. A currency
+# missing here keeps the price unknown. Worth a sanity check by someone who lives there.
+PRICED = (
+    "restaurant", "cafe", "bakery", "bar", "nightclub", "museum", "gallery", "palace", "castle"
+)
+TYPICAL_PRICE = {
+    #      restaurant  cafe  bakery   bar  nightclub museum gallery palace castle
+    "EUR": (25, 8, 5, 10, 20, 12, 10, 15, 12),
+    "GBP": (25, 7, 5, 10, 20, 10, 10, 20, 15),
+    "USD": (30, 10, 6, 12, 25, 20, 15, 20, 15),
+    "CAD": (30, 10, 6, 12, 25, 18, 15, 20, 15),
+    "AUD": (35, 12, 8, 15, 30, 20, 15, 25, 20),
+    "CHF": (40, 12, 8, 15, 30, 15, 12, 20, 15),
+    "JPY": (2000, 800, 500, 1000, 3000, 1000, 800, 1000, 800),
+    "KRW": (15000, 6000, 4000, 10000, 30000, 5000, 3000, 3000, 3000),
+    "CNY": (80, 30, 20, 50, 150, 50, 40, 60, 50),
+    "SGD": (25, 8, 5, 15, 30, 20, 15, 20, 15),
+    "THB": (300, 100, 60, 200, 500, 200, 150, 500, 200),
+    "INR": (700, 300, 150, 600, 1500, 250, 100, 250, 250),
+    "AED": (80, 25, 15, 50, 150, 50, 40, 60, 50),
+    "TRY": (500, 150, 80, 300, 600, 400, 300, 500, 400),
+    "EGP": (400, 100, 50, 300, 600, 300, 200, 500, 300),
+    "KES": (1500, 500, 300, 800, 1500, 1200, 1000, 1500, 1000),
+    "ZAR": (250, 60, 40, 100, 200, 100, 80, 100, 80),
+    "MXN": (300, 80, 40, 150, 400, 90, 70, 100, 80),
+    "COP": (40000, 10000, 5000, 20000, 50000, 20000, 15000, 20000, 15000),
+    "BRL": (80, 25, 15, 40, 80, 30, 20, 30, 25),
+    "JMD": (3000, 1000, 500, 1500, 3000, 1500, 1000, 1500, 1000),
+}
+
+
+def typical_price(categories: list[str], currency: str) -> float | None:
+    if not categories or categories[0] not in PRICED or currency not in TYPICAL_PRICE:
+        return None
+    return float(TYPICAL_PRICE[currency][PRICED.index(categories[0])])
+
+
 def parse_cost(tags: dict, categories: list[str], fallback_currency: str) -> CostResult:
     """Parse fee and charge tags into the project's cost contract."""
     fee = (tags.get("fee") or "").strip().lower()
@@ -137,9 +176,14 @@ def parse_cost(tags: dict, categories: list[str], fallback_currency: str) -> Cos
     if fee == "no":
         return mk(0.0, fallback_currency, "known", "fee_free")
 
+    typical = typical_price(categories, fallback_currency)
     if fee == "yes":
+        if typical is not None:
+            return mk(typical, fallback_currency, "inferred", "typical_price")
         return mk(0.0, fallback_currency, "unknown", "fee_amount_missing")
 
     if categories and categories[0] in FREE_BY_DEFAULT:
         return mk(0.0, fallback_currency, "inferred", "default_free")
+    if typical is not None:
+        return mk(typical, fallback_currency, "inferred", "typical_price")
     return mk(0.0, fallback_currency, "unknown", "no_data")

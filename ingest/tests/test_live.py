@@ -30,6 +30,13 @@ PORTUGAL = {
     "addresstype": "country",
     "boundingbox": ["36.96", "42.15", "-9.52", "-6.19"],
 }
+JAPAN = {
+    **PORTO,
+    "name": "Japan",
+    "addresstype": "country",
+    "boundingbox": ["20.21", "45.71", "122.71", "154.21"],
+    "address": {"country_code": "jp", "country": "Japan"},
+}
 DELHI = {
     **PORTO,
     "name": "Delhi",
@@ -42,7 +49,7 @@ TOWER = {
     "id": 1,
     "lat": 41.1458,
     "lon": -8.6110,
-    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction"},
+    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction", "wikidata": "Q1145985"},
 }
 
 
@@ -68,8 +75,10 @@ def osm(tmp_path, monkeypatch):
     monkeypatch.setattr("ingest.overpass.time.sleep", lambda s: None)
 
     def nominatim(url, params, **kw):
-        assert params["featureType"] == "settlement", "never a shop or a hotel"
-        found = {"porto": [PORTO], "portugal": [PORTUGAL], "delhi": [DELHI]}
+        if params.get("featureType") == "settlement":  # what a plan is built from
+            found = {"porto": [PORTO], "portugal": [PORTUGAL], "delhi": [DELHI]}
+        else:  # the open search, only to name what a non-city is
+            found = {"japan": [JAPAN]}
         return FakeResponse(found.get(params["q"].lower(), []))
 
     def overpass(url, data, **kw):
@@ -219,3 +228,27 @@ def test_an_empty_refresh_keeps_the_old_city(osm, monkeypatch):
 
 def test_lisbon_is_shown_with_its_country_name():
     assert plan("Lisbon").json()["destination"]["name"] == "Lisbon, Portugal"
+
+
+def test_a_restaurant_gets_a_typical_price_marked_as_an_estimate(osm, monkeypatch):
+    restaurant = {
+        "type": "node",
+        "id": 2,
+        "lat": 41.1460,
+        "lon": -8.6112,
+        "tags": {"name": "Café Santiago", "amenity": "restaurant"},
+    }
+    monkeypatch.setattr(
+        catalog, "http_post", lambda *a, **kw: FakeResponse({"elements": [restaurant]})
+    )
+    place = catalog.load_city("Porto").places[0]
+    assert place["cost"] == {"amount": 25.0, "currency": "EUR", "confidence": "inferred"}
+    assert plan("Porto").json()["days"][0]["items"][0]["cost"] == 25.0
+
+
+def test_a_country_typed_as_a_city_is_named_as_a_country(osm):
+    resp = plan("japan")
+
+    assert resp.status_code == 422
+    assert "'japan' is a country, not a city" in resp.json()["detail"]["destination_errors"][0]
+    assert osm == [], "never fetched"

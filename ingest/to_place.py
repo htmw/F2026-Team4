@@ -103,6 +103,40 @@ def _unknown_hours() -> dict:
 
 
 _SCHOOLS = {"school", "college", "university", "kindergarten"}
+# Kinds of place OSM tags by the thousand, most of them unknown outside their street: every
+# vegetable and footwear market, every memorial plaque, every named viewpoint. Only the
+# famous ones are sights. Typed sights (museum, palace, park...), venues, and the pieces of
+# a city wall or aqueduct (dedupe joins them into one stop) stay.
+_ONLY_FAMOUS = {"market", "landmark", "viewpoint"}
+
+
+# Global chains: a day with Domino's and Starbucks is not a local food experience. Local
+# chains (Pista House, Paradise Biryani in Hyderabad) are what a traveler comes for, so
+# only these go. Matched on the OSM brand tag, else the start of the name.
+_GLOBAL_CHAINS = {
+    normalize_name(n)
+    for n in (
+        "McDonald's", "KFC", "Burger King", "Subway", "Domino's", "Domino's Pizza",
+        "Pizza Hut", "Papa John's", "Taco Bell", "Wendy's", "Popeyes", "Five Guys",
+        "Dairy Queen", "Chipotle", "Starbucks", "Costa", "Costa Coffee", "Dunkin'",
+        "Dunkin' Donuts", "Tim Hortons", "Baskin-Robbins", "Krispy Kreme",
+    )
+}
+_VENUES = {"restaurant", "cafe", "bakery", "bar"}
+
+
+def _global_chain(tags: dict, categories: list[str]) -> bool:
+    if categories[0] not in _VENUES:
+        return False
+    brand = normalize_name(tags.get("brand") or "")
+    if brand:
+        return brand in _GLOBAL_CHAINS
+    name = normalize_name(tags.get("name") or "")
+    return any(name == c or name.startswith(c + " ") for c in _GLOBAL_CHAINS)
+
+
+def _famous(tags: dict) -> bool:
+    return any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
 
 
 def _unknown_school(tags: dict) -> bool:
@@ -117,17 +151,37 @@ def _unknown_school(tags: dict) -> bool:
         or tags.get("building") in _SCHOOLS
         or any(key in tags for key in _SCHOOLS)
     )
-    famous = any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
-    return school and not famous
+    return school and not _famous(tags)
+
+
+def _latin(text: str) -> bool:
+    """True when every letter is a Latin one ("Musée du Louvre" yes, "پستا ہاؤس" no)."""
+    return all(unicodedata.name(c, "").startswith("LATIN") for c in text if c.isalpha())
+
+
+def english_name(tags: dict) -> str | None:
+    """A name a traveler reading English can use, translated only when it has to be.
+
+    A Latin-script name stays as mapped: Grand Palais, not the "Great Palace" of its
+    name:en. Another script gets name:en, else int_name: in Hyderabad "پستا ہاؤس" becomes
+    Pista House. A place with no Latin-script name at all gets None and is left out.
+    """
+    for key in ("name", "name:en", "int_name"):
+        value = (tags.get(key) or "").strip()
+        if value and _latin(value):
+            return value
+    return None
 
 
 def build_place(
     el: dict, *, currency: str, fetched_date: str, validator: Draft202012Validator
 ) -> BuildResult:
     tags = el.get("tags") or {}
-    name = (tags.get("name") or "").strip()
-    if not name:
+    if not (tags.get("name") or "").strip():
         return BuildResult(None, "no_name")
+    name = english_name(tags)
+    if name is None:
+        return BuildResult(None, "no_english_name")
     lat, lon = _coords(el)
     if lat is None or lon is None:
         return BuildResult(None, "no_coords")
@@ -136,6 +190,10 @@ def build_place(
         return BuildResult(None, "unmapped_category")
     if _unknown_school(tags):
         return BuildResult(None, "school")
+    if cats[0] in _ONLY_FAMOUS and not _famous(tags) and not is_long_structure(tags):
+        return BuildResult(None, "not_famous")
+    if _global_chain(tags, cats):
+        return BuildResult(None, "global_chain")
 
     parsed = parse_opening_hours(tags.get("opening_hours"))
     if parsed.status == "parsed":
@@ -169,6 +227,9 @@ def build_place(
     signals = signals_from_tags(tags)
     signals["osm_type"] = el.get("type")
     signals["names"] = name_variants(tags)
+    # The mapped name, not the English one shown: two records of one place must still match
+    # when only one of them has name:en (Colosseo / Colosseum).
+    signals["local_name"] = normalize_name(tags["name"])
     signals["long_structure"] = is_long_structure(tags)
     signals["rough_point"] = el.get("type") == "relation" and tags.get("type") in (
         _COLLECTION_RELATIONS

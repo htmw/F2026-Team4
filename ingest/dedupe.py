@@ -91,6 +91,10 @@ def _names(place: dict, signals: dict) -> set[str]:
     return set(signals.get(place["id"], {}).get("names") or []) | {normalize_name(place["name"])}
 
 
+def _local_name(place: dict, signals: dict) -> str:
+    return signals.get(place["id"], {}).get("local_name") or normalize_name(place["name"])
+
+
 def merge_group(group: list[dict], signals: dict) -> dict:
     """Fold copies into one record. group[0] wins; the rest are its copies.
 
@@ -226,7 +230,7 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
             continue
         if qid(i):
             by_qid.setdefault(qid(i), []).append(i)
-        by_name.setdefault(normalize_name(places[i]["name"]), []).append(i)
+        by_name.setdefault(_local_name(places[i], signals), []).append(i)
 
     for i in order:
         if taken[i]:
@@ -246,7 +250,7 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
                 taken[j] = True
                 members.append(j)
 
-        for j in by_name[normalize_name(seed["name"])]:
+        for j in by_name[_local_name(seed, signals)]:
             if taken[j] or distance_m(seed, places[j]) > SAME_NAME_RADIUS_M:
                 continue
             other_qid = qid(j)
@@ -276,3 +280,21 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
 
     kept.sort(key=lambda p: p["id"])
     return kept, report
+
+
+def one_per_name(places: list[dict]) -> tuple[list[dict], int]:
+    """Keep only the most popular venue of each name.
+
+    A chain the global list does not know still comes as many outlets: central Tokyo has
+    dozens of Tully's Coffee, and a plan could visit three. Sights are left alone.
+    """
+    best: dict[str, dict] = {}
+    for p in places:
+        if is_venue(p):
+            key = normalize_name(p["name"])
+            if key not in best or (p.get("popularity", 0), best[key]["id"]) > (
+                best[key].get("popularity", 0), p["id"]
+            ):
+                best[key] = p
+    kept = [p for p in places if not is_venue(p) or best[normalize_name(p["name"])] is p]
+    return kept, len(places) - len(kept)
