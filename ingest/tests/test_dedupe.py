@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from ingest.dedupe import dedupe, distance_m
+from ingest.dedupe import dedupe, distance_m, one_per_name
 from ingest.to_place import build_place, make_validator
 
 M_PER_DEG_LAT = 111_195.0
@@ -241,3 +241,15 @@ def test_records_still_merge_when_only_one_has_an_english_name():
     merged, _ = dedupe(places, signals)
 
     assert [p["name"] for p in merged] == ["Colosseo"]
+
+
+def test_only_the_most_popular_outlet_of_a_name_stays():
+    def cafe(i, popularity):
+        return {"id": f"osm:node/{i}", "name": "Tully's Coffee", "categories": ["cafe"],
+                "popularity": popularity}
+
+    museum = {"id": "osm:node/9", "name": "Tully's Coffee", "categories": ["museum"]}
+    kept, dropped = one_per_name([cafe(1, 0.1), cafe(2, 0.3), cafe(3, 0.2), museum])
+
+    assert [p["id"] for p in kept] == ["osm:node/2", "osm:node/9"]
+    assert dropped == 2

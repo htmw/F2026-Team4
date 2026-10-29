@@ -54,7 +54,8 @@ name, country and centre.
    सायन किल्ला). A place with no Latin-script name at all (only an Urdu, Thai or Korean name) is
    dropped. Duplicates still match on the mapped name.
    An outlet of a global chain (Domino's, Starbucks, KFC... by `brand` or name) is dropped;
-   local chains such as Pista House stay.
+   local chains such as Pista House stay, but only their most popular outlet per city (central
+   Tokyo has dozens of Tully's Coffee; a plan should not visit three).
    A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage
    tags: OSM maps every vegetable and footwear market and every plaque, and only the famous
    ones are sights (Crawford Market stays, "Sabji Market" goes). Typed sights such as museums,

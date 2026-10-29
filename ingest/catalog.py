@@ -195,6 +195,17 @@ def resolve(name: str) -> tuple[str, Path]:
     raise CityNotAvailable(f"No place data for {name!r} yet. Cities with data: {names}.")
 
 
+def _not_a_city(name: str) -> str | None:
+    """'japan' is a country, not a city: say so instead of just 'not found'."""
+    try:
+        geo = geocode(name, CACHE_DIR, get=http_get, max_span_km=None, settlements_only=False)
+    except (GeocodeError, requests.RequestException):
+        return None
+    if geo.kind in NOT_A_CITY:
+        return f"{name!r} is a {geo.kind}, not a city. Pick a city in it."
+    return None
+
+
 def fetch_live(name: str) -> Path:
     """Fetch a city from OpenStreetMap and keep it in data/live/<city>-<country>/.
 
@@ -206,7 +217,7 @@ def fetch_live(name: str) -> Path:
         try:
             geo = geocode(name, CACHE_DIR, get=http_get, max_span_km=None)
         except GeocodeError as exc:
-            raise CityNotAvailable(str(exc)) from exc
+            raise CityNotAvailable(_not_a_city(name) or str(exc)) from exc
         except requests.RequestException as exc:
             raise CityFetchFailed(f"Could not reach OpenStreetMap to look up {name!r}.") from exc
         if geo.kind in NOT_A_CITY and max(bbox_span_km(geo.bbox)) > CITY_STATE_MAX_KM:

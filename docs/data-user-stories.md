@@ -67,6 +67,7 @@ pull request (`make test`). The test file is named in the last column.
 | TC-D45 | DS-9 | Map places of worship of five religions, then convert Siddhivinayak Temple and Haji Ali Dargah (Wikidata) and an unknown shrine | non-Christian ones are landmarks, churches stay churches; the famous temple and dargah stay, the shrine is dropped as `not_famous` | `ingest/tests/test_categories.py`, `ingest/tests/test_to_place.py` |
 | TC-D46 | DS-9 | Convert Domino's, Starbucks and "KFC Banjara Hills", then Pista House, Paradise, a bar called Subway Inn and a cafe called Kfcafe Corner | the three global chain outlets are dropped as `global_chain`; the local chains and look-alike names stay | `ingest/tests/test_to_place.py` |
 | TC-D47 | DS-9 | Convert Grand Palais (name:en "Great Palace") and सायन किल्ला (name:en "Sion Fort") | Grand Palais keeps its French name; the Marathi name becomes Sion Fort | `ingest/tests/test_to_place.py` |
+| TC-D48 | DS-9 | Ask for "japan"; keep venues called Tully's Coffee three times plus a museum of that name | 422 "'japan' is a country, not a city", nothing fetched; one Tully's (the most popular) and the museum stay | `ingest/tests/test_live.py`, `ingest/tests/test_dedupe.py` |
 | TC-D36 | DS-2 | Parse `Apr-Oct Mo-Su 09:00-18:00` | stays `unknown`: one weekly pattern cannot say which season | `ingest/tests/test_hours.py` |
 
 ## Metrics for the sprint review

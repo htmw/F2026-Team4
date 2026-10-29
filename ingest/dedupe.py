@@ -280,3 +280,21 @@ def dedupe(places: list[dict], signals: dict) -> tuple[list[dict], DedupeReport]
 
     kept.sort(key=lambda p: p["id"])
     return kept, report
+
+
+def one_per_name(places: list[dict]) -> tuple[list[dict], int]:
+    """Keep only the most popular venue of each name.
+
+    A chain the global list does not know still comes as many outlets: central Tokyo has
+    dozens of Tully's Coffee, and a plan could visit three. Sights are left alone.
+    """
+    best: dict[str, dict] = {}
+    for p in places:
+        if is_venue(p):
+            key = normalize_name(p["name"])
+            if key not in best or (p.get("popularity", 0), best[key]["id"]) > (
+                best[key].get("popularity", 0), p["id"]
+            ):
+                best[key] = p
+    kept = [p for p in places if not is_venue(p) or best[normalize_name(p["name"])] is p]
+    return kept, len(places) - len(kept)
