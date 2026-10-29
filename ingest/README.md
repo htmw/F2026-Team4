@@ -52,6 +52,8 @@ name, country and centre.
    Names are shown in English: `name:en` when mapped, otherwise the name if it is in Latin
    letters ("Musée du Louvre"), otherwise `int_name`. A place with none of these (only an
    Urdu, Thai or Korean name) is dropped. Duplicates still match on the mapped name.
+   An outlet of a global chain (Domino's, Starbucks, KFC... by `brand` or name) is dropped;
+   local chains such as Pista House stay.
    A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage
    tags: OSM maps every vegetable and footwear market and every plaque, and only the famous
    ones are sights (Crawford Market stays, "Sabji Market" goes). Typed sights such as museums,

@@ -110,6 +110,31 @@ _SCHOOLS = {"school", "college", "university", "kindergarten"}
 _ONLY_FAMOUS = {"market", "landmark", "viewpoint"}
 
 
+# Global chains: a day with Domino's and Starbucks is not a local food experience. Local
+# chains (Pista House, Paradise Biryani in Hyderabad) are what a traveler comes for, so
+# only these go. Matched on the OSM brand tag, else the start of the name.
+_GLOBAL_CHAINS = {
+    normalize_name(n)
+    for n in (
+        "McDonald's", "KFC", "Burger King", "Subway", "Domino's", "Domino's Pizza",
+        "Pizza Hut", "Papa John's", "Taco Bell", "Wendy's", "Popeyes", "Five Guys",
+        "Dairy Queen", "Chipotle", "Starbucks", "Costa", "Costa Coffee", "Dunkin'",
+        "Dunkin' Donuts", "Tim Hortons", "Baskin-Robbins", "Krispy Kreme",
+    )
+}
+_VENUES = {"restaurant", "cafe", "bakery", "bar"}
+
+
+def _global_chain(tags: dict, categories: list[str]) -> bool:
+    if categories[0] not in _VENUES:
+        return False
+    brand = normalize_name(tags.get("brand") or "")
+    if brand:
+        return brand in _GLOBAL_CHAINS
+    name = normalize_name(tags.get("name") or "")
+    return any(name == c or name.startswith(c + " ") for c in _GLOBAL_CHAINS)
+
+
 def _famous(tags: dict) -> bool:
     return any(tags.get(key) for key in ("wikidata", "wikipedia", "heritage"))
 
@@ -166,6 +191,8 @@ def build_place(
         return BuildResult(None, "school")
     if cats[0] in _ONLY_FAMOUS and not _famous(tags) and not is_long_structure(tags):
         return BuildResult(None, "not_famous")
+    if _global_chain(tags, cats):
+        return BuildResult(None, "global_chain")
 
     parsed = parse_opening_hours(tags.get("opening_hours"))
     if parsed.status == "parsed":

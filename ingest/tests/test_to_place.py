@@ -269,3 +269,28 @@ def test_a_famous_temple_or_mosque_is_a_sight_an_unknown_shrine_is_not(validator
     assert _build(siddhivinayak, validator).place["categories"] == ["landmark"]
     assert _build(haji_ali, validator).place is not None
     assert _build(shrine, validator).drop_reason == "not_famous"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Domino's Pizza", "brand": "Domino's", "amenity": "restaurant"},
+        {"name": "Starbucks", "amenity": "cafe"},
+        {"name": "KFC Banjara Hills", "amenity": "restaurant"},
+    ],
+)
+def test_a_global_chain_outlet_is_left_out(validator, tags):
+    assert _build(tags, validator).drop_reason == "global_chain"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Pista House", "brand": "Pista House", "amenity": "restaurant"},
+        {"name": "Paradise Biryani", "brand": "Paradise", "amenity": "restaurant"},
+        {"name": "Subway Inn", "brand": "Subway Inn", "amenity": "bar"},
+        {"name": "Kfcafe Corner", "amenity": "cafe"},
+    ],
+)
+def test_local_chains_and_lookalike_names_stay(validator, tags):
+    assert _build(tags, validator).place is not None
