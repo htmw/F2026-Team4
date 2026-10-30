@@ -681,3 +681,320 @@ form.card .travel-style-grid input {
 }
 
 
+/* Append to the END of web/src/styles.css */
+.preference-wizard .wizard-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+  list-style: none;
+}
+
+.preference-wizard .wizard-steps li {
+  opacity: 0.65;
+}
+
+.preference-wizard .wizard-steps .wizard-step-current {
+  opacity: 1;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+}
+
+.preference-wizard .wizard-fields {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.preference-wizard .form-error {
+  display: block;
+  margin-top: 0.25rem;
+  color: #b42318;
+  font-size: 0.875rem;
+}
+
+.preference-wizard [aria-invalid="true"] {
+  border-color: #b42318;
+}
+
+.preference-wizard .wizard-actions,
+.preference-wizard .wizard-review-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.preference-wizard .wizard-actions {
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.preference-wizard .wizard-review-heading {
+  justify-content: space-between;
+}
+
+.preference-wizard .wizard-review section + section {
+  margin-top: 1.5rem;
+}
+
+.preference-wizard .wizard-review dl {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) 2fr;
+  gap: 0.75rem 1rem;
+}
+
+.preference-wizard .wizard-review dt {
+  font-weight: 600;
+}
+
+.preference-wizard .wizard-review dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.preference-wizard .wizard-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .preference-wizard .wizard-review dl {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .preference-wizard .wizard-review dd {
+    margin-bottom: 0.75rem;
+  }
+
+  .preference-wizard .wizard-actions > button {
+    flex: 1;
+  }
+}
+/* Wizard polish — append to the END of web/src/styles.css.
+   Uses the app's existing theme: --accent (blue) and --warn (amber). */
+
+/* Step indicator: pills, current step filled with the accent color */
+.preference-wizard .wizard-steps li {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 600;
+}
+
+.preference-wizard .wizard-steps .wizard-step-current {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Errors: amber warning box with a ⚠ symbol (no code change needed —
+   the symbol comes from CSS, the message still comes from the form) */
+.preference-wizard .form-error {
+  display: flex;
+  gap: 0.4rem;
+  align-items: flex-start;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.4rem;
+  border-radius: 8px;
+  background: #fffbeb;
+  color: var(--warn);
+}
+
+.preference-wizard .form-error::before {
+  content: "⚠";
+}
+
+/* Buttons: rounded, modern, with hover and press feedback */
+.preference-wizard .wizard-button {
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.preference-wizard .wizard-button-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+}
+
+.preference-wizard .wizard-button-primary:hover {
+  background: #1d4ed8;
+}
+
+.preference-wizard .wizard-button-secondary {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.preference-wizard .wizard-button-secondary:hover {
+  background: #f6f7f9;
+}
+
+.preference-wizard .wizard-button:active {
+  transform: translateY(1px);
+}
+
+.preference-wizard .wizard-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Sliders pick up the accent color too */
+.preference-wizard input[type="range"] {
+  accent-color: var(--accent);
+}
+/* Full-page makeover — append to the END of web/src/styles.css,
+   AFTER the wizard polish block. */
+
+/* Page: soft blue wash instead of flat grey */
+body {
+  background: linear-gradient(180deg, #dbeafe 0%, #f6f7f9 340px);
+  background-attachment: fixed;
+}
+
+/* Header: decorated Wanderwise wordmark */
+.app-header {
+  margin-bottom: 12px;
+}
+
+.app-header h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(90deg, #2563eb, #7c3aed 55%, #db2777);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.app-header .muted {
+  font-size: 1.05rem;
+}
+
+/* Cards: rounder, softer shadow, more breathing room */
+.card {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+  padding: 22px;
+}
+
+/* Form fields: full-width inputs with a clear focus ring */
+.preference-wizard .field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.preference-wizard .field input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 400;
+}
+
+.preference-wizard .field input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+/* Dietary options: toggle pills instead of plain checkboxes */
+.preference-wizard .checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.preference-wizard label.checkbox {
+  position: relative;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.preference-wizard label.checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.preference-wizard label.checkbox:has(input:checked) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.preference-wizard label.checkbox:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.preference-wizard fieldset.field {
+  border: 0;
+  padding: 0;
+}
+/* Destination autocomplete — append to the END of web/src/styles.css */
+
+.preference-wizard .destination-field {
+  position: relative;
+}
+
+.preference-wizard .destination-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0.25rem 0 0;
+  padding: 0.25rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
+  list-style: none;
+}
+
+.preference-wizard .destination-suggestions button {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.preference-wizard .destination-suggestions button:hover,
+.preference-wizard .destination-suggestions button.suggestion-highlighted {
+  background: #eff6ff;
+}
+
+.preference-wizard .destination-suggestions .suggestion-note {
+  padding: 0.5rem 0.75rem;
+  color: var(--muted);
+}
