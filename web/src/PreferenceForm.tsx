@@ -70,10 +70,12 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Live city suggestions while typing, from OpenStreetMap's Nominatim
-  // geocoder — the same OSM stack the backend's live ingest uses, so any
-  // city picked here is one the backend can plan for. Suggestions are a
-  // convenience only: typing a city name by hand still works.
+  // Live city suggestions while typing, from Photon (photon.komoot.io) —
+  // an OpenStreetMap search built for autocomplete. The previous version
+  // called Nominatim from the browser, which Nominatim's usage policy
+  // forbids; Photon serves the same OSM city data without that problem.
+  // Suggestions are a convenience only: typing a city name by hand
+  // still works.
   useEffect(() => {
     const query = destination.trim();
     if (!hasTyped.current || justSelected.current) {
@@ -94,28 +96,29 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
     const timer = window.setTimeout(async () => {
       try {
         const resp = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=5&q=${encodeURIComponent(query)}`
+          `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=10&lang=en`
         );
         if (!resp.ok || seq !== suggestSeq.current) return;
-        const data = (await resp.json()) as Array<{
-          display_name: string;
-          addresstype?: string;
-        }>;
-        const cities = data
-          .filter((item) =>
+        const data = (await resp.json()) as {
+          features: Array<{
+            properties: {
+              name?: string;
+              country?: string;
+              osm_value?: string;
+            };
+          }>;
+        };
+        const cities = data.features
+          .filter((feature) =>
             ["city", "town", "village", "municipality"].includes(
-              item.addresstype ?? ""
+              feature.properties.osm_value ?? ""
             )
           )
           .slice(0, 5)
-          .map((item) => {
-            const parts = item.display_name
-              .split(",")
-              .map((part) => part.trim());
-            const value =
-              parts.length > 1
-                ? `${parts[0]}, ${parts[parts.length - 1]}`
-                : parts[0];
+          .map((feature) => {
+            const name = feature.properties.name ?? "";
+            const country = feature.properties.country ?? "";
+            const value = country ? `${name}, ${country}` : name;
             return { label: value, value };
           });
         setSuggestions(cities);
