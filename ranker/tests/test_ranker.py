@@ -7,10 +7,10 @@ baselines on held-out data (otherwise training is pointless).
 from __future__ import annotations
 
 from ranker.evaluate import (
+    average_precision_at_k,
     evaluate,
     ndcg_at_k,
     precision_at_k,
-    average_precision_at_k,
 )
 from ranker.features import extract_features, feature_names
 from ranker.synthetic import make_dataset
