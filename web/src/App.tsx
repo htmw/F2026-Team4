@@ -54,7 +54,6 @@ export function App() {
     <div className="app">
       <header className="app-header">
         <h1>Wanderwise</h1>
-        
       </header>
 
       <main className="layout">

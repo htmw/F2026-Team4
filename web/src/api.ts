@@ -13,9 +13,14 @@ function readableError(kind: string, status: number, detail: string): Error {
     }
     if (inner && typeof inner === "object") {
       const fields = inner as Record<string, unknown>;
-      const destinationErrors = fields.destination_errors;
-      if (Array.isArray(destinationErrors) && destinationErrors.length > 0) {
-        return new Error(destinationErrors.map(String).join(" "));
+      const messages: string[] = [];
+      for (const value of Object.values(fields)) {
+        if (Array.isArray(value) && value.length > 0) {
+          messages.push(...value.map(String));
+        }
+      }
+      if (messages.length > 0) {
+        return new Error(messages.join(" "));
       }
       if (typeof fields.message === "string" && fields.message) {
         return new Error(fields.message);
