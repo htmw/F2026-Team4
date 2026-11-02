@@ -33,7 +33,11 @@ export function ItineraryView({
         <h2>{destination.name}</h2>
         <div className="totals">
           <span>{formatMoney(totals.cost, totals.currency)}</span>
-          {typeof score === "number" && <span>score {score.toFixed(2)}</span>}
+          {typeof score === "number" && (
+            <span title="How well this plan matches your interests">
+              Match: {Math.round(score * 100)}%
+            </span>
+          )}
         </div>
       </div>
 
