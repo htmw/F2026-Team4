@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { FormEvent } from "react";
 
 import { INTEREST_KEYS } from "./interests";
 import type { PlanRequest, TravelerProfile } from "./types";
@@ -13,228 +14,678 @@ const DEFAULT_INTERESTS: Record<string, number> = {
   shopping: 0.1,
 };
 
+const STEPS = ["Trip details", "Preferences", "Review"] as const;
+
+type Step = 0 | 1 | 2;
+type Errors = Record<string, string>;
+
 interface Props {
   onSubmit: (req: PlanRequest) => void;
   submitting: boolean;
 }
 
 export function PreferenceForm({ onSubmit, submitting }: Props) {
+  const [step, setStep] = useState<Step>(0);
+  const [errors, setErrors] = useState<Errors>({});
+
+  // State stays here so switching steps preserves all inputs.
   const [destination, setDestination] = useState("Lisbon");
-  const [startDate, setStartDate] = useState("2026-10-01");
-  const [endDate, setEndDate] = useState("2026-10-03");
-  const [destinationError, setDestinationError] = useState("");
-  const [dateError, setDateError] = useState("");
-  const [interests, setInterests] = useState<Record<string, number>>({ ...DEFAULT_INTERESTS });
+  const [suggestions, setSuggestions] = useState<
+    Array<{ label: string; value: string }>
+  >([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [suggesting, setSuggesting] = useState(false);
+  const [highlighted, setHighlighted] = useState(-1);
+  const suggestSeq = useRef(0);
+  const hasTyped = useRef(false);
+  const justSelected = useRef(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [interests, setInterests] = useState<Record<string, number>>({
+    ...DEFAULT_INTERESTS,
+  });
+
   const [pace, setPace] = useState(0.4);
-  const [maxWalk, setMaxWalk] = useState(20);
+  const [maxWalk, setMaxWalk] = useState("20");
+  const [budget, setBudget] = useState("1200");
   const [dayStart, setDayStart] = useState("09:30");
   const [dayEnd, setDayEnd] = useState("22:00");
-  const [budget, setBudget] = useState(1200);
-  const [currency] = useState("EUR");
-  const [dietary, setDietary] = useState("vegetarian");
+  const [dietary, setDietary] = useState<string[]>(["vegetarian"]);
 
-  function setInterest(key: string, value: number) {
-    setInterests((prev) => ({ ...prev, [key]: value }));
+  const currency = "EUR";
+
+  const DIETARY_OPTIONS = [
+    "vegetarian",
+    "vegan",
+    "halal",
+    "kosher",
+    "gluten-free",
+    "nut allergy",
+    "lactose-free",
+  ];
+
+  // Local "today" in YYYY-MM-DD form, used to block past dates.
+  const now = new Date();
+  const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Live city suggestions while typing, from Photon (photon.komoot.io) —
+  // an OpenStreetMap search built for autocomplete. The previous version
+  // called Nominatim from the browser, which Nominatim's usage policy
+  // forbids; Photon serves the same OSM city data without that problem.
+  // Suggestions are a convenience only: typing a city name by hand
+  // still works.
+  useEffect(() => {
+    const query = destination.trim();
+    if (!hasTyped.current || justSelected.current) {
+      justSelected.current = false;
+      setSuggesting(false);
+      setShowSuggestions(false);
+      return;
+    }
+    if (query.length < 2) {
+      setSuggestions([]);
+      setSuggesting(false);
+      setShowSuggestions(false);
+      return;
+    }
+    const seq = ++suggestSeq.current;
+    setSuggesting(true);
+    setShowSuggestions(true);
+    const timer = window.setTimeout(async () => {
+      try {
+        const resp = await fetch(
+          `https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&limit=10&lang=en`
+        );
+        if (!resp.ok || seq !== suggestSeq.current) return;
+        const data = (await resp.json()) as {
+          features: Array<{
+            properties: {
+              name?: string;
+              country?: string;
+              osm_value?: string;
+            };
+          }>;
+        };
+        const cities = data.features
+          .filter((feature) =>
+            ["city", "town", "village", "municipality"].includes(
+              feature.properties.osm_value ?? ""
+            )
+          )
+          .slice(0, 5)
+          .map((feature) => {
+            const name = feature.properties.name ?? "";
+            const country = feature.properties.country ?? "";
+            const value = country ? `${name}, ${country}` : name;
+            return { label: value, value };
+          });
+        setSuggestions(cities);
+        setHighlighted(-1);
+      } catch {
+        // No suggestions on network failure; the typed text still works.
+      } finally {
+        if (seq === suggestSeq.current) setSuggesting(false);
+      }
+    }, 400);
+    return () => window.clearTimeout(timer);
+  }, [destination]);
+
+  function selectSuggestion(value: string) {
+    suggestSeq.current += 1;
+    justSelected.current = true;
+    setDestination(value);
+    setSuggestions([]);
+    setShowSuggestions(false);
+    setHighlighted(-1);
+    clearError("destination");
   }
 
-  function handleSubmit(event: React.FormEvent) {
+  function changeStep(nextStep: Step) {
+    setStep(nextStep);
+    setErrors({});
+
+    requestAnimationFrame(() => {
+      headingRef.current?.focus();
+    });
+  }
+
+  function clearError(field: string) {
+    setErrors((previous) => {
+      const next = { ...previous };
+      delete next[field];
+      return next;
+    });
+  }
+
+  function toggleDietary(option: string) {
+    setDietary((previous) =>
+      previous.includes(option)
+        ? previous.filter((item) => item !== option)
+        : [...previous, option]
+    );
+  }
+
+  function validateTripDetails(): Errors {
+    const next: Errors = {};
+
+    if (!destination.trim()) {
+      next.destination = "Please enter a destination.";
+    }
+
+    if (!startDate) {
+      next.startDate = "Please select a start date.";
+    } else if (startDate < today) {
+      next.startDate = "Start date cannot be in the past.";
+    }
+
+    if (!endDate) {
+      next.endDate = "Please select an end date.";
+    } else if (startDate && endDate < startDate) {
+      next.endDate = "End date cannot be earlier than start date.";
+    }
+
+    return next;
+  }
+
+  function validatePreferences(): Errors {
+    const next: Errors = {};
+    const walkingMinutes = Number(maxWalk);
+    const totalBudget = Number(budget);
+
+    if (
+      !maxWalk.trim() ||
+      !Number.isFinite(walkingMinutes) ||
+      walkingMinutes < 0 ||
+      walkingMinutes > 240
+    ) {
+      next.maxWalk = "Enter a walking limit between 0 and 240 minutes.";
+    }
+
+    if (
+      !budget.trim() ||
+      !Number.isFinite(totalBudget) ||
+      totalBudget < 0
+    ) {
+      next.budget = "Enter a budget of 0 or more.";
+    }
+
+    if (!dayStart) {
+      next.dayStart = "Please select a daily start time.";
+    }
+
+    if (!dayEnd) {
+      next.dayEnd = "Please select a daily end time.";
+    } else if (dayStart && dayEnd <= dayStart) {
+      next.dayEnd = "End time must be later than start time.";
+    }
+
+    if (INTEREST_KEYS.every((key) => (interests[key] ?? 0) === 0)) {
+      next.interests =
+        "Please set at least one interest above zero so we know what you care about.";
+    }
+
+    return next;
+  }
+
+  function showErrors(nextErrors: Errors, targetStep: Step) {
+    setStep(targetStep);
+    setErrors(nextErrors);
+
+    requestAnimationFrame(() => {
+      formRef.current
+        ?.querySelector<HTMLInputElement>('[aria-invalid="true"]')
+        ?.focus();
+    });
+  }
+
+  function goNext() {
+    const nextErrors =
+      step === 0 ? validateTripDetails() : validatePreferences();
+
+    if (Object.keys(nextErrors).length > 0) {
+      showErrors(nextErrors, step);
+      return;
+    }
+
+    changeStep(step === 0 ? 1 : 2);
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setDestinationError("");
-setDateError("");
 
-let hasError = false;
+    if (submitting) return;
 
-if (!destination.trim()) {
-  setDestinationError("Please enter a destination.");
-  hasError = true;
-}
+    // Pressing Enter on an earlier step advances, rather than submitting.
+    if (step !== 2) {
+      goNext();
+      return;
+    }
 
-if (!startDate || !endDate) {
-  setDateError("Please select both travel dates.");
-  hasError = true;
-} else if (endDate < startDate) {
-  setDateError("End date cannot be earlier than start date.");
-  hasError = true;
-}
+    const tripErrors = validateTripDetails();
 
-if (hasError) {
-  return;
-}
+    if (Object.keys(tripErrors).length > 0) {
+      showErrors(tripErrors, 0);
+      return;
+    }
+
+    const preferenceErrors = validatePreferences();
+
+    if (Object.keys(preferenceErrors).length > 0) {
+      showErrors(preferenceErrors, 1);
+      return;
+    }
+
     const profile: TravelerProfile = {
-      interests,
+      interests: { ...interests },
       pace,
-      max_walk_minutes: maxWalk,
+      max_walk_minutes: Number(maxWalk),
       daily_active_hours: 8,
       day_start: dayStart,
       day_end: dayEnd,
-      budget: { total: budget, currency },
-      dietary: dietary
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean),
+      budget: {
+        total: Number(budget),
+        currency,
+      },
+      dietary,
       accessibility: [],
       avoid: [],
       novelty_appetite: 0.3,
-      feedback: { accepted: [], rejected: [] },
+      feedback: {
+        accepted: [],
+        rejected: [],
+      },
     };
+
     onSubmit({
       profile,
-      destination: { name: destination },
+      destination: { name: destination.trim() },
       start_date: startDate,
       end_date: endDate,
     });
   }
 
+  function errorMessage(field: string) {
+    return errors[field] ? (
+      <span id={`${field}-error`} className="form-error" role="alert">
+        {errors[field]}
+      </span>
+    ) : null;
+  }
+
+  function errorAttributes(field: string) {
+    return {
+      "aria-invalid": Boolean(errors[field]),
+      "aria-describedby": errors[field] ? `${field}-error` : undefined,
+    };
+  }
+
   return (
-    <form className="card" onSubmit={handleSubmit}>
+    <form
+      ref={formRef}
+      className="card preference-wizard"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <h2>Plan a trip</h2>
 
-      <div className="row trip-dates">
-       <label className="field">
-  Destination
-  <input
-    value={destination}
-    onChange={(e) => {
-      setDestination(e.target.value);
-      setDestinationError("");
-    }}
-    aria-invalid={!!destinationError}
-  />
-
-  {destinationError && (
-    <span 
-    style={{ color: "red", fontSize: "13px" }}
-     role="alert">
-      {destinationError}
-    </span>
-  )}
-</label>
-     
-<label className="field">
-  Start date
-  <input
-    type="date"
-    value={startDate}
-    onChange={(e) => {
-      setStartDate(e.target.value);
-      setDateError("");
-    }}
-    aria-invalid={!!dateError}
-  />
-</label>
-   
-       
-<label className="field">
-  End date
-  <input
-    type="date"
-    value={endDate}
-    onChange={(e) => {
-      setEndDate(e.target.value);
-      setDateError("");
-    }}
-    aria-invalid={!!dateError}
-  />
-
-  {dateError && (
-    <span
-      style={{ color: "red", fontSize: "13px" }}
-      role="alert"
-    >
-      {dateError}
-    </span>
-  )}
-</label>
-
-      </div>
-
-      <h3>What do you care about?</h3>
-      <div className="interests">
-        {INTEREST_KEYS.map((key) => (
-          <label key={key} className="slider">
-            <span className="slider-label">
-              {key} <em>{(interests[key] ?? 0).toFixed(1)}</em>
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.1}
-              value={interests[key] ?? 0}
-              onChange={(e) => setInterest(key, Number(e.target.value))}
-            />
-          </label>
+      <ol className="wizard-steps" aria-label="Trip planning progress">
+        {STEPS.map((label, index) => (
+          <li
+            key={label}
+            className={index === step ? "wizard-step-current" : undefined}
+            aria-current={index === step ? "step" : undefined}
+          >
+            <span aria-hidden="true">{index + 1}. </span>
+            {label}
+          </li>
         ))}
-      </div>
+      </ol>
 
-<h3>Travel style</h3>
+      <h3 ref={headingRef} tabIndex={-1}>
+        {STEPS[step]}
+      </h3>
 
-{/* Travel Pace */}
-<div className="row">
-  <label className="slider" style={{ width: "100%" }}>
-    <span className="slider-label">
-      pace <em>{pace.toFixed(1)}</em> (0 relaxed → 1 packed)
-    </span>
-    <input
-      type="range"
-      min={0}
-      max={1}
-      step={0.1}
-      value={pace}
-      onChange={(e) => setPace(Number(e.target.value))}
-    />
-  </label>
-</div>
+      <fieldset className="wizard-fields" disabled={submitting}>
+        <legend className="wizard-sr-only">{STEPS[step]} inputs</legend>
 
-{/* Walking, Budget, and Daily Hours */}
-<div className="travel-style-grid">
-  <label className="field">
-    Max walk between stops (min)
-    <input
-      type="number"
-      min={0}
-      max={240}
-      value={maxWalk}
-      onChange={(e) => setMaxWalk(Number(e.target.value))}
-    />
-  </label>
+        {step === 0 && (
+          <div className="row trip-dates">
+            <label className="field destination-field">
+              Destination
+              <input
+                value={destination}
+                onChange={(event) => {
+                  hasTyped.current = true;
+                  setDestination(event.target.value);
+                  clearError("destination");
+                }}
+                onFocus={() => {
+                  if (suggestions.length > 0) setShowSuggestions(true);
+                }}
+                onBlur={() => {
+                  window.setTimeout(() => setShowSuggestions(false), 150);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "ArrowDown" && suggestions.length > 0) {
+                    event.preventDefault();
+                    setShowSuggestions(true);
+                    setHighlighted((prev) => (prev + 1) % suggestions.length);
+                  } else if (event.key === "ArrowUp" && suggestions.length > 0) {
+                    event.preventDefault();
+                    setShowSuggestions(true);
+                    setHighlighted(
+                      (prev) =>
+                        (prev - 1 + suggestions.length) % suggestions.length
+                    );
+                  } else if (
+                    event.key === "Enter" &&
+                    showSuggestions &&
+                    highlighted >= 0 &&
+                    suggestions[highlighted]
+                  ) {
+                    event.preventDefault();
+                    selectSuggestion(suggestions[highlighted].value);
+                  } else if (event.key === "Escape") {
+                    setShowSuggestions(false);
+                  }
+                }}
+                {...errorAttributes("destination")}
+              />
+              {showSuggestions && (
+                <ul className="destination-suggestions" role="listbox">
+                  {suggesting && suggestions.length === 0 && (
+                    <li className="suggestion-note">Searching…</li>
+                  )}
+                  {!suggesting && suggestions.length === 0 && (
+                    <li className="suggestion-note">
+                      No matching cities found.
+                    </li>
+                  )}
+                  {suggestions.map((suggestion, index) => (
+                    <li
+                      key={suggestion.value}
+                      role="option"
+                      aria-selected={index === highlighted}
+                    >
+                      <button
+                        type="button"
+                        className={
+                          index === highlighted
+                            ? "suggestion-highlighted"
+                            : undefined
+                        }
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => selectSuggestion(suggestion.value)}
+                      >
+                        {suggestion.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {errorMessage("destination")}
+            </label>
 
-  <label className="field">
-    Budget ({currency})
-    <input
-      type="number"
-      min={0}
-      value={budget}
-      onChange={(e) => setBudget(Number(e.target.value))}
-    />
-  </label>
+            <label className="field">
+              Start date
+              <input
+                type="date"
+                min={today}
+                value={startDate}
+                onChange={(event) => {
+                  setStartDate(event.target.value);
+                  clearError("startDate");
+                  clearError("endDate");
+                }}
+                {...errorAttributes("startDate")}
+              />
+              {errorMessage("startDate")}
+            </label>
 
-  <label className="field">
-    Day start
-    <input
-      type="time"
-      value={dayStart}
-      onChange={(e) => setDayStart(e.target.value)}
-    />
-  </label>
+            <label className="field">
+              End date
+              <input
+                type="date"
+                min={startDate || undefined}
+                value={endDate}
+                onChange={(event) => {
+                  setEndDate(event.target.value);
+                  clearError("endDate");
+                }}
+                {...errorAttributes("endDate")}
+              />
+              {errorMessage("endDate")}
+            </label>
+          </div>
+        )}
 
-  <label className="field">
-    Day end
-    <input
-      type="time"
-      value={dayEnd}
-      onChange={(e) => setDayEnd(e.target.value)}
-    />
-  </label>
-</div>
-      <label className="field">
-        Dietary (comma-separated)
-        <input value={dietary} onChange={(e) => setDietary(e.target.value)} />
-      </label>
+        {step === 1 && (
+          <>
+            <h4>What do you care about?</h4>
 
-      <button type="submit" disabled={submitting}>
-        {submitting ? "Planning…" : "Plan my trip"}
-      </button>
+            <div className="interests">
+              {INTEREST_KEYS.map((key) => (
+                <label key={key} className="slider">
+                  <span className="slider-label">
+                    {key} <em>{(interests[key] ?? 0).toFixed(1)}</em>
+                  </span>
+
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.1}
+                    value={interests[key] ?? 0}
+                    onChange={(event) => {
+                      const value = Number(event.target.value);
+
+                      setInterests((previous) => ({
+                        ...previous,
+                        [key]: value,
+                      }));
+
+                      if (value > 0) {
+                        clearError("interests");
+                      }
+                    }}
+                    {...errorAttributes("interests")}
+                  />
+                </label>
+              ))}
+            </div>
+
+            {errorMessage("interests")}
+
+            <h4>Travel style</h4>
+
+            <label className="slider">
+              <span className="slider-label">
+                Pace <em>{pace.toFixed(1)}</em> (0 relaxed → 1 packed)
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.1}
+                value={pace}
+                onChange={(event) => setPace(Number(event.target.value))}
+              />
+            </label>
+
+            <div className="travel-style-grid">
+              <label className="field">
+                Max walk between stops (min)
+                <input
+                  type="number"
+                  min={0}
+                  max={240}
+                  value={maxWalk}
+                  onChange={(event) => {
+                    setMaxWalk(event.target.value);
+                    clearError("maxWalk");
+                  }}
+                  {...errorAttributes("maxWalk")}
+                />
+                {errorMessage("maxWalk")}
+              </label>
+
+              <label className="field">
+                Budget ({currency})
+                <input
+                  type="number"
+                  min={0}
+                  step="any"
+                  value={budget}
+                  onChange={(event) => {
+                    setBudget(event.target.value);
+                    clearError("budget");
+                  }}
+                  {...errorAttributes("budget")}
+                />
+                {errorMessage("budget")}
+              </label>
+
+              <label className="field">
+                Day start
+                <input
+                  type="time"
+                  value={dayStart}
+                  onChange={(event) => {
+                    setDayStart(event.target.value);
+                    clearError("dayStart");
+                    clearError("dayEnd");
+                  }}
+                  {...errorAttributes("dayStart")}
+                />
+                {errorMessage("dayStart")}
+              </label>
+
+              <label className="field">
+                Day end
+                <input
+                  type="time"
+                  value={dayEnd}
+                  onChange={(event) => {
+                    setDayEnd(event.target.value);
+                    clearError("dayEnd");
+                  }}
+                  {...errorAttributes("dayEnd")}
+                />
+                {errorMessage("dayEnd")}
+              </label>
+            </div>
+
+            <fieldset className="field">
+              <legend>Dietary preferences</legend>
+              <div className="checkbox-group">
+                {DIETARY_OPTIONS.map((option) => (
+                  <label key={option} className="checkbox">
+                    <input
+                      type="checkbox"
+                      checked={dietary.includes(option)}
+                      onChange={() => toggleDietary(option)}
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          </>
+        )}
+
+        {step === 2 && (
+          <div className="wizard-review">
+            <section aria-labelledby="review-trip-heading">
+              <div className="wizard-review-heading">
+                <h4 id="review-trip-heading">Trip details</h4>
+                <button
+                  type="button"
+                  className="wizard-button wizard-button-secondary"
+                  onClick={() => changeStep(0)}
+                >
+                  Edit trip details
+                </button>
+              </div>
+
+              <dl>
+                <dt>Destination</dt>
+                <dd>{destination.trim()}</dd>
+
+                <dt>Travel dates</dt>
+                <dd>{startDate} → {endDate}</dd>
+              </dl>
+            </section>
+
+            <section aria-labelledby="review-preferences-heading">
+              <div className="wizard-review-heading">
+                <h4 id="review-preferences-heading">Preferences</h4>
+                <button
+                  type="button"
+                  className="wizard-button wizard-button-secondary"
+                  onClick={() => changeStep(1)}
+                >
+                  Edit preferences
+                </button>
+              </div>
+
+              <dl>
+                <dt>Interests</dt>
+                <dd>
+                  {INTEREST_KEYS.map(
+                    (key) => `${key}: ${(interests[key] ?? 0).toFixed(1)}`
+                  ).join(" · ")}
+                </dd>
+
+                <dt>Pace</dt>
+                <dd>{pace.toFixed(1)} (0 relaxed → 1 packed)</dd>
+
+                <dt>Maximum walk between stops</dt>
+                <dd>{maxWalk} minutes</dd>
+
+                <dt>Budget</dt>
+                <dd>{budget} {currency}</dd>
+
+                <dt>Daily schedule</dt>
+                <dd>{dayStart}–{dayEnd}</dd>
+
+                <dt>Dietary preferences</dt>
+                <dd>{dietary.join(", ") || "None specified"}</dd>
+              </dl>
+            </section>
+          </div>
+        )}
+
+        <div className="wizard-actions">
+          {step > 0 && (
+            <button
+              type="button"
+              className="wizard-button wizard-button-secondary"
+              onClick={() => changeStep(step === 2 ? 1 : 0)}
+            >
+              Back
+            </button>
+          )}
+
+          {step < 2 ? (
+            <button
+              type="button"
+              className="wizard-button wizard-button-primary"
+              onClick={goNext}
+            >
+              Next
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="wizard-button wizard-button-primary"
+            >
+              {submitting ? "Planning…" : "Plan my trip"}
+            </button>
+          )}
+        </div>
+      </fieldset>
     </form>
   );
 }
