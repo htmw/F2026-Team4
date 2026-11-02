@@ -42,6 +42,7 @@ export function App() {
     try {
       const feedback: Feedback = { accepted: [], rejected };
       setItinerary(await postFeedback(itinerary.trip_id, feedback));
+      setRejected([]);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
