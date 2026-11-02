@@ -102,6 +102,7 @@ def map_categories(tags: dict) -> list[str]:
         or historic in _LANDMARK_HISTORIC
         or tags.get("place") == "square"
         or amenity == "fountain"
+        or (amenity == "place_of_worship" and "church" not in out)  # temple, mosque...
     ):
         add("landmark")
     return out

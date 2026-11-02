@@ -169,7 +169,7 @@ def test_place_closed_every_day_is_dropped(validator):
         ("relation", {"historic": "citywalls", "type": "site"}, True, True),
         ("relation", {"historic": "aqueduct", "type": "waterway"}, True, True),
         ("relation", {"historic": "citywalls", "type": "multipolygon"}, True, False),
-        ("way", {"historic": "ruins"}, False, False),
+        ("way", {"historic": "ruins", "wikidata": "Q1"}, False, False),
     ],
 )
 def test_signals_mark_wall_pieces_and_collection_relations(
@@ -207,3 +207,92 @@ def test_a_famous_university_stays(validator):
                "amenity": "university", "wikidata": "Q368643"}
 
     assert _build(coimbra, validator).place is not None
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Sabji Market", "amenity": "marketplace"},
+        {"name": "Footware market", "amenity": "marketplace"},
+        {"name": "Plaque", "historic": "memorial", "tourism": "attraction"},
+        {"name": "Some Hill View", "tourism": "viewpoint"},
+    ],
+)
+def test_an_unknown_market_landmark_or_viewpoint_is_left_out(validator, tags):
+    result = _build(tags, validator)
+
+    assert result.place is None
+    assert result.drop_reason == "not_famous"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Crawford Market", "amenity": "marketplace", "wikidata": "Q3631430"},
+        {"name": "Gateway of India", "tourism": "attraction", "wikidata": "Q190711"},
+        {"name": "Local History Museum", "tourism": "museum"},
+        {"name": "Sharma Dhaba", "amenity": "restaurant"},
+        {"name": "Old City Wall", "historic": "citywalls"},
+    ],
+)
+def test_famous_places_typed_sights_venues_and_wall_pieces_stay(validator, tags):
+    assert _build(tags, validator).place is not None
+
+
+@pytest.mark.parametrize(
+    "tags, shown",
+    [
+        ({"name": "پستا ہاؤس", "name:en": "Pista House", "amenity": "restaurant"}, "Pista House"),
+        ({"name": "Musée du Louvre", "tourism": "museum"}, "Musée du Louvre"),
+        ({"name": "Grand Palais", "name:en": "Great Palace", "tourism": "museum"}, "Grand Palais"),
+        ({"name": "सायन किल्ला", "name:en": "Sion Fort", "historic": "fort"}, "Sion Fort"),
+        ({"name": "東京国立博物館", "int_name": "Tokyo National Museum", "tourism": "museum"},
+         "Tokyo National Museum"),
+    ],
+)
+def test_places_are_shown_with_an_english_or_latin_name(validator, tags, shown):
+    assert _build(tags, validator).place["name"] == shown
+
+
+def test_a_place_with_no_english_name_is_left_out(validator):
+    result = _build({"name": "امپیریل ملٹی کزن ریسٹورنٹ", "amenity": "restaurant"}, validator)
+
+    assert result.place is None
+    assert result.drop_reason == "no_english_name"
+
+
+def test_a_famous_temple_or_mosque_is_a_sight_an_unknown_shrine_is_not(validator):
+    siddhivinayak = {"name": "Siddhivinayak Temple", "amenity": "place_of_worship",
+                     "religion": "hindu", "wikidata": "Q3349434"}
+    haji_ali = {"name": "Haji Ali Dargah", "amenity": "place_of_worship",
+                "religion": "muslim", "wikidata": "Q1567553"}
+    shrine = {"name": "Hanuman Mandir", "amenity": "place_of_worship", "religion": "hindu"}
+
+    assert _build(siddhivinayak, validator).place["categories"] == ["landmark"]
+    assert _build(haji_ali, validator).place is not None
+    assert _build(shrine, validator).drop_reason == "not_famous"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Domino's Pizza", "brand": "Domino's", "amenity": "restaurant"},
+        {"name": "Starbucks", "amenity": "cafe"},
+        {"name": "KFC Banjara Hills", "amenity": "restaurant"},
+    ],
+)
+def test_a_global_chain_outlet_is_left_out(validator, tags):
+    assert _build(tags, validator).drop_reason == "global_chain"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"name": "Pista House", "brand": "Pista House", "amenity": "restaurant"},
+        {"name": "Paradise Biryani", "brand": "Paradise", "amenity": "restaurant"},
+        {"name": "Subway Inn", "brand": "Subway Inn", "amenity": "bar"},
+        {"name": "Kfcafe Corner", "amenity": "cafe"},
+    ],
+)
+def test_local_chains_and_lookalike_names_stay(validator, tags):
+    assert _build(tags, validator).place is not None

@@ -1,4 +1,4 @@
-import { confidenceLabel, formatMoney, prettifyPlaceId } from "./format";
+import { confidenceLabel, formatMoney, prettifyPlaceId, priceLabel } from "./format";
 import type { Itinerary } from "./types";
 
 interface Props {
@@ -46,7 +46,7 @@ export function ItineraryView({ itinerary }: Props) {
                   </div>
                   <div className="stop-reason">{item.reason}</div>
                   <div className="stop-meta">
-                    {formatMoney(item.cost, totals.currency)}
+                    {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                     {item.travel_from_prev && item.travel_from_prev.minutes > 0 && (
                       <> · {item.travel_from_prev.minutes} min {item.travel_from_prev.mode}</>
                     )}

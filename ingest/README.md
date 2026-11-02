@@ -42,12 +42,24 @@ name, country and centre.
 ## How a record is built
 
 1. **Geocode** the name with Nominatim: centre, country, default bbox.
-2. **Fetch** nine Overpass query groups for the bbox: sights, historic, worship, nature, food,
+2. **Fetch** nine Overpass query groups for the bbox: sights, historic, worship (every church,
+   and temples, mosques and other places of worship that have Wikidata), nature, food,
    nightlife, shopping, public spaces, neighborhoods. Squares, fountains and neighborhoods
    only come back when they carry a `wikidata` tag, otherwise every small piazza would.
 3. **Convert** each element ([`to_place.py`](to_place.py)): name and coordinates required,
    OSM tags mapped onto the controlled vocabulary ([`categories.py`](categories.py)),
    `opening_hours` parsed ([`hours.py`](hours.py)), fee and charge parsed ([`cost.py`](cost.py)).
+   Names stay as mapped when they are in Latin letters ("Grand Palais", not the "Great
+   Palace" of its `name:en`); another script gets `name:en`, else `int_name` (Sion Fort for
+   सायन किल्ला). A place with no Latin-script name at all (only an Urdu, Thai or Korean name) is
+   dropped. Duplicates still match on the mapped name.
+   An outlet of a global chain (Domino's, Starbucks, KFC... by `brand` or name) is dropped;
+   local chains such as Pista House stay, but only their most popular outlet per city (central
+   Tokyo has dozens of Tully's Coffee; a plan should not visit three).
+   A market, landmark or viewpoint is dropped unless it has Wikidata, Wikipedia or heritage
+   tags: OSM maps every vegetable and footwear market and every plaque, and only the famous
+   ones are sights (Crawford Market stays, "Sabji Market" goes). Typed sights such as museums,
+   restaurants and cafes, and the pieces of a city wall or aqueduct, are kept.
    A school, college or university is dropped unless it has Wikidata, Wikipedia or heritage
    tags: mappers sometimes tag one as a sight (a college in Karimnagar is a "viewpoint").
    A place whose hours name every day as closed is dropped. A place that only lists its
@@ -77,7 +89,7 @@ Never label a guess `known`.
 | Field | `known` | `inferred` | `unknown` |
 |-------|---------|------------|-----------|
 | `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag (category default), or a curated entry with only secondary sources | tag present but outside the supported syntax |
-| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...) | `fee=yes` without an amount, ambiguous charge, or no data |
+| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...), or a typical price per person for a restaurant, cafe, bar or ticketed sight in that currency (`TYPICAL_PRICE` in `cost.py`) | `fee=yes` without an amount, ambiguous charge, or no data |
 
 The hours parser is strict on purpose: if any part of the string is not understood, the whole
 value is `unknown` instead of half guessed. `PH` and `SH` (holiday) rules are skipped because

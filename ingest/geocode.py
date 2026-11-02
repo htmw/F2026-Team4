@@ -92,6 +92,7 @@ def geocode(
     refresh: bool = False,
     get=requests.get,
     max_span_km: float | None = DEFAULT_MAX_SPAN_KM,
+    settlements_only: bool = True,
 ) -> Geocoded:
     """Resolve a destination using Nominatim and cache the result.
 
@@ -99,9 +100,12 @@ def geocode(
     None when the caller supplies an explicit bbox, because then the geocoded box is only
     used for the name, country and centre point.
     """
-    # Settlements only: without it "newyork" matched a shop called NEWYORK in Tokyo.
-    key = {"query": query.strip().lower(), "featureType": "settlement"}
-    path = Path(cache_dir) / slugify(query) / "geocode.json"
+    # Settlements only: without it "newyork" matched a shop called NEWYORK in Tokyo. The
+    # open search is only used to tell a traveler that "japan" is a country.
+    feature = {"featureType": "settlement"} if settlements_only else {}
+    key = {"query": query.strip().lower(), **feature}
+    file_name = "geocode.json" if settlements_only else "geocode_any.json"
+    path = Path(cache_dir) / slugify(query) / file_name
     wrapper = None if refresh else load_cached(path, key)
 
     if wrapper is None:
@@ -112,7 +116,7 @@ def geocode(
                 "format": "jsonv2",
                 "addressdetails": 1,
                 "limit": 1,
-                "featureType": "settlement",
+                **feature,
             },
             headers={
                 "User-Agent": USER_AGENT,

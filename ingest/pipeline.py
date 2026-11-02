@@ -28,7 +28,7 @@ from .categories import (
 )
 from .cost import currency_for_country
 from .curation import apply_curation, load_curation
-from .dedupe import dedupe
+from .dedupe import dedupe, one_per_name
 from .geocode import DEFAULT_MAX_SPAN_KM, geocode
 from .matrix import (
     DEFAULT_DETOUR,
@@ -147,6 +147,9 @@ def run_city(
     places, dedupe_report = dedupe(places, signals)
     if dedupe_report.no_position:
         counts["dropped_no_position"] = len(dedupe_report.no_position)
+    places, extra_outlets = one_per_name(places)
+    if extra_outlets:
+        counts["dropped_extra_outlets"] = extra_outlets
 
     curation_report = None
     if curation is not None:
@@ -251,6 +254,6 @@ def _cost_label(place: dict, signals: dict) -> str:
     if cost["confidence"] == "known":
         return "charge_parsed" if cost["amount"] > 0 else "fee_free"
     if cost["confidence"] == "inferred":
-        return "default_free"
+        return "typical_price" if cost["amount"] > 0 else "default_free"
     status = signals.get("cost_status")
     return status if status in {"fee_amount_missing", "charge_ambiguous"} else "no_data"
