@@ -2,6 +2,34 @@ import type { Itinerary, PlanRequest } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
+// The backend returns errors as JSON like {"detail": {"destination_errors": [...]}}.
+// Pull out the human-readable message instead of showing the raw body.
+function readableError(kind: string, status: number, detail: string): Error {
+  try {
+    const parsed = JSON.parse(detail) as { detail?: unknown };
+    const inner = parsed.detail;
+    if (typeof inner === "string" && inner) {
+      return new Error(inner);
+    }
+    if (inner && typeof inner === "object") {
+      const fields = inner as Record<string, unknown>;
+      const destinationErrors = fields.destination_errors;
+      if (Array.isArray(destinationErrors) && destinationErrors.length > 0) {
+        return new Error(destinationErrors.map(String).join(" "));
+      }
+      if (typeof fields.message === "string" && fields.message) {
+        return new Error(fields.message);
+      }
+    }
+  } catch {
+    // Not JSON — fall through to the raw fallback below.
+  }
+  if (!detail) {
+    return new Error(`${kind} request failed (${status})`);
+  }
+  return new Error(`${kind} request failed (${status}): ${detail}`);
+}
+
 export async function postPlan(req: PlanRequest): Promise<Itinerary> {
   const resp = await fetch(`${API_BASE}/plan`, {
     method: "POST",
@@ -9,8 +37,7 @@ export async function postPlan(req: PlanRequest): Promise<Itinerary> {
     body: JSON.stringify(req),
   });
   if (!resp.ok) {
-    const detail = await resp.text();
-    throw new Error(`Plan request failed (${resp.status}): ${detail}`);
+    throw readableError("Plan", resp.status, await resp.text());
   }
   return (await resp.json()) as Itinerary;
 }
@@ -33,8 +60,7 @@ export async function postFeedback(
     },
   );
   if (!resp.ok) {
-    const detail = await resp.text();
-    throw new Error(`Feedback request failed (${resp.status}): ${detail}`);
+    throw readableError("Feedback", resp.status, await resp.text());
   }
   return (await resp.json()) as Itinerary;
 }
