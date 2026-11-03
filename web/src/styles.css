@@ -1119,3 +1119,95 @@ body {
   color: #fff;
   font-weight: 600;
 }
+
+/* Budget amount + currency side by side */
+.budget-inputs {
+  display: flex;
+  gap: 8px;
+}
+
+.budget-inputs input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.budget-inputs select {
+  flex: 0 1 auto;
+  max-width: 55%;
+  padding: 0 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 400;
+  text-overflow: ellipsis;
+}
+
+.budget-inputs select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.field-hint {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--warn);
+}
+
+/* Loading message while a plan is being made */
+.planning-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-weight: 600;
+}
+
+.planning p.muted {
+  margin: 0;
+  max-width: 60ch;
+}
+
+.planning-spinner {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: planning-spin 0.9s linear infinite;
+}
+
+@keyframes planning-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .planning-spinner {
+    animation-duration: 3s;
+  }
+}
+
+/* Itinerary heading takes focus when a plan arrives; outline only for keyboard users */
+.itinerary-header h2:focus {
+  outline: none;
+}
+
+.itinerary-header h2:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.results {
+  scroll-margin-top: 16px;
+}
+
+.day h3 .day-date {
+  font-weight: 500;
+  color: var(--muted);
+}
