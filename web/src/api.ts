@@ -4,7 +4,7 @@ const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
 // The backend returns errors as JSON like {"detail": {"destination_errors": [...]}}.
 // Pull out the human-readable message instead of showing the raw body.
-function readableError(kind: string, status: number, detail: string): Error {
+export function readableError(kind: string, status: number, detail: string): Error {
   try {
     const parsed = JSON.parse(detail) as { detail?: unknown };
     const inner = parsed.detail;

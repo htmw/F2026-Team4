@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
+import { currencyForCountry, currencyLabel, currencyOptions } from "./currency";
+import { formatDateRange, formatMoney } from "./format";
 import { INTEREST_KEYS } from "./interests";
 import type { PlanRequest, TravelerProfile } from "./types";
 
@@ -16,6 +18,13 @@ const DEFAULT_INTERESTS: Record<string, number> = {
 
 const STEPS = ["Trip details", "Preferences", "Review"] as const;
 
+interface CitySuggestion {
+  label: string;
+  value: string;
+  // The city's local currency, from Photon's country code (undefined if unknown).
+  currency?: string;
+}
+
 type Step = 0 | 1 | 2;
 type Errors = Record<string, string>;
 
@@ -30,9 +39,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
 
   // State stays here so switching steps preserves all inputs.
   const [destination, setDestination] = useState("Lisbon");
-  const [suggestions, setSuggestions] = useState<
-    Array<{ label: string; value: string }>
-  >([]);
+  const [suggestions, setSuggestions] = useState<CitySuggestion[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [suggesting, setSuggesting] = useState(false);
   const [highlighted, setHighlighted] = useState(-1);
@@ -52,7 +59,11 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
   const [dayEnd, setDayEnd] = useState("22:00");
   const [dietary, setDietary] = useState<string[]>(["vegetarian"]);
 
-  const currency = "EUR";
+  // The optimizer applies the budget only when it is in the local currency, so choosing a
+  // suggested city switches the budget to that country's currency. The user can still change it.
+  const [currency, setCurrency] = useState("EUR");
+  // Local currency of the chosen city; unknown when the name was typed by hand.
+  const [localCurrency, setLocalCurrency] = useState<string | undefined>("EUR");
 
   const DIETARY_OPTIONS = [
     "vegetarian",
@@ -105,22 +116,20 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
               name?: string;
               country?: string;
               osm_value?: string;
+              countrycode?: string;
             };
           }>;
         };
-        const cities = data.features
-          .filter((feature) =>
-            ["city", "town", "village", "municipality"].includes(
-              feature.properties.osm_value ?? ""
-            )
-          )
-          .slice(0, 5)
-          .map((feature) => {
-            const name = feature.properties.name ?? "";
-            const country = feature.properties.country ?? "";
-            const value = country ? `${name}, ${country}` : name;
-            return { label: value, value };
-          });
+        const cities: CitySuggestion[] = [];
+        for (const feature of data.features) {
+          const { name = "", country = "", osm_value = "", countrycode } = feature.properties;
+          if (!["city", "town", "village", "municipality"].includes(osm_value)) continue;
+          const value = country ? `${name}, ${country}` : name;
+          // Photon can return the same city twice (a node and an area); show it once.
+          if (cities.some((city) => city.value === value)) continue;
+          cities.push({ label: value, value, currency: currencyForCountry(countrycode) });
+          if (cities.length === 5) break;
+        }
         setSuggestions(cities);
         setHighlighted(-1);
       } catch {
@@ -132,10 +141,12 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
     return () => window.clearTimeout(timer);
   }, [destination]);
 
-  function selectSuggestion(value: string) {
+  function selectSuggestion({ value, currency: cityCurrency }: CitySuggestion) {
     suggestSeq.current += 1;
     justSelected.current = true;
     setDestination(value);
+    setLocalCurrency(cityCurrency);
+    if (cityCurrency) setCurrency(cityCurrency);
     setSuggestions([]);
     setShowSuggestions(false);
     setHighlighted(-1);
@@ -359,6 +370,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                 onChange={(event) => {
                   hasTyped.current = true;
                   setDestination(event.target.value);
+                  setLocalCurrency(undefined);
                   clearError("destination");
                 }}
                 onFocus={() => {
@@ -386,7 +398,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                     suggestions[highlighted]
                   ) {
                     event.preventDefault();
-                    selectSuggestion(suggestions[highlighted].value);
+                    selectSuggestion(suggestions[highlighted]);
                   } else if (event.key === "Escape") {
                     setShowSuggestions(false);
                   }
@@ -417,7 +429,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                             : undefined
                         }
                         onMouseDown={(event) => event.preventDefault()}
-                        onClick={() => selectSuggestion(suggestion.value)}
+                        onClick={() => selectSuggestion(suggestion)}
                       >
                         {suggestion.label}
                       </button>
@@ -531,21 +543,41 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                 {errorMessage("maxWalk")}
               </label>
 
-              <label className="field">
-                Budget ({currency})
-                <input
-                  type="number"
-                  min={0}
-                  step="any"
-                  value={budget}
-                  onChange={(event) => {
-                    setBudget(event.target.value);
-                    clearError("budget");
-                  }}
-                  {...errorAttributes("budget")}
-                />
+              <div className="field budget-field">
+                <label htmlFor="budget-amount">Budget</label>
+                <div className="budget-inputs">
+                  <input
+                    id="budget-amount"
+                    type="number"
+                    min={0}
+                    step="any"
+                    value={budget}
+                    onChange={(event) => {
+                      setBudget(event.target.value);
+                      clearError("budget");
+                    }}
+                    {...errorAttributes("budget")}
+                  />
+                  <select
+                    aria-label="Budget currency"
+                    value={currency}
+                    onChange={(event) => setCurrency(event.target.value)}
+                  >
+                    {currencyOptions(currency).map((code) => (
+                      <option key={code} value={code}>
+                        {currencyLabel(code)}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                {localCurrency && localCurrency !== currency && (
+                  <span className="field-hint">
+                    Prices in {destination.trim()} are in {localCurrency}. A budget in{" "}
+                    {currency} can't be applied there yet.
+                  </span>
+                )}
                 {errorMessage("budget")}
-              </label>
+              </div>
 
               <label className="field">
                 Day start
@@ -614,7 +646,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                 <dd>{destination.trim()}</dd>
 
                 <dt>Travel dates</dt>
-                <dd>{startDate} → {endDate}</dd>
+                <dd>{formatDateRange(startDate, endDate)}</dd>
               </dl>
             </section>
 
@@ -645,7 +677,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
                 <dd>{maxWalk} minutes</dd>
 
                 <dt>Budget</dt>
-                <dd>{budget} {currency}</dd>
+                <dd>{formatMoney(Number(budget), currency)}</dd>
 
                 <dt>Daily schedule</dt>
                 <dd>{dayStart}–{dayEnd}</dd>
@@ -668,8 +700,12 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             </button>
           )}
 
+          {/* Different keys, so React makes a new submit button instead of turning the
+              clicked "Next" into one mid-click (which submitted the form straight from
+              Preferences, skipping Review). */}
           {step < 2 ? (
             <button
+              key="next"
               type="button"
               className="wizard-button wizard-button-primary"
               onClick={goNext}
@@ -678,6 +714,7 @@ export function PreferenceForm({ onSubmit, submitting }: Props) {
             </button>
           ) : (
             <button
+              key="submit"
               type="submit"
               className="wizard-button wizard-button-primary"
             >

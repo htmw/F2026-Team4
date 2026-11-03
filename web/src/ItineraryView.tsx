@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { confidenceLabel, formatMoney, prettifyPlaceId } from "./format";
+import { confidenceLabel, formatDay, formatMoney, prettifyPlaceId } from "./format";
 import type { Itinerary } from "./types";
 
 interface Props {
@@ -20,17 +20,22 @@ export function ItineraryView({
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
-  // A new plan (or a re-plan) starts back on Day 1.
+  // A new plan (or a re-plan) starts back on Day 1, and focus moves to it so screen reader
+  // users hear that it arrived (focusing also scrolls it into view on a phone).
   useEffect(() => {
     setDayIndex(0);
+    headingRef.current?.focus();
   }, [itinerary]);
 
   const day = itinerary.days[dayIndex];
   return (
     <div className="card">
       <div className="itinerary-header">
-        <h2>{destination.name}</h2>
+        <h2 ref={headingRef} tabIndex={-1}>
+          {destination.name}
+        </h2>
         <div className="totals">
           <span>{formatMoney(totals.cost, totals.currency)}</span>
           {typeof score === "number" && (
@@ -65,7 +70,8 @@ export function ItineraryView({
                 key={d.date}
                 type="button"
                 className={`day-step${i === dayIndex ? " day-step-active" : ""}`}
-                aria-label={`Day ${i + 1}: ${d.date}`}
+                aria-label={`Day ${i + 1}, ${formatDay(d.date)}`}
+                aria-current={i === dayIndex ? "date" : undefined}
                 onClick={() => setDayIndex(i)}
               >
                 {i + 1}
@@ -85,7 +91,9 @@ export function ItineraryView({
 
       {day ? (
         <section key={day.date} className="day">
-          <h3>{day.date}</h3>
+          <h3>
+            Day {dayIndex + 1} <span className="day-date">· {formatDay(day.date)}</span>
+          </h3>
           {day.items.length === 0 && <p className="muted">No stops scheduled.</p>}
           <ol className="timeline">
             {day.items.map((item, i) => {
