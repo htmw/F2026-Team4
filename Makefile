@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help install install-py install-web lint lint-py lint-web test test-py test-web run-api run-web train evaluate ingest snapshot-rome data-spike routing-spike
+.PHONY: help install install-py install-web lint lint-py lint-web test test-py test-web run-api run-web train evaluate ingest snapshot-rome data-spike routing-spike llm-spike
 
 help: ## Show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-14s\033[0m %s\n", $$1, $$2}'
@@ -58,3 +58,8 @@ data-spike: ## Hours and price coverage for four cities -> docs/data-spike.md
 
 routing-spike: ## Haversine vs OSRM foot routing for Rome -> docs/routing-spike.md
 	uv run python -m ingest.routing_spike Rome --osrm-url $(OSRM_FOOT)
+
+LLM_MODEL ?= llama3
+
+llm-spike: ## Free text -> profile with a local Ollama model -> docs/llm-spike.md
+	uv run python -m ai.benchmark --model $(LLM_MODEL)
