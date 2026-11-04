@@ -61,13 +61,13 @@ export function CitySearch({ value, onType, onSelect, error }: Props) {
         if (!resp.ok || seq !== seqRef.current) return;
         const data = (await resp.json()) as {
           features: Array<{
-            properties: { name?: string; country?: string; osm_value?: string; countrycode?: string };
+            properties: { name?: string; country?: string; osm_value?: string; countrycode?: string; type?: string };
           }>;
         };
         const cities: CitySuggestion[] = [];
         for (const feature of data.features) {
-          const { name = "", country = "", osm_value = "", countrycode } = feature.properties;
-          if (!["city", "town", "village", "municipality"].includes(osm_value)) continue;
+          const { name = "", country = "", osm_value = "", countrycode, type = "" } = feature.properties;
+          if (type !== "city" && !["city", "town", "village", "municipality"].includes(osm_value)) continue;
           const label = country ? `${name}, ${country}` : name;
           // Photon can return the same city twice (a node and an area); show it once.
           if (cities.some((city) => city.value === label)) continue;
