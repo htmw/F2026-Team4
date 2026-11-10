@@ -4,6 +4,7 @@ Endpoints:
     POST /plan                      profile + destination + dates -> Itinerary (saved as a trip)
     GET  /trips/{trip_id}           the trip's current Itinerary
     POST /trips/{trip_id}/feedback  record accepted/rejected places, re-plan, return the Itinerary
+    POST /profile/from-text         free-text trip description -> TravelerProfile (via /ai)
 
 Every incoming profile and every outgoing itinerary is validated against the contracts,
 so the moment any component drifts from the agreed shapes, we find out here.
@@ -18,12 +19,13 @@ from __future__ import annotations
 import os
 from datetime import date
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from ai import LLM, LLMError, LLMUnavailable, ProfileExtractionError, extract_profile, get_llm
 from api.contracts import validate
 from api.trips import TripStore
 from ingest.catalog import CityFetchFailed, CityNotAvailable
@@ -60,6 +62,13 @@ class PlanRequest(BaseModel):
 class Feedback(BaseModel):
     accepted: list[str] = []
     rejected: list[str] = []
+
+
+class ProfileText(BaseModel):
+    text: str
+
+
+MAX_PROFILE_TEXT = 2000  # characters; a trip description, not an essay
 
 
 def _request_errors(req: PlanRequest) -> list[str]:
@@ -177,3 +186,28 @@ def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     itinerary = _build_itinerary(request, trip_id=trip_id)
     store.save(trip_id, request, itinerary)
     return itinerary
+
+
+@app.post("/profile/from-text")
+def profile_from_text(body: ProfileText, llm: Annotated[LLM, Depends(get_llm)]) -> dict[str, Any]:
+    """Turn a free-text trip description into a TravelerProfile the form can start from.
+
+    Returns {"profile": TravelerProfile, "defaults_used": [field, ...]}. `defaults_used`
+    names the fields the traveler didn't mention, which were filled with the form's
+    starting values, so the UI can ask the traveler to check them.
+    """
+    text = body.text.strip()
+    if not text:
+        raise HTTPException(status_code=422, detail="text must not be empty.")
+    if len(text) > MAX_PROFILE_TEXT:
+        raise HTTPException(
+            status_code=422, detail=f"text must be at most {MAX_PROFILE_TEXT} characters."
+        )
+    try:
+        result = extract_profile(text, llm)
+    except LLMUnavailable as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
+    except (LLMError, ProfileExtractionError) as exc:
+        # The model answered, but not with a usable profile. Not the client's fault.
+        raise HTTPException(status_code=502, detail=str(exc)) from exc
+    return {"profile": result.profile, "defaults_used": result.defaults_used}

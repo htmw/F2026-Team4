@@ -1,0 +1,105 @@
+{
+  "description": "Hand-written traveler descriptions for the LLM spike (python -m ai.benchmark). Each `expect` lists what a correct profile must show. Checks: high = interest >= 0.7, low = interest <= 0.3, pace relaxed <= 0.4 / packed >= 0.6, dietary = each term appears in an entry (no `dietary` = the profile must list no diet, which catches invented ones), accessibility = at least one entry, avoid = each category listed, budget_total within 5%, currency exact, max_walk_at_most / at_least in minutes, day_start_at_or_after / at_or_before and day_end_at_or_before as HH:MM.",
+  "descriptions": [
+    {
+      "id": "vegetarian-foodies",
+      "text": "We're two vegetarians going mainly to eat. Markets, bakeries, long lunches. We hate rushing, so a couple of things a day is plenty. Budget is around 900 euros.",
+      "expect": {"high": ["food"], "pace": "relaxed", "dietary": ["vegetarian"], "budget_total": 900, "currency": "EUR"}
+    },
+    {
+      "id": "history-teacher",
+      "text": "I'm a retired history teacher. I want castles, monasteries and old ruins, as many as I can fit in each day. Not interested in bars or shopping at all.",
+      "expect": {"high": ["history"], "low": ["nightlife", "shopping"], "pace": "packed"}
+    },
+    {
+      "id": "art-lover",
+      "text": "Museums and galleries are the whole point of the trip for me, modern art especially. I don't care much for parks or nature.",
+      "expect": {"high": ["art"], "low": ["nature"]}
+    },
+    {
+      "id": "bachelor-party",
+      "text": "Bachelor party weekend! Bars, clubs, nightlife until late. Nobody is getting up before noon.",
+      "expect": {"high": ["nightlife"], "day_start_at_or_after": "11:00"}
+    },
+    {
+      "id": "wheelchair-architecture",
+      "text": "My wife uses a wheelchair, so we need step-free routes and very short distances between stops. We both love architecture and old churches.",
+      "expect": {"high": ["architecture"], "accessibility": true, "max_walk_at_most": 10}
+    },
+    {
+      "id": "student-backpacker",
+      "text": "Student backpacker with 300 dollars for the whole trip. I walk everywhere and don't mind 40 minute walks. Into nature and cheap street food.",
+      "expect": {"high": ["nature", "food"], "budget_total": 300, "currency": "USD", "max_walk_at_least": 30}
+    },
+    {
+      "id": "family-young-kids",
+      "text": "Family with two young kids, 4 and 7. Parks, the zoo, ice cream. We need to be back at the hotel by 7pm and the kids can't do long walks.",
+      "expect": {"high": ["nature"], "max_walk_at_most": 15, "day_end_at_or_before": "19:30"}
+    },
+    {
+      "id": "shopper",
+      "text": "Honestly I'm going for the shopping. Malls, boutiques, souvenirs. Maybe one museum if it rains.",
+      "expect": {"high": ["shopping"]}
+    },
+    {
+      "id": "coeliac-slow-mornings",
+      "text": "Coeliac traveler, so strictly gluten-free. I love cafes and slow mornings and usually start my day around 10:30.",
+      "expect": {"dietary": ["gluten"], "day_start_at_or_after": "10:00"}
+    },
+    {
+      "id": "architecture-photographer",
+      "text": "Architecture photographer. I want to see buildings, bridges and viewpoints from early morning, around 7am, until sunset. Pack as much in as possible.",
+      "expect": {"high": ["architecture"], "pace": "packed", "day_start_at_or_before": "08:00"}
+    },
+    {
+      "id": "halal-history",
+      "text": "We eat halal only. We're interested in history and old religious buildings, at a moderate pace. Budget 1500 pounds.",
+      "expect": {"high": ["history"], "dietary": ["halal"], "budget_total": 1500, "currency": "GBP"}
+    },
+    {
+      "id": "no-churches",
+      "text": "Please no churches or museums, I've seen enough of them. I want parks, beaches and good seafood.",
+      "expect": {"high": ["nature", "food"], "avoid": ["church", "museum"]}
+    },
+    {
+      "id": "terse-food",
+      "text": "food. lots of food.",
+      "expect": {"high": ["food"]}
+    },
+    {
+      "id": "vague-relaxing",
+      "text": "Just want a nice relaxing break somewhere.",
+      "expect": {"pace": "relaxed"}
+    },
+    {
+      "id": "luxury-anniversary",
+      "text": "Anniversary trip with a budget of 5000 euros. Fine dining, wine bars and a bit of art. Relaxed pace, nothing before 10am.",
+      "expect": {"high": ["food"], "pace": "relaxed", "budget_total": 5000, "currency": "EUR", "day_start_at_or_after": "10:00"}
+    },
+    {
+      "id": "spanish-couple",
+      "text": "Viajo con mi pareja. Nos encanta la historia y la arquitectura, y no nos gusta salir de noche. Tenemos un presupuesto de 1000 euros.",
+      "expect": {"high": ["history", "architecture"], "low": ["nightlife"], "budget_total": 1000, "currency": "EUR"}
+    },
+    {
+      "id": "walks-with-a-cane",
+      "text": "I'm 78 and walk slowly with a cane, ten minutes of walking at a time at most. I enjoy gardens and quiet museums, and I like to be back by 6pm.",
+      "expect": {"accessibility": true, "max_walk_at_most": 10, "day_end_at_or_before": "18:30"}
+    },
+    {
+      "id": "vegan-techno",
+      "text": "Vegan. I love techno clubs and late nights, so sleeping in is mandatory. Also really into street art.",
+      "expect": {"high": ["nightlife", "art"], "dietary": ["vegan"], "day_start_at_or_after": "10:00"}
+    },
+    {
+      "id": "hiker-nut-allergy",
+      "text": "Hiking and nature all day, I happily walk for hours. Severe nut allergy. Not interested in shopping.",
+      "expect": {"high": ["nature"], "low": ["shopping"], "dietary": ["nut"], "max_walk_at_least": 30}
+    },
+    {
+      "id": "yen-budget",
+      "text": "My budget is 150,000 yen. I like a bit of everything: food, history and art, at a balanced pace.",
+      "expect": {"budget_total": 150000, "currency": "JPY"}
+    }
+  ]
+}

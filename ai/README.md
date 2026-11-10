@@ -17,6 +17,24 @@ human-readable sentences. It is never the source of truth for hours, prices, or 
   hand-written traveler descriptions, what's the valid-output rate and p95 latency for a
   local 8B-class model?
 
+## Run it
+```bash
+ollama pull llama3          # once
+ollama serve                # leave running
+make llm-spike              # 20 descriptions -> docs/llm-spike.md
+```
+From code: `extract_profile(text, get_llm())` returns an `ExtractionResult` with the
+`profile`, the `defaults_used` (fields the traveler didn't mention) and the `attempts`.
+Over HTTP: `POST /profile/from-text` with `{"text": "..."}`.
+
+| File | What it does |
+|------|--------------|
+| [`llm.py`](llm.py) | the `LLM` interface, the Ollama provider, `get_llm()` from env vars |
+| [`profile.py`](profile.py) | `extract_profile`: prompt, schema, defaults, validation, retries |
+| [`benchmark.py`](benchmark.py) | the LLM spike over `fixtures/traveler-descriptions.json` |
+
+Tests use a scripted fake model (`ai/tests/fakes.py`), so CI never needs Ollama.
+
 ## Rules
 - Keep the model behind an abstraction. No provider names leak into the rest of the code.
 - Validate every LLM output against the contract before it enters the system.
