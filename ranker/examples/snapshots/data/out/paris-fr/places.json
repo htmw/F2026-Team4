@@ -1,0 +1,257 @@
+[
+  {
+    "id": "osm:node/10018758122",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Les Ambassades",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10031336830",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Pizza italienne",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10047610734",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Printemps Vert",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10047610736",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Mercerie Mulot",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10059604617",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Magma",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10068761188",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Les Tanins",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10074050326",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "La Cantine",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/1008982449",
+    "categories": [
+      "bakery"
+    ],
+    "typical_duration_minutes": 15,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Boulangerie Dominique Mathieu",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10139088033",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Raf Coffee",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10220121247",
+    "categories": [
+      "bar"
+    ],
+    "typical_duration_minutes": 90,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "Baobar",
+    "popularity": 0.0
+  },
+  {
+    "id": "osm:node/10220756519",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "unknown"
+    },
+    "name": "Jin",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10222456817",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Erev Paris",
+    "popularity": 0.011
+  },
+  {
+    "id": "osm:node/10295392795",
+    "categories": [
+      "cafe"
+    ],
+    "typical_duration_minutes": 45,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Maison Dimanche",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10314645626",
+    "categories": [
+      "restaurant"
+    ],
+    "typical_duration_minutes": 75,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "known"
+    },
+    "name": "Sushi Wasabi",
+    "popularity": 0.006
+  },
+  {
+    "id": "osm:node/10548877881",
+    "categories": [
+      "gallery"
+    ],
+    "typical_duration_minutes": 60,
+    "cost": {
+      "amount": 0.0,
+      "currency": "EUR",
+      "confidence": "unknown"
+    },
+    "hours": {
+      "confidence": "inferred"
+    },
+    "name": "DGL",
+    "popularity": 0.1
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seed": 42,
+  "travelers_per_city": 50,
+  "maximum_places_per_city": 15,
+  "candidates_per_traveler": 15,
+  "collection": {
+    "method": "existing_live_catalog",
+    "description": "Use the existing live catalog without modifying application files."
+  },
+  "budgets": {
+    "EUR": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "JPY": [
+      30000,
+      60000,
+      120000,
+      200000
+    ]
+  },
+  "cities": [
+    {
+      "key": "paris-fr",
+      "query": "Paris, France",
+      "country": "FR",
+      "currency": "EUR",
+      "region": "Europe",
+      "role": "train"
+    },
+    {
+      "key": "tokyo-jp",
+      "query": "Tokyo, Japan",
+      "country": "JP",
+      "currency": "JPY",
+      "region": "Asia",
+      "role": "test"
+    }
+  ]
+}

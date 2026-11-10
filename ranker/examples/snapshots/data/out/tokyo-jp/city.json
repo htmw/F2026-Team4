@@ -1,0 +1,24 @@
+{
+  "key": "tokyo-jp",
+  "name": "Tokyo",
+  "country": "JP",
+  "country_name": "Japan",
+  "aliases": [
+    "Tokyo",
+    "Tokyo, Japan"
+  ],
+  "lat": 35.6768601,
+  "lon": 139.7638947,
+  "bbox": [
+    35.63194454125045,
+    139.70860170384597,
+    35.72177565874955,
+    139.81918769615405
+  ],
+  "bbox_source": "explicit",
+  "currency": "JPY",
+  "places": 13078,
+  "built_at": "2026-10-25T19:12:34+00:00",
+  "curation": null,
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright"
+}

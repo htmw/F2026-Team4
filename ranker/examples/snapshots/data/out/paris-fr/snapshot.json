@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "paris-fr",
+    "query": "Paris, France",
+    "country": "FR",
+    "currency": "EUR",
+    "region": "Europe",
+    "role": "train"
+  },
+  "sampling": {
+    "maximum_places": 15,
+    "seed": 42
+  },
+  "resolved_name": "Paris",
+  "resolved_source_key": "paris-fr",
+  "source_built_at": "2026-10-25T18:52:54+00:00",
+  "source_places": 15,
+  "selected_places": 15,
+  "original_places_sha256": "4ab7bfd795bf446f33db7979755a338577a8fe759e6f26925998082cad6ff518",
+  "bbox": [
+    48.80857954125045,
+    2.28012938945388,
+    48.898410658749555,
+    2.41665361054612
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "ecb53adac560dbf12b7f71251e97624e607b8b51543d0911ffb6e5237aa34508",
+    "city.json": "e457e1bbe170a4fb30b7b75be4eebcb0a05dd985fe4659cb80b97272dd5511c2",
+    "source_ids.json": "ef93ec96634673ed80fb005f1ca1b01e9a411a7173712842b0a42ce93ae7f692"
+  }
+}
