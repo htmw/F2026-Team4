@@ -31,6 +31,15 @@ export function prettifyPlaceId(placeId: string): string {
     .join(" ");
 }
 
+// "Free" when nobody pays, "≈ ₹700" for a typical estimate, "Price unknown" when no one knows.
+// An itinerary without cost_confidence (older trips) just shows the amount.
+export function priceLabel(cost: number, currency: string, confidence?: Confidence): string {
+  if (confidence === "unknown") return "Price unknown";
+  if (confidence && cost === 0) return "Free";
+  if (confidence === "inferred") return `≈ ${formatMoney(cost, currency)}`;
+  return formatMoney(cost, currency);
+}
+
 // "2026-10-01" -> "Thu, 1 Oct" (the exact wording follows the browser's locale).
 // Dates are parsed and formatted in UTC so a calendar date never shifts by a day.
 function parseIsoDate(iso: string): Date | null {

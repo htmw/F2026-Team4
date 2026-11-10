@@ -6,6 +6,7 @@ import {
   formatDay,
   formatMoney,
   prettifyPlaceId,
+  priceLabel,
 } from "./format";
 
 describe("format helpers", () => {
@@ -17,6 +18,15 @@ describe("format helpers", () => {
 
   it("formats an amount with its currency", () => {
     expect(formatMoney(5, "EUR")).toContain("5");
+  });
+
+  it("says free, estimated or unknown instead of a bare zero", () => {
+    expect(priceLabel(0, "INR", "inferred")).toBe("Free");
+    expect(priceLabel(0, "EUR", "known")).toBe("Free");
+    expect(priceLabel(700, "INR", "inferred")).toMatch(/^≈ .*700/);
+    expect(priceLabel(0, "NPR", "unknown")).toBe("Price unknown");
+    expect(priceLabel(15, "EUR", "known")).toContain("15");
+    expect(priceLabel(0, "EUR")).toContain("0");
   });
 
   it("prettifies a fixture place id", () => {

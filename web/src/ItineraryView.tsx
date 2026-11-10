@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { confidenceLabel, formatDay, formatMoney, prettifyPlaceId } from "./format";
+import { confidenceLabel, formatDay, formatMoney, prettifyPlaceId, priceLabel } from "./format";
 import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon } from "./icons";
 import type { Itinerary, PlanRequest } from "./types";
 
@@ -177,7 +177,9 @@ export function ItineraryView({
                         <span className={`confidence confidence-${item.confidence}`}>
                           Hours {confidenceLabel(item.confidence)}
                         </span>
-                        <span className="stop-cost">{formatMoney(item.cost, totals.currency)}</span>
+                        <span className="stop-cost">
+                          {priceLabel(item.cost, totals.currency, item.cost_confidence)}
+                        </span>
                       </p>
                     </div>
                     <button
