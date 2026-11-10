@@ -74,16 +74,19 @@ def recommendation_reason(
     profile: dict[str, Any],
     category_map: dict[str, list[str]],
 ) -> str:
-    interests = matched_interests(place, category_map)
+    """Name every interest of the traveler's that this place serves, strongest first.
+
+    Naming only the strongest one hid the rest: the Pantheon is history AND
+    architecture, and a museum is art as well as history.
+    """
     weights = profile.get("interests", {})
+    served = sorted(
+        (name for name in matched_interests(place, category_map) if weights.get(name, 0) > 0),
+        key=lambda name: (-weights.get(name, 0), name),
+    )[:3]
 
-    best = sorted(
-        interests,
-        key=lambda name: weights.get(name, 0),
-        reverse=True,
-    )
-
-    if best and weights.get(best[0], 0) > 0:
-        return f"Matches your interest in {best[0]}."
-
-    return "Recommended based on location and popularity."
+    if not served:
+        return "Recommended based on location and popularity."
+    if len(served) == 1:
+        return f"Matches your interest in {served[0]}."
+    return f"Matches your interests in {', '.join(served[:-1])} and {served[-1]}."

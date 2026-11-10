@@ -9,12 +9,12 @@ from collections.abc import Callable
 from typing import Any
 
 from optimizer.constraints import (
-    available_visit,
     budget_allows,
     date_range,
-    max_stops,
+    rest_minutes,
     to_hhmm,
     to_minutes,
+    visit_in_windows,
 )
 from optimizer.scoring import matched_interests, recommendation_reason, score
 from optimizer.travel import travel_between
@@ -24,9 +24,31 @@ from optimizer.travel import travel_between
 # preferred over an otherwise equal place whose hours are only a guess.
 HOURS_PENALTY = {"known": 0.0, "inferred": 0.1, "unknown": 0.2}
 
-# Each earlier stop today that served the same top interest lowers a place's utility,
-# so one interest does not fill a whole day (e.g. three food stops before noon).
-REPEAT_PENALTY = 0.15
+# Interest mix. Over the trip, each interest should get a share of the stops in
+# proportion to its weight (art 0.5 gets about half as many stops as history 1.0).
+# A stop that would push an interest past its share is penalized, and so is a second
+# stop for the same interest on the same day.
+MIX_PENALTY = 0.2
+SAME_DAY_PENALTY = 0.08
+
+# Days are filled by the traveler's active hours, not a fixed number of stops. This is
+# only a safety cap.
+MAX_STOPS_PER_DAY = 10
+
+# Prefer a stop that can start soon. A place that only opens much later (a bar at 18:00)
+# is chosen only when nothing closer in time fits, so the afternoon is not skipped.
+MAX_PREFERRED_WAIT = 60
+
+# Meals. A food-loving traveler gets lunch and dinner at a restaurant at meal times
+# (restaurants may only start at 12:00-14:30 or 19:00-21:30, see constraints.TIME_WINDOWS).
+# A meal is a need, not just an interest, so it is not held back by the interest mix.
+MEAL_BONUS = 0.25
+MEAL_CATEGORIES = {"restaurant"}
+
+# Evenings. When the day runs past 20:00, part of the active time is kept for the
+# evening (dinner, a bar), so the plan is not used up by 17:00.
+EVENING_START = 18 * 60
+EVENING_RESERVE = 150
 
 # Only the best-scoring places are considered for scheduling. A city can have thousands of
 # places; no trip needs more than this, and it keeps the travel matrix small (300 places
@@ -34,6 +56,7 @@ REPEAT_PENALTY = 0.15
 MAX_CANDIDATES = 300
 
 TravelMatrix = dict | Callable[[list[dict[str, Any]]], dict]
+Scorer = Callable[..., float]
 
 
 def _shortlist(
@@ -63,6 +86,24 @@ def _shortlist(
     return picked
 
 
+def _ranker_quality(
+    candidates: list[dict[str, Any]],
+    profile: dict[str, Any],
+    scorer: Scorer,
+) -> dict[str, float]:
+    """The ranker's order as a 0-1 quality: best place 1.0, worst 0.0.
+
+    A learning-to-rank model's raw scores only mean something compared with each other,
+    so they are turned into a rank percentile that the scheduler's penalties (hours,
+    interest mix, travel, waiting) can be weighed against.
+    """
+    raw = {place["id"]: float(scorer(place, profile)) for place in candidates}
+    ordered = sorted(raw, key=raw.get)
+    if len(ordered) == 1:
+        return {ordered[0]: 1.0}
+    return {pid: rank / (len(ordered) - 1) for rank, pid in enumerate(ordered)}
+
+
 def schedule(
     places: list[dict[str, Any]],
     profile: dict[str, Any],
@@ -71,8 +112,14 @@ def schedule(
     category_map: dict[str, list[str]] | None = None,
     destination: dict[str, Any] | None = None,
     trip_id: str | None = None,
+    scorer: Scorer | None = None,
 ) -> dict[str, Any]:
     """Produce an itinerary matching the existing JSON contract.
+
+    `scorer` is the trained ranker's score(place, profile) (ranker.model.get_scorer()).
+    When given, it decides how good each shortlisted place is; without it (no trained
+    model yet) the rule-based score() does. The rule score still decides which places
+    are candidates at all (avoided places and places matching no interest are out).
 
     `travel_matrix` is either a ready {(from_id, to_id): {"minutes", "mode"}} dict, or a
     function that builds one for the candidate places (the Data team's travel_legs).
@@ -118,7 +165,9 @@ def schedule(
     if not budget_applies:
         budget = float("inf")
     walking_limit = int(profile["max_walk_minutes"])
-    stop_limit = max_stops(float(profile["pace"]))
+    rest = rest_minutes(float(profile["pace"]))
+    evening_reserve = EVENING_RESERVE if day_end >= 20 * 60 else 0
+    daytime_minutes = max(0, active_minutes - evening_reserve)
     rejected = set(profile.get("feedback", {}).get("rejected", []))
 
     # Score every place once. score() already returns 0 for avoided places and
@@ -155,6 +204,38 @@ def schedule(
 
     candidates = _shortlist(candidates, quality_of, top_interest_of, MAX_CANDIDATES)
 
+    # "Match" shown to the traveler stays the rule score: how well a place fits their
+    # stated interests, on a 0-1 scale people can read.
+    match_of = dict(quality_of)
+
+    if scorer is not None and candidates:
+        quality_of.update(_ranker_quality(candidates, profile, scorer))
+
+    # Every interest of the traveler's that each place can count towards.
+    positive = {name: float(w) for name, w in interest_weights.items() if float(w) > 0}
+    weight_sum = sum(positive.values()) or 1.0
+    serves_of = {
+        place["id"]: sorted(
+            (name for name in matched_interests(place, category_map) if name in positive),
+            key=lambda name: -positive[name],
+        )
+        for place in candidates
+    }
+    trip_counts: Counter = Counter()
+    trip_stops = 0
+
+    def mix_choice(place_id: str, today: Counter) -> tuple[str, float]:
+        """The interest this stop counts towards, and the penalty for the mix."""
+        def over(name: str) -> float:
+            expected = positive[name] / weight_sum * (trip_stops + 1)
+            return trip_counts[name] + 1 - expected
+
+        # Count the stop towards whichever of its interests is furthest below its share:
+        # a museum can count as art once history already has enough stops.
+        serves = min(serves_of[place_id], key=over)
+        penalty = MIX_PENALTY * max(0.0, over(serves)) + SAME_DAY_PENALTY * today[serves]
+        return serves, penalty
+
     if callable(travel_matrix):
         travel_matrix = travel_matrix(candidates)
 
@@ -167,15 +248,17 @@ def schedule(
     estimated_travel = False
     unknown_hours = 0
     unknown_costs = 0
+    estimated_costs = 0
 
     for day in dates:
         cursor = day_start
         previous = None
         active_used = 0
         items = []
-        interests_today: dict[str, int] = {}
+        interests_today: Counter = Counter()
+        meals_today: set[str] = set()
 
-        while len(items) < stop_limit:
+        while len(items) < MAX_STOPS_PER_DAY:
             options = []
 
             for place in candidates:
@@ -207,7 +290,11 @@ def schedule(
                 if active_used + travel + duration > active_minutes:
                     continue
 
-                visit = available_visit(
+                is_meal = bool(place.get("categories")) and set(
+                    place["categories"]
+                ) <= MEAL_CATEGORIES
+
+                visit = visit_in_windows(
                     place,
                     day,
                     cursor + travel,
@@ -220,13 +307,25 @@ def schedule(
 
                 start, confidence = visit
 
-                # Prefer high quality, verified hours, variety, shorter transit and
-                # less waiting.
+                # Daytime stops leave the evening's share of the active time free.
+                if start < EVENING_START and (
+                    active_used + travel + duration > daytime_minutes
+                ):
+                    continue
+
+                meal = ("lunch" if start < 17 * 60 else "dinner") if is_meal else None
+                if meal in meals_today:
+                    continue
+
+                # Prefer high quality, verified hours, a balanced mix of interests,
+                # shorter transit and less waiting.
                 waiting = start - (cursor + travel)
-                repeats = interests_today.get(top_interest_of[place["id"]], 0)
+                serves, mix_penalty = mix_choice(place["id"], interests_today)
+                if meal:
+                    mix_penalty = -MEAL_BONUS
                 utility = (
                     quality
-                    - REPEAT_PENALTY * repeats
+                    - mix_penalty
                     - HOURS_PENALTY.get(confidence, HOURS_PENALTY["unknown"])
                     - 0.0005 * travel
                     - 0.0002 * waiting
@@ -243,12 +342,18 @@ def schedule(
                     mode,
                     confidence,
                     estimated,
+                    serves,
+                    meal,
+                    waiting,
                 ))
 
             if not options:
                 break
 
-            chosen = max(options, key=lambda o: o[0])
+            # Fill the hours in front of us first; jump ahead to an evening-only place
+            # only when nothing that starts soon still fits.
+            soon = [o for o in options if o[-1] <= MAX_PREFERRED_WAIT]
+            chosen = max(soon or options, key=lambda o: o[0])
 
             (
                 _utility,
@@ -261,6 +366,9 @@ def schedule(
                 mode,
                 confidence,
                 estimated,
+                serves,
+                meal,
+                _waiting,
             ) = chosen
 
             items.append({
@@ -273,6 +381,9 @@ def schedule(
                     "mode": mode,
                 },
                 "cost": cost,
+                # known / inferred / unknown, so the website can show "Free",
+                # "≈ ₹700" (estimated) or "Price unknown" instead of 0.00.
+                "cost_confidence": place["cost"]["confidence"],
                 "reason": recommendation_reason(
                     place, profile, category_map
                 ),
@@ -280,13 +391,16 @@ def schedule(
             })
 
             used.add(place["id"])
-            top = top_interest_of[place["id"]]
-            interests_today[top] = interests_today.get(top, 0) + 1
+            interests_today[serves] += 1
+            if meal:
+                meals_today.add(meal)
+            trip_counts[serves] += 1
+            trip_stops += 1
             previous = place
-            cursor = start + duration
-            active_used += travel + duration
+            cursor = start + duration + rest
+            active_used += travel + duration + rest
             total_cost += cost
-            total_quality += quality
+            total_quality += match_of[place["id"]]
 
             if mode == "walk":
                 total_walking += travel
@@ -297,7 +411,10 @@ def schedule(
             if confidence != "known":
                 unknown_hours += 1
 
-            if place["cost"].get("confidence") != "known":
+            cost_confidence = place["cost"].get("confidence")
+            if cost_confidence == "inferred":
+                estimated_costs += 1
+            elif cost_confidence != "known":
                 unknown_costs += 1
 
         days_out.append({
@@ -319,10 +436,32 @@ def schedule(
             f"{unknown_hours} scheduled place(s)."
         )
 
+    # Typical prices (Data team's estimate when OpenStreetMap has none) are labelled
+    # separately from prices nobody knows, matching the website's "≈" and "Price unknown".
+    if estimated_costs:
+        warnings.append(
+            f"Prices for {estimated_costs} scheduled place(s) are typical estimates "
+            f"(shown with ≈); check before you go."
+        )
+
     if unknown_costs:
         warnings.append(
             f"Costs are unverified for "
             f"{unknown_costs} scheduled place(s)."
+        )
+
+    dietary = [d for d in profile.get("dietary", []) if d]
+    if dietary and placed:
+        warnings.append(
+            f"Dietary needs ({', '.join(dietary)}) can't be checked yet: our place data "
+            f"has no menu information, so please check restaurants yourself."
+        )
+
+    accessibility = [a for a in profile.get("accessibility", []) if a]
+    if accessibility and placed:
+        warnings.append(
+            f"Accessibility needs ({', '.join(accessibility)}) can't be checked yet: "
+            f"please confirm access with each place."
         )
 
     if not budget_applies:
@@ -400,6 +539,7 @@ def plan_itinerary(
     """
     from api.contracts import load_categories
     from ingest.catalog import load_city, travel_legs
+    from ranker.model import get_scorer
 
     # No silent default: a request without a city name is refused, never planned in Lisbon.
     city_data = load_city(city or destination.get("name") or destination.get("city"))
@@ -425,6 +565,9 @@ def plan_itinerary(
         category_map=categories,
         destination=dest,
         trip_id=trip_id,
+        # The trained ranker orders the places when its model file exists
+        # (models/ranker.txt); otherwise get_scorer() is None and the rule score is used.
+        scorer=get_scorer(),
     )
 
     if city_data.source == "fixture":
