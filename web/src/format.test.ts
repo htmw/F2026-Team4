@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { confidenceLabel, formatMoney, prettifyPlaceId, priceLabel } from "./format";
+import {
+  confidenceLabel,
+  formatDateRange,
+  formatDay,
+  formatMoney,
+  prettifyPlaceId,
+  priceLabel,
+} from "./format";
 
 describe("format helpers", () => {
   it("labels confidence for the user", () => {
@@ -24,5 +31,29 @@ describe("format helpers", () => {
 
   it("prettifies a fixture place id", () => {
     expect(prettifyPlaceId("fixture:cervejaria-ramiro")).toBe("Cervejaria Ramiro");
+  });
+
+  // Exact punctuation ("Thu, 1 Oct" vs "Thu 1 Oct") differs between ICU versions,
+  // so these check the parts rather than the whole string.
+  it("shows a day as weekday, day and month", () => {
+    expect(formatDay("2026-10-01", "en-GB")).toMatch(/^Thu,? 1 Oct$/);
+  });
+
+  it("keeps the calendar date in any time zone", () => {
+    // Parsed as UTC, so 1 January never turns into 31 December.
+    expect(formatDay("2027-01-01", "en-GB")).toMatch(/^Fri,? 1 Jan$/);
+  });
+
+  it("returns anything that is not a date unchanged", () => {
+    expect(formatDay("not a date", "en-GB")).toBe("not a date");
+  });
+
+  it("shows a date range with the year", () => {
+    const range = formatDateRange("2026-12-10", "2026-12-12", "en-GB");
+    expect(range).toMatch(/^Thu,? 10 Dec – /);
+    expect(range).toMatch(/Sat,? 12 Dec 2026$/);
+    expect(formatDateRange("2026-12-10", "2026-12-10", "en-GB")).toMatch(/^Thu,? 10 Dec 2026$/);
+    expect(formatDateRange("2026-12-30", "2027-01-02", "en-GB")).toMatch(/2026 – .*2027$/);
+    expect(formatDateRange("2026-12-10", "2026-12-12", "en-US")).toMatch(/^Thu, Dec 10 – Sat, Dec 12,? 2026$/);
   });
 });

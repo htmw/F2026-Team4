@@ -1,0 +1,721 @@
+{
+ "model": "llama3",
+ "summary": {
+  "descriptions": 20,
+  "valid": 20,
+  "valid_rate": 1.0,
+  "valid_first_try": 20,
+  "mean_attempts": 1.0,
+  "p50_seconds": 14.940000000000001,
+  "p95_seconds": 22.43150000000001,
+  "max_seconds": 33.48,
+  "checks_passed": 74,
+  "checks_total": 78,
+  "fully_correct": 16
+ },
+ "results": [
+  {
+   "id": "vegetarian-foodies",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 17.49,
+   "checks_passed": 5,
+   "checks_total": 5,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.2,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 900,
+     "currency": "EUR"
+    },
+    "dietary": [
+     "vegetarian"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "history-teacher",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 21.85,
+   "checks_passed": 4,
+   "checks_total": 5,
+   "failed_checks": [
+    "pace packed"
+   ],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 1,
+     "art": 0.5,
+     "architecture": 1,
+     "nature": 0.5,
+     "nightlife": 0,
+     "shopping": 0
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": [
+     "bar",
+     "shop"
+    ]
+   }
+  },
+  {
+   "id": "art-lover",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 14.58,
+   "checks_passed": 3,
+   "checks_total": 3,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.9,
+     "architecture": 0.5,
+     "nature": 0.2,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "bachelor-party",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 33.48,
+   "checks_passed": 2,
+   "checks_total": 3,
+   "failed_checks": [
+    "start >= 11:00"
+   ],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.8,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": [
+     "museum",
+     "gallery",
+     "monument",
+     "landmark",
+     "church",
+     "castle",
+     "palace",
+     "viewpoint",
+     "park",
+     "garden",
+     "beach",
+     "restaurant",
+     "cafe",
+     "bakery",
+     "market",
+     "neighborhood",
+     "day_trip"
+    ]
+   }
+  },
+  {
+   "id": "wheelchair-architecture",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 19.5,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.8,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 10,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [
+     "wheelchair"
+    ],
+    "avoid": []
+   }
+  },
+  {
+   "id": "student-backpacker",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 16.79,
+   "checks_passed": 5,
+   "checks_total": 6,
+   "failed_checks": [
+    "no invented diet"
+   ],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.8,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.8,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 40,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 300,
+     "currency": "USD"
+    },
+    "dietary": [
+     "cheap street food"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "family-young-kids",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 14.01,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.8,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 10,
+    "day_start": "09:30",
+    "day_end": "19:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": [
+     "museum",
+     "gallery",
+     "monument",
+     "landmark",
+     "church",
+     "castle",
+     "palace",
+     "viewpoint",
+     "market",
+     "bar",
+     "nightclub",
+     "shop",
+     "neighborhood",
+     "day_trip"
+    ]
+   }
+  },
+  {
+   "id": "shopper",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 8.94,
+   "checks_passed": 2,
+   "checks_total": 2,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.2,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 1
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "coeliac-slow-mornings",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 15.57,
+   "checks_passed": 2,
+   "checks_total": 2,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "10:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [
+     "gluten-free"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "architecture-photographer",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 10.66,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 1,
+     "nature": 1,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.8,
+    "max_walk_minutes": 20,
+    "day_start": "07:00",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "halal-history",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 10.16,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 1,
+     "art": 0.5,
+     "architecture": 1,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.5,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1500,
+     "currency": "GBP"
+    },
+    "dietary": [
+     "halal"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "no-churches",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 14.22,
+   "checks_passed": 5,
+   "checks_total": 5,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.8,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": [
+     "church",
+     "museum"
+    ]
+   }
+  },
+  {
+   "id": "terse-food",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 14.2,
+   "checks_passed": 2,
+   "checks_total": 2,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "vague-relaxing",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 13.17,
+   "checks_passed": 2,
+   "checks_total": 2,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "luxury-anniversary",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 16.28,
+   "checks_passed": 6,
+   "checks_total": 6,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.8,
+     "history": 0.5,
+     "art": 0.7,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.7,
+     "shopping": 0.5
+    },
+    "pace": 0.2,
+    "max_walk_minutes": 20,
+    "day_start": "10:00",
+    "day_end": "22:00",
+    "budget": {
+     "total": 5000,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "spanish-couple",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 15.3,
+   "checks_passed": 6,
+   "checks_total": 6,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.8,
+     "art": 0.5,
+     "architecture": 0.8,
+     "nature": 0.5,
+     "nightlife": 0.2,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1000,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "walks-with-a-cane",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 15.42,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 0.8,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.2,
+    "max_walk_minutes": 10,
+    "day_start": "09:30",
+    "day_end": "18:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [],
+    "accessibility": [
+     "wheelchair"
+    ],
+    "avoid": []
+   }
+  },
+  {
+   "id": "vegan-techno",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 13.51,
+   "checks_passed": 3,
+   "checks_total": 4,
+   "failed_checks": [
+    "start >= 10:00"
+   ],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 1,
+     "history": 0.5,
+     "art": 0.9,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.8,
+     "shopping": 0.5
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [
+     "vegan"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "hiker-nut-allergy",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 11.55,
+   "checks_passed": 4,
+   "checks_total": 4,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.5,
+     "history": 0.5,
+     "art": 0.5,
+     "architecture": 0.5,
+     "nature": 1,
+     "nightlife": 0.5,
+     "shopping": 0
+    },
+    "pace": 0.4,
+    "max_walk_minutes": 30,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 1200,
+     "currency": "EUR"
+    },
+    "dietary": [
+     "nut allergy"
+    ],
+    "accessibility": [],
+    "avoid": []
+   }
+  },
+  {
+   "id": "yen-budget",
+   "valid": true,
+   "attempts": 1,
+   "seconds": 15.59,
+   "checks_passed": 3,
+   "checks_total": 3,
+   "failed_checks": [],
+   "error": null,
+   "profile": {
+    "interests": {
+     "food": 0.7,
+     "history": 0.7,
+     "art": 0.7,
+     "architecture": 0.5,
+     "nature": 0.5,
+     "nightlife": 0.5,
+     "shopping": 0.5
+    },
+    "pace": 0.5,
+    "max_walk_minutes": 20,
+    "day_start": "09:30",
+    "day_end": "22:00",
+    "budget": {
+     "total": 150000,
+     "currency": "JPY"
+    },
+    "dietary": [],
+    "accessibility": [],
+    "avoid": []
+   }
+  }
+ ]
+}
