@@ -98,10 +98,12 @@ def train_model(
 
 
 def main() -> None:
-    from ingest.training import load_queries
+    from ranker.dataset_io import load_dataset
 
-    train_queries = load_queries("train")
-    validation_queries = load_queries("validation")
+    data_dir = ROOT / "data" / "ranking_dataset_v3"
+
+    train_queries = load_dataset(data_dir / "train.json")
+    validation_queries = load_dataset(data_dir / "validation.json")
 
     print(f"Training queries: {len(train_queries)}")
     print(f"Validation queries: {len(validation_queries)}")

@@ -142,10 +142,13 @@ def evaluate(
 
 
 def main() -> None:
-    from ingest.training import load_queries
+    from pathlib import Path
 
-    test_queries = load_queries("test")
-    print(f"Testing on {len(test_queries)} unseen-city queries")
+    from ranker.dataset_io import load_dataset
+
+    data_dir = Path("data/ranking_dataset_v3")
+    test_queries = load_dataset(data_dir / "validation.json")
+    print(f"Evaluating on {len(test_queries)} validation queries")
 
     if not DEFAULT_MODEL.exists():
         raise FileNotFoundError("Train the model before evaluating.")
