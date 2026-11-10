@@ -30,4 +30,15 @@ describe("readableError", () => {
   it("falls back to the status when the body is empty", () => {
     expect(readableError("Plan", 500, "").message).toBe("Plan request failed (500)");
   });
+
+  it("marks a 422 destination error as fixable in the Destination field", () => {
+    const err = readableError("Plan", 422, detail({ destination_errors: ["'japan' is a country, not a city"] }));
+    expect(err.field).toBe("destination");
+  });
+
+  it("does not blame the field when OpenStreetMap is unreachable (503)", () => {
+    const err = readableError("Plan", 503, detail({ destination_errors: ["OpenStreetMap is unreachable"] }));
+    expect(err.field).toBeUndefined();
+    expect(err.message).toBe("OpenStreetMap is unreachable");
+  });
 });
