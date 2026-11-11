@@ -1,0 +1,32 @@
+{
+  "city_spec": {
+    "key": "tokyo-jp",
+    "query": "Tokyo, Japan",
+    "country": "JP",
+    "currency": "JPY",
+    "region": "Asia",
+    "role": "test"
+  },
+  "sampling": {
+    "maximum_places": 15,
+    "seed": 42
+  },
+  "resolved_name": "Tokyo",
+  "resolved_source_key": "tokyo-jp",
+  "source_built_at": "2026-10-25T19:12:34+00:00",
+  "source_places": 15,
+  "selected_places": 15,
+  "original_places_sha256": "52a2e1bb86d7f236768f0633997c788d0030f03de37d91b50771fab04d941a6e",
+  "bbox": [
+    35.63194454125045,
+    139.70860170384597,
+    35.72177565874955,
+    139.81918769615405
+  ],
+  "attribution": "Data (c) OpenStreetMap contributors, ODbL 1.0, https://www.openstreetmap.org/copyright",
+  "files": {
+    "places.json": "d7fc9a58abc4fdd75cd3aa6dc016e48e1bda5d036227424a5a1dd484eeb43fd0",
+    "city.json": "aa506100f35f574ba8eb1b409dce3c3a4cf14fcf29514e5f692fafe7c4a69a43",
+    "source_ids.json": "11497a1b5eb67eed76fcc479de49b076a234c8150c05029b2ab6fd6fcef9fae5"
+  }
+}

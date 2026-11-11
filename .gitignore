@@ -37,3 +37,7 @@ npm-debug.log*
 data/cache/
 data/out/
 data/live/
+
+# Locally generated ranking datasets and frozen source snapshots
+/data/ranking_*/
+/data/training/rome/
