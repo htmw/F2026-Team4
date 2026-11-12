@@ -189,8 +189,8 @@ DEFAULT_HOURS = {
     "day_trip": [("09:00", "18:00")],
 }
 
-# Categories that are usually free to enter. Others get cost confidence "unknown" when
-# OSM has no fee/charge tag: we do not invent prices.
+# Categories that are usually free to enter. Others get a typical price (cost.TYPICAL_PRICE)
+# marked as an estimate when OSM has no fee/charge tag.
 FREE_BY_DEFAULT = {
     "monument",
     "landmark",

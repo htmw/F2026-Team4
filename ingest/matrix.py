@@ -34,6 +34,9 @@ class TravelModel:
     transit_detour: float = 1.4
     # Walk to the stop, wait, walk from the stop.
     transit_overhead_min: float = 10.0
+    # The walking part of that overhead (about 3 minutes to the stop and 3 from it). A
+    # transit leg reports it as walk_minutes, so a day of buses still counts its walking.
+    transit_walk_min: float = 6.0
 
     def __post_init__(self):
         if self.walk_speed_kmh <= 0 or self.transit_speed_kmh <= 0:
@@ -42,6 +45,8 @@ class TravelModel:
             raise ValueError("detour factors must be >= 1")
         if self.transit_overhead_min < 0:
             raise ValueError("transit_overhead_min must be >= 0")
+        if not 0 <= self.transit_walk_min <= self.transit_overhead_min:
+            raise ValueError("transit_walk_min must be between 0 and transit_overhead_min")
 
     def as_dict(self) -> dict:
         return asdict(self)
@@ -123,8 +128,10 @@ def choose_modes(
 def travel_legs(
     places: list[dict], max_walk_minutes: float, model: TravelModel | None = None
 ) -> dict[tuple[str, str], dict]:
-    """{(from_id, to_id): {"minutes": float, "mode": "walk" | "transit"}} for every ordered pair.
+    """{(from_id, to_id): {"minutes", "mode", "walk_minutes"}} for every ordered pair.
 
+    mode is "walk" or "transit". walk_minutes is the walking in the leg: all of a walk, and
+    the walk to and from the stop of a transit leg (TravelModel.transit_walk_min).
     This is the shape optimizer/travel.py reads. Same-place pairs are left out.
     """
     model = model or TravelModel()
@@ -138,9 +145,12 @@ def travel_legs(
     for i, a in enumerate(ids):
         for j, b in enumerate(ids):
             if i != j:
+                walking = bool(is_walk[i, j])
+                leg_minutes = round(float(minutes[i, j]), 1)
                 legs[(a, b)] = {
-                    "minutes": round(float(minutes[i, j]), 1),
-                    "mode": "walk" if is_walk[i, j] else "transit",
+                    "minutes": leg_minutes,
+                    "mode": "walk" if walking else "transit",
+                    "walk_minutes": leg_minutes if walking else model.transit_walk_min,
                 }
     return legs
 

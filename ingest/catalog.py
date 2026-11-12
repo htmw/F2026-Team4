@@ -43,7 +43,7 @@ from .matrix import TravelModel
 from .matrix import travel_legs as _travel_legs
 from .overpass import QueryTooHeavy
 from .pipeline import run_city
-from .to_place import normalize_name
+from .to_place import normalize_name, with_estimates
 
 ROOT = Path(__file__).resolve().parent.parent
 CITIES_DIR = ROOT / "data" / "cities"
@@ -273,7 +273,7 @@ def fetch_live(name: str) -> Path:
 @lru_cache(maxsize=16)
 def _load(source: str, path: Path, mtime: float) -> CityData:
     if source == "fixture":
-        places = _read_json(path)
+        places = [with_estimates(p) for p in _read_json(path)]
         key = path.name.removesuffix(".places.json")
         lat = sum(p["lat"] for p in places) / len(places)
         lon = sum(p["lon"] for p in places) / len(places)
@@ -282,7 +282,7 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         if country_code:
             destination["country"] = country_code
         return CityData(key, key.title(), destination, places, source, path, country_name)
-    places = _read_json(path / "places.json")
+    places = [with_estimates(p) for p in _read_json(path / "places.json")]
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
     country_name = meta.get("country_name", "")

@@ -11,7 +11,7 @@ from pathlib import Path
 from jsonschema import Draft202012Validator, FormatChecker
 
 from .categories import DEFAULT_DURATION_MIN, DEFAULT_HOURS, map_categories
-from .cost import parse_cost
+from .cost import estimated_cost, parse_cost
 from .hours import DAYS, parse_opening_hours
 from .popularity import documentation_count, signals_from_tags
 
@@ -94,12 +94,23 @@ def _default_hours(primary: str) -> dict:
     return hours
 
 
-def _unknown_hours() -> dict:
-    hours = {
-        d: None for d in DAYS
-    }  # NOTE: null means closed; consumers must check confidence first
-    hours["confidence"] = "unknown"
-    return hours
+def with_estimates(place: dict) -> dict:
+    """The place with an estimate wherever its hours or price are still unknown.
+
+    Saved cities built before estimates existed (Rome, older live folders) are filled in
+    when loaded, so a traveler sees "Hours estimated" and "≈ €25", never "unverified" or
+    "Price unknown". Returns the same dict when nothing is missing.
+    """
+    cats = place.get("categories") or []
+    hours, cost = place["hours"], place["cost"]
+    if hours.get("confidence") != "unknown" and cost.get("confidence") != "unknown":
+        return place
+    place = dict(place)
+    if hours.get("confidence") == "unknown" and cats and cats[0] in DEFAULT_HOURS:
+        place["hours"] = _default_hours(cats[0])
+    if cost.get("confidence") == "unknown":
+        place["cost"] = estimated_cost(cats, cost.get("currency") or "XXX")
+    return place
 
 
 _SCHOOLS = {"school", "college", "university", "kindergarten"}
@@ -202,10 +213,10 @@ def build_place(
         # A planner can never schedule it, so it only wastes a candidate slot.
         if all(hours[d] is None for d in DAYS):
             return BuildResult(None, "always_closed", hours_status=parsed.status)
-    elif parsed.status == "absent":
-        hours = _default_hours(cats[0])
     else:
-        hours = _unknown_hours()
+        # No hours in OSM, or hours written in a form we cannot read: the usual hours for
+        # this kind of place, marked as an estimate ("inferred"), never left unknown.
+        hours = _default_hours(cats[0])
 
     cost = parse_cost(tags, cats, currency)
     place = {

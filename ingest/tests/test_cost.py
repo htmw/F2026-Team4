@@ -1,6 +1,6 @@
 """Tests for parsing OSM fee and charge tags."""
 
-from ingest.cost import currency_for_country, parse_cost
+from ingest.cost import COUNTRY_CURRENCY, currency_for_country, parse_cost, typical_price
 
 
 def test_parses_price_with_currency():
@@ -52,11 +52,33 @@ def test_a_real_price_or_free_entry_beats_the_estimate():
     assert parse_cost({}, ["park"], "INR").cost["amount"] == 0.0
 
 
-def test_without_a_typical_price_the_price_stays_unknown():
+def test_every_currency_gets_an_estimate():
+    """Nepal has no row of its own: a base price converted at a rough rate, rounded."""
     result = parse_cost({}, ["restaurant"], "NPR")
+
+    assert result.cost == {"amount": 2100.0, "currency": "NPR", "confidence": "inferred"}
+    assert result.status == "typical_price"
+    currencies = set(COUNTRY_CURRENCY.values())
+    missing = sorted(c for c in currencies if typical_price(["museum"], c) is None)
+    assert missing == [], "every country's currency has an estimate"
+
+
+def test_without_any_currency_the_price_stays_unknown():
+    result = parse_cost({}, ["restaurant"], "XXX")
 
     assert result.cost["confidence"] == "unknown"
     assert result.status == "no_data"
+
+
+def test_an_unreadable_charge_falls_back_to_the_typical_price():
+    result = parse_cost({"charge": "15 EUR adults, 8 EUR children"}, ["museum"], "EUR")
+
+    assert result.cost == {"amount": 12.0, "currency": "EUR", "confidence": "inferred"}
+    assert result.status == "charge_ambiguous"
+
+
+def test_a_day_trip_is_priced_like_a_museum():
+    assert typical_price(["day_trip"], "EUR") == typical_price(["museum"], "EUR")
 
 
 def test_country_currency_lookup():

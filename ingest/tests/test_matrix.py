@@ -80,6 +80,18 @@ def test_travel_legs_walks_short_hops_and_rides_long_ones():
     assert legs[("p2", "p0")] == legs[("p0", "p2")]
 
 
+def test_a_transit_leg_counts_the_walk_to_and_from_the_stop():
+    legs = travel_legs(_line(3, step_km=1.0), max_walk_minutes=20)
+
+    assert legs[("p0", "p1")]["walk_minutes"] == legs[("p0", "p1")]["minutes"], "all walking"
+    assert legs[("p0", "p2")]["walk_minutes"] == 6.0, "3 min to the stop, 3 from it"
+
+
+def test_transit_walking_is_part_of_the_overhead():
+    with pytest.raises(ValueError):
+        TravelModel(transit_overhead_min=4, transit_walk_min=6)
+
+
 def test_travel_legs_respects_a_zero_walking_tolerance():
     legs = travel_legs(_line(2, step_km=0.2), max_walk_minutes=0)
 

@@ -142,10 +142,69 @@ TYPICAL_PRICE = {
 }
 
 
+# Every other currency: a base price in US dollars times a rough exchange rate (units per
+# USD, late 2025), so no place in any country is left as "Price unknown". The base is about
+# half the USD row above, for a mid-cost country; the expensive ones use the full USD row.
+# Rough on purpose: shown with ≈, never as a real price.
+BASE_USD = (15, 4, 3, 5, 12, 8, 6, 8, 8)
+HIGH_COST = {"NOK", "DKK", "SEK", "ISK", "HKD", "NZD", "ILS", "KWD", "QAR", "BHD", "BMD",
+             "KYD", "BSD"}
+_RATE_TABLE = """
+AFN:70 ALL:92 AMD:390 AOA:910 ARS:1400 AWG:1.79 AZN:1.7 BAM:1.68 BBD:2 BDT:122 BHD:0.376
+BIF:2950 BMD:1 BND:1.3 BOB:6.9 BSD:1 BTN:88 BWP:13.5 BYN:3 BZD:2 CDF:2850 CLP:950 CRC:505
+CUP:24 CVE:95 CZK:21 DJF:178 DKK:6.4 DOP:63 DZD:130 ERN:15 ETB:145 FJD:2.25 FKP:0.75 GEL:2.7
+GHS:11 GIP:0.75 GMD:72 GNF:8700 GTQ:7.7 GYD:209 HKD:7.8 HNL:26 HTG:131 HUF:335 IDR:16500
+ILS:3.3 IQD:1310 IRR:1000000 ISK:122 JOD:0.709 KGS:87 KHR:4000 KMF:420 KPW:900 KWD:0.306
+KYD:0.83 KZT:520 LAK:21700 LBP:89500 LKR:300 LRD:180 LSL:17.5 LYD:5.4 MAD:9.1 MDL:17
+MGA:4450 MKD:53 MMK:2100 MNT:3580 MOP:8 MRU:40 MUR:45 MVR:15.4 MWK:1735 MYR:4.2 MZN:64
+NAD:17.5 NGN:1500 NIO:36.8 NOK:10.1 NPR:140 NZD:1.72 OMR:0.385 PAB:1 PEN:3.45 PGK:4.2
+PHP:58 PKR:282 PLN:3.65 PYG:7100 QAR:3.64 RON:4.4 RSD:101 RUB:80 RWF:1450 SAR:3.75 SBD:8.2
+SCR:14.5 SDG:600 SEK:9.5 SHP:0.75 SLE:23 SOS:571 SRD:38 SSP:4500 STN:21 SYP:13000 SZL:17.5
+TJS:9.4 TMT:3.5 TND:2.95 TOP:2.4 TTD:6.8 TWD:30.5 TZS:2450 UAH:41.5 UGX:3500 UYU:40
+UZS:12000 VES:200 VND:26300 VUV:120 WST:2.75 XAF:560 XCD:2.7 XCG:1.79 XOF:560 XPF:102
+YER:240 ZMW:23 ZWG:26.5
+"""
+USD_RATE = {
+    code: float(rate) for code, rate in (item.split(":") for item in _RATE_TABLE.split())
+}
+# A day trip is priced like a museum ticket.
+_PRICED_AS = {"day_trip": "museum"}
+
+
+def _round_price(value: float) -> float:
+    """Two significant figures, so a converted price reads like a real one (2,500 not 2,463)."""
+    if value <= 0:
+        return 0.0
+    digits = len(str(int(value))) - 2
+    return float(round(value, -digits)) if digits > 0 else float(round(value))
+
+
 def typical_price(categories: list[str], currency: str) -> float | None:
-    if not categories or categories[0] not in PRICED or currency not in TYPICAL_PRICE:
+    """A rough per-person price for a priced kind of place, or None when there is none."""
+    if not categories:
         return None
-    return float(TYPICAL_PRICE[currency][PRICED.index(categories[0])])
+    kind = _PRICED_AS.get(categories[0], categories[0])
+    if kind not in PRICED:
+        return None
+    column = PRICED.index(kind)
+    if currency in TYPICAL_PRICE:
+        return float(TYPICAL_PRICE[currency][column])
+    if currency in USD_RATE:
+        base = TYPICAL_PRICE["USD"] if currency in HIGH_COST else BASE_USD
+        return _round_price(base[column] * USD_RATE[currency])
+    return None
+
+
+def estimated_cost(categories: list[str], currency: str) -> dict:
+    """The cost to show when nobody knows the real price: free for a usually free kind of
+    place, otherwise a typical price. Always an estimate ("inferred"), never "unknown",
+    except in the one case with no currency at all (XXX)."""
+    if categories and categories[0] in FREE_BY_DEFAULT:
+        return {"amount": 0.0, "currency": currency, "confidence": "inferred"}
+    typical = typical_price(categories, currency)
+    if typical is None:
+        return {"amount": 0.0, "currency": currency, "confidence": "unknown"}
+    return {"amount": typical, "currency": currency, "confidence": "inferred"}
 
 
 def parse_cost(tags: dict, categories: list[str], fallback_currency: str) -> CostResult:
@@ -170,7 +229,11 @@ def parse_cost(tags: dict, categories: list[str], fallback_currency: str) -> Cos
             amount, currency = next(iter(found))
             return mk(amount, currency, "known", "charge_parsed")
 
-        # Multiple prices, price tiers, or unparseable charges are not reliable.
+        # Multiple prices, price tiers, or unparseable charges are not reliable: use the
+        # typical price for that kind of place instead, marked as an estimate.
+        typical = typical_price(categories, fallback_currency)
+        if typical is not None:
+            return mk(typical, fallback_currency, "inferred", "charge_ambiguous")
         return mk(0.0, fallback_currency, "unknown", "charge_ambiguous")
 
     if fee == "no":
