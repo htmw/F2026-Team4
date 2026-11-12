@@ -75,3 +75,54 @@ def max_stops(pace: float) -> int:
     """Relaxed travelers visit fewer places."""
     pace = max(0.0, min(1.0, pace))
     return 2 + round(pace * 4)
+
+
+# Some places only make sense at certain times of day. A place whose categories are ALL
+# listed here may only START a visit inside one of its windows (a bar is not a 10 am stop).
+# A place with any other category (a market, a neighbourhood with bars) is not limited.
+TIME_WINDOWS = {
+    "restaurant": [("12:00", "14:30"), ("19:00", "21:30")],
+    "bar": [("18:00", "23:59")],
+    "nightclub": [("21:00", "23:59")],
+}
+
+# Minutes of breathing room after each stop for a fully relaxed traveler (pace 0).
+MAX_REST_MINUTES = 30
+
+
+def time_windows(place: dict[str, Any]) -> list[tuple[int, int]] | None:
+    """Allowed start windows in minutes, or None when the place fits any time of day."""
+    categories = place.get("categories", [])
+    if not categories or any(c not in TIME_WINDOWS for c in categories):
+        return None
+    windows = sorted({w for c in categories for w in TIME_WINDOWS[c]})
+    return [(to_minutes(a), to_minutes(b)) for a, b in windows]
+
+
+def visit_in_windows(
+    place: dict[str, Any],
+    day: str,
+    earliest_start: int,
+    duration: int,
+    day_end: int,
+) -> tuple[int, str] | None:
+    """Like available_visit, but also respects the place's time-of-day windows."""
+    windows = time_windows(place)
+    if windows is None:
+        return available_visit(place, day, earliest_start, duration, day_end)
+
+    for window_open, window_close in windows:
+        if earliest_start > window_close:
+            continue
+        visit = available_visit(
+            place, day, max(earliest_start, window_open), duration, day_end
+        )
+        if visit is not None and visit[0] <= window_close:
+            return visit
+    return None
+
+
+def rest_minutes(pace: float) -> int:
+    """A relaxed traveler gets more breathing room after each stop; a packed one none."""
+    pace = max(0.0, min(1.0, pace))
+    return round(MAX_REST_MINUTES * (1.0 - pace))
