@@ -35,15 +35,15 @@ def ndcg_at_k(true_relevances: list[int], scores, k: int = 5) -> float:
     ideal = sorted(true_relevances, reverse=True)[:k]
     ideal_dcg = _dcg(ideal)
     return _dcg(ranked) / ideal_dcg if ideal_dcg > 0 else 0.0
+
+
 def precision_at_k(true_relevances: list[int], scores, k: int = 5) -> float:
     """Fraction of top-k recommendations that are relevant."""
     if k <= 0:
         return 0.0
 
     order = np.argsort(scores)[::-1][:k]
-    relevant_count = sum(
-        true_relevances[i] > 0 for i in order
-    )
+    relevant_count = sum(true_relevances[i] > 0 for i in order)
 
     return relevant_count / len(order) if len(order) else 0.0
 
@@ -68,7 +68,6 @@ def average_precision_at_k(true_relevances: list[int], scores, k: int = 5) -> fl
             precision_sum += hits / rank
 
     return precision_sum / min(total_relevant, k)
-
 
 
 def evaluate(
@@ -113,13 +112,8 @@ def evaluate(
 
         predictions = {
             "trained_model": booster.predict(feats),
-            "handcoded_dotproduct": [
-                item["features"][0] for item in q["items"]
-            ],
-            "popularity": [
-                float(item["place"].get("popularity", 0.0))
-                for item in q["items"]
-            ],
+            "handcoded_dotproduct": [item["features"][0] for item in q["items"]],
+            "popularity": [float(item["place"].get("popularity", 0.0)) for item in q["items"]],
             "random": rng.random(len(q["items"])),
         }
 
@@ -128,38 +122,52 @@ def evaluate(
 
             results[ranker].append(ndcg)
             results[f"{ranker}_ndcg@{k}"].append(ndcg)
-            results[f"{ranker}_precision@{k}"].append(
-                precision_at_k(true, predicted_scores, k)
-            )
-            results[f"{ranker}_map@{k}"].append(
-                average_precision_at_k(true, predicted_scores, k)
-            )
+            results[f"{ranker}_precision@{k}"].append(precision_at_k(true, predicted_scores, k))
+            results[f"{ranker}_map@{k}"].append(average_precision_at_k(true, predicted_scores, k))
 
-    return {
-        name: float(np.mean(values)) if values else 0.0
-        for name, values in results.items()
-    }
+    return {name: float(np.mean(values)) if values else 0.0 for name, values in results.items()}
 
 
 def main() -> None:
+    from pathlib import Path
+
+    from ranker.dataset_io import load_dataset
+
+    ROOT = Path(__file__).resolve().parent.parent
     from ingest.training import load_queries
 
-    test_queries = load_queries("test")
-    print(f"Testing on {len(test_queries)} unseen-city queries")
+    data_dir = ROOT / "data" / "ranking_dataset_v3"
+    v3_test = data_dir / "test.json"
+
+    if all((data_dir / f"{split}.json").is_file() for split in ("train", "validation", "test")):
+        test_queries = load_dataset(v3_test)
+        print(f"Evaluating on {len(test_queries)} v3 unseen-city test queries")
+    else:
+        test_queries = load_queries("test")
+        print(f"Evaluating on {len(test_queries)} committed unseen-city test queries")
 
     if not DEFAULT_MODEL.exists():
         raise FileNotFoundError("Train the model before evaluating.")
+
+    marker = ROOT / "models" / "ranker.dataset_source"
+    expected_source = (
+        "v3"
+        if all((data_dir / f"{split}.json").is_file() for split in ("train", "validation", "test"))
+        else "committed"
+    )
+
+    if not marker.exists() or marker.read_text(encoding="utf-8").strip() != expected_source:
+        raise RuntimeError(
+            "Model and evaluation dataset may not match. "
+            "Run python -m ranker.train before evaluating."
+        )
 
     results = evaluate(queries=test_queries)
 
     for metric in ("ndcg@5", "precision@5", "map@5"):
         print(f"\n{metric.upper()} (higher is better):")
 
-        matching = {
-            name: value
-            for name, value in results.items()
-            if name.endswith(f"_{metric}")
-        }
+        matching = {name: value for name, value in results.items() if name.endswith(f"_{metric}")}
 
         for name, value in sorted(
             matching.items(),

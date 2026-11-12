@@ -30,9 +30,7 @@ def train_model(
         val_queries = validation_queries
 
         if not train_queries or not val_queries:
-            raise ValueError(
-                "Training and validation queries must not be empty."
-            )
+            raise ValueError("Training and validation queries must not be empty.")
     else:
         if len(queries) < 2:
             raise ValueError("At least two traveler queries are required.")
@@ -44,7 +42,7 @@ def train_model(
 
         train_queries = [queries[i] for i in indices[:split]]
         val_queries = [queries[i] for i in indices[split:]]
-    
+
     x_train, y_train, group_train = to_matrix(train_queries)
     x_val, y_val, group_val = to_matrix(val_queries)
 
@@ -69,7 +67,7 @@ def train_model(
         "metric": "ndcg",
         "ndcg_eval_at": [5],
         "learning_rate": 0.05,
-        "num_leaves":11,
+        "num_leaves": 11,
         "min_data_in_leaf": 10,
         "num_threads": 1,
         "seed": seed,
@@ -99,9 +97,18 @@ def train_model(
 
 def main() -> None:
     from ingest.training import load_queries
+    from ranker.dataset_io import load_dataset
 
-    train_queries = load_queries("train")
-    validation_queries = load_queries("validation")
+    data_dir = ROOT / "data" / "ranking_dataset_v3"
+
+    if all((data_dir / f"{split}.json").is_file() for split in ("train", "validation", "test")):
+        train_queries = load_dataset(data_dir / "train.json")
+        validation_queries = load_dataset(data_dir / "validation.json")
+        print("Using v3 dataset.")
+    else:
+        print("v3 dataset not found. Using committed training dataset.")
+        train_queries = load_queries("train")
+        validation_queries = load_queries("validation")
 
     print(f"Training queries: {len(train_queries)}")
     print(f"Validation queries: {len(validation_queries)}")
@@ -111,18 +118,24 @@ def main() -> None:
         validation_queries=validation_queries,
     )
 
-    print(f"Trained LightGBM ranker -> {DEFAULT_MODEL.relative_to(ROOT)}")
+    source = (
+        "v3"
+        if all((data_dir / f"{split}.json").is_file() for split in ("train", "validation", "test"))
+        else "committed"
+    )
+
+    (ROOT / "models" / "ranker.dataset_source").write_text(source, encoding="utf-8")
+
+    print(f"Trained LightGBM ranker -> {DEFAULT_MODEL}")
     print(f"Best iteration: {booster.best_iteration}")
 
     print("\nFeature importances:")
-    ranked = sorted(
+    for name, importance in sorted(
         zip(feature_names(), booster.feature_importance(), strict=True),
-        key=lambda pair: pair[1],
+        key=lambda item: item[1],
         reverse=True,
-    )
-
-    for name, importance in ranked:
-        print(f"  {name:20s} {int(importance)}")
+    ):
+        print(f"  {name:20s} {importance}")
 
 
 if __name__ == "__main__":
