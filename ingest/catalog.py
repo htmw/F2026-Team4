@@ -270,6 +270,12 @@ def fetch_live(name: str) -> Path:
         return folder
 
 
+# Minutes from each loaded place to its nearest bus stop or station, by place id (OSM ids
+# are unique across cities). Kept beside the places, not in them, so every place record
+# still matches contracts/place.schema.json.
+_STOP_WALKS: dict[str, float] = {}
+
+
 @lru_cache(maxsize=16)
 def _load(source: str, path: Path, mtime: float) -> CityData:
     if source == "fixture":
@@ -283,6 +289,9 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
             destination["country"] = country_code
         return CityData(key, key.title(), destination, places, source, path, country_name)
     places = [with_estimates(p) for p in _read_json(path / "places.json")]
+    stop_file = path / "stop_walks.json"
+    if stop_file.exists():
+        _STOP_WALKS.update(_read_json(stop_file))
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
     country_name = meta.get("country_name", "")
@@ -309,4 +318,4 @@ def travel_legs(
     Build it for the candidate list you are about to schedule, not for a whole city:
     300 places is 89,700 legs and takes about 0.1 s, most of it building the dict.
     """
-    return _travel_legs(places, max_walk_minutes, model)
+    return _travel_legs(places, max_walk_minutes, model, stop_walks=_STOP_WALKS)

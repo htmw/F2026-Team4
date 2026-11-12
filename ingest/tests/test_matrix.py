@@ -9,6 +9,7 @@ from ingest.matrix import (
     matrix_payload,
     osrm_sample,
     select_for_matrix,
+    stop_walk_minutes,
     summarize_osrm,
     transit_matrix,
     travel_legs,
@@ -85,6 +86,32 @@ def test_a_transit_leg_counts_the_walk_to_and_from_the_stop():
 
     assert legs[("p0", "p1")]["walk_minutes"] == legs[("p0", "p1")]["minutes"], "all walking"
     assert legs[("p0", "p2")]["walk_minutes"] == 6.0, "3 min to the stop, 3 from it"
+
+
+def test_each_place_walks_to_its_own_nearest_stop():
+    places = _line(2, step_km=3.0)  # p1 is 3 km north of p0
+    near_p0 = (places[0]["lat"], places[0]["lon"] + 0.0012)  # about 100 m from p0
+    near_p1 = (places[1]["lat"], places[1]["lon"] + 0.006)   # about 500 m from p1
+    walks = stop_walk_minutes(places, [near_p0, near_p1])
+
+    assert walks["p0"] == pytest.approx(1.7, abs=0.3), "100 m x 1.3 detour at 4.5 km/h"
+    assert walks["p1"] == pytest.approx(8.7, abs=0.5)
+
+    leg = travel_legs(places, max_walk_minutes=20, stop_walks=walks)[("p0", "p1")]
+    assert leg["mode"] == "transit"
+    assert leg["walk_minutes"] == pytest.approx(walks["p0"] + walks["p1"], abs=0.1)
+    flat = travel_legs(places, max_walk_minutes=20)[("p0", "p1")]
+    assert leg["minutes"] == pytest.approx(flat["minutes"] - 6 + leg["walk_minutes"], abs=0.2)
+
+
+def test_a_place_far_from_any_stop_is_capped():
+    places = _line(1, step_km=1.0)
+    far = (places[0]["lat"] + 0.2, places[0]["lon"])  # about 22 km away
+    assert stop_walk_minutes(places, [far])["p0"] == 15.0
+
+
+def test_no_stops_means_the_flat_guess():
+    assert stop_walk_minutes(_line(2, step_km=1.0), []) == {}
 
 
 def test_transit_walking_is_part_of_the_overhead():

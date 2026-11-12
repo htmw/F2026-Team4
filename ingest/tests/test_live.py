@@ -252,3 +252,16 @@ def test_a_country_typed_as_a_city_is_named_as_a_country(osm):
     assert resp.status_code == 422
     assert "'japan' is a country, not a city" in resp.json()["detail"]["destination_errors"][0]
     assert osm == [], "never fetched"
+
+
+def test_the_walk_to_the_nearest_bus_stop_is_saved_with_the_city(osm, monkeypatch):
+    stop = {"type": "node", "id": 3, "lat": 41.1458, "lon": -8.6122,
+            "tags": {"highway": "bus_stop", "name": "Clérigos"}}  # about 100 m west
+    monkeypatch.setattr(
+        catalog, "http_post", lambda *a, **kw: FakeResponse({"elements": [TOWER, stop]})
+    )
+    city = catalog.load_city("Porto")
+
+    walks = json.loads((city.path / "stop_walks.json").read_text())
+    assert [p["name"] for p in city.places] == ["Torre dos Clérigos"], "a stop is not a sight"
+    assert walks["osm:node/1"] == pytest.approx(2.0, abs=0.5)

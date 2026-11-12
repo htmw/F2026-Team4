@@ -3,9 +3,10 @@
 Walking: straight line distance x detour factor / walking speed. The routing spike in
 docs/routing-spike.md measures how far that is from real street routing.
 
-Transit: a flat overhead (walk to the stop and wait) plus the distance at an average
-door-to-door speed. It is a planning estimate, not a timetable, and every leg built from it
-is labelled transit so the itinerary can say so.
+Transit: the walk from the place to its nearest bus stop or station, a wait, the ride at an
+average speed, and the walk from the stop nearest the next place. The walks come from the
+real stops in OpenStreetMap (stop_walk_minutes); without them a flat guess is used. It is a
+planning estimate, not a timetable: the nearest stop is not always on the right route.
 
 travel_legs() returns the shape the optimizer reads: {(from_id, to_id): {"minutes", "mode"}}.
 The JSON written to matrix.json is still a proposal until the Optimizer team signs it off.
@@ -34,8 +35,8 @@ class TravelModel:
     transit_detour: float = 1.4
     # Walk to the stop, wait, walk from the stop.
     transit_overhead_min: float = 10.0
-    # The walking part of that overhead (about 3 minutes to the stop and 3 from it). A
-    # transit leg reports it as walk_minutes, so a day of buses still counts its walking.
+    # The walking part of that overhead when a place's real nearest stop is unknown (about
+    # 3 minutes to the stop and 3 from it). The rest of the overhead is the wait.
     transit_walk_min: float = 6.0
 
     def __post_init__(self):
@@ -103,12 +104,53 @@ def select_for_matrix(places: list[dict], n: int) -> list[dict]:
     return sorted(places, key=lambda p: (-p.get("popularity", 0.0), p["id"]))[:n]
 
 
-def transit_matrix(places: list[dict], model: TravelModel | None = None) -> np.ndarray:
-    """minutes[i][j] by public transport, as a flat estimate (see TravelModel)."""
+# A place farther than this from any stop still gets this much: past it, a traveler would
+# take a taxi or walk the whole way, and the planner prefers walking legs anyway.
+MAX_STOP_WALK_MIN = 15.0
+
+
+def stop_walk_minutes(
+    places: list[dict], stops: list[tuple[float, float]], model: TravelModel | None = None
+) -> dict[str, float]:
+    """{place_id: minutes} to walk from each place to its nearest bus stop or station.
+
+    Straight line to the nearest stop, times the walking detour, at walking speed, capped at
+    MAX_STOP_WALK_MIN. Empty when the city has no stops mapped.
+    """
+    model = model or TravelModel()
+    if not places or not stops:
+        return {}
+    stop_lat = np.array([s[0] for s in stops], dtype=float)
+    stop_lon = np.array([s[1] for s in stops], dtype=float)
+    out: dict[str, float] = {}
+    for start in range(0, len(places), 500):  # 500 x stops at a time keeps memory small
+        chunk = places[start:start + 500]
+        lat, lon = _latlon(chunk)
+        nearest_km = haversine_km(lat, lon, stop_lat, stop_lon).min(axis=1)
+        minutes = nearest_km * model.walk_detour / model.walk_speed_kmh * 60.0
+        for place, m in zip(chunk, minutes, strict=True):
+            out[place["id"]] = round(float(min(m, MAX_STOP_WALK_MIN)), 1)
+    return out
+
+
+def _access(places: list[dict], model: TravelModel, stop_walks: dict | None) -> np.ndarray:
+    """Walk between each place and its nearest stop; half the flat guess when unknown."""
+    stop_walks = stop_walks or {}
+    default = model.transit_walk_min / 2
+    return np.array([stop_walks.get(p["id"], default) for p in places], dtype=float)
+
+
+def transit_matrix(
+    places: list[dict], model: TravelModel | None = None, stop_walks: dict | None = None
+) -> np.ndarray:
+    """minutes[i][j] by public transport: walk to the stop, wait, ride, walk from the stop."""
     model = model or TravelModel()
     lat, lon = _latlon(places)
     km = haversine_km(lat, lon, lat, lon)
-    m = model.transit_overhead_min + km * model.transit_detour / model.transit_speed_kmh * 60.0
+    access = _access(places, model, stop_walks)
+    wait = model.transit_overhead_min - model.transit_walk_min
+    ride = km * model.transit_detour / model.transit_speed_kmh * 60.0
+    m = access[:, None] + wait + ride + access[None, :]
     np.fill_diagonal(m, 0.0)
     return m
 
@@ -126,19 +168,24 @@ def choose_modes(
 
 
 def travel_legs(
-    places: list[dict], max_walk_minutes: float, model: TravelModel | None = None
+    places: list[dict],
+    max_walk_minutes: float,
+    model: TravelModel | None = None,
+    stop_walks: dict | None = None,
 ) -> dict[tuple[str, str], dict]:
     """{(from_id, to_id): {"minutes", "mode", "walk_minutes"}} for every ordered pair.
 
     mode is "walk" or "transit". walk_minutes is the walking in the leg: all of a walk, and
-    the walk to and from the stop of a transit leg (TravelModel.transit_walk_min).
+    for a transit leg the walk to the first place's nearest stop plus the walk from the
+    stop nearest the second place (stop_walks, else the flat TravelModel.transit_walk_min).
     This is the shape optimizer/travel.py reads. Same-place pairs are left out.
     """
     model = model or TravelModel()
     if not places:
         return {}
     walk = walking_matrix(places, model.walk_speed_kmh, model.walk_detour)
-    transit = transit_matrix(places, model)
+    transit = transit_matrix(places, model, stop_walks)
+    access = _access(places, model, stop_walks)
     minutes, is_walk = choose_modes(walk, transit, max_walk_minutes)
     ids = [p["id"] for p in places]
     legs: dict[tuple[str, str], dict] = {}
@@ -150,7 +197,9 @@ def travel_legs(
                 legs[(a, b)] = {
                     "minutes": leg_minutes,
                     "mode": "walk" if walking else "transit",
-                    "walk_minutes": leg_minutes if walking else model.transit_walk_min,
+                    "walk_minutes": (
+                        leg_minutes if walking else round(float(access[i] + access[j]), 1)
+                    ),
                 }
     return legs
 
