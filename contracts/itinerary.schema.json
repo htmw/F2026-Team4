@@ -55,7 +55,12 @@
           "additionalProperties": false,
           "properties": {
             "minutes": { "type": "number", "minimum": 0 },
-            "mode": { "type": "string", "enum": ["walk", "transit", "drive", "none"] }
+            "mode": { "type": "string", "enum": ["walk", "transit", "drive", "none"] },
+            "walk_minutes": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Walking in this move: all of a walk, the walk to and from the stop of a transit ride. Optional."
+            }
           }
         },
         "cost": { "type": "number", "minimum": 0 },

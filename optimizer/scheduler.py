@@ -247,6 +247,7 @@ def schedule(
     total_quality = 0.0
     estimated_travel = False
     unknown_hours = 0
+    estimated_hours = 0
     unknown_costs = 0
     estimated_costs = 0
 
@@ -371,6 +372,16 @@ def schedule(
                 _waiting,
             ) = chosen
 
+            # Walking in this move: all of a walk, and the walk to and from the stop of a
+            # transit ride (the Data team's legs carry it as walk_minutes).
+            leg = (travel_matrix or {}).get((previous["id"], place["id"]), {}) if previous else {}
+            if mode == "walk":
+                walked = travel
+            elif mode == "transit":
+                walked = round(leg.get("walk_minutes", 0))
+            else:
+                walked = 0
+
             items.append({
                 "place_id": place["id"],
                 "name": place["name"],
@@ -379,6 +390,7 @@ def schedule(
                 "travel_from_prev": {
                     "minutes": travel,
                     "mode": mode,
+                    "walk_minutes": walked,
                 },
                 "cost": cost,
                 # known / inferred / unknown, so the website can show "Free",
@@ -402,13 +414,14 @@ def schedule(
             total_cost += cost
             total_quality += match_of[place["id"]]
 
-            if mode == "walk":
-                total_walking += travel
+            total_walking += walked
 
             if estimated:
                 estimated_travel = True
 
-            if confidence != "known":
+            if confidence == "inferred":
+                estimated_hours += 1
+            elif confidence != "known":
                 unknown_hours += 1
 
             cost_confidence = place["cost"].get("confidence")
@@ -428,6 +441,14 @@ def schedule(
         warnings.append(
             "Some travel times are estimates; "
             "verify routes before traveling."
+        )
+
+    # Usual hours for that kind of place (Data team's estimate when OpenStreetMap has none)
+    # are named as estimates, like "≈" prices, not as unverified.
+    if estimated_hours:
+        warnings.append(
+            f"Opening hours are estimated for {estimated_hours} scheduled place(s) "
+            f"(usual hours for that kind of place); check before you go."
         )
 
     if unknown_hours:

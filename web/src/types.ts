@@ -31,7 +31,8 @@ export interface ItineraryItem {
   cost_confidence?: Confidence;
   start: string;
   end: string;
-  travel_from_prev?: { minutes: number; mode: string };
+  // walk_minutes: walking in the move, including to and from the stop of a transit ride.
+  travel_from_prev?: { minutes: number; mode: string; walk_minutes?: number };
   cost: number;
   reason: string;
   confidence: Confidence;

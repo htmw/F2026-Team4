@@ -329,7 +329,18 @@ def test_travel_matrix_can_be_built_for_the_candidates():
 
     assert sorted(seen) == ["a", "b"]
     second = result["days"][0]["items"][1]["travel_from_prev"]
-    assert second == {"minutes": 7, "mode": "walk"}
+    assert second == {"minutes": 7, "mode": "walk", "walk_minutes": 7}
+
+
+def test_a_transit_ride_counts_the_walk_to_and_from_the_stop():
+    legs = {
+        ("a", "b"): {"minutes": 19, "mode": "transit", "walk_minutes": 6},
+        ("b", "a"): {"minutes": 19, "mode": "transit", "walk_minutes": 6},
+    }
+    result = run([make_place("a"), make_place("b")], matrix=legs)
+
+    assert result["days"][0]["items"][1]["travel_from_prev"]["walk_minutes"] == 6
+    assert result["totals"]["walking_minutes"] == 6, "not 0 just because it was a ride"
 
 
 # ---- interests, time of day, day length -----------------------------------------------

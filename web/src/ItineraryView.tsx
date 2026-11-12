@@ -161,6 +161,9 @@ export function ItineraryView({
                     <p className={`stop-travel${walkOver > 0 ? " is-over" : ""}`}>
                       {walkOver > 0 && <AlertIcon />}
                       {travel.minutes} min {travel.mode} from the previous stop
+                      {travel.mode === "transit" && travel.walk_minutes
+                        ? ` (incl. ${travel.walk_minutes} min walk to and from the stop)`
+                        : ""}
                       {walkOver > 0 && `, ${walkOver} min over your ${walkLimit}-min limit`}
                     </p>
                   )}
@@ -322,16 +325,21 @@ function FitSummary({
 // "3 stops · 45 min walking · ¥6,800" for one day.
 function dayTotals(day: Itinerary["days"][number], currency: string): string {
   const stops = day.items.length;
-  const walking = day.items.reduce(
-    (sum, item) => sum + (item.travel_from_prev?.mode === "walk" ? item.travel_from_prev.minutes : 0),
-    0,
-  );
+  const walking = day.items.reduce((sum, item) => sum + walkMinutes(item.travel_from_prev), 0);
   const cost = day.items.reduce((sum, item) => sum + item.cost, 0);
   return [
     `${stops} ${stops === 1 ? "stop" : "stops"}`,
     `${walking} min walking`,
     formatMoney(cost, currency),
   ].join(" · ");
+}
+
+// Walking in one move: the walk to and from the stop counts for a transit ride too.
+// Older trips without walk_minutes count only walks, as before.
+function walkMinutes(travel?: { minutes: number; mode: string; walk_minutes?: number }): number {
+  if (!travel) return 0;
+  if (travel.walk_minutes !== undefined) return travel.walk_minutes;
+  return travel.mode === "walk" ? travel.minutes : 0;
 }
 
 function dayCountLabel(days: number): string {
