@@ -1,5 +1,7 @@
 """Tests for parsing OSM fee and charge tags."""
 
+import pytest
+
 from ingest.cost import COUNTRY_CURRENCY, currency_for_country, parse_cost, typical_price
 
 
@@ -23,10 +25,10 @@ def test_fee_no_means_known_free():
     assert result.status == "fee_free"
 
 
-def test_fee_yes_without_price_is_unknown():
+def test_fee_yes_without_price_gets_an_estimate():
     result = parse_cost({"fee": "yes"}, [], "USD")
 
-    assert result.cost["confidence"] == "unknown"
+    assert result.cost == {"amount": 20.0, "currency": "USD", "confidence": "inferred"}
     assert result.status == "fee_amount_missing"
 
 
@@ -141,3 +143,30 @@ def test_every_country_has_a_currency():
     assert missing == []
     assert currency_for_country("CO") == "COP"
     assert currency_for_country("JP") == "JPY"
+
+
+@pytest.mark.parametrize("tags", [
+    {"tourism": "attraction", "building": "office", "height": "443"},       # Empire State
+    {"tourism": "attraction", "building": "yes", "building:levels": "104"},  # One WTC
+    {"tourism": "attraction", "man_made": "tower"},                          # Eiffel Tower
+    {"man_made": "tower", "tower:type": "communication;observation"},       # Tokyo Tower
+])
+def test_a_tower_with_a_viewing_deck_gets_an_estimated_ticket(tags):
+    result = parse_cost(tags, ["landmark"], "USD")
+
+    assert result.cost == {"amount": 40.0, "currency": "USD", "confidence": "inferred"}
+
+
+@pytest.mark.parametrize("tags", [
+    {"tourism": "attraction", "amenity": "fountain"},                 # Trevi Fountain
+    {"tourism": "attraction", "building": "yes", "height": "30"},     # a low building
+    {"historic": "tower", "fee": "no"},                               # tagged as free
+])
+def test_other_landmarks_stay_free(tags):
+    assert parse_cost(tags, ["landmark"], "EUR").cost["amount"] == 0.0
+
+
+def test_a_paid_park_without_an_amount_gets_a_museum_ticket_estimate():
+    result = parse_cost({"fee": "yes"}, ["park"], "EUR")
+
+    assert result.cost == {"amount": 12.0, "currency": "EUR", "confidence": "inferred"}

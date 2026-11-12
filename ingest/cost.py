@@ -195,6 +195,40 @@ def typical_price(categories: list[str], currency: str) -> float | None:
     return None
 
 
+# Landmarks are free by default (a square, a fountain, a temple), but a tower or skyscraper
+# that tourists visit is almost always a paid viewing deck: Empire State Building, One World
+# Trade Center, Eiffel Tower, Tokyo Tower. Its estimate is twice a museum ticket ($40 in New
+# York, EUR 24 in Paris, about 2,000 yen in Tokyo).
+DECK_PRICE_FACTOR = 2
+TALL_BUILDING_M = 150
+TALL_BUILDING_LEVELS = 40
+
+
+def _number(text) -> float:
+    """The leading number of an OSM value such as "443", "443 m" or "102"; 0 if none."""
+    match = re.match(r"\s*(\d+(?:\.\d+)?)", str(text or ""))
+    return float(match.group(1)) if match else 0.0
+
+
+def is_paid_view(tags: dict) -> bool:
+    """A tower or tall building visited for its view, which usually charges for the deck."""
+    if "observation" in (tags.get("tower:type") or ""):
+        return True
+    if tags.get("tourism") != "attraction":
+        return False
+    if tags.get("man_made") == "tower":
+        return True
+    return (
+        _number(tags.get("height")) >= TALL_BUILDING_M
+        or _number(tags.get("building:levels")) >= TALL_BUILDING_LEVELS
+    )
+
+
+def deck_price(currency: str) -> float | None:
+    museum = typical_price(["museum"], currency)
+    return None if museum is None else museum * DECK_PRICE_FACTOR
+
+
 def estimated_cost(categories: list[str], currency: str) -> dict:
     """The cost to show when nobody knows the real price: free for a usually free kind of
     place, otherwise a typical price. Always an estimate ("inferred"), never "unknown",
@@ -241,10 +275,20 @@ def parse_cost(tags: dict, categories: list[str], fallback_currency: str) -> Cos
 
     typical = typical_price(categories, fallback_currency)
     if fee == "yes":
+        # Paid, amount unknown: the typical price for this kind of place, or for a park,
+        # church or landmark that charges, a museum ticket (a deck price for a tower).
+        if is_paid_view(tags):
+            typical = deck_price(fallback_currency)
+        elif typical is None:
+            typical = typical_price(["museum"], fallback_currency)
         if typical is not None:
-            return mk(typical, fallback_currency, "inferred", "typical_price")
+            return mk(typical, fallback_currency, "inferred", "fee_amount_missing")
         return mk(0.0, fallback_currency, "unknown", "fee_amount_missing")
 
+    if categories and categories[0] in {"landmark", "viewpoint"} and is_paid_view(tags):
+        deck = deck_price(fallback_currency)
+        if deck is not None:
+            return mk(deck, fallback_currency, "inferred", "typical_price")
     if categories and categories[0] in FREE_BY_DEFAULT:
         return mk(0.0, fallback_currency, "inferred", "default_free")
     if typical is not None:
