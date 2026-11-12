@@ -6,7 +6,12 @@ baselines on held-out data (otherwise training is pointless).
 
 from __future__ import annotations
 
-from ranker.evaluate import evaluate, ndcg_at_k
+from ranker.evaluate import (
+    average_precision_at_k,
+    evaluate,
+    ndcg_at_k,
+    precision_at_k,
+)
 from ranker.features import extract_features, feature_names
 from ranker.synthetic import make_dataset
 from ranker.train import train_model
@@ -33,3 +38,19 @@ def test_trained_model_beats_baselines(tmp_path):
     # The whole point: a trained, personalized ranker should beat popularity and random.
     assert results["trained_model"] >= results["popularity"]
     assert results["trained_model"] >= results["random"]
+def test_precision_at_5():
+    relevances = [4, 3, 0, 2, 0]
+    scores = [0.9, 0.8, 0.7, 0.6, 0.5]
+
+    result = precision_at_k(relevances, scores, k=5)
+
+    assert abs(result - 0.6) < 1e-6
+
+
+def test_average_precision_at_5():
+    relevances = [4, 3, 0, 2, 0]
+    scores = [0.9, 0.8, 0.7, 0.6, 0.5]
+
+    result = average_precision_at_k(relevances, scores, k=5)
+
+    assert abs(result - (11 / 12)) < 1e-6
