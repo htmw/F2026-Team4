@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import type { FormEvent, ReactNode } from "react";
+import type { CSSProperties, FormEvent, ReactNode } from "react";
 
 import { CitySearch } from "./CitySearch";
 import type { CitySuggestion } from "./CitySearch";
 import { currencyLabel, currencyOptions } from "./currency";
-import { formatDateRange, formatMoney } from "./format";
-import { ChevronDown } from "./icons";
+import { formatDateRange, formatMoney, formatTime } from "./format";
+import { ChevronDown, InterestIcon } from "./icons";
 import { INTEREST_KEYS } from "./interests";
 import {
   DEFAULT_INTERESTS,
   DEFAULT_PACE,
-  DIETARY_OPTIONS,
   INTEREST_LEVELS,
   PACE_OPTIONS,
   WALK_OPTIONS,
@@ -52,8 +51,6 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
   const [budget, setBudget] = useState("1200");
   const [dayStart, setDayStart] = useState("09:30");
   const [dayEnd, setDayEnd] = useState("22:00");
-  // No diet is assumed: travelers opt in to what applies to them.
-  const [dietary, setDietary] = useState<string[]>([]);
   const [moreOpen, setMoreOpen] = useState(false);
 
   // The optimizer applies the budget only when it is in the local currency, so choosing a
@@ -110,12 +107,6 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
       delete next[field];
       return next;
     });
-  }
-
-  function toggleDietary(option: string) {
-    setDietary((previous) =>
-      previous.includes(option) ? previous.filter((item) => item !== option) : [...previous, option],
-    );
   }
 
   function validateTripDetails(): Errors {
@@ -189,7 +180,8 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
       day_start: dayStart,
       day_end: dayEnd,
       budget: { total: Number(budget), currency },
-      dietary,
+      // Dietary needs aren't asked for in the form; the contract still expects the field.
+      dietary: [],
       accessibility: [],
       avoid: [],
       novelty_appetite: 0.3,
@@ -250,8 +242,7 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
 
   const hint = budgetHint();
   const moreSummary = [
-    `${dayStart}–${dayEnd}`,
-    dietary.length ? dietary.join(", ") : "no dietary needs",
+    `Days from ${formatTime(dayStart)} to ${formatTime(dayEnd)}`,
   ].join(" · ");
 
   return (
@@ -346,13 +337,36 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
           <>
             <fieldset className="group">
               <legend className="group-title">What do you want to see?</legend>
+              <dl className="level-legend" aria-label="What the choices mean">
+                <div>
+                  <dt>Skip</dt>
+                  <dd>leave it out</dd>
+                </div>
+                <div>
+                  <dt>Some</dt>
+                  <dd>include a few</dd>
+                </div>
+                <div>
+                  <dt>Love</dt>
+                  <dd>make it a priority</dd>
+                </div>
+              </dl>
               <div className="interest-list">
                 {INTEREST_KEYS.map((key) => (
-                  <fieldset key={key} className="interest-row">
-                    <legend className="interest-name">{interestName(key)}</legend>
+                  <fieldset
+                    key={key}
+                    className="interest-row"
+                    style={{ "--row-pin": `var(--pin-${key})` } as CSSProperties}
+                  >
+                    <legend className="interest-name">
+                      <span className={`interest-symbol pin-${key}`} aria-hidden="true">
+                        <InterestIcon interest={key} />
+                      </span>
+                      {interestName(key)}
+                    </legend>
                     <div className="segmented">
                       {INTEREST_LEVELS.map((level) => (
-                        <label key={level.label} className="segment">
+                        <label key={level.label} className={`segment level-${level.label.toLowerCase()}`}>
                           <input
                             type="radio"
                             name={`interest-${key}`}
@@ -506,22 +520,6 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
                     {fieldError("dayEnd")}
                   </div>
                 </div>
-
-                <fieldset className="field">
-                  <legend>Dietary needs</legend>
-                  <div className="chips">
-                    {DIETARY_OPTIONS.map((option) => (
-                      <label key={option} className="chip">
-                        <input
-                          type="checkbox"
-                          checked={dietary.includes(option)}
-                          onChange={() => toggleDietary(option)}
-                        />
-                        <span>{option}</span>
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
               </div>
             </div>
           </>
@@ -562,10 +560,8 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
                 <dd>{maxWalk} minutes between stops</dd>
                 <dt>Daily hours</dt>
                 <dd>
-                  {dayStart}–{dayEnd}
+                  {formatTime(dayStart)} - {formatTime(dayEnd)}
                 </dd>
-                <dt>Dietary needs</dt>
-                <dd>{dietary.join(", ") || "None"}</dd>
               </dl>
             </section>
           </div>

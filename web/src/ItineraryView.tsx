@@ -1,7 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
-import { confidenceLabel, formatDay, formatMoney, prettifyPlaceId, priceLabel } from "./format";
-import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon } from "./icons";
+import {
+  confidenceLabel,
+  formatDay,
+  formatMoney,
+  formatTime,
+  formatTimeRange,
+  interestFromReason,
+  interestLabel,
+  prettifyPlaceId,
+  priceLabel,
+} from "./format";
+import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon, InterestIcon } from "./icons";
 import type { Itinerary, PlanRequest } from "./types";
 
 export interface RemovedPlace {
@@ -156,7 +166,18 @@ export function ItineraryView({
                   ? travel.minutes - walkLimit
                   : 0;
               return (
-                <li key={`${item.place_id}-${i}`} className={`stop${isRejected ? " is-rejected" : ""}`}>
+                <li
+                  key={`${item.place_id}-${i}`}
+                  className={`stop${isRejected ? " is-rejected" : ""}${walkOver > 0 ? " is-walk-over" : ""}`}
+                >
+                  {/* The day drawn as a walking route: a pin with the stop's map-legend symbol,
+                      joined to the previous stop by a dashed footpath. */}
+                  <div className="stop-rail" aria-hidden="true">
+                    <span className={`stop-pin pin-${interestFromReason(item.reason) ?? "other"}`}>
+                      <InterestIcon interest={interestFromReason(item.reason)} />
+                    </span>
+                  </div>
+                  <div className="stop-main">
                   {travel && travel.minutes > 0 && (
                     <p className={`stop-travel${walkOver > 0 ? " is-over" : ""}`}>
                       {walkOver > 0 && <AlertIcon />}
@@ -165,18 +186,21 @@ export function ItineraryView({
                     </p>
                   )}
                   <div className="stop-row">
-                    <p className="stop-time">
-                      <time>{item.start}</time>
-                      <span className="visually-hidden"> to </span>
-                      <time>{item.end}</time>
-                    </p>
                     <div className="stop-body">
-                      <h4 className="stop-name">{name}</h4>
-                      <p className="stop-reason">{item.reason}</p>
+                      <p className="stop-time">{formatTimeRange(item.start, item.end)}</p>
+                      <div className="stop-heading">
+                        <h4 className="stop-name">{name}</h4>
+                        <span className="stop-interest">{interestLabel(item.reason)}</span>
+                      </div>
+                      {/* Room for a short description of the place. Itinerary items don't carry one
+                          yet; it needs a `description` field in /contracts/itinerary.schema.json. */}
+                      {item.description && <p className="stop-description">{item.description}</p>}
                       <p className="stop-meta">
-                        <span className={`confidence confidence-${item.confidence}`}>
-                          Hours {confidenceLabel(item.confidence)}
-                        </span>
+                        {item.confidence !== "unknown" && (
+                          <span className={`confidence confidence-${item.confidence}`}>
+                            Hours {confidenceLabel(item.confidence)}
+                          </span>
+                        )}
                         <span className="stop-cost">
                           {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                         </span>
@@ -194,10 +218,11 @@ export function ItineraryView({
                       ) : (
                         <>
                           <CloseIcon />
-                          Remove
+                          <span className="remove-label">Remove</span>
                         </>
                       )}
                     </button>
+                  </div>
                   </div>
                 </li>
               );
@@ -209,14 +234,12 @@ export function ItineraryView({
       )}
 
       <details className="legend">
-        <summary>What do "verified", "estimated" and "unverified" mean?</summary>
+        <summary>What do "verified" and "estimated" mean?</summary>
         <dl>
           <dt>Hours verified</dt>
           <dd>Opening hours come from the place's own listing, so the plan treats them as fixed.</dd>
           <dt>Hours estimated</dt>
           <dd>No listed hours, so typical hours for this kind of place were used. Check before you go.</dd>
-          <dt>Hours unverified</dt>
-          <dd>We couldn't find opening hours. The place may be closed when you arrive.</dd>
         </dl>
       </details>
 
@@ -267,10 +290,39 @@ function FitSummary({
 
   return (
     <dl className="fit">
+      <div className={`fit-item${overWalk ? " is-over" : ""}`}>
+        {walks.length > 0 ? (
+          <>
+            <dt>Longest walk</dt>
+            <dd>
+              <strong>{longestWalk} min</strong>
+              {walkLimit !== undefined && walkLimit > 0 && (
+                <ScaleBar value={longestWalk} limit={walkLimit} label={`${walkLimit} min`} />
+              )}
+              <span>
+                {overWalk
+                  ? `${longestWalk - (walkLimit ?? 0)} min over your ${walkLimit}-min limit · ${totals.walking_minutes} min walking in total`
+                  : `${walkLimit !== undefined ? `Within your ${walkLimit}-min limit · ` : ""}${totals.walking_minutes} min walking in total`}
+              </span>
+            </dd>
+          </>
+        ) : (
+          <>
+            <dt>Walking</dt>
+            <dd>
+              <strong>{totals.walking_minutes} min</strong>
+              <span>in total</span>
+            </dd>
+          </>
+        )}
+      </div>
       <div className={`fit-item${overBudget > 0 ? " is-over" : ""}`}>
         <dt>Cost</dt>
         <dd>
           <strong>{formatMoney(totals.cost, totals.currency)}</strong>
+          {budgetApplies && budget.total > 0 && (
+            <ScaleBar value={totals.cost} limit={budget.total} label={formatMoney(budget.total, budget.currency)} />
+          )}
           <span>
             {budgetApplies
               ? overBudget > 0
@@ -282,25 +334,13 @@ function FitSummary({
           </span>
         </dd>
       </div>
-      <div className={`fit-item${overWalk ? " is-over" : ""}`}>
-        <dt>Walking</dt>
-        <dd>
-          <strong>{totals.walking_minutes} min</strong>
-          <span>
-            {!walks.length
-              ? "in total"
-              : overWalk
-                ? `in total · longest walk ${longestWalk} min, ${longestWalk - (walkLimit ?? 0)} min over your ${walkLimit}-min limit`
-                : `in total · longest walk ${longestWalk} min${walkLimit !== undefined ? `, within your ${walkLimit}-min limit` : ""}`}
-          </span>
-        </dd>
-      </div>
       {profile && (
         <div className="fit-item">
           <dt>Daily hours</dt>
           <dd>
             <strong>
-              {profile.day_start}–{profile.day_end}
+              <span className="nowrap">{formatTime(profile.day_start)}</span> -{" "}
+              <span className="nowrap">{formatTime(profile.day_end)}</span>
             </strong>
             <span>as you asked</span>
           </dd>
@@ -320,6 +360,25 @@ function FitSummary({
 }
 
 // "3 stops · 45 min walking · ¥6,800" for one day.
+// A map-style scale bar: the track runs to the traveler's limit (the tick), the fill shows what the
+// plan uses. Past the limit the track extends and the overflow is drawn in the warning colour.
+// Decorative: the text next to it says the same thing.
+function ScaleBar({ value, limit, label }: { value: number; limit: number; label: string }) {
+  const span = Math.max(value, limit) * 1.1;
+  const pct = (n: number) => `${Math.min(100, (n / span) * 100).toFixed(1)}%`;
+  const over = value > limit;
+  return (
+    <span className={`scale${over ? " is-over" : ""}`} aria-hidden="true">
+      <span className="scale-fill" style={{ width: pct(Math.min(value, limit)) }} />
+      {over && <span className="scale-over" style={{ left: pct(limit), width: pct(value - limit) }} />}
+      <span className="scale-tick" style={{ left: pct(limit) }} />
+      <span className="scale-label" style={{ right: `calc(100% - ${pct(limit)})` }}>
+        {label}
+      </span>
+    </span>
+  );
+}
+
 function dayTotals(day: Itinerary["days"][number], currency: string): string {
   const stops = day.items.length;
   const walking = day.items.reduce(
