@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ApiError, postFeedback, postPlan } from "./api";
 import type { Feedback } from "./api";
 import { formatDateRange, prettifyPlaceId } from "./format";
+import { FoldedMapIcon, InterestIcon } from "./icons";
 import { ItineraryView } from "./ItineraryView";
 import type { RemovedPlace } from "./ItineraryView";
 import { PreferenceForm } from "./PreferenceForm";
@@ -111,7 +112,13 @@ export function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Wanderwise</h1>
+        <div className="app-header-inner">
+          <h1 className="wordmark">
+            <FoldedMapIcon className="wordmark-mark" />
+            Wanderwise
+          </h1>
+          <p className="app-tagline">Day plans you can actually walk</p>
+        </div>
       </header>
 
       <main className="layout">
@@ -167,6 +174,19 @@ export function App() {
             !error &&
             !destinationError && (
               <div className="panel empty-state">
+                <div className="empty-route" aria-hidden="true">
+                  <span className="stop-pin pin-history">
+                    <InterestIcon interest="history" />
+                  </span>
+                  <span className="empty-path" />
+                  <span className="stop-pin pin-food">
+                    <InterestIcon interest="food" />
+                  </span>
+                  <span className="empty-path" />
+                  <span className="stop-pin pin-nature">
+                    <InterestIcon interest="nature" />
+                  </span>
+                </div>
                 <h2 className="panel-title">Your plan appears here</h2>
                 <p>
                   A day-by-day schedule with times, travel between stops and costs, checked against

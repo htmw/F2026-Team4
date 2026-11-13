@@ -3,33 +3,50 @@
    reserved for the plan's numbers and the one primary action on each screen. */
 
 :root {
+  /* A folded city map: map-cover green for the shell, crisp cool map paper, water blue for
+     actions and selection, park green for "verified", footpath red for walks over the limit. */
+  --cover: #17463a;
+  --cover-ink: #ffffff;
+  --cover-ink-2: #c9ddd4;
+
   /* Surfaces and lines */
-  --bg: #f4f5f7;
+  --bg: #eef3f0;
   --surface: #ffffff;
-  --surface-sunken: #f6f7f9;
-  --line: #e3e6eb;
-  --line-strong: #c9ced6;
+  --surface-sunken: #f4f7f5;
+  --line: #dde5e0;
+  --line-strong: #bccac2;
 
   /* Text: every level is at least 4.5:1 on --surface and --bg */
-  --ink: #1b2230;
-  --ink-2: #4a5363;
-  --ink-3: #5f6878;
+  --ink: #14211b;
+  --ink-2: #43534b;
+  --ink-3: #56665e;
 
-  /* The one accent, with a soft tint for selected states */
-  --accent: #2453c9;
-  --accent-strong: #1c43a6;
-  --accent-soft: #e9eefb;
+  /* Water blue: actions, selection */
+  --accent: #1f5fae;
+  --accent-strong: #184c8c;
+  --accent-soft: #e4edf8;
 
   /* Status */
-  --ok-ink: #1f6b45;
+  --ok-ink: #1e6b45;
   --warn-ink: #8a4b0b;
   --warn-bg: #fdf6e9;
   --danger-ink: #b42318;
   --danger-bg: #fdf2f1;
   --danger-line: #f3c4be;
 
+  /* Map-legend colours, one per interest (pins and symbols; at least 3:1 on white) */
+  --pin-food: #c2410c;
+  --pin-history: #8a5a2b;
+  --pin-art: #9d3d6b;
+  --pin-architecture: #4b5a6b;
+  --pin-nature: #2e7d4f;
+  --pin-nightlife: #4338ca;
+  --pin-shopping: #a35a0b;
+  --pin-other: #56665e;
+  --path: #9fb3a8;
+
   /* Shape and rhythm */
-  --radius: 12px;
+  --radius: 14px;
   --radius-control: 8px;
   --space-1: 4px;
   --space-2: 8px;
@@ -38,8 +55,10 @@
   --space-5: 24px;
   --space-6: 32px;
   --control-height: 44px;
+  --shadow: 0 1px 2px rgba(16, 40, 30, 0.06), 0 10px 28px rgba(16, 40, 30, 0.08);
 
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Overpass", var(--font);
 
   color: var(--ink);
   font-family: var(--font);
@@ -125,18 +144,48 @@ select {
 .app {
   max-width: 1120px;
   margin: 0 auto;
-  padding: var(--space-5) var(--space-4) 64px;
+  padding: 0 var(--space-4) 64px;
 }
 
+/* Map-cover band: full width behind the centred content, the panels overlap its lower edge. */
 .app-header {
-  margin-bottom: var(--space-5);
+  position: relative;
+  padding: var(--space-5) 0 72px;
+  margin-bottom: -48px;
+  color: var(--cover-ink);
+  background: var(--cover);
+  box-shadow: 0 0 0 100vmax var(--cover);
+  clip-path: inset(0 -100vmax);
 }
 
-.app-header h1 {
-  font-size: 22px;
-  font-weight: 700;
+.app-header-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+}
+
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
   letter-spacing: -0.01em;
-  color: var(--ink);
+  line-height: 1;
+}
+
+.wordmark-mark {
+  width: 26px;
+  height: 26px;
+  stroke-width: 1.7;
+}
+
+.app-tagline {
+  font-size: 15px;
+  color: var(--cover-ink-2);
 }
 
 .layout {
@@ -163,10 +212,12 @@ select {
 /* ---- Panels ---- */
 
 .panel {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: var(--space-5);
+  box-shadow: var(--shadow);
 }
 
 @media (max-width: 480px) {
@@ -481,6 +532,24 @@ select {
 
 /* Step 2: Skip / Some / Love and Relaxed / Balanced / Packed */
 
+.level-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px var(--space-4);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.level-legend div {
+  display: flex;
+  gap: 4px;
+}
+
+.level-legend dt {
+  font-weight: 650;
+  color: var(--ink);
+}
+
 .interest-list {
   display: grid;
 }
@@ -636,47 +705,6 @@ select {
   gap: var(--space-3);
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.chip {
-  position: relative;
-  display: flex;
-}
-
-.chip input {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  margin: 0;
-  cursor: pointer;
-}
-
-.chip span {
-  display: grid;
-  place-items: center;
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  font-size: 14px;
-  color: var(--ink-2);
-}
-
-.chip input:checked + span {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.chip input:focus-visible + span {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
 
 /* Step 3 */
 
@@ -906,13 +934,13 @@ select {
   font-variant-numeric: tabular-nums;
 }
 
-.fit-item dd span {
+.fit-item dd > span:not(.scale) {
   font-size: 13px;
   color: var(--ink-2);
 }
 
 .fit-item.is-over strong,
-.fit-item.is-over dd span {
+.fit-item.is-over dd > span:not(.scale) {
   color: var(--warn-ink);
 }
 
@@ -1017,44 +1045,135 @@ select {
   margin-top: var(--space-3);
 }
 
+/* ---- The day as a walking route ----
+   Each stop is a two-column grid: the route rail (pin) on the left, the stop on the right.
+   The dashed footpath is drawn in segments (above the pin, below it, and beside the walk label)
+   so it runs unbroken from pin to pin whether or not a walk label is present. */
+
 .stop {
-  padding: var(--space-3) 0;
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  column-gap: var(--space-3);
 }
 
+.stop-main {
+  display: contents;
+}
+
+.stop-rail {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.stop-rail::before,
+.stop-rail::after,
+.stop-travel::before {
+  content: "";
+  position: absolute;
+  border-left: 2px dashed var(--path);
+}
+
+.stop-rail::before {
+  top: 0;
+  height: 18px;
+  left: 17px;
+}
+
+.stop-rail::after {
+  top: 18px;
+  bottom: 0;
+  left: 17px;
+}
+
+.stop:first-child .stop-rail::before,
+.stop:last-child .stop-rail::after {
+  display: none;
+}
+
+.stop-pin {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--pin, var(--pin-other));
+  color: #fff;
+  box-shadow: 0 0 0 3px var(--surface);
+}
+
+.stop-pin .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.pin-food { --pin: var(--pin-food); }
+.pin-history { --pin: var(--pin-history); }
+.pin-art { --pin: var(--pin-art); }
+.pin-architecture { --pin: var(--pin-architecture); }
+.pin-nature { --pin: var(--pin-nature); }
+.pin-nightlife { --pin: var(--pin-nightlife); }
+.pin-shopping { --pin: var(--pin-shopping); }
+.pin-other { --pin: var(--pin-other); }
+
 .stop-travel {
-  margin: -2px 0 var(--space-2) 76px;
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  margin: 0;
+  padding: 2px 0 10px;
   font-size: 13px;
   color: var(--ink-3);
 }
 
+.stop-travel::before {
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * (var(--space-3) + 19px));
+}
+
+.stop.is-walk-over .stop-travel::before,
+.stop.is-walk-over .stop-rail::before {
+  border-left-color: var(--danger-ink);
+}
+
+.stop.is-rejected .stop-pin {
+  background: var(--line-strong);
+}
+
 .stop-row {
+  grid-column: 2;
+  grid-row: 2;
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: var(--space-3);
   align-items: start;
+  padding: 6px 0 var(--space-5);
 }
 
 .stop-time {
-  padding-top: 1px;
   font-size: 14px;
-  color: var(--ink-2);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.stop-time time {
-  display: block;
-}
-
-.stop-time time:first-child {
-  color: var(--ink);
   font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
 }
 
 .stop-body {
   display: grid;
   gap: 2px;
+}
+
+/* Place name with "Matches your interest: history" beside it, small and dim. */
+.stop-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px var(--space-2);
 }
 
 .stop-name {
@@ -1063,7 +1182,15 @@ select {
   line-height: 1.35;
 }
 
-.stop-reason {
+.stop-interest {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+/* Short description of the place, when the data has one. */
+.stop-description {
+  max-width: 65ch;
+  margin-top: 2px;
   font-size: 14px;
   color: var(--ink-2);
 }
@@ -1093,9 +1220,6 @@ select {
   color: var(--warn-ink);
 }
 
-.confidence-unknown {
-  color: var(--danger-ink);
-}
 
 .remove-button {
   display: inline-flex;
@@ -1124,23 +1248,18 @@ select {
 }
 
 .stop.is-rejected .stop-name,
-.stop.is-rejected .stop-reason {
+.stop.is-rejected .stop-interest {
   color: var(--ink-3);
   text-decoration: line-through;
 }
 
 @media (max-width: 480px) {
   .stop-row {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .remove-button {
-    grid-column: 2;
     justify-self: start;
-  }
-
-  .stop-travel {
-    margin-left: 64px;
   }
 }
 
@@ -1246,4 +1365,258 @@ select {
   gap: 6px;
   color: var(--warn-ink);
   font-weight: 600;
+}
+
+/* A fieldset draws its top border through its legend; float the legend so the divider sits
+   above the heading like the other groups. */
+fieldset.group > legend {
+  float: left;
+  width: 100%;
+}
+
+fieldset.group > legend + * {
+  clear: both;
+}
+
+/* ---- Map world: type, scale bars, legend symbols, route-style steps ---- */
+
+.panel-title,
+.plan-title,
+.day-title,
+.group-title,
+.step-title,
+.review-heading h4,
+.fit-item strong,
+.stop-time {
+  font-family: var(--font-display);
+}
+
+.plan-title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.day-title {
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.fit-item strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stop-time {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-strong);
+  letter-spacing: 0.01em;
+}
+
+/* Scale bar: track to the traveler's limit (the tick), fill for what the plan uses. */
+.scale {
+  position: relative;
+  display: block;
+  height: 8px;
+  margin: 6px 0 4px;
+  border-radius: 4px;
+  background: var(--surface-sunken);
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.scale-fill,
+.scale-over {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 4px;
+  background: var(--ok-ink);
+}
+
+.scale-over {
+  border-radius: 0 4px 4px 0;
+  background: var(--danger-ink);
+}
+
+.scale-tick {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--ink);
+}
+
+/* Interest rows: the map-legend symbol beside each interest */
+.interest-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.interest-symbol {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pin);
+  color: var(--pin);
+  background: var(--surface);
+}
+
+.interest-symbol .icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Fit summary as a 2 x 2 key on wide panels, one column on narrow phones */
+.fit {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media (max-width: 480px) {
+  .fit {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Remove reads as a quiet action beside each stop, not a column of form buttons */
+.remove-button {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-3);
+}
+
+.remove-button:hover {
+  border-color: var(--line);
+  background: var(--surface-sunken);
+}
+
+@media (max-width: 480px) {
+  .remove-button {
+    margin-left: calc(-1 * var(--space-3));
+  }
+
+  .budget-inputs {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
+
+/* Empty state: a small sketch of a route */
+.empty-route {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.empty-path {
+  width: 56px;
+  border-top: 2px dashed var(--path);
+}
+
+.empty-state {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-6);
+}
+
+/* ---- Finish-review fixes ---- */
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Header: tagline centred on the wordmark */
+.app-header-inner {
+  align-items: center;
+}
+
+/* Interest choices take the row's legend colour: Love filled, Some tinted, Skip quiet */
+.interest-row .level-love input:checked + span {
+  background: var(--row-pin);
+  color: #fff;
+}
+
+.interest-row .level-some input:checked + span {
+  background: color-mix(in srgb, var(--row-pin) 12%, var(--surface));
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--row-pin);
+}
+
+.interest-row .level-skip input:checked + span {
+  background: var(--surface-sunken);
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+/* Scale bars drawn like a map's scale: square ends, alternating segments, a labelled tick */
+.scale {
+  height: 7px;
+  margin: 8px 0 18px;
+  border-radius: 0;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.scale-fill {
+  border-radius: 0;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 12px, var(--surface) 12px 24px);
+  box-shadow: inset 0 0 0 1px var(--ink);
+}
+
+.scale-over {
+  border-radius: 0;
+  background: var(--danger-ink);
+}
+
+.scale-tick {
+  top: -4px;
+  bottom: -4px;
+}
+
+.scale-label {
+  position: absolute;
+  top: 11px;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--ink-3);
+  white-space: nowrap;
+  transform: translateX(50%);
+}
+
+@media (max-width: 480px) {
+  /* All three steps on one row */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .step,
+  .step-title,
+  .step-link {
+    font-size: 13px;
+  }
+
+  /* Remove sits beside the stop as an icon button (its accessible name stays) */
+  .stop-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .remove-button {
+    grid-column: auto;
+    align-self: start;
+    justify-self: end;
+    margin-left: 0;
+    width: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .remove-label {
+    display: none;
+  }
 }

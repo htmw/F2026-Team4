@@ -97,7 +97,7 @@ describe("ItineraryView", () => {
 
   it("says how far a walk goes over the traveler's limit, and flags that walk", () => {
     renderPlan(request({ total: 120000, currency: "JPY" }));
-    expect(screen.getByText(/longest walk 25 min, 5 min over your 20-min limit/)).toBeTruthy();
+    expect(screen.getByText("5 min over your 20-min limit · 25 min walking in total")).toBeTruthy();
     expect(screen.getByText(/25 min walk from the previous stop, 5 min over your 20-min limit/)).toBeTruthy();
   });
 
@@ -118,5 +118,41 @@ describe("ItineraryView", () => {
     expect(screen.getByRole("status").textContent).toContain("Removed Harajuku and re-planned the trip.");
     fireEvent.click(screen.getByRole("button", { name: "Undo" }));
     expect(onUndo).toHaveBeenCalledTimes(1);
+  });
+
+  it("shows each stop's time in 12-hour format with a hyphen", () => {
+    renderPlan(null);
+    expect(screen.getByText("9:30 AM - 11:00 AM")).toBeTruthy();
+    expect(screen.getByText("11:30 AM - 12:30 PM")).toBeTruthy();
+  });
+
+  it("shows the matched interest next to each place", () => {
+    renderPlan(null, {
+      itinerary: {
+        ...itinerary,
+        days: [{ ...itinerary.days[0], items: [{ ...itinerary.days[0].items[0], reason: "Matches your interest in history." }] }],
+      },
+    });
+    expect(screen.getByText("Matches your interest: history")).toBeTruthy();
+  });
+
+  it("does not label unverified opening hours", () => {
+    renderPlan(null, {
+      itinerary: {
+        ...itinerary,
+        days: [{ ...itinerary.days[0], items: [{ ...itinerary.days[0].items[0], confidence: "unknown" }] }],
+      },
+    });
+    expect(screen.queryByText(/Hours unverified/)).toBeNull();
+  });
+
+  it("shows a place's description when the data has one", () => {
+    renderPlan(null, {
+      itinerary: {
+        ...itinerary,
+        days: [{ ...itinerary.days[0], items: [{ ...itinerary.days[0].items[0], description: "Tokyo's oldest temple." }] }],
+      },
+    });
+    expect(screen.getByText("Tokyo's oldest temple.")).toBeTruthy();
   });
 });
