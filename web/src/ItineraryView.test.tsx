@@ -111,6 +111,12 @@ describe("ItineraryView", () => {
     expect(screen.getByText(/25 min walk from the previous stop, 5 min over your 20-min limit/)).toBeTruthy();
   });
 
+  it("shows each stop's time as AM and PM", () => {
+    renderPlan(null);
+    expect(screen.getAllByText("9:30 AM").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("11:00 AM").length).toBeGreaterThan(0);
+  });
+
   it("says what each place is, crediting Wikipedia", () => {
     renderPlan(null);
     expect(screen.getByText(/Sensō-ji is an ancient Buddhist temple in Asakusa, Tokyo\./)).toBeTruthy();

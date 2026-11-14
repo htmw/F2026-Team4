@@ -1,6 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 
-import { confidenceLabel, formatDay, formatMoney, prettifyPlaceId, priceLabel } from "./format";
+import {
+  confidenceLabel,
+  formatDay,
+  formatMoney,
+  formatTime,
+  prettifyPlaceId,
+  priceLabel,
+} from "./format";
 import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon } from "./icons";
 import type { Itinerary, PlanRequest } from "./types";
 
@@ -169,9 +176,10 @@ export function ItineraryView({
                   )}
                   <div className="stop-row">
                     <p className="stop-time">
-                      <time>{item.start}</time>
+                      <time dateTime={item.start}>{formatTime(item.start)}</time>
+                      <span aria-hidden="true"> – </span>
                       <span className="visually-hidden"> to </span>
-                      <time>{item.end}</time>
+                      <time dateTime={item.end}>{formatTime(item.end)}</time>
                     </p>
                     <div className="stop-body">
                       <h4 className="stop-name">{name}</h4>
@@ -312,7 +320,7 @@ function FitSummary({
           <dt>Daily hours</dt>
           <dd>
             <strong>
-              {profile.day_start}–{profile.day_end}
+              {formatTime(profile.day_start)} – {formatTime(profile.day_end)}
             </strong>
             <span>as you asked</span>
           </dd>

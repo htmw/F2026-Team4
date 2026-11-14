@@ -4,7 +4,7 @@ import type { FormEvent, ReactNode } from "react";
 import { CitySearch } from "./CitySearch";
 import type { CitySuggestion } from "./CitySearch";
 import { currencyLabel, currencyOptions } from "./currency";
-import { formatDateRange, formatMoney } from "./format";
+import { formatDateRange, formatMoney, formatTime } from "./format";
 import { ChevronDown } from "./icons";
 import { INTEREST_KEYS } from "./interests";
 import {
@@ -250,7 +250,7 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
 
   const hint = budgetHint();
   const moreSummary = [
-    `${dayStart}–${dayEnd}`,
+    `${formatTime(dayStart)} – ${formatTime(dayEnd)}`,
     dietary.length ? dietary.join(", ") : "no dietary needs",
   ].join(" · ");
 
@@ -562,7 +562,7 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
                 <dd>{maxWalk} minutes between stops</dd>
                 <dt>Daily hours</dt>
                 <dd>
-                  {dayStart}–{dayEnd}
+                  {formatTime(dayStart)} – {formatTime(dayEnd)}
                 </dd>
                 <dt>Dietary needs</dt>
                 <dd>{dietary.join(", ") || "None"}</dd>

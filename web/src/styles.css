@@ -1023,14 +1023,15 @@ select {
 }
 
 .stop-travel {
-  margin: -2px 0 var(--space-2) 76px;
+  /* Lines up with the place name: the time column plus the gap. */
+  margin: -2px 0 var(--space-2) calc(148px + var(--space-3));
   font-size: 13px;
   color: var(--ink-3);
 }
 
 .stop-row {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
+  grid-template-columns: 148px minmax(0, 1fr) auto;
   gap: var(--space-3);
   align-items: start;
 }
@@ -1044,10 +1045,6 @@ select {
 }
 
 .stop-time time {
-  display: block;
-}
-
-.stop-time time:first-child {
   color: var(--ink);
   font-weight: 600;
 }
@@ -1141,17 +1138,19 @@ select {
 }
 
 @media (max-width: 480px) {
+  /* On a phone the time sits on its own line above the place. */
   .stop-row {
-    grid-template-columns: 52px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-1);
   }
 
   .remove-button {
-    grid-column: 2;
+    grid-column: 1;
     justify-self: start;
   }
 
   .stop-travel {
-    margin-left: 64px;
+    margin-left: 0;
   }
 }
 

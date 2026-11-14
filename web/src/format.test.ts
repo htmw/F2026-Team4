@@ -5,6 +5,7 @@ import {
   formatDateRange,
   formatDay,
   formatMoney,
+  formatTime,
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -55,5 +56,19 @@ describe("format helpers", () => {
     expect(formatDateRange("2026-12-10", "2026-12-10", "en-GB")).toMatch(/^Thu,? 10 Dec 2026$/);
     expect(formatDateRange("2026-12-30", "2027-01-02", "en-GB")).toMatch(/2026 – .*2027$/);
     expect(formatDateRange("2026-12-10", "2026-12-12", "en-US")).toMatch(/^Thu, Dec 10 – Sat, Dec 12,? 2026$/);
+  });
+});
+
+describe("formatTime", () => {
+  it("shows a 24-hour time as AM or PM", () => {
+    expect(formatTime("09:30")).toBe("9:30 AM");
+    expect(formatTime("13:05")).toBe("1:05 PM");
+    expect(formatTime("12:00")).toBe("12:00 PM");
+    expect(formatTime("00:00")).toBe("12:00 AM");
+    expect(formatTime("23:59")).toBe("11:59 PM");
+  });
+
+  it("leaves anything else alone", () => {
+    expect(formatTime("soon")).toBe("soon");
   });
 });

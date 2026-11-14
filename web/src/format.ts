@@ -8,6 +8,16 @@ export function formatMoney(amount: number, currency: string): string {
   }
 }
 
+// "09:30" -> "9:30 AM", "13:05" -> "1:05 PM", "00:00" -> "12:00 AM". Anything else as is.
+export function formatTime(hhmm: string): string {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(hhmm);
+  if (!match) return hhmm;
+  const hours = Number(match[1]);
+  if (hours > 23) return hhmm;
+  const suffix = hours < 12 ? "AM" : "PM";
+  return `${hours % 12 === 0 ? 12 : hours % 12}:${match[2]} ${suffix}`;
+}
+
 // How we surface data confidence to the user (see DESIGN.md — the system says so
 // instead of pretending, where the data is thin).
 export function confidenceLabel(confidence: Confidence): string {
