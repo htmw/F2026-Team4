@@ -212,14 +212,14 @@ export function ItineraryView({
       )}
 
       <details className="legend">
-        <summary>What do "verified", "estimated" and "unverified" mean?</summary>
+        <summary>What do "verified", "estimated" and "≈" mean?</summary>
         <dl>
           <dt>Hours verified</dt>
           <dd>Opening hours come from the place's own listing, so the plan treats them as fixed.</dd>
           <dt>Hours estimated</dt>
           <dd>No listed hours, so typical hours for this kind of place were used. Check before you go.</dd>
-          <dt>Hours unverified</dt>
-          <dd>We couldn't find opening hours. The place may be closed when you arrive.</dd>
+          <dt>≈ price</dt>
+          <dd>No listed price, so a typical price for this kind of place in this country was used.</dd>
         </dl>
       </details>
 
