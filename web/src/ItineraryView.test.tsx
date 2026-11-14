@@ -24,6 +24,7 @@ const itinerary: Itinerary = {
           cost: 0,
           description: "Sensō-ji is an ancient Buddhist temple in Asakusa, Tokyo.",
           description_source: "wikipedia",
+          open_hours: [["06:00", "17:00"]],
           reason: "History.",
           confidence: "known",
         },
@@ -115,6 +116,11 @@ describe("ItineraryView", () => {
     renderPlan(null);
     expect(screen.getAllByText("9:30 AM").length).toBeGreaterThan(0);
     expect(screen.getAllByText("11:00 AM").length).toBeGreaterThan(0);
+  });
+
+  it("says when each place opens and closes", () => {
+    renderPlan(null);
+    expect(screen.getByText("Open 6:00 AM – 5:00 PM")).toBeTruthy();
   });
 
   it("says what each place is, crediting Wikipedia", () => {

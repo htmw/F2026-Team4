@@ -497,3 +497,23 @@ def test_dietary_needs_are_flagged_not_silently_ignored():
     result = ranked_plan([place_of("park-a", "park")], None, dietary=["vegetarian"])
 
     assert any("vegetarian" in warning for warning in result["warnings"])
+
+
+def test_each_stop_says_when_it_opens_and_closes():
+    result = run([make_place("museum-1")])
+    item = result["days"][0]["items"][0]
+
+    assert item["open_hours"] == [["09:00", "18:00"]]
+    assert validate("itinerary", result) == []
+
+
+def test_estimated_hours_are_followed_too():
+    """A place shown as "Open 2:00 PM - 6:00 PM (estimated)" is not planned at 9 AM."""
+    afternoon = {day: [["14:00", "18:00"]] for day in ("mon", "tue", "wed", "thu", "fri",
+                                                         "sat", "sun")}
+    afternoon["confidence"] = "inferred"
+    result = run([make_place("museum-1", hours=afternoon)])
+    item = result["days"][0]["items"][0]
+
+    assert item["start"] >= "14:00"
+    assert item["open_hours"] == [["14:00", "18:00"]]

@@ -75,7 +75,7 @@ def map_categories(tags: dict) -> list[str]:
         add("gallery")
     if historic in {"castle", "fort", "fortress"}:
         add("palace" if tags.get("castle_type") == "palace" or building == "palace" else "castle")
-    if building == "palace":
+    if building == "palace" or historic == "palace":
         add("palace")
     if historic == "monument":
         add("monument")
@@ -115,6 +115,7 @@ _CATEGORY_RULE_TAGS = (
     {"tourism": "gallery"},
     {"historic": "castle"},
     {"historic": "castle", "castle_type": "palace"},
+    {"historic": "palace"},
     {"historic": "monument"},
     {"amenity": "place_of_worship", "building": "church"},
     {"amenity": "place_of_worship", "religion": "christian"},

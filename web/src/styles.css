@@ -1066,6 +1066,10 @@ select {
   color: var(--ink);
 }
 
+.stop-hours {
+  color: var(--ink);
+}
+
 .stop-source {
   font-size: 12px;
   color: var(--ink-3);

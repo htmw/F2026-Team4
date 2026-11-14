@@ -18,6 +18,19 @@ export function formatTime(hhmm: string): string {
   return `${hours % 12 === 0 ? 12 : hours % 12}:${match[2]} ${suffix}`;
 }
 
+// [["10:00", "18:00"]] -> "Open 10:00 AM – 6:00 PM"; two windows are joined with "and";
+// open all day -> "Open 24 hours". Empty when there are no hours to show.
+export function openHoursLabel(windows?: [string, string][]): string {
+  if (!windows || windows.length === 0) return "";
+  if (windows.length === 1 && windows[0][0] === "00:00" && windows[0][1] >= "23:59") {
+    return "Open 24 hours";
+  }
+  // Hours that run to the end of the day are stored as 23:59: say "midnight".
+  const closing = (close: string) => (close >= "23:59" ? "midnight" : formatTime(close));
+  const parts = windows.map(([open, close]) => `${formatTime(open)} – ${closing(close)}`);
+  return `Open ${parts.join(" and ")}`;
+}
+
 // How we surface data confidence to the user (see DESIGN.md — the system says so
 // instead of pretending, where the data is thin).
 export function confidenceLabel(confidence: Confidence): string {

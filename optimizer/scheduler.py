@@ -6,6 +6,7 @@ from __future__ import annotations
 import uuid
 from collections import Counter
 from collections.abc import Callable
+from datetime import date
 from typing import Any
 
 from optimizer.constraints import (
@@ -102,6 +103,16 @@ def _ranker_quality(
     if len(ordered) == 1:
         return {ordered[0]: 1.0}
     return {pid: rank / (len(ordered) - 1) for rank, pid in enumerate(ordered)}
+
+
+def _open_hours(place: dict[str, Any], day: str) -> dict[str, Any]:
+    """{"open_hours": [[open, close], ...]} for the visit's weekday, when the hours are
+    verified or estimated, so the traveler sees when the place opens and closes."""
+    hours = place["hours"]
+    if hours.get("confidence") not in ("known", "inferred"):
+        return {}
+    windows = hours.get(date.fromisoformat(day).strftime("%a").lower())
+    return {"open_hours": [list(w) for w in windows]} if windows else {}
 
 
 def schedule(
@@ -400,6 +411,7 @@ def schedule(
                     place, profile, category_map
                 ),
                 "confidence": confidence,
+                **_open_hours(place, day),
             })
 
             used.add(place["id"])

@@ -5,6 +5,7 @@ import {
   formatDay,
   formatMoney,
   formatTime,
+  openHoursLabel,
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -193,6 +194,9 @@ export function ItineraryView({
                       )}
                       <p className="stop-reason">{item.reason}</p>
                       <p className="stop-meta">
+                        {item.open_hours && item.open_hours.length > 0 && (
+                          <span className="stop-hours">{openHoursLabel(item.open_hours)}</span>
+                        )}
                         <span className={`confidence confidence-${item.confidence}`}>
                           Hours {confidenceLabel(item.confidence)}
                         </span>

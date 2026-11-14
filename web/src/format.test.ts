@@ -6,6 +6,7 @@ import {
   formatDay,
   formatMoney,
   formatTime,
+  openHoursLabel,
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -70,5 +71,17 @@ describe("formatTime", () => {
 
   it("leaves anything else alone", () => {
     expect(formatTime("soon")).toBe("soon");
+  });
+});
+
+describe("openHoursLabel", () => {
+  it("says when a place opens and closes", () => {
+    expect(openHoursLabel([["10:00", "17:00"]])).toBe("Open 10:00 AM – 5:00 PM");
+    expect(openHoursLabel([["12:00", "15:00"], ["19:00", "23:00"]])).toBe(
+      "Open 12:00 PM – 3:00 PM and 7:00 PM – 11:00 PM",
+    );
+    expect(openHoursLabel([["00:00", "23:59"]])).toBe("Open 24 hours");
+    expect(openHoursLabel([["12:00", "23:59"]])).toBe("Open 12:00 PM – midnight");
+    expect(openHoursLabel(undefined)).toBe("");
   });
 });
