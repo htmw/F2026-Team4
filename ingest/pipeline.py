@@ -9,8 +9,9 @@ Steps, in order:
 4. score popularity from the OSM tags,
 5. merge duplicate records of the same place, and the pieces of each wall or aqueduct,
 6. apply the hand checked curation file, if there is one,
-7. write places.json, destination.json, city.json, report.json, matrix.json and
-   stop_walks.json (minutes from each place to its nearest bus stop or station).
+7. write places.json, destination.json, city.json, report.json, matrix.json,
+   stop_walks.json (minutes from each place to its nearest bus stop or station) and
+   descriptions.json (a short "what is this place" line, from Wikipedia when famous).
 """
 
 from __future__ import annotations
@@ -30,6 +31,7 @@ from .categories import (
 from .cost import currency_for_country
 from .curation import apply_curation, load_curation
 from .dedupe import dedupe, one_per_name
+from .describe import describe_places
 from .geocode import DEFAULT_MAX_SPAN_KM, geocode
 from .matrix import (
     DEFAULT_DETOUR,
@@ -65,6 +67,7 @@ def run_city(
     aliases: list[str] | None = None,
     curation_path: Path | None = None,
     combine_groups: bool = False,
+    wikipedia: bool = False,
     post=requests.post,
     get=requests.get,
     sleep=time.sleep,
@@ -101,6 +104,7 @@ def run_city(
     cost_status: Counter = Counter()
     schema_errors: list[str] = []
     stops: list[tuple[float, float]] = []
+    element_info: dict[str, dict] = {}  # place id -> {"tags"}, for the descriptions
 
     groups = groups or list(GROUPS)
     fetch_args = {"refresh": refresh, "post": post, "sleep": sleep, "log": log}
@@ -146,6 +150,7 @@ def run_city(
                 counts["dropped_outside_bbox"] += 1
                 continue
 
+            element_info[r.place["id"]] = {"tags": el.get("tags") or {}}
             r.place["popularity"] = popularity(r.signals)
             r.signals["cost_status"] = r.cost_status
             places.append(r.place)
@@ -170,6 +175,7 @@ def run_city(
     counts["places"] = len(places)
     counts["transit_stops"] = len(stops)
     stop_walks = stop_walk_minutes(places, stops)
+    descriptions = describe_places(places, element_info, wikipedia=wikipedia, get=get, log=log)
     for p in places:
         hours_status[_hours_label(p)] += 1
         cost_status[_cost_label(p, signals.get(p["id"], {}))] += 1
@@ -229,6 +235,7 @@ def run_city(
     write_json(out / "destination.json", destination, indent=1)
     write_json(out / "city.json", city, indent=1)
     write_json(out / "report.json", report, indent=1)
+    write_json(out / "descriptions.json", descriptions)
     stop_file = out / "stop_walks.json"
     if stop_walks:
         write_json(stop_file, stop_walks)

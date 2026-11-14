@@ -65,6 +65,15 @@
         },
         "cost": { "type": "number", "minimum": 0 },
         "cost_confidence": { "$ref": "#/$defs/confidence" },
+        "description": {
+          "type": "string",
+          "description": "What the place is, in a sentence or two. Optional."
+        },
+        "description_source": {
+          "type": "string",
+          "enum": ["wikipedia", "openstreetmap"],
+          "description": "Where the description came from; Wikipedia text must be credited."
+        },
         "reason": { "type": "string" },
         "confidence": { "$ref": "#/$defs/confidence" }
       }

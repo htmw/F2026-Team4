@@ -34,6 +34,9 @@ export interface ItineraryItem {
   // walk_minutes: walking in the move, including to and from the stop of a transit ride.
   travel_from_prev?: { minutes: number; mode: string; walk_minutes?: number };
   cost: number;
+  // What the place is; "wikipedia" text is credited next to it.
+  description?: string;
+  description_source?: "wikipedia" | "openstreetmap";
   reason: string;
   confidence: Confidence;
 }

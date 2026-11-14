@@ -175,6 +175,14 @@ export function ItineraryView({
                     </p>
                     <div className="stop-body">
                       <h4 className="stop-name">{name}</h4>
+                      {item.description && (
+                        <p className="stop-description">
+                          {item.description}
+                          {item.description_source === "wikipedia" && (
+                            <span className="stop-source"> (Wikipedia)</span>
+                          )}
+                        </p>
+                      )}
                       <p className="stop-reason">{item.reason}</p>
                       <p className="stop-meta">
                         <span className={`confidence confidence-${item.confidence}`}>

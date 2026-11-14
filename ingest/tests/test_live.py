@@ -13,6 +13,7 @@ from fastapi.testclient import TestClient
 
 from api.main import app
 from ingest import catalog
+from ingest.describe import WIKIDATA_API, WIKIPEDIA_API
 from ingest.overpass import ENDPOINTS, LIVE_TIMEOUT
 
 PORTO = {
@@ -75,6 +76,16 @@ def osm(tmp_path, monkeypatch):
     monkeypatch.setattr("ingest.overpass.time.sleep", lambda s: None)
 
     def nominatim(url, params, **kw):
+        if url == WIKIDATA_API:
+            return FakeResponse({"entities": {
+                "Q1145985": {"sitelinks": {"enwiki": {"title": "Clérigos Church"}}},
+            }})
+        if url == WIKIPEDIA_API:
+            return FakeResponse({"query": {"pages": {"1": {
+                "title": "Clérigos Church",
+                "extract": "The Clérigos Church is a Baroque church in Porto. Its tower can "
+                "be seen from various points of the city.",
+            }}}})
         if params.get("featureType") == "settlement":  # what a plan is built from
             found = {"porto": [PORTO], "portugal": [PORTUGAL], "delhi": [DELHI]}
         else:  # the open search, only to name what a non-city is
@@ -111,7 +122,10 @@ def test_plan_for_a_live_city(osm):
     resp = plan("Porto")
 
     assert resp.status_code == 200, resp.text
-    assert resp.json()["days"][0]["items"][0]["name"] == "Torre dos Clérigos"
+    item = resp.json()["days"][0]["items"][0]
+    assert item["name"] == "Torre dos Clérigos"
+    assert item["description"].startswith("The Clérigos Church is a Baroque church")
+    assert item["description_source"] == "wikipedia"
 
 
 def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):
@@ -265,3 +279,28 @@ def test_the_walk_to_the_nearest_bus_stop_is_saved_with_the_city(osm, monkeypatc
     walks = json.loads((city.path / "stop_walks.json").read_text())
     assert [p["name"] for p in city.places] == ["Torre dos Clérigos"], "a stop is not a sight"
     assert walks["osm:node/1"] == pytest.approx(2.0, abs=0.5)
+
+
+def test_a_famous_place_is_described_from_wikipedia(osm):
+    city = catalog.load_city("Porto")
+
+    assert catalog.description_of("osm:node/1") == {
+        "text": "The Clérigos Church is a Baroque church in Porto. Its tower can be seen "
+        "from various points of the city.",
+        "source": "wikipedia",
+    }
+    assert (city.path / "descriptions.json").exists()
+
+
+def test_wikipedia_down_still_gives_every_place_a_line(osm, monkeypatch):
+    def no_wikipedia(url, params, **kw):
+        if url in (WIKIDATA_API, WIKIPEDIA_API):
+            raise requests.ConnectionError("down")
+        return FakeResponse([PORTO])
+
+    monkeypatch.setattr(catalog, "http_get", no_wikipedia)
+    catalog.load_city("Porto")
+
+    assert catalog.description_of("osm:node/1") == {
+        "text": "Landmark.", "source": "openstreetmap",
+    }

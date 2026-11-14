@@ -243,6 +243,7 @@ def fetch_live(name: str) -> Path:
                 slug=folder.name,
                 matrix_top=0,
                 combine_groups=True,
+                wikipedia=True,  # famous places get their Wikipedia intro
                 post=http_post,
                 get=http_get,
                 sleep=time.sleep,  # looked up now, so tests can skip the pauses
@@ -274,6 +275,13 @@ def fetch_live(name: str) -> Path:
 # are unique across cities). Kept beside the places, not in them, so every place record
 # still matches contracts/place.schema.json.
 _STOP_WALKS: dict[str, float] = {}
+# {"text", "source"} per loaded place id: what the place is (see describe.py).
+_DESCRIPTIONS: dict[str, dict] = {}
+
+
+def description_of(place_id: str) -> dict | None:
+    """{"text", "source"} for a loaded place, or None when its city has no descriptions."""
+    return _DESCRIPTIONS.get(place_id)
 
 
 @lru_cache(maxsize=16)
@@ -292,6 +300,9 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
     stop_file = path / "stop_walks.json"
     if stop_file.exists():
         _STOP_WALKS.update(_read_json(stop_file))
+    description_file = path / "descriptions.json"
+    if description_file.exists():
+        _DESCRIPTIONS.update(_read_json(description_file))
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
     country_name = meta.get("country_name", "")

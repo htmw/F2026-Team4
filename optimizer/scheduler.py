@@ -559,7 +559,7 @@ def plan_itinerary(
     (503). Pass `trip_id` when re-planning.
     """
     from api.contracts import load_categories
-    from ingest.catalog import load_city, travel_legs
+    from ingest.catalog import description_of, load_city, travel_legs
     from ranker.model import get_scorer
 
     # No silent default: a request without a city name is refused, never planned in Lisbon.
@@ -590,6 +590,15 @@ def plan_itinerary(
         # (models/ranker.txt); otherwise get_scorer() is None and the rule score is used.
         scorer=get_scorer(),
     )
+
+    # What each stop is, from the Data team: a Wikipedia intro for famous places, a line
+    # from OpenStreetMap for the rest. Cities saved before descriptions existed have none.
+    for day in itinerary["days"]:
+        for item in day["items"]:
+            about = description_of(item["place_id"])
+            if about:
+                item["description"] = about["text"]
+                item["description_source"] = about["source"]
 
     if city_data.source == "fixture":
         itinerary["warnings"].append(
