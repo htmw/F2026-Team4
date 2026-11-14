@@ -1,32 +1,53 @@
-# /ranker — the trained recommender (Model & Ranking team, 2 people)
+# Ranker
 
-**You own the ML core:** a model we *train* to rank places for a traveler.
+The ranking model scores places based on a traveler's preferences.
+The optimizer uses these scores when building the itinerary.
 
-## Run it
+## Train and evaluate
+
+Run from the project root:
+
 ```bash
-make train       # trains a LightGBM ranker on synthetic data -> models/ranker.txt
-make evaluate    # prints NDCG@5 for the model vs baselines
+uv sync
+uv run python -m ranker.train
+uv run python -m ranker.evaluate
 ```
 
-## The pieces
+The v3 ranking dataset is stored in `data/ranking_dataset_v3/`.
+It contains real OpenStreetMap places with simulated travelers and relevance grades.
+Training and validation use 12 cities.
+Tokyo, Bogota and Hyderabad are reserved for testing.
+
+Training saves the model to `models/ranker.txt`.
+Evaluation compares it with interest-match, popularity and random baselines
+using NDCG@5, Precision@5 and MAP@5.
+
+## Files
+
 | File | What it does |
-|------|--------------|
-| [`features.py`](features.py) | turns a `(place, traveler)` pair into a fixed list of numbers the model learns from |
-| [`synthetic.py`](synthetic.py) | invents travelers + labels so the whole loop runs with zero downloads (Sprint 1) |
-| [`train.py`](train.py) | trains the LightGBM LambdaRank model, saves `models/ranker.txt` |
-| [`evaluate.py`](evaluate.py) | scores the model vs popularity / hand-coded / random (NDCG@k) |
-| [`model.py`](model.py) | serves it: hands the API a `score(place, profile)` function |
+|---|---|
+| `dataset_manifest.json` | Settings for preparing the full dataset |
+| `prepare_manifest.py` | Runs dataset preparation using the settings and saved sources |
+| `prepare_live.py` | Prepares examples from city data |
+| `prepare_dataset.py` | Combines sources and separates training, validation and testing examples |
+| `dataset_io.py` | Saves and loads compact dataset files |
+| `features.py` | Calculates the numbers used by the ranking model |
+| `synthetic.py` | Provides simulated traveler and relevance-label helpers |
+| `train.py` | Trains the LightGBM ranking model |
+| `evaluate.py` | Evaluates the model and compares it with baselines |
+| `model.py` | Loads the trained model for use by the application |
 
-## The contract boundary
-- **In:** a `TravelerProfile` + `Place[]` (the shapes in [`/contracts`](../contracts)).
-- **Out:** a number per place. `model.get_scorer()` returns a drop-in for the hand-coded
-  `score()` in [`api/scheduler_stub.py`](../api/scheduler_stub.py) — when a trained model
-  exists, the API uses it automatically; otherwise it falls back to the stub.
+See [REAL_DATA.md](REAL_DATA.md) for dataset preparation instructions.
 
-## The roadmap
-- **Sprint 1:** synthetic data → first trained model end-to-end → NDCG beats popularity.
-- **Sprint 2:** swap synthetic for a real public dataset (e.g. Yelp), add real features,
-  add the LLM-as-recommender baseline. Write the comparison table → the technical paper.
-- **Sprint 3:** tune; optional neural two-tower model as a second experiment; ablations.
+## Application use
 
-Every change ships with the number it moved (NDCG@k) in [`/docs`](../docs).
+`model.get_scorer()` loads the trained model when it is available.
+The optimizer uses it to rank candidate places alongside scheduling constraints.
+
+If the model is missing or cannot be loaded, the optimizer uses rule-based scoring.
+
+## Tests
+
+```bash
+uv run pytest ranker/tests -q
+```
