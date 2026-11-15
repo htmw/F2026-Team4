@@ -329,7 +329,18 @@ def test_travel_matrix_can_be_built_for_the_candidates():
 
     assert sorted(seen) == ["a", "b"]
     second = result["days"][0]["items"][1]["travel_from_prev"]
-    assert second == {"minutes": 7, "mode": "walk"}
+    assert second == {"minutes": 7, "mode": "walk", "walk_minutes": 7}
+
+
+def test_a_transit_ride_counts_the_walk_to_and_from_the_stop():
+    legs = {
+        ("a", "b"): {"minutes": 19, "mode": "transit", "walk_minutes": 6},
+        ("b", "a"): {"minutes": 19, "mode": "transit", "walk_minutes": 6},
+    }
+    result = run([make_place("a"), make_place("b")], matrix=legs)
+
+    assert result["days"][0]["items"][1]["travel_from_prev"]["walk_minutes"] == 6
+    assert result["totals"]["walking_minutes"] == 6, "not 0 just because it was a ride"
 
 
 # ---- interests, time of day, day length -----------------------------------------------
@@ -486,3 +497,23 @@ def test_dietary_needs_are_flagged_not_silently_ignored():
     result = ranked_plan([place_of("park-a", "park")], None, dietary=["vegetarian"])
 
     assert any("vegetarian" in warning for warning in result["warnings"])
+
+
+def test_each_stop_says_when_it_opens_and_closes():
+    result = run([make_place("museum-1")])
+    item = result["days"][0]["items"][0]
+
+    assert item["open_hours"] == [["09:00", "18:00"]]
+    assert validate("itinerary", result) == []
+
+
+def test_estimated_hours_are_followed_too():
+    """A place shown as "Open 2:00 PM - 6:00 PM (estimated)" is not planned at 9 AM."""
+    afternoon = {day: [["14:00", "18:00"]] for day in ("mon", "tue", "wed", "thu", "fri",
+                                                         "sat", "sun")}
+    afternoon["confidence"] = "inferred"
+    result = run([make_place("museum-1", hours=afternoon)])
+    item = result["days"][0]["items"][0]
+
+    assert item["start"] >= "14:00"
+    assert item["open_hours"] == [["14:00", "18:00"]]

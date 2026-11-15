@@ -43,7 +43,10 @@ def available_visit(
     hours = place["hours"]
     confidence = hours["confidence"]
 
-    if confidence != "known":
+    # Verified hours and estimated ones (the usual hours for that kind of place) are both
+    # followed, so a stop never sits outside the hours the traveler is shown. Only a place
+    # with no hours at all can go at any time.
+    if confidence not in ("known", "inferred"):
         if earliest_start + duration <= day_end:
             return earliest_start, confidence
         return None

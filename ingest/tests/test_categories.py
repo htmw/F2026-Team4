@@ -87,3 +87,9 @@ def test_every_rule_output_has_defaults_and_only_day_trip_is_a_gap():
     check_against_vocabulary(vocab)
     assert unmapped_vocabulary(vocab) == ["day_trip"]
     assert "neighborhood" in mapped_categories()
+
+
+def test_a_place_tagged_historic_palace_is_a_palace():
+    """Chowmahalla Palace: a palace with a ticket, not a free landmark."""
+    tags = {"historic": "palace", "tourism": "attraction", "name": "Chowmahalla Palace"}
+    assert map_categories(tags)[0] == "palace"

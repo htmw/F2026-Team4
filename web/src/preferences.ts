@@ -38,16 +38,6 @@ export const DEFAULT_INTERESTS: Record<InterestKey, number> = {
 
 export const DEFAULT_PACE = 0.5;
 
-export const DIETARY_OPTIONS = [
-  "vegetarian",
-  "vegan",
-  "halal",
-  "kosher",
-  "gluten-free",
-  "nut allergy",
-  "lactose-free",
-];
-
 const INTEREST_NAMES: Record<InterestKey, string> = {
   food: "Food",
   history: "History",

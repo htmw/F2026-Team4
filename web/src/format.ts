@@ -8,6 +8,29 @@ export function formatMoney(amount: number, currency: string): string {
   }
 }
 
+// "09:30" -> "9:30 AM", "13:05" -> "1:05 PM", "00:00" -> "12:00 AM". Anything else as is.
+export function formatTime(hhmm: string): string {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(hhmm);
+  if (!match) return hhmm;
+  const hours = Number(match[1]);
+  if (hours > 23) return hhmm;
+  const suffix = hours < 12 ? "AM" : "PM";
+  return `${hours % 12 === 0 ? 12 : hours % 12}:${match[2]} ${suffix}`;
+}
+
+// [["10:00", "18:00"]] -> "Open 10:00 AM – 6:00 PM"; two windows are joined with "and";
+// open all day -> "Open 24 hours". Empty when there are no hours to show.
+export function openHoursLabel(windows?: [string, string][]): string {
+  if (!windows || windows.length === 0) return "";
+  if (windows.length === 1 && windows[0][0] === "00:00" && windows[0][1] >= "23:59") {
+    return "Open 24 hours";
+  }
+  // Hours that run to the end of the day are stored as 23:59: say "midnight".
+  const closing = (close: string) => (close >= "23:59" ? "midnight" : formatTime(close));
+  const parts = windows.map(([open, close]) => `${formatTime(open)} – ${closing(close)}`);
+  return `Open ${parts.join(" and ")}`;
+}
+
 // How we surface data confidence to the user (see DESIGN.md — the system says so
 // instead of pretending, where the data is thin).
 export function confidenceLabel(confidence: Confidence): string {
@@ -81,4 +104,34 @@ export function formatDateRange(startIso: string, endIso: string, locale?: strin
       ? formatDay(startIso, locale)
       : formatDayWithYear(start, locale);
   return `${startText} – ${formatDayWithYear(end, locale)}`;
+}
+
+// "09:30", "11:00" -> "9:30 AM - 11:00 AM".
+export function formatTimeRange(start: string, end: string): string {
+  return `${formatTime(start)} - ${formatTime(end)}`;
+}
+
+// The interests named in the optimizer's reason, strongest first:
+// "Matches your interests in history, architecture and nature." -> ["history", "architecture", "nature"].
+function reasonInterests(reason: string): string[] {
+  const match = /^Matches your interests? in (.+?)\.?$/.exec(reason.trim());
+  if (!match) return [];
+  return match[1].split(/, | and /).map((name) => name.trim()).filter(Boolean);
+}
+
+// The optimizer's reason as a short label: "Matches your interest: history", or
+// "Matches your interests: history, architecture" for several. Other reasons are shown as
+// they are, without the full stop.
+export function interestLabel(reason: string): string {
+  const names = reasonInterests(reason);
+  if (names.length === 1) return `Matches your interest: ${names[0]}`;
+  if (names.length > 1) return `Matches your interests: ${names.join(", ")}`;
+  return reason.trim().replace(/\.$/, "");
+}
+
+// The strongest interest named in the optimizer's reason ("history"), used to pick the stop's
+// map-legend symbol; null when the reason names none.
+export function interestFromReason(reason: string): string | null {
+  const names = reasonInterests(reason);
+  return names.length ? names[0].toLowerCase() : null;
 }
