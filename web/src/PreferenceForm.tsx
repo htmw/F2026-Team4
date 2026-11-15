@@ -3,6 +3,7 @@ import type { FormEvent, ReactNode } from "react";
 
 import { CitySearch } from "./CitySearch";
 import type { CitySuggestion } from "./CitySearch";
+import { DescribeTrip } from "./DescribeTrip";
 import { currencyLabel, currencyOptions } from "./currency";
 import { formatDateRange, formatMoney } from "./format";
 import { ChevronDown } from "./icons";
@@ -116,6 +117,22 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
     setDietary((previous) =>
       previous.includes(option) ? previous.filter((item) => item !== option) : [...previous, option],
     );
+  }
+
+  // Fill the Preferences fields from a profile the backend extracted from a free-text
+  // description. Destination and dates stay on the traveler's own Trip-details inputs.
+  function applyProfile(profile: TravelerProfile) {
+    setInterests({ ...DEFAULT_INTERESTS, ...profile.interests });
+    setPace(profile.pace);
+    setMaxWalk(String(profile.max_walk_minutes));
+    setBudget(String(profile.budget.total));
+    setCurrency(profile.budget.currency);
+    setLocalCurrency(undefined);
+    setBudgetReset(null);
+    setDayStart(profile.day_start);
+    setDayEnd(profile.day_end);
+    setDietary(profile.dietary ?? []);
+    setErrors({});
   }
 
   function validateTripDetails(): Errors {
@@ -344,6 +361,8 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
 
         {step === 1 && (
           <>
+            <DescribeTrip onProfile={(profile) => applyProfile(profile)} />
+
             <fieldset className="group">
               <legend className="group-title">What do you want to see?</legend>
               <div className="interest-list">

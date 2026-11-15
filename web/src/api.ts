@@ -1,4 +1,4 @@
-import type { Itinerary, PlanRequest } from "./types";
+import type { Itinerary, PlanRequest, TravelerProfile } from "./types";
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
@@ -88,4 +88,24 @@ export async function postFeedback(
     throw readableError("Feedback", resp.status, await resp.text());
   }
   return (await resp.json()) as Itinerary;
+}
+
+// A TravelerProfile the backend extracted from a free-text trip description, plus the
+// names of the fields the traveler didn't mention (filled with the form's starting values),
+// so the UI can ask them to double-check those.
+export interface ProfileFromText {
+  profile: TravelerProfile;
+  defaults_used: string[];
+}
+
+export async function postProfileFromText(text: string): Promise<ProfileFromText> {
+  const resp = await fetch(`${API_BASE}/profile/from-text`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+  });
+  if (!resp.ok) {
+    throw readableError("Profile", resp.status, await resp.text());
+  }
+  return (await resp.json()) as ProfileFromText;
 }
