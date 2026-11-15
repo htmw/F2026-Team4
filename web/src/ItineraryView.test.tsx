@@ -114,8 +114,7 @@ describe("ItineraryView", () => {
 
   it("shows each stop's time as AM and PM", () => {
     renderPlan(null);
-    expect(screen.getAllByText("9:30 AM").length).toBeGreaterThan(0);
-    expect(screen.getAllByText("11:00 AM").length).toBeGreaterThan(0);
+    expect(screen.getByText("9:30 AM - 11:00 AM")).toBeTruthy();
   });
 
   it("says when each place opens and closes", () => {

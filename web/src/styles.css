@@ -1122,16 +1122,11 @@ select {
 .pin-other { --pin: var(--pin-other); }
 
 .stop-travel {
-<<<<<<< HEAD
-  /* Lines up with the place name: the time column plus the gap. */
-  margin: -2px 0 var(--space-2) calc(148px + var(--space-3));
-=======
   grid-column: 2;
   grid-row: 1;
   position: relative;
   margin: 0;
   padding: 2px 0 10px;
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   font-size: 13px;
   color: var(--ink-3);
 }
@@ -1155,11 +1150,7 @@ select {
   grid-column: 2;
   grid-row: 2;
   display: grid;
-<<<<<<< HEAD
-  grid-template-columns: 148px minmax(0, 1fr) auto;
-=======
   grid-template-columns: minmax(0, 1fr) auto;
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   gap: var(--space-3);
   align-items: start;
   padding: 6px 0 var(--space-5);
@@ -1167,16 +1158,6 @@ select {
 
 .stop-time {
   font-size: 14px;
-<<<<<<< HEAD
-  color: var(--ink-2);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.stop-time time {
-  color: var(--ink);
-=======
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   font-weight: 600;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
@@ -1201,13 +1182,6 @@ select {
   line-height: 1.35;
 }
 
-<<<<<<< HEAD
-.stop-description {
-  font-size: 14px;
-  line-height: 1.45;
-  color: var(--ink);
-}
-
 .stop-hours {
   color: var(--ink);
 }
@@ -1217,8 +1191,6 @@ select {
   color: var(--ink-3);
 }
 
-.stop-reason {
-=======
 .stop-interest {
   font-size: 13px;
   color: var(--ink-3);
@@ -1228,7 +1200,6 @@ select {
 .stop-description {
   max-width: 65ch;
   margin-top: 2px;
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   font-size: 14px;
   color: var(--ink-2);
 }
@@ -1295,25 +1266,11 @@ select {
   /* On a phone the time sits on its own line above the place. */
   .stop-row {
     grid-template-columns: minmax(0, 1fr);
-<<<<<<< HEAD
-    gap: var(--space-1);
-  }
-
-  .remove-button {
-    grid-column: 1;
-    justify-self: start;
-  }
-
-  .stop-travel {
-    margin-left: 0;
-  }
-=======
   }
 
   .remove-button {
     justify-self: start;
   }
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
 }
 
 /* Legend for the confidence labels */

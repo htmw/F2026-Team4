@@ -5,11 +5,7 @@ import { CitySearch } from "./CitySearch";
 import type { CitySuggestion } from "./CitySearch";
 import { currencyLabel, currencyOptions } from "./currency";
 import { formatDateRange, formatMoney, formatTime } from "./format";
-<<<<<<< HEAD
-import { ChevronDown } from "./icons";
-=======
 import { ChevronDown, InterestIcon } from "./icons";
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
 import { INTEREST_KEYS } from "./interests";
 import {
   DEFAULT_INTERESTS,
@@ -246,12 +242,7 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
 
   const hint = budgetHint();
   const moreSummary = [
-<<<<<<< HEAD
-    `${formatTime(dayStart)} – ${formatTime(dayEnd)}`,
-    dietary.length ? dietary.join(", ") : "no dietary needs",
-=======
     `Days from ${formatTime(dayStart)} to ${formatTime(dayEnd)}`,
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   ].join(" · ");
 
   return (
@@ -569,11 +560,7 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
                 <dd>{maxWalk} minutes between stops</dd>
                 <dt>Daily hours</dt>
                 <dd>
-<<<<<<< HEAD
-                  {formatTime(dayStart)} – {formatTime(dayEnd)}
-=======
                   {formatTime(dayStart)} - {formatTime(dayEnd)}
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
                 </dd>
               </dl>
             </section>

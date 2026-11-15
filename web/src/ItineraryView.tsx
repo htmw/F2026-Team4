@@ -5,21 +5,14 @@ import {
   formatDay,
   formatMoney,
   formatTime,
-<<<<<<< HEAD
+  formatTimeRange,
+  interestFromReason,
+  interestLabel,
   openHoursLabel,
   prettifyPlaceId,
   priceLabel,
 } from "./format";
-import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon } from "./icons";
-=======
-  formatTimeRange,
-  interestFromReason,
-  interestLabel,
-  prettifyPlaceId,
-  priceLabel,
-} from "./format";
 import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon, InterestIcon } from "./icons";
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
 import type { Itinerary, PlanRequest } from "./types";
 
 export interface RemovedPlace {
@@ -198,15 +191,12 @@ export function ItineraryView({
                     </p>
                   )}
                   <div className="stop-row">
-<<<<<<< HEAD
-                    <p className="stop-time">
-                      <time dateTime={item.start}>{formatTime(item.start)}</time>
-                      <span aria-hidden="true"> – </span>
-                      <span className="visually-hidden"> to </span>
-                      <time dateTime={item.end}>{formatTime(item.end)}</time>
-                    </p>
                     <div className="stop-body">
-                      <h4 className="stop-name">{name}</h4>
+                      <p className="stop-time">{formatTimeRange(item.start, item.end)}</p>
+                      <div className="stop-heading">
+                        <h4 className="stop-name">{name}</h4>
+                        <span className="stop-interest">{interestLabel(item.reason)}</span>
+                      </div>
                       {item.description && (
                         <p className="stop-description">
                           {item.description}
@@ -215,31 +205,15 @@ export function ItineraryView({
                           )}
                         </p>
                       )}
-                      <p className="stop-reason">{item.reason}</p>
                       <p className="stop-meta">
                         {item.open_hours && item.open_hours.length > 0 && (
                           <span className="stop-hours">{openHoursLabel(item.open_hours)}</span>
                         )}
-                        <span className={`confidence confidence-${item.confidence}`}>
-                          Hours {confidenceLabel(item.confidence)}
-                        </span>
-=======
-                    <div className="stop-body">
-                      <p className="stop-time">{formatTimeRange(item.start, item.end)}</p>
-                      <div className="stop-heading">
-                        <h4 className="stop-name">{name}</h4>
-                        <span className="stop-interest">{interestLabel(item.reason)}</span>
-                      </div>
-                      {/* Room for a short description of the place. Itinerary items don't carry one
-                          yet; it needs a `description` field in /contracts/itinerary.schema.json. */}
-                      {item.description && <p className="stop-description">{item.description}</p>}
-                      <p className="stop-meta">
                         {item.confidence !== "unknown" && (
                           <span className={`confidence confidence-${item.confidence}`}>
                             Hours {confidenceLabel(item.confidence)}
                           </span>
                         )}
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
                         <span className="stop-cost">
                           {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                         </span>
@@ -277,18 +251,11 @@ export function ItineraryView({
         <dl>
           <dt>Verified</dt>
           <dd>Opening hours come from the place's own listing, so the plan treats them as fixed.</dd>
-<<<<<<< HEAD
           <dt>Estimated</dt>
           <dd>
             No listed hours or price, so typical ones for this kind of place were used (estimated
             prices are shown with ≈). Check before you go.
           </dd>
-=======
-          <dt>Hours estimated</dt>
-          <dd>No listed hours, so typical hours for this kind of place were used. Check before you go.</dd>
-          <dt>No label</dt>
-          <dd>We couldn't find opening hours at all. These places are named in the note at the top of the plan.</dd>
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
         </dl>
       </details>
 
@@ -388,12 +355,8 @@ function FitSummary({
           <dt>Daily hours</dt>
           <dd>
             <strong>
-<<<<<<< HEAD
-              {formatTime(profile.day_start)} – {formatTime(profile.day_end)}
-=======
               <span className="nowrap">{formatTime(profile.day_start)}</span> -{" "}
               <span className="nowrap">{formatTime(profile.day_end)}</span>
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
             </strong>
             <span>as you asked</span>
           </dd>

@@ -41,8 +41,6 @@ export interface ItineraryItem {
   open_hours?: [string, string][];
   reason: string;
   confidence: Confidence;
-  // Not in the contract yet: a short description of the place, shown when present.
-  description?: string;
 }
 
 export interface ItineraryDay {

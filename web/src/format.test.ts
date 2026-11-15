@@ -6,12 +6,10 @@ import {
   formatDay,
   formatMoney,
   formatTime,
-<<<<<<< HEAD
   openHoursLabel,
-=======
   formatTimeRange,
+  interestFromReason,
   interestLabel,
->>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -104,5 +102,14 @@ describe("openHoursLabel", () => {
     expect(openHoursLabel([["00:00", "23:59"]])).toBe("Open 24 hours");
     expect(openHoursLabel([["12:00", "23:59"]])).toBe("Open 12:00 PM – midnight");
     expect(openHoursLabel(undefined)).toBe("");
+  });
+});
+
+describe("reasons with several interests", () => {
+  it("names each interest and picks the strongest for the pin", () => {
+    const reason = "Matches your interests in history, architecture and nature.";
+    expect(interestLabel(reason)).toBe("Matches your interests: history, architecture, nature");
+    expect(interestFromReason(reason)).toBe("history");
+    expect(interestFromReason("Matches your interest in food.")).toBe("food");
   });
 });
