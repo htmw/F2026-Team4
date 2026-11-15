@@ -6,7 +6,12 @@ import {
   formatDay,
   formatMoney,
   formatTime,
+<<<<<<< HEAD
   openHoursLabel,
+=======
+  formatTimeRange,
+  interestLabel,
+>>>>>>> 8dab6e6b23ac01c977470bb33a572d982088cdcb
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -57,6 +62,22 @@ describe("format helpers", () => {
     expect(formatDateRange("2026-12-10", "2026-12-10", "en-GB")).toMatch(/^Thu,? 10 Dec 2026$/);
     expect(formatDateRange("2026-12-30", "2027-01-02", "en-GB")).toMatch(/2026 – .*2027$/);
     expect(formatDateRange("2026-12-10", "2026-12-12", "en-US")).toMatch(/^Thu, Dec 10 – Sat, Dec 12,? 2026$/);
+  });
+
+  it("shows times in 12-hour format", () => {
+    expect(formatTime("09:30")).toBe("9:30 AM");
+    expect(formatTime("00:15")).toBe("12:15 AM");
+    expect(formatTime("12:00")).toBe("12:00 PM");
+    expect(formatTime("22:00")).toBe("10:00 PM");
+    expect(formatTime("later")).toBe("later");
+    expect(formatTimeRange("09:30", "11:00")).toBe("9:30 AM - 11:00 AM");
+  });
+
+  it("turns the optimizer's reason into a short interest label", () => {
+    expect(interestLabel("Matches your interest in history.")).toBe("Matches your interest: history");
+    expect(interestLabel("Recommended based on location and popularity.")).toBe(
+      "Recommended based on location and popularity",
+    );
   });
 });
 

@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "seed": 42,
+  "travelers_per_city": 500,
+  "maximum_places_per_city": 500,
+  "candidates_per_traveler": 15,
+  "collection": {
+    "method": "existing_live_catalog",
+    "description": "Use the existing live catalog without modifying application files."
+  },
+  "budgets": {
+    "EUR": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "USD": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "SGD": [
+      300,
+      600,
+      1200,
+      2000
+    ],
+    "INR": [
+      25000,
+      50000,
+      100000,
+      200000
+    ],
+    "MXN": [
+      6000,
+      12000,
+      24000,
+      40000
+    ],
+    "EGP": [
+      15000,
+      30000,
+      60000,
+      100000
+    ],
+    "AUD": [
+      500,
+      1000,
+      2000,
+      3000
+    ],
+    "JPY": [
+      30000,
+      60000,
+      120000,
+      200000
+    ],
+    "COP": [
+      1000000,
+      2000000,
+      4000000,
+      8000000
+    ]
+  },
+  "cities": [
+    {
+      "key": "paris-fr",
+      "query": "Paris, France",
+      "country": "FR",
+      "currency": "EUR",
+      "region": "Europe",
+      "role": "train"
+    },
+    {
+      "key": "lisbon-pt",
+      "query": "Lisbon, Portugal",
+      "country": "PT",
+      "currency": "EUR",
+      "region": "Europe",
+      "role": "train"
+    },
+    {
+      "key": "berlin-de",
+      "query": "Berlin, Germany",
+      "country": "DE",
+      "currency": "EUR",
+      "region": "Europe",
+      "role": "train"
+    },
+    {
+      "key": "new-york-us",
+      "query": "New York City, New York, USA",
+      "country": "US",
+      "currency": "USD",
+      "region": "North America",
+      "role": "train"
+    },
+    {
+      "key": "los-angeles-us",
+      "query": "Los Angeles, California, USA",
+      "country": "US",
+      "currency": "USD",
+      "region": "North America",
+      "role": "train"
+    },
+    {
+      "key": "mexico-city-mx",
+      "query": "Mexico City, Cuauhtémoc, Mexico City, Mexico",
+      "country": "MX",
+      "currency": "MXN",
+      "region": "Latin America",
+      "role": "train"
+    },
+    {
+      "key": "singapore-sg",
+      "query": "Singapore",
+      "country": "SG",
+      "currency": "SGD",
+      "region": "Asia",
+      "role": "train"
+    },
+    {
+      "key": "delhi-in",
+      "query": "Delhi, Old Delhi, Delhi, India",
+      "country": "IN",
+      "currency": "INR",
+      "region": "Asia",
+      "role": "train"
+    },
+    {
+      "key": "mumbai-in",
+      "query": "Mumbai, Maharashtra, India",
+      "country": "IN",
+      "currency": "INR",
+      "region": "Asia",
+      "role": "train"
+    },
+    {
+      "key": "cairo-eg",
+      "query": "Cairo, Egypt",
+      "country": "EG",
+      "currency": "EGP",
+      "region": "Africa",
+      "role": "train"
+    },
+    {
+      "key": "sydney-au",
+      "query": "Sydney, Australia",
+      "country": "AU",
+      "currency": "AUD",
+      "region": "Oceania",
+      "role": "train"
+    },
+    {
+      "key": "melbourne-au",
+      "query": "Melbourne, Australia",
+      "country": "AU",
+      "currency": "AUD",
+      "region": "Oceania",
+      "role": "train"
+    },
+    {
+      "key": "tokyo-jp",
+      "query": "Tokyo, Japan",
+      "country": "JP",
+      "currency": "JPY",
+      "region": "Asia",
+      "role": "test"
+    },
+    {
+      "key": "bogota-co",
+      "query": "Bogota, Colombia",
+      "country": "CO",
+      "currency": "COP",
+      "region": "Latin America",
+      "role": "test"
+    },
+    {
+      "key": "hyderabad-in",
+      "query": "Hyderabad, Telangana, India",
+      "country": "IN",
+      "currency": "INR",
+      "region": "Asia",
+      "role": "test"
+    }
+  ]
+}
