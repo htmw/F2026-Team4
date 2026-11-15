@@ -155,4 +155,23 @@ describe("ItineraryView", () => {
     });
     expect(screen.getByText("Tokyo's oldest temple.")).toBeTruthy();
   });
+
+  it("names the places whose opening hours aren't listed, instead of a bare count", () => {
+    renderPlan(null, {
+      itinerary: {
+        ...itinerary,
+        warnings: ["Opening hours are unverified for 1 scheduled place(s).", "Some travel times are estimates."],
+        days: [{ ...itinerary.days[0], items: [{ ...itinerary.days[0].items[0], confidence: "unknown" }] }],
+      },
+    });
+    const notes = within(screen.getByRole("list", { name: "Things to know about this plan" }));
+    expect(notes.getByText("Opening hours aren't listed for Sensō-ji (Day 1). Check before you go.")).toBeTruthy();
+    expect(notes.queryByText(/unverified for 1 scheduled place/)).toBeNull();
+    expect(notes.getByText("Some travel times are estimates.")).toBeTruthy();
+  });
+
+  it("keeps the optimizer's warnings as they are when every stop has hours", () => {
+    renderPlan(null, { itinerary: { ...itinerary, warnings: ["Costs are unverified for 1 scheduled place(s)."] } });
+    expect(screen.getByText("Costs are unverified for 1 scheduled place(s).")).toBeTruthy();
+  });
 });

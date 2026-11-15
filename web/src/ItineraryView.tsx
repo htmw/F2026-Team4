@@ -78,6 +78,7 @@ export function ItineraryView({
     }
   }, [itinerary]);
 
+  const notes = planNotes(itinerary, warnings ?? []);
   const day = itinerary.days[dayIndex];
   const lastDay = itinerary.days.length - 1;
 
@@ -101,12 +102,12 @@ export function ItineraryView({
         </div>
       )}
 
-      {warnings && warnings.length > 0 && (
+      {notes.length > 0 && (
         <div className="callout callout-warn">
           <AlertIcon className="callout-icon" />
           <ul aria-label="Things to know about this plan">
-            {warnings.map((warning, i) => (
-              <li key={i}>{warning}</li>
+            {notes.map((note, i) => (
+              <li key={i}>{note}</li>
             ))}
           </ul>
         </div>
@@ -240,6 +241,8 @@ export function ItineraryView({
           <dd>Opening hours come from the place's own listing, so the plan treats them as fixed.</dd>
           <dt>Hours estimated</dt>
           <dd>No listed hours, so typical hours for this kind of place were used. Check before you go.</dd>
+          <dt>No label</dt>
+          <dd>We couldn't find opening hours at all. These places are named in the note at the top of the plan.</dd>
         </dl>
       </details>
 
@@ -357,6 +360,25 @@ function FitSummary({
       )}
     </dl>
   );
+}
+
+// The optimizer's warnings, with its count-only note about unverified opening hours replaced by
+// one that names the places ("Opening hours aren't listed for teamLab Planets (Day 1). Check
+// before you go."), so travelers know which stops to check. Stops don't carry an "unverified"
+// label, so this note is where that information lives.
+function planNotes(itinerary: Itinerary, warnings: string[]): string[] {
+  const unlisted = itinerary.days.flatMap((day, i) =>
+    day.items
+      .filter((item) => item.confidence === "unknown")
+      .map((item) => `${item.name ?? prettifyPlaceId(item.place_id)} (Day ${i + 1})`),
+  );
+  if (unlisted.length === 0) return warnings;
+  const shown = unlisted.slice(0, 3);
+  const more = unlisted.length - shown.length;
+  const names = more > 0 ? `${shown.join(", ")} and ${more} more` : listNames(shown);
+  const note = `Opening hours aren't listed for ${names}. Check before you go.`;
+  const others = warnings.filter((warning) => !/^Opening hours are unverified/i.test(warning));
+  return [note, ...others];
 }
 
 // "3 stops · 45 min walking · ¥6,800" for one day.
