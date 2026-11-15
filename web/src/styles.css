@@ -1630,3 +1630,37 @@ fieldset.group > legend + * {
     display: none;
   }
 }
+
+/* Describe-your-trip — optional free-text box that fills the preferences (LLM). */
+.describe-trip {
+  background: #f8faff;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  padding: 16px;
+}
+.describe-trip-optional {
+  font-weight: 400;
+  color: #6b7280;
+}
+.describe-trip-input {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 72px;
+  margin-top: 8px;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font: inherit;
+}
+.describe-trip-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.describe-trip-actions {
+  margin-top: 10px;
+}
+.describe-trip-note {
+  color: #166534;
+}

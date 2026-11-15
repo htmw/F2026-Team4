@@ -3,6 +3,7 @@ import type { CSSProperties, FormEvent, ReactNode } from "react";
 
 import { CitySearch } from "./CitySearch";
 import type { CitySuggestion } from "./CitySearch";
+import { DescribeTrip } from "./DescribeTrip";
 import { currencyLabel, currencyOptions } from "./currency";
 import { formatDateRange, formatMoney, formatTime } from "./format";
 import { ChevronDown, InterestIcon } from "./icons";
@@ -107,6 +108,21 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
       delete next[field];
       return next;
     });
+  }
+
+  // Fill the Preferences fields from a profile the backend extracted from a free-text
+  // description. Destination and dates stay on the traveler's own Trip-details inputs.
+  function applyProfile(profile: TravelerProfile) {
+    setInterests({ ...DEFAULT_INTERESTS, ...profile.interests });
+    setPace(profile.pace);
+    setMaxWalk(String(profile.max_walk_minutes));
+    setBudget(String(profile.budget.total));
+    setCurrency(profile.budget.currency);
+    setLocalCurrency(undefined);
+    setBudgetReset(null);
+    setDayStart(profile.day_start);
+    setDayEnd(profile.day_end);
+    setErrors({});
   }
 
   function validateTripDetails(): Errors {
@@ -335,6 +351,8 @@ export function PreferenceForm({ onSubmit, submitting, destinationError }: Props
 
         {step === 1 && (
           <>
+            <DescribeTrip onProfile={(profile) => applyProfile(profile)} />
+
             <fieldset className="group">
               <legend className="group-title">What do you want to see?</legend>
               <dl className="level-legend" aria-label="What the choices mean">
