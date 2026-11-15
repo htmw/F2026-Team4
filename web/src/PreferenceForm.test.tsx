@@ -47,13 +47,31 @@ describe("PreferenceForm", () => {
     expect(currentStep()).toBe("Preferences");
   });
 
-  it("starts with no dietary needs selected", () => {
-    renderForm();
+  it("doesn't ask for dietary needs, and still sends the empty list the contract expects", () => {
+    const { onSubmit } = renderForm();
     completeTripDetails();
     fireEvent.click(screen.getByRole("button", { name: /More options/ }));
-    const diet = screen.getByRole("group", { name: "Dietary needs" });
-    expect(within(diet).getAllByRole("checkbox").filter((box) => (box as HTMLInputElement).checked)).toHaveLength(0);
+    expect(screen.queryByRole("group", { name: "Dietary needs" })).toBeNull();
+    expect(screen.queryByRole("checkbox")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    fireEvent.click(screen.getByRole("button", { name: "Plan my trip" }));
+    expect(onSubmit.mock.calls[0][0].profile.dietary).toEqual([]);
   });
+
+  it("explains what Skip, Some and Love mean", () => {
+    renderForm();
+    completeTripDetails();
+    const legend = screen.getByLabelText("What the choices mean");
+    expect(legend.textContent).toBe("Skipleave it outSomeinclude a fewLovemake it a priority");
+  });
+
+  it("shows daily hours in 12-hour time on Review", () => {
+    renderForm();
+    completeTripDetails();
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    expect(screen.getByText("9:30 AM - 10:00 PM")).toBeTruthy();
+  });
+
 
   it("sends Skip / Some / Love and the pace as the numbers the contract expects", () => {
     const { onSubmit } = renderForm();

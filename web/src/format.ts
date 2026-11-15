@@ -82,3 +82,34 @@ export function formatDateRange(startIso: string, endIso: string, locale?: strin
       : formatDayWithYear(start, locale);
   return `${startText} – ${formatDayWithYear(end, locale)}`;
 }
+
+// "09:30" -> "9:30 AM", "22:00" -> "10:00 PM". Anything that isn't HH:MM is returned unchanged.
+export function formatTime(hhmm: string): string {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(hhmm);
+  if (!match) return hhmm;
+  const hours = Number(match[1]);
+  if (hours > 23) return hhmm;
+  const suffix = hours < 12 ? "AM" : "PM";
+  const twelve = hours % 12 === 0 ? 12 : hours % 12;
+  return `${twelve}:${match[2]} ${suffix}`;
+}
+
+// "09:30", "11:00" -> "9:30 AM - 11:00 AM".
+export function formatTimeRange(start: string, end: string): string {
+  return `${formatTime(start)} - ${formatTime(end)}`;
+}
+
+// The optimizer's reason ("Matches your interest in history.") as a short label:
+// "Matches your interest: history". Other reasons are shown as they are, without the full stop.
+export function interestLabel(reason: string): string {
+  const match = /^Matches your interest in (.+?)\.?$/.exec(reason.trim());
+  if (match) return `Matches your interest: ${match[1]}`;
+  return reason.trim().replace(/\.$/, "");
+}
+
+// The interest named in the optimizer's reason ("Matches your interest in history." -> "history"),
+// used to pick the stop's map-legend symbol; null when the reason names none.
+export function interestFromReason(reason: string): string | null {
+  const match = /^Matches your interest in (.+?)\.?$/.exec(reason.trim());
+  return match ? match[1].toLowerCase() : null;
+}
