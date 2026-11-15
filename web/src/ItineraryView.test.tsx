@@ -16,7 +16,18 @@ const itinerary: Itinerary = {
     {
       date: "2030-05-01",
       items: [
-        { place_id: "p1", name: "Sensō-ji", start: "09:30", end: "11:00", cost: 0, reason: "History.", confidence: "known" },
+        {
+          place_id: "p1",
+          name: "Sensō-ji",
+          start: "09:30",
+          end: "11:00",
+          cost: 0,
+          description: "Sensō-ji is an ancient Buddhist temple in Asakusa, Tokyo.",
+          description_source: "wikipedia",
+          open_hours: [["06:00", "17:00"]],
+          reason: "History.",
+          confidence: "known",
+        },
         {
           place_id: "p2",
           name: "Tsukiji Outer Market",
@@ -99,6 +110,22 @@ describe("ItineraryView", () => {
     renderPlan(request({ total: 120000, currency: "JPY" }));
     expect(screen.getByText("5 min over your 20-min limit · 25 min walking in total")).toBeTruthy();
     expect(screen.getByText(/25 min walk from the previous stop, 5 min over your 20-min limit/)).toBeTruthy();
+  });
+
+  it("shows each stop's time as AM and PM", () => {
+    renderPlan(null);
+    expect(screen.getByText("9:30 AM - 11:00 AM")).toBeTruthy();
+  });
+
+  it("says when each place opens and closes", () => {
+    renderPlan(null);
+    expect(screen.getByText("Open 6:00 AM – 5:00 PM")).toBeTruthy();
+  });
+
+  it("says what each place is, crediting Wikipedia", () => {
+    renderPlan(null);
+    expect(screen.getByText(/Sensō-ji is an ancient Buddhist temple in Asakusa, Tokyo\./)).toBeTruthy();
+    expect(screen.getByText("(Wikipedia)")).toBeTruthy();
   });
 
   it("shows each day's stops, walking and cost", () => {

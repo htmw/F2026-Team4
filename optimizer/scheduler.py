@@ -6,6 +6,7 @@ from __future__ import annotations
 import uuid
 from collections import Counter
 from collections.abc import Callable
+from datetime import date
 from typing import Any
 
 from optimizer.constraints import (
@@ -102,6 +103,16 @@ def _ranker_quality(
     if len(ordered) == 1:
         return {ordered[0]: 1.0}
     return {pid: rank / (len(ordered) - 1) for rank, pid in enumerate(ordered)}
+
+
+def _open_hours(place: dict[str, Any], day: str) -> dict[str, Any]:
+    """{"open_hours": [[open, close], ...]} for the visit's weekday, when the hours are
+    verified or estimated, so the traveler sees when the place opens and closes."""
+    hours = place["hours"]
+    if hours.get("confidence") not in ("known", "inferred"):
+        return {}
+    windows = hours.get(date.fromisoformat(day).strftime("%a").lower())
+    return {"open_hours": [list(w) for w in windows]} if windows else {}
 
 
 def schedule(
@@ -247,6 +258,7 @@ def schedule(
     total_quality = 0.0
     estimated_travel = False
     unknown_hours = 0
+    estimated_hours = 0
     unknown_costs = 0
     estimated_costs = 0
 
@@ -371,6 +383,16 @@ def schedule(
                 _waiting,
             ) = chosen
 
+            # Walking in this move: all of a walk, and the walk to and from the stop of a
+            # transit ride (the Data team's legs carry it as walk_minutes).
+            leg = (travel_matrix or {}).get((previous["id"], place["id"]), {}) if previous else {}
+            if mode == "walk":
+                walked = travel
+            elif mode == "transit":
+                walked = round(leg.get("walk_minutes", 0))
+            else:
+                walked = 0
+
             items.append({
                 "place_id": place["id"],
                 "name": place["name"],
@@ -379,6 +401,7 @@ def schedule(
                 "travel_from_prev": {
                     "minutes": travel,
                     "mode": mode,
+                    "walk_minutes": walked,
                 },
                 "cost": cost,
                 # known / inferred / unknown, so the website can show "Free",
@@ -388,6 +411,7 @@ def schedule(
                     place, profile, category_map
                 ),
                 "confidence": confidence,
+                **_open_hours(place, day),
             })
 
             used.add(place["id"])
@@ -402,13 +426,14 @@ def schedule(
             total_cost += cost
             total_quality += match_of[place["id"]]
 
-            if mode == "walk":
-                total_walking += travel
+            total_walking += walked
 
             if estimated:
                 estimated_travel = True
 
-            if confidence != "known":
+            if confidence == "inferred":
+                estimated_hours += 1
+            elif confidence != "known":
                 unknown_hours += 1
 
             cost_confidence = place["cost"].get("confidence")
@@ -428,6 +453,14 @@ def schedule(
         warnings.append(
             "Some travel times are estimates; "
             "verify routes before traveling."
+        )
+
+    # Usual hours for that kind of place (Data team's estimate when OpenStreetMap has none)
+    # are named as estimates, like "≈" prices, not as unverified.
+    if estimated_hours:
+        warnings.append(
+            f"Opening hours are estimated for {estimated_hours} scheduled place(s) "
+            f"(usual hours for that kind of place); check before you go."
         )
 
     if unknown_hours:
@@ -538,7 +571,7 @@ def plan_itinerary(
     (503). Pass `trip_id` when re-planning.
     """
     from api.contracts import load_categories
-    from ingest.catalog import load_city, travel_legs
+    from ingest.catalog import description_of, load_city, travel_legs
     from ranker.model import get_scorer
 
     # No silent default: a request without a city name is refused, never planned in Lisbon.
@@ -569,6 +602,15 @@ def plan_itinerary(
         # (models/ranker.txt); otherwise get_scorer() is None and the rule score is used.
         scorer=get_scorer(),
     )
+
+    # What each stop is, from the Data team: a Wikipedia intro for famous places, a line
+    # from OpenStreetMap for the rest. Cities saved before descriptions existed have none.
+    for day in itinerary["days"]:
+        for item in day["items"]:
+            about = description_of(item["place_id"])
+            if about:
+                item["description"] = about["text"]
+                item["description_source"] = about["source"]
 
     if city_data.source == "fixture":
         itinerary["warnings"].append(

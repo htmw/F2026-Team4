@@ -9,7 +9,9 @@ Steps, in order:
 4. score popularity from the OSM tags,
 5. merge duplicate records of the same place, and the pieces of each wall or aqueduct,
 6. apply the hand checked curation file, if there is one,
-7. write places.json, destination.json, city.json, report.json and matrix.json.
+7. write places.json, destination.json, city.json, report.json, matrix.json,
+   stop_walks.json (minutes from each place to its nearest bus stop or station) and
+   descriptions.json (a short "what is this place" line, from Wikipedia when famous).
 """
 
 from __future__ import annotations
@@ -29,6 +31,7 @@ from .categories import (
 from .cost import currency_for_country
 from .curation import apply_curation, load_curation
 from .dedupe import dedupe, one_per_name
+from .describe import describe_places
 from .geocode import DEFAULT_MAX_SPAN_KM, geocode
 from .matrix import (
     DEFAULT_DETOUR,
@@ -36,6 +39,7 @@ from .matrix import (
     TravelModel,
     matrix_payload,
     select_for_matrix,
+    stop_walk_minutes,
     transit_matrix,
     walking_matrix,
 )
@@ -63,6 +67,7 @@ def run_city(
     aliases: list[str] | None = None,
     curation_path: Path | None = None,
     combine_groups: bool = False,
+    wikipedia: bool = False,
     post=requests.post,
     get=requests.get,
     sleep=time.sleep,
@@ -98,6 +103,8 @@ def run_city(
     hours_status: Counter = Counter()
     cost_status: Counter = Counter()
     schema_errors: list[str] = []
+    stops: list[tuple[float, float]] = []
+    element_info: dict[str, dict] = {}  # place id -> {"tags"}, for the descriptions
 
     groups = groups or list(GROUPS)
     fetch_args = {"refresh": refresh, "post": post, "sleep": sleep, "log": log}
@@ -115,6 +122,11 @@ def run_city(
             if key in seen:
                 continue
             seen.add(key)
+
+            # A bus stop or station: kept for the walk to transit, and still checked below
+            # in case it is also a sight (a famous station).
+            if _is_transit_stop(el):
+                stops.append((float(el["lat"]), float(el["lon"])))
 
             r = build_place(
                 el,
@@ -138,6 +150,7 @@ def run_city(
                 counts["dropped_outside_bbox"] += 1
                 continue
 
+            element_info[r.place["id"]] = {"tags": el.get("tags") or {}}
             r.place["popularity"] = popularity(r.signals)
             r.signals["cost_status"] = r.cost_status
             places.append(r.place)
@@ -160,6 +173,9 @@ def run_city(
 
     places.sort(key=lambda p: p["id"])
     counts["places"] = len(places)
+    counts["transit_stops"] = len(stops)
+    stop_walks = stop_walk_minutes(places, stops)
+    descriptions = describe_places(places, element_info, wikipedia=wikipedia, get=get, log=log)
     for p in places:
         hours_status[_hours_label(p)] += 1
         cost_status[_cost_label(p, signals.get(p["id"], {}))] += 1
@@ -210,7 +226,7 @@ def run_city(
             walking_matrix(subset, speed_kmh, detour_factor),
             speed_kmh,
             detour_factor,
-            transit=transit_matrix(subset, model),
+            transit=transit_matrix(subset, model, stop_walks),
             model=model,
         )
 
@@ -219,6 +235,12 @@ def run_city(
     write_json(out / "destination.json", destination, indent=1)
     write_json(out / "city.json", city, indent=1)
     write_json(out / "report.json", report, indent=1)
+    write_json(out / "descriptions.json", descriptions)
+    stop_file = out / "stop_walks.json"
+    if stop_walks:
+        write_json(stop_file, stop_walks)
+    elif stop_file.exists():
+        stop_file.unlink()
 
     # The matrix always describes the places.json written next to it, even after an empty run.
     matrix_file = out / "matrix.json"
@@ -235,6 +257,18 @@ def run_city(
         "report": report,
         "out_dir": out,
     }
+
+
+_STOP_RAILWAY = {"station", "halt", "tram_stop", "subway_entrance"}
+
+
+def _is_transit_stop(el: dict) -> bool:
+    tags = el.get("tags") or {}
+    return el.get("type") == "node" and "lat" in el and (
+        tags.get("highway") == "bus_stop"
+        or tags.get("railway") in _STOP_RAILWAY
+        or tags.get("public_transport") == "station"
+    )
 
 
 def _inside(place: dict, bbox) -> bool:

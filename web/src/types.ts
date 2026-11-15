@@ -31,12 +31,16 @@ export interface ItineraryItem {
   cost_confidence?: Confidence;
   start: string;
   end: string;
-  travel_from_prev?: { minutes: number; mode: string };
+  // walk_minutes: walking in the move, including to and from the stop of a transit ride.
+  travel_from_prev?: { minutes: number; mode: string; walk_minutes?: number };
   cost: number;
+  // What the place is; "wikipedia" text is credited next to it.
+  description?: string;
+  description_source?: "wikipedia" | "openstreetmap";
+  // When the place is open on the visit's day, as [open, close] pairs.
+  open_hours?: [string, string][];
   reason: string;
   confidence: Confidence;
-  // Not in the contract yet: a short description of the place, shown when present.
-  description?: string;
 }
 
 export interface ItineraryDay {

@@ -1,6 +1,8 @@
 """Tests for parsing OSM fee and charge tags."""
 
-from ingest.cost import currency_for_country, parse_cost
+import pytest
+
+from ingest.cost import COUNTRY_CURRENCY, currency_for_country, parse_cost, typical_price
 
 
 def test_parses_price_with_currency():
@@ -23,10 +25,10 @@ def test_fee_no_means_known_free():
     assert result.status == "fee_free"
 
 
-def test_fee_yes_without_price_is_unknown():
+def test_fee_yes_without_price_gets_an_estimate():
     result = parse_cost({"fee": "yes"}, [], "USD")
 
-    assert result.cost["confidence"] == "unknown"
+    assert result.cost == {"amount": 20.0, "currency": "USD", "confidence": "inferred"}
     assert result.status == "fee_amount_missing"
 
 
@@ -52,11 +54,33 @@ def test_a_real_price_or_free_entry_beats_the_estimate():
     assert parse_cost({}, ["park"], "INR").cost["amount"] == 0.0
 
 
-def test_without_a_typical_price_the_price_stays_unknown():
+def test_every_currency_gets_an_estimate():
+    """Nepal has no row of its own: a base price converted at a rough rate, rounded."""
     result = parse_cost({}, ["restaurant"], "NPR")
+
+    assert result.cost == {"amount": 2100.0, "currency": "NPR", "confidence": "inferred"}
+    assert result.status == "typical_price"
+    currencies = set(COUNTRY_CURRENCY.values())
+    missing = sorted(c for c in currencies if typical_price(["museum"], c) is None)
+    assert missing == [], "every country's currency has an estimate"
+
+
+def test_without_any_currency_the_price_stays_unknown():
+    result = parse_cost({}, ["restaurant"], "XXX")
 
     assert result.cost["confidence"] == "unknown"
     assert result.status == "no_data"
+
+
+def test_an_unreadable_charge_falls_back_to_the_typical_price():
+    result = parse_cost({"charge": "15 EUR adults, 8 EUR children"}, ["museum"], "EUR")
+
+    assert result.cost == {"amount": 12.0, "currency": "EUR", "confidence": "inferred"}
+    assert result.status == "charge_ambiguous"
+
+
+def test_a_day_trip_is_priced_like_a_museum():
+    assert typical_price(["day_trip"], "EUR") == typical_price(["museum"], "EUR")
 
 
 def test_country_currency_lookup():
@@ -119,3 +143,30 @@ def test_every_country_has_a_currency():
     assert missing == []
     assert currency_for_country("CO") == "COP"
     assert currency_for_country("JP") == "JPY"
+
+
+@pytest.mark.parametrize("tags", [
+    {"tourism": "attraction", "building": "office", "height": "443"},       # Empire State
+    {"tourism": "attraction", "building": "yes", "building:levels": "104"},  # One WTC
+    {"tourism": "attraction", "man_made": "tower"},                          # Eiffel Tower
+    {"man_made": "tower", "tower:type": "communication;observation"},       # Tokyo Tower
+])
+def test_a_tower_with_a_viewing_deck_gets_an_estimated_ticket(tags):
+    result = parse_cost(tags, ["landmark"], "USD")
+
+    assert result.cost == {"amount": 40.0, "currency": "USD", "confidence": "inferred"}
+
+
+@pytest.mark.parametrize("tags", [
+    {"tourism": "attraction", "amenity": "fountain"},                 # Trevi Fountain
+    {"tourism": "attraction", "building": "yes", "height": "30"},     # a low building
+    {"historic": "tower", "fee": "no"},                               # tagged as free
+])
+def test_other_landmarks_stay_free(tags):
+    assert parse_cost(tags, ["landmark"], "EUR").cost["amount"] == 0.0
+
+
+def test_a_paid_park_without_an_amount_gets_a_museum_ticket_estimate():
+    result = parse_cost({"fee": "yes"}, ["park"], "EUR")
+
+    assert result.cost == {"amount": 12.0, "currency": "EUR", "confidence": "inferred"}

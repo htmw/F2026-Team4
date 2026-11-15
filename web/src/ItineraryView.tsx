@@ -8,6 +8,7 @@ import {
   formatTimeRange,
   interestFromReason,
   interestLabel,
+  openHoursLabel,
   prettifyPlaceId,
   priceLabel,
 } from "./format";
@@ -183,6 +184,9 @@ export function ItineraryView({
                     <p className={`stop-travel${walkOver > 0 ? " is-over" : ""}`}>
                       {walkOver > 0 && <AlertIcon />}
                       {travel.minutes} min {travel.mode} from the previous stop
+                      {travel.mode === "transit" && travel.walk_minutes
+                        ? ` (incl. ${travel.walk_minutes} min walk to and from the stop)`
+                        : ""}
                       {walkOver > 0 && `, ${walkOver} min over your ${walkLimit}-min limit`}
                     </p>
                   )}
@@ -193,10 +197,18 @@ export function ItineraryView({
                         <h4 className="stop-name">{name}</h4>
                         <span className="stop-interest">{interestLabel(item.reason)}</span>
                       </div>
-                      {/* Room for a short description of the place. Itinerary items don't carry one
-                          yet; it needs a `description` field in /contracts/itinerary.schema.json. */}
-                      {item.description && <p className="stop-description">{item.description}</p>}
+                      {item.description && (
+                        <p className="stop-description">
+                          {item.description}
+                          {item.description_source === "wikipedia" && (
+                            <span className="stop-source"> (Wikipedia)</span>
+                          )}
+                        </p>
+                      )}
                       <p className="stop-meta">
+                        {item.open_hours && item.open_hours.length > 0 && (
+                          <span className="stop-hours">{openHoursLabel(item.open_hours)}</span>
+                        )}
                         {item.confidence !== "unknown" && (
                           <span className={`confidence confidence-${item.confidence}`}>
                             Hours {confidenceLabel(item.confidence)}
@@ -237,12 +249,13 @@ export function ItineraryView({
       <details className="legend">
         <summary>What do "verified" and "estimated" mean?</summary>
         <dl>
-          <dt>Hours verified</dt>
+          <dt>Verified</dt>
           <dd>Opening hours come from the place's own listing, so the plan treats them as fixed.</dd>
-          <dt>Hours estimated</dt>
-          <dd>No listed hours, so typical hours for this kind of place were used. Check before you go.</dd>
-          <dt>No label</dt>
-          <dd>We couldn't find opening hours at all. These places are named in the note at the top of the plan.</dd>
+          <dt>Estimated</dt>
+          <dd>
+            No listed hours or price, so typical ones for this kind of place were used (estimated
+            prices are shown with ≈). Check before you go.
+          </dd>
         </dl>
       </details>
 
@@ -403,16 +416,21 @@ function ScaleBar({ value, limit, label }: { value: number; limit: number; label
 
 function dayTotals(day: Itinerary["days"][number], currency: string): string {
   const stops = day.items.length;
-  const walking = day.items.reduce(
-    (sum, item) => sum + (item.travel_from_prev?.mode === "walk" ? item.travel_from_prev.minutes : 0),
-    0,
-  );
+  const walking = day.items.reduce((sum, item) => sum + walkMinutes(item.travel_from_prev), 0);
   const cost = day.items.reduce((sum, item) => sum + item.cost, 0);
   return [
     `${stops} ${stops === 1 ? "stop" : "stops"}`,
     `${walking} min walking`,
     formatMoney(cost, currency),
   ].join(" · ");
+}
+
+// Walking in one move: the walk to and from the stop counts for a transit ride too.
+// Older trips without walk_minutes count only walks, as before.
+function walkMinutes(travel?: { minutes: number; mode: string; walk_minutes?: number }): number {
+  if (!travel) return 0;
+  if (travel.walk_minutes !== undefined) return travel.walk_minutes;
+  return travel.mode === "walk" ? travel.minutes : 0;
 }
 
 function dayCountLabel(days: number): string {

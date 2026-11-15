@@ -56,6 +56,14 @@ GROUPS = {
         '  nwr["amenity"="fountain"]["name"]["wikidata"]({bbox});'
     ),
     "neighborhoods": 'nwr["place"~"^(neighbourhood|quarter)$"]["name"]["wikidata"]({bbox});',
+    # Bus stops and stations, named or not: not places to visit, but how far each place is
+    # from public transport (matrix.stop_walk_minutes). Nodes only, which is how OSM maps a
+    # stop; a station mapped as an area also has a node for its entrance or platform.
+    "transit_stops": (
+        'node["highway"="bus_stop"]({bbox});\n'
+        '  node["railway"~"^(station|halt|tram_stop|subway_entrance)$"]({bbox});\n'
+        '  node["public_transport"="station"]({bbox});'
+    ),
 }
 
 

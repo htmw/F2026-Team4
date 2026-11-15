@@ -4,7 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from ingest.to_place import build_place, make_validator
+from ingest.hours import DAYS
+from ingest.to_place import build_place, make_validator, with_estimates
 
 
 @pytest.fixture
@@ -124,7 +125,7 @@ def test_build_place_rejects_schema_invalid_coordinates(validator):
     assert result.error is not None
 
 
-def test_restaurant_closed_on_one_day_is_kept_with_unknown_hours(validator):
+def test_restaurant_with_unreadable_hours_gets_estimated_hours(validator):
     result = build_place(
         {
             "type": "node",
@@ -139,7 +140,8 @@ def test_restaurant_closed_on_one_day_is_kept_with_unknown_hours(validator):
     )
 
     assert result.place is not None
-    assert result.place["hours"]["confidence"] == "unknown"
+    assert result.place["hours"]["confidence"] == "inferred", "usual restaurant hours, estimated"
+    assert result.place["hours"]["mon"] == [["12:00", "15:00"], ["19:00", "23:00"]]
 
 
 def test_place_closed_every_day_is_dropped(validator):
@@ -296,3 +298,19 @@ def test_a_global_chain_outlet_is_left_out(validator, tags):
 )
 def test_local_chains_and_lookalike_names_stay(validator, tags):
     assert _build(tags, validator).place is not None
+
+
+def test_a_saved_place_without_hours_or_price_gets_estimates():
+    """Rome's saved data predates estimates: it is filled in when loaded."""
+    old = {
+        "id": "osm:node/9", "name": "Trattoria", "categories": ["restaurant"],
+        "hours": {**{d: None for d in DAYS}, "confidence": "unknown"},
+        "cost": {"amount": 0.0, "currency": "EUR", "confidence": "unknown"},
+    }
+    place = with_estimates(old)
+
+    assert place["hours"]["confidence"] == "inferred"
+    assert place["cost"] == {"amount": 25.0, "currency": "EUR", "confidence": "inferred"}
+    assert old["cost"]["confidence"] == "unknown", "the saved record is not changed"
+    known = {**old, "hours": place["hours"], "cost": place["cost"]}
+    assert with_estimates(known) is known

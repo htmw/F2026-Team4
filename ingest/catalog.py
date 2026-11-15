@@ -43,7 +43,7 @@ from .matrix import TravelModel
 from .matrix import travel_legs as _travel_legs
 from .overpass import QueryTooHeavy
 from .pipeline import run_city
-from .to_place import normalize_name
+from .to_place import normalize_name, with_estimates
 
 ROOT = Path(__file__).resolve().parent.parent
 CITIES_DIR = ROOT / "data" / "cities"
@@ -243,6 +243,7 @@ def fetch_live(name: str) -> Path:
                 slug=folder.name,
                 matrix_top=0,
                 combine_groups=True,
+                wikipedia=True,  # famous places get their Wikipedia intro
                 post=http_post,
                 get=http_get,
                 sleep=time.sleep,  # looked up now, so tests can skip the pauses
@@ -270,10 +271,23 @@ def fetch_live(name: str) -> Path:
         return folder
 
 
+# Minutes from each loaded place to its nearest bus stop or station, by place id (OSM ids
+# are unique across cities). Kept beside the places, not in them, so every place record
+# still matches contracts/place.schema.json.
+_STOP_WALKS: dict[str, float] = {}
+# {"text", "source"} per loaded place id: what the place is (see describe.py).
+_DESCRIPTIONS: dict[str, dict] = {}
+
+
+def description_of(place_id: str) -> dict | None:
+    """{"text", "source"} for a loaded place, or None when its city has no descriptions."""
+    return _DESCRIPTIONS.get(place_id)
+
+
 @lru_cache(maxsize=16)
 def _load(source: str, path: Path, mtime: float) -> CityData:
     if source == "fixture":
-        places = _read_json(path)
+        places = [with_estimates(p) for p in _read_json(path)]
         key = path.name.removesuffix(".places.json")
         lat = sum(p["lat"] for p in places) / len(places)
         lon = sum(p["lon"] for p in places) / len(places)
@@ -282,7 +296,13 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         if country_code:
             destination["country"] = country_code
         return CityData(key, key.title(), destination, places, source, path, country_name)
-    places = _read_json(path / "places.json")
+    places = [with_estimates(p) for p in _read_json(path / "places.json")]
+    stop_file = path / "stop_walks.json"
+    if stop_file.exists():
+        _STOP_WALKS.update(_read_json(stop_file))
+    description_file = path / "descriptions.json"
+    if description_file.exists():
+        _DESCRIPTIONS.update(_read_json(description_file))
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
     country_name = meta.get("country_name", "")
@@ -309,4 +329,4 @@ def travel_legs(
     Build it for the candidate list you are about to schedule, not for a whole city:
     300 places is 89,700 legs and takes about 0.1 s, most of it building the dict.
     """
-    return _travel_legs(places, max_walk_minutes, model)
+    return _travel_legs(places, max_walk_minutes, model, stop_walks=_STOP_WALKS)

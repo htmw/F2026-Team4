@@ -6,7 +6,9 @@ import {
   formatDay,
   formatMoney,
   formatTime,
+  openHoursLabel,
   formatTimeRange,
+  interestFromReason,
   interestLabel,
   prettifyPlaceId,
   priceLabel,
@@ -74,5 +76,40 @@ describe("format helpers", () => {
     expect(interestLabel("Recommended based on location and popularity.")).toBe(
       "Recommended based on location and popularity",
     );
+  });
+});
+
+describe("formatTime", () => {
+  it("shows a 24-hour time as AM or PM", () => {
+    expect(formatTime("09:30")).toBe("9:30 AM");
+    expect(formatTime("13:05")).toBe("1:05 PM");
+    expect(formatTime("12:00")).toBe("12:00 PM");
+    expect(formatTime("00:00")).toBe("12:00 AM");
+    expect(formatTime("23:59")).toBe("11:59 PM");
+  });
+
+  it("leaves anything else alone", () => {
+    expect(formatTime("soon")).toBe("soon");
+  });
+});
+
+describe("openHoursLabel", () => {
+  it("says when a place opens and closes", () => {
+    expect(openHoursLabel([["10:00", "17:00"]])).toBe("Open 10:00 AM – 5:00 PM");
+    expect(openHoursLabel([["12:00", "15:00"], ["19:00", "23:00"]])).toBe(
+      "Open 12:00 PM – 3:00 PM and 7:00 PM – 11:00 PM",
+    );
+    expect(openHoursLabel([["00:00", "23:59"]])).toBe("Open 24 hours");
+    expect(openHoursLabel([["12:00", "23:59"]])).toBe("Open 12:00 PM – midnight");
+    expect(openHoursLabel(undefined)).toBe("");
+  });
+});
+
+describe("reasons with several interests", () => {
+  it("names each interest and picks the strongest for the pin", () => {
+    const reason = "Matches your interests in history, architecture and nature.";
+    expect(interestLabel(reason)).toBe("Matches your interests: history, architecture, nature");
+    expect(interestFromReason(reason)).toBe("history");
+    expect(interestFromReason("Matches your interest in food.")).toBe("food");
   });
 });
