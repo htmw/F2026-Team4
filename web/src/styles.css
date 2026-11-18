@@ -2073,3 +2073,150 @@ a.button-secondary {
     display: none !important;
   }
 }
+
+/* ---- Swap a stop, add a place ---- */
+
+.stop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.swap-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--control-height);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.swap-button:hover,
+.swap-button[aria-expanded="true"] {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.swap-button[aria-expanded="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+/* The rail runs past an open suggestions list, so the footpath doesn't break. */
+.stop-rail {
+  grid-row: 2 / span 2;
+}
+
+.suggestions {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: #f7faff;
+}
+
+.day > .suggestions {
+  margin: var(--space-2) 0 0;
+}
+
+.suggestions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.suggestions-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.suggestions-title:focus {
+  outline: none;
+}
+
+.suggestion-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+
+.stop-pin.stop-pin-small {
+  width: 28px;
+  height: 28px;
+}
+
+.stop-pin.stop-pin-small .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.suggestion-name {
+  font-weight: 600;
+}
+
+.suggestion-meta {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.add-stop-button {
+  margin-top: var(--space-1);
+  margin-left: calc(36px + var(--space-3) - var(--space-2));
+}
+
+.notice-warn {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+
+@media (max-width: 480px) {
+  .stop-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .suggestion {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .suggestion .stop-pin {
+    display: none;
+  }
+
+  .add-stop-button {
+    margin-left: 0;
+  }
+}
+
+@media print {
+  .stop-actions,
+  .suggestions,
+  .add-stop-button {
+    display: none !important;
+  }
+}

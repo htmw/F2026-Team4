@@ -211,3 +211,19 @@ export function ShareIcon(props: IconProps) {
     </Svg>
   );
 }
+
+export function SwapIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M3 5.5h9.5M10 3l2.5 2.5L10 8M13 10.5H3.5M6 8l-2.5 2.5L6 13" />
+    </Svg>
+  );
+}
+
+export function PlusIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M8 3v10M3 8h10" />
+    </Svg>
+  );
+}

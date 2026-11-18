@@ -7,7 +7,7 @@ import type { User } from "./auth";
 import { formatDateRange, prettifyPlaceId } from "./format";
 import { FoldedMapIcon, InterestIcon, UserIcon } from "./icons";
 import { ItineraryView } from "./ItineraryView";
-import type { RemovedPlace, SaveControl } from "./ItineraryView";
+import type { RemovedPlace, SaveControl, StopChange } from "./ItineraryView";
 import { shareLink } from "./links";
 import { LoginPage } from "./LoginPage";
 import { MyTrips } from "./MyTrips";
@@ -39,6 +39,8 @@ export function App() {
   const [undoing, setUndoing] = useState(false);
   // A failed re-plan or undo is shown next to the re-plan controls, not in the top banner.
   const [replanError, setReplanError] = useState<string | null>(null);
+  // What the last swap or add did.
+  const [changeNote, setChangeNote] = useState<{ text: string; ok: boolean } | null>(null);
 
   const route = useRoute();
   // undefined while we check whether someone is already logged in.
@@ -118,6 +120,7 @@ export function App() {
       const plan = await getTrip(trip.trip_id);
       setItinerary(plan);
       setLastRequest(trip.request ?? null);
+      setChangeNote(null);
       setRejected([]);
       setLastRemoved(null);
       setReplanError(null);
@@ -153,6 +156,7 @@ export function App() {
       setLastRemoved(null);
       setReplanError(null);
       setSaveError(null);
+      setChangeNote(null);
       setFormOpen(false);
     } catch (err) {
       // Keep the plan that is already on screen: a failed new request shouldn't destroy it.
@@ -186,6 +190,7 @@ export function App() {
       setItinerary(await postFeedback(itinerary.trip_id, feedback));
       setRejected([]);
       setLastRemoved(removed);
+      setChangeNote(null);
     } catch (err) {
       setReplanError(`Couldn't re-plan the trip: ${sentence(err)} Your plan hasn't changed.`);
     } finally {
@@ -208,6 +213,27 @@ export function App() {
     } finally {
       setUndoing(false);
     }
+  }
+
+  // Swap a stop or add a place: the chosen place is sent as accepted (the planner must fit
+  // it in) and a swapped-out stop as rejected, then the trip is re-planned. Errors go back
+  // to the suggestions list, which shows them.
+  async function handleChangeStop({ add, replace }: StopChange) {
+    if (!itinerary) return;
+    const feedback: Feedback = { accepted: [add.place_id], rejected: replace ? [replace.id] : [] };
+    const plan = await postFeedback(itinerary.trip_id, feedback);
+    const fitted = plan.days.some((d) => d.items.some((i) => i.place_id === add.place_id));
+    setItinerary(plan);
+    setRejected([]);
+    setLastRemoved(null);
+    setChangeNote(
+      fitted
+        ? { text: replace ? `Swapped ${replace.name} for ${add.name}.` : `Added ${add.name} to your trip.`, ok: true }
+        : {
+            text: `The planner couldn't fit ${add.name} into this trip${replace ? `, so ${replace.name} was removed and something else planned` : ""}.`,
+            ok: false,
+          },
+    );
   }
 
   function openForm() {
@@ -314,6 +340,8 @@ export function App() {
               undoing={undoing}
               save={saveControl}
               shareUrl={shareLink(itinerary.trip_id)}
+              onChangeStop={handleChangeStop}
+              changeNote={changeNote}
             />
           ) : (
             !error &&

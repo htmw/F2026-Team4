@@ -24,11 +24,15 @@ import {
   ExternalIcon,
   InterestIcon,
   PinIcon,
+  PlusIcon,
   PrintIcon,
+  SwapIcon,
 } from "./icons";
 import { DayMap } from "./DayMap";
 import { dayRouteLink, mapsLink, ticketLink } from "./links";
 import { ShareButton } from "./ShareButton";
+import { StopSuggestions } from "./StopSuggestions";
+import type { Suggestion } from "./api";
 import type { Itinerary, ItineraryItem, PlanRequest } from "./types";
 
 export interface RemovedPlace {
@@ -56,7 +60,19 @@ interface Props {
   shareUrl?: string;
   // A shared trip opened from a link: no Remove, Re-plan or Undo.
   readOnly?: boolean;
+  // Swap a stop for another place, or add one to a day; resolves once re-planned.
+  // Left out, the Swap and Add buttons aren't shown.
+  onChangeStop?: (change: StopChange) => Promise<void>;
+  // What the last swap or add did ("Swapped … for …"), or why it couldn't.
+  changeNote?: { text: string; ok: boolean } | null;
 }
+
+export interface StopChange {
+  add: Suggestion;
+  replace?: { id: string; name: string };
+}
+
+type OpenPanel = { kind: "swap"; placeId: string } | { kind: "add"; date: string } | null;
 
 export interface SaveControl {
   status: "unsaved" | "saving" | "saved";
@@ -78,9 +94,16 @@ export function ItineraryView({
   save,
   shareUrl,
   readOnly = false,
+  onChangeStop,
+  changeNote,
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
+  // The open "Swap" or "Add a place" list, if any.
+  const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
+  const canChange = !readOnly && onChangeStop !== undefined;
+  // A new plan (from a swap, add or re-plan) closes the list.
+  useEffect(() => setOpenPanel(null), [itinerary]);
   // "Save as PDF" renders every day, opens the browser's print dialog, then returns to one day.
   const [printing, setPrinting] = useState(false);
   useEffect(() => {
@@ -164,6 +187,12 @@ export function ItineraryView({
           <button type="button" className="button-secondary button-small" disabled={undoing} onClick={onUndo}>
             {undoing ? "Undoing…" : "Undo"}
           </button>
+        </div>
+      )}
+
+      {changeNote && (
+        <div className={`notice${changeNote.ok ? "" : " notice-warn"}`} role="status">
+          <p>{changeNote.text}</p>
         </div>
       )}
 
@@ -305,6 +334,25 @@ export function ItineraryView({
                       </p>
                       <StopLinks item={item} name={name} city={destination.name} />
                     </div>
+                    <div className="stop-actions">
+                    {canChange && !isRejected && (
+                      <button
+                        type="button"
+                        className="swap-button"
+                        aria-expanded={openPanel?.kind === "swap" && openPanel.placeId === item.place_id}
+                        aria-label={`Swap ${name} for another place`}
+                        onClick={() =>
+                          setOpenPanel(
+                            openPanel?.kind === "swap" && openPanel.placeId === item.place_id
+                              ? null
+                              : { kind: "swap", placeId: item.place_id },
+                          )
+                        }
+                      >
+                        <SwapIcon />
+                        <span className="remove-label">Swap</span>
+                      </button>
+                    )}
                     {!readOnly && (
                     <button
                       type="button"
@@ -323,12 +371,45 @@ export function ItineraryView({
                       )}
                     </button>
                     )}
+                    </div>
                   </div>
+                  {canChange && openPanel?.kind === "swap" && openPanel.placeId === item.place_id && (
+                    <StopSuggestions
+                      tripId={itinerary.trip_id}
+                      currency={totals.currency}
+                      replace={{ id: item.place_id, name }}
+                      date={day.date}
+                      dayNumber={dayNumber}
+                      onChoose={(s) => onChangeStop!({ add: s, replace: { id: item.place_id, name } })}
+                      onClose={() => setOpenPanel(null)}
+                    />
+                  )}
                   </div>
                 </li>
               );
             })}
           </ol>
+          {canChange && !printing && (
+            openPanel?.kind === "add" && openPanel.date === day.date ? (
+              <StopSuggestions
+                tripId={itinerary.trip_id}
+                currency={totals.currency}
+                date={day.date}
+                dayNumber={dayNumber}
+                onChoose={(s) => onChangeStop!({ add: s })}
+                onClose={() => setOpenPanel(null)}
+              />
+            ) : (
+              <button
+                type="button"
+                className="button-quiet add-stop-button"
+                onClick={() => setOpenPanel({ kind: "add", date: day.date })}
+              >
+                <PlusIcon />
+                Add a place to Day {dayNumber}
+              </button>
+            )
+          )}
         </section>
         );
         })
