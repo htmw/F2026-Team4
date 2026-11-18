@@ -12,8 +12,20 @@ import {
   prettifyPlaceId,
   priceLabel,
 } from "./format";
-import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon, InterestIcon } from "./icons";
-import type { Itinerary, PlanRequest } from "./types";
+import { downloadIcs } from "./calendar";
+import {
+  AlertIcon,
+  CalendarIcon,
+  ChevronLeft,
+  ChevronRight,
+  CloseIcon,
+  ExternalIcon,
+  InterestIcon,
+  PinIcon,
+  PrintIcon,
+} from "./icons";
+import { dayRouteLink, mapsLink, ticketLink } from "./links";
+import type { Itinerary, ItineraryItem, PlanRequest } from "./types";
 
 export interface RemovedPlace {
   id: string;
@@ -50,6 +62,21 @@ export function ItineraryView({
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
+  // "Save as PDF" renders every day, opens the browser's print dialog, then returns to one day.
+  const [printing, setPrinting] = useState(false);
+  useEffect(() => {
+    if (!printing) return;
+    const done = () => setPrinting(false);
+    window.addEventListener("afterprint", done);
+    const frame = requestAnimationFrame(() => {
+      window.print();
+      done();
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("afterprint", done);
+    };
+  }, [printing]);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const tripRef = useRef<string | null>(null);
   const noticeRef = useRef<HTMLDivElement>(null);
@@ -90,6 +117,16 @@ export function ItineraryView({
           {destination.name}
         </h2>
         {request && <p className="plan-dates">{dayCountLabel(itinerary.days.length)}</p>}
+        <div className="plan-export" role="group" aria-label="Export this plan">
+          <button type="button" className="button-secondary button-small" onClick={() => downloadIcs(itinerary)}>
+            <CalendarIcon />
+            Add to calendar
+          </button>
+          <button type="button" className="button-secondary button-small" onClick={() => setPrinting(true)}>
+            <PrintIcon />
+            Save as PDF
+          </button>
+        </div>
       </header>
 
       <FitSummary itinerary={itinerary} request={request} score={score} />
@@ -152,11 +189,31 @@ export function ItineraryView({
       )}
 
       {day ? (
-        <section key={day.date} className="day" aria-labelledby="day-title">
-          <h3 id="day-title" className="day-title">
-            Day {dayIndex + 1} <span className="day-date">{formatDay(day.date)}</span>
+        // On screen one day at a time; when saving as PDF, every day in order.
+        (printing ? itinerary.days : [day]).map((day) => {
+        const dayNumber = itinerary.days.indexOf(day) + 1;
+        return (
+        <section key={day.date} className="day" aria-labelledby={`day-title-${dayNumber}`}>
+          <h3 id={`day-title-${dayNumber}`} className="day-title">
+            Day {dayNumber} <span className="day-date">{formatDay(day.date)}</span>
           </h3>
-          {day.items.length > 0 && <p className="day-totals">{dayTotals(day, totals.currency)}</p>}
+          {day.items.length > 0 && (
+            <p className="day-totals">
+              {dayTotals(day, totals.currency)}
+              {dayRouteLink(day.items, destination.name) && (
+                <a
+                  className="day-route-link"
+                  href={dayRouteLink(day.items, destination.name)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Day route in Google Maps
+                  <ExternalIcon />
+                  <span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              )}
+            </p>
+          )}
           {day.items.length === 0 && <p className="muted">Nothing scheduled this day.</p>}
           <ol className="timeline">
             {day.items.map((item, i) => {
@@ -218,6 +275,7 @@ export function ItineraryView({
                           {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                         </span>
                       </p>
+                      <StopLinks item={item} name={name} city={destination.name} />
                     </div>
                     <button
                       type="button"
@@ -242,6 +300,8 @@ export function ItineraryView({
             })}
           </ol>
         </section>
+        );
+        })
       ) : (
         <p className="muted">Nothing scheduled.</p>
       )}
@@ -395,19 +455,46 @@ function planNotes(itinerary: Itinerary, warnings: string[]): string[] {
 }
 
 // "3 stops · 45 min walking · ¥6,800" for one day.
+// Links beside a stop: Google Maps, and for a paid tourist attraction its official website for
+// tickets when the data has one. They open in a new tab so the plan stays where it was.
+function StopLinks({ item, name, city }: { item: ItineraryItem; name: string; city: string }) {
+  const tickets = ticketLink(item, interestFromReason(item.reason));
+  return (
+    <p className="stop-links">
+      <a href={mapsLink(item, city)} target="_blank" rel="noopener noreferrer" aria-label={`${name} in Google Maps (opens in a new tab)`}>
+        <PinIcon />
+        Map
+      </a>
+      {tickets && (
+        <a href={tickets.href} target="_blank" rel="noopener noreferrer" aria-label={`Tickets for ${name} on the official website (opens in a new tab)`}>
+          <ExternalIcon />
+          Tickets
+        </a>
+      )}
+    </p>
+  );
+}
+
 // A map-style scale bar: the track runs to the traveler's limit (the tick), the fill shows what the
 // plan uses. Past the limit the track extends and the overflow is drawn in the warning colour.
 // Decorative: the text next to it says the same thing.
 function ScaleBar({ value, limit, label }: { value: number; limit: number; label: string }) {
-  const span = Math.max(value, limit) * 1.1;
-  const pct = (n: number) => `${Math.min(100, (n / span) * 100).toFixed(1)}%`;
+  // Within the limit the bar ends at the limit's tick; only an overflow extends the bar past it,
+  // so there is never an empty stretch after the tick.
   const over = value > limit;
+  const span = over ? value * 1.05 : limit;
+  const share = (n: number) => Math.min(100, (n / span) * 100);
+  const pct = (n: number) => `${share(n).toFixed(1)}%`;
+  const tickAtEnd = share(limit) > 92;
   return (
     <span className={`scale${over ? " is-over" : ""}`} aria-hidden="true">
       <span className="scale-fill" style={{ width: pct(Math.min(value, limit)) }} />
       {over && <span className="scale-over" style={{ left: pct(limit), width: pct(value - limit) }} />}
       <span className="scale-tick" style={{ left: pct(limit) }} />
-      <span className="scale-label" style={{ right: `calc(100% - ${pct(limit)})` }}>
+      <span
+        className="scale-label"
+        style={tickAtEnd ? { right: 0, transform: "none" } : { right: `calc(100% - ${pct(limit)})` }}
+      >
         {label}
       </span>
     </span>

@@ -201,4 +201,56 @@ describe("ItineraryView", () => {
     renderPlan(null, { itinerary: { ...itinerary, warnings: ["Costs are unverified for 1 scheduled place(s)."] } });
     expect(screen.getByText("Costs are unverified for 1 scheduled place(s).")).toBeTruthy();
   });
+
+  it("links every stop to Google Maps, and paid attractions with a website to tickets", () => {
+    renderPlan(null, {
+      itinerary: {
+        ...itinerary,
+        days: [
+          {
+            ...itinerary.days[0],
+            items: [
+              { ...itinerary.days[0].items[0], cost: 18, website: "https://example.org/tickets" },
+              { ...itinerary.days[0].items[1], reason: "Matches your interest in food.", website: "https://example.org/menu" },
+            ],
+          },
+        ],
+      },
+    });
+    const maps = screen.getAllByRole("link", { name: /^(?!Day route).* in Google Maps/ });
+    expect(maps).toHaveLength(2);
+    expect(maps[0].getAttribute("href")).toContain("google.com/maps/search");
+    const tickets = screen.getAllByRole("link", { name: /^Tickets for/ });
+    expect(tickets).toHaveLength(1);
+    expect(tickets[0].getAttribute("href")).toBe("https://example.org/tickets");
+    expect(screen.getByRole("link", { name: /Day route in Google Maps/ })).toBeTruthy();
+  });
+
+  it("offers calendar and PDF export", () => {
+    renderPlan(null);
+    const exportGroup = within(screen.getByRole("group", { name: "Export this plan" }));
+    expect(exportGroup.getByRole("button", { name: "Add to calendar" })).toBeTruthy();
+    expect(exportGroup.getByRole("button", { name: "Save as PDF" })).toBeTruthy();
+  });
+
+  it("ends the walking scale bar at the limit tick when the plan is within the limit", () => {
+    const { container } = render(
+      <ItineraryView
+        itinerary={{
+          ...itinerary,
+          days: [{ ...itinerary.days[0], items: [itinerary.days[0].items[0], { ...itinerary.days[0].items[1], travel_from_prev: { minutes: 20, mode: "walk" } }] }],
+        }}
+        request={request({ total: 120000, currency: "JPY" })}
+        rejected={[]}
+        onToggleReject={() => {}}
+        onReplan={() => {}}
+        replanning={false}
+        lastRemoved={null}
+        onUndo={() => {}}
+        undoing={false}
+      />,
+    );
+    const tick = container.querySelector<HTMLElement>(".scale-tick");
+    expect(parseFloat(tick?.style.left ?? "")).toBe(100);
+  });
 });

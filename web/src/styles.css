@@ -1217,6 +1217,71 @@ select {
   font-variant-numeric: tabular-nums;
 }
 
+/* Links beside a stop (Map, Tickets) and the day's route: quiet text links that open a new tab */
+.stop-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.stop-links a,
+.day-route-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stop-links a:hover,
+.day-route-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.stop-links .icon,
+.day-route-link .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.day-route-link {
+  margin-left: var(--space-3);
+  font-size: 14px;
+}
+
+/* Export buttons in the plan header */
+.plan-export {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.plan-header {
+  flex-wrap: wrap;
+}
+
+@media print {
+  /* A saved PDF is the plan itself: no form, no buttons, no links row clutter */
+  .planner,
+  .plan-export,
+  .day-nav,
+  .remove-button,
+  .replan-bar,
+  .legend,
+  .notice {
+    display: none !important;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .confidence {
   font-weight: 600;
 }
@@ -1663,4 +1728,11 @@ fieldset.group > legend + * {
 }
 .describe-trip-note {
   color: #166534;
+}
+
+/* Keep the design's colours when a plan is printed or saved as PDF: browsers drop background
+   colours by default, which blanks the header band, the route pins and the scale bars. */
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }

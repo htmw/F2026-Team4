@@ -147,3 +147,31 @@ export function InterestIcon({ interest, className }: IconProps & { interest?: s
   if (!paths) return <PinIcon className={className} />;
   return <Svg className={className}>{paths}</Svg>;
 }
+
+export function ExternalIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M9.5 2.5h4v4M13.5 2.5 7.5 8.5" />
+      <path d="M12 9.5v3.2a.8.8 0 0 1-.8.8H3.3a.8.8 0 0 1-.8-.8V4.8a.8.8 0 0 1 .8-.8h3.2" />
+    </Svg>
+  );
+}
+
+export function CalendarIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <rect x="2.5" y="3.5" width="11" height="10" rx="1" />
+      <path d="M2.5 6.5h11M5.5 2v3M10.5 2v3" />
+    </Svg>
+  );
+}
+
+export function PrintIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M4.5 6V2.5h7V6" />
+      <rect x="2" y="6" width="12" height="5.5" rx="1" />
+      <path d="M4.5 9.5h7v4h-7Z" />
+    </Svg>
+  );
+}
