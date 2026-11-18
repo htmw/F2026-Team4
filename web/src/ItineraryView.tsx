@@ -15,7 +15,9 @@ import {
 import { downloadIcs } from "./calendar";
 import {
   AlertIcon,
+  BookmarkIcon,
   CalendarIcon,
+  CheckIcon,
   ChevronLeft,
   ChevronRight,
   CloseIcon,
@@ -46,6 +48,14 @@ interface Props {
   undoing: boolean;
   // A failed re-plan or undo, shown next to the re-plan controls rather than at the top.
   replanError?: string | null;
+  // "Save trip" to My trips. Left out, the button isn't shown.
+  save?: SaveControl;
+}
+
+export interface SaveControl {
+  status: "unsaved" | "saving" | "saved";
+  onSave: () => void;
+  error?: string | null;
 }
 
 export function ItineraryView({
@@ -59,6 +69,7 @@ export function ItineraryView({
   onUndo,
   undoing,
   replanError,
+  save,
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
@@ -117,7 +128,8 @@ export function ItineraryView({
           {destination.name}
         </h2>
         {request && <p className="plan-dates">{dayCountLabel(itinerary.days.length)}</p>}
-        <div className="plan-export" role="group" aria-label="Export this plan">
+        <div className="plan-export" role="group" aria-label="Save or export this plan">
+          {save && <SaveButton save={save} />}
           <button type="button" className="button-secondary button-small" onClick={() => downloadIcs(itinerary)}>
             <CalendarIcon />
             Add to calendar
@@ -128,6 +140,12 @@ export function ItineraryView({
           </button>
         </div>
       </header>
+
+      {save?.error && (
+        <p className="field-error plan-save-error" role="alert">
+          {save.error}
+        </p>
+      )}
 
       <FitSummary itinerary={itinerary} request={request} score={score} />
 
@@ -528,4 +546,26 @@ function dayCountLabel(days: number): string {
 function listNames(names: string[]): string {
   if (names.length <= 1) return names.join("");
   return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+function SaveButton({ save }: { save: SaveControl }) {
+  if (save.status === "saved") {
+    return (
+      <span className="plan-saved" role="status">
+        <CheckIcon />
+        Saved to My trips
+      </span>
+    );
+  }
+  return (
+    <button
+      type="button"
+      className="button-primary button-small"
+      disabled={save.status === "saving"}
+      onClick={save.onSave}
+    >
+      <BookmarkIcon />
+      {save.status === "saving" ? "Saving…" : "Save trip"}
+    </button>
+  );
 }

@@ -1,6 +1,6 @@
 import type { Itinerary, PlanRequest, TravelerProfile } from "./types";
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
+export const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
 // An API error with a readable message. `field` is set when the problem is a form field
 // the user can fix (today: an unknown or invalid destination), so the form can show the
@@ -108,4 +108,16 @@ export async function postProfileFromText(text: string): Promise<ProfileFromText
     throw readableError("Profile", resp.status, await resp.text());
   }
   return (await resp.json()) as ProfileFromText;
+}
+
+// A saved trip's latest plan (the backend keeps every planned trip, re-plans included).
+export async function getTrip(tripId: string): Promise<Itinerary> {
+  const resp = await fetch(`${API_BASE}/trips/${encodeURIComponent(tripId)}`);
+  if (!resp.ok) {
+    if (resp.status === 404) {
+      throw new ApiError("This trip couldn't be found. It may have been deleted from the planner.", 404);
+    }
+    throw readableError("Trip", resp.status, await resp.text());
+  }
+  return (await resp.json()) as Itinerary;
 }

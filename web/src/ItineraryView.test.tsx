@@ -228,7 +228,7 @@ describe("ItineraryView", () => {
 
   it("offers calendar and PDF export", () => {
     renderPlan(null);
-    const exportGroup = within(screen.getByRole("group", { name: "Export this plan" }));
+    const exportGroup = within(screen.getByRole("group", { name: "Save or export this plan" }));
     expect(exportGroup.getByRole("button", { name: "Add to calendar" })).toBeTruthy();
     expect(exportGroup.getByRole("button", { name: "Save as PDF" })).toBeTruthy();
   });
@@ -252,5 +252,15 @@ describe("ItineraryView", () => {
     );
     const tick = container.querySelector<HTMLElement>(".scale-tick");
     expect(parseFloat(tick?.style.left ?? "")).toBe(100);
+  });
+  it("offers Save trip, and says when the trip is saved", () => {
+    const onSave = vi.fn();
+    renderPlan(null, { save: { status: "unsaved", onSave } });
+    fireEvent.click(screen.getByRole("button", { name: "Save trip" }));
+    expect(onSave).toHaveBeenCalledTimes(1);
+    cleanup();
+    renderPlan(null, { save: { status: "saved", onSave } });
+    expect(screen.getByText("Saved to My trips")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Save trip" })).toBeNull();
   });
 });

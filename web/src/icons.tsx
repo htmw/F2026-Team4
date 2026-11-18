@@ -175,3 +175,28 @@ export function PrintIcon(props: IconProps) {
     </Svg>
   );
 }
+
+export function BookmarkIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M4 2.5h8v11L8 10.6 4 13.5Z" />
+    </Svg>
+  );
+}
+
+export function CheckIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="m3.5 8.4 2.9 2.9 6.1-6.6" />
+    </Svg>
+  );
+}
+
+export function UserIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <circle cx="8" cy="5.4" r="2.6" />
+      <path d="M2.8 13.6c.7-2.5 2.8-4 5.2-4s4.5 1.5 5.2 4" />
+    </Svg>
+  );
+}
