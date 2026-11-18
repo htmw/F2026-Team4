@@ -27,6 +27,7 @@ import {
   PrintIcon,
 } from "./icons";
 import { dayRouteLink, mapsLink, ticketLink } from "./links";
+import { ShareButton } from "./ShareButton";
 import type { Itinerary, ItineraryItem, PlanRequest } from "./types";
 
 export interface RemovedPlace {
@@ -50,6 +51,10 @@ interface Props {
   replanError?: string | null;
   // "Save trip" to My trips. Left out, the button isn't shown.
   save?: SaveControl;
+  // "Share" copies a read-only link to this trip. Left out, the button isn't shown.
+  shareUrl?: string;
+  // A shared trip opened from a link: no Remove, Re-plan or Undo.
+  readOnly?: boolean;
 }
 
 export interface SaveControl {
@@ -70,6 +75,8 @@ export function ItineraryView({
   undoing,
   replanError,
   save,
+  shareUrl,
+  readOnly = false,
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
@@ -130,6 +137,7 @@ export function ItineraryView({
         {request && <p className="plan-dates">{dayCountLabel(itinerary.days.length)}</p>}
         <div className="plan-export" role="group" aria-label="Save or export this plan">
           {save && <SaveButton save={save} />}
+          {shareUrl && <ShareButton url={shareUrl} />}
           <button type="button" className="button-secondary button-small" onClick={() => downloadIcs(itinerary)}>
             <CalendarIcon />
             Add to calendar
@@ -149,7 +157,7 @@ export function ItineraryView({
 
       <FitSummary itinerary={itinerary} request={request} score={score} />
 
-      {lastRemoved && lastRemoved.length > 0 && (
+      {!readOnly && lastRemoved && lastRemoved.length > 0 && (
         <div className="notice" role="status" ref={noticeRef} tabIndex={-1}>
           <p>Removed {listNames(lastRemoved.map((p) => p.name))} and re-planned the trip.</p>
           <button type="button" className="button-secondary button-small" disabled={undoing} onClick={onUndo}>
@@ -295,6 +303,7 @@ export function ItineraryView({
                       </p>
                       <StopLinks item={item} name={name} city={destination.name} />
                     </div>
+                    {!readOnly && (
                     <button
                       type="button"
                       className={`remove-button${isRejected ? " is-active" : ""}`}
@@ -311,6 +320,7 @@ export function ItineraryView({
                         </>
                       )}
                     </button>
+                    )}
                   </div>
                   </div>
                 </li>
@@ -337,7 +347,7 @@ export function ItineraryView({
         </dl>
       </details>
 
-      {rejected.length > 0 && (
+      {!readOnly && rejected.length > 0 && (
         <div className="replan-bar">
           {replanError && (
             <p className="replan-error" role="alert" tabIndex={-1} ref={replanErrorRef}>

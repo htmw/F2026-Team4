@@ -8,11 +8,13 @@ import { formatDateRange, prettifyPlaceId } from "./format";
 import { FoldedMapIcon, InterestIcon, UserIcon } from "./icons";
 import { ItineraryView } from "./ItineraryView";
 import type { RemovedPlace, SaveControl } from "./ItineraryView";
+import { shareLink } from "./links";
 import { LoginPage } from "./LoginPage";
 import { MyTrips } from "./MyTrips";
 import { PreferenceForm } from "./PreferenceForm";
 import { navigate, useRoute } from "./route";
 import { savedTrips } from "./savedTrips";
+import { SharedTrip } from "./SharedTrip";
 import type { SavedTrip } from "./savedTrips";
 import type { Itinerary, PlanRequest } from "./types";
 
@@ -245,6 +247,10 @@ export function App() {
             }
           />
         </main>
+      ) : route.page === "shared" ? (
+        <main className="page page-wide">
+          <SharedTrip tripId={route.tripId} />
+        </main>
       ) : route.page === "trips" ? (
         <main className="page">
           {user && (
@@ -307,6 +313,7 @@ export function App() {
               onUndo={handleUndo}
               undoing={undoing}
               save={saveControl}
+              shareUrl={shareLink(itinerary.trip_id)}
             />
           ) : (
             !error &&

@@ -64,3 +64,8 @@ export function ticketLink(item: ItineraryItem, interest: string | null): Ticket
   const href = safeUrl(item.website);
   return href ? { label: "Tickets", href } : null;
 }
+
+/** A read-only link to a saved trip: this page with #/trip/<id>. */
+export function shareLink(tripId: string, location: Pick<Location, "origin" | "pathname"> = window.location): string {
+  return `${location.origin}${location.pathname}#/trip/${encodeURIComponent(tripId)}`;
+}

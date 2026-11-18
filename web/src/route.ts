@@ -1,4 +1,4 @@
-// The few pages of the app, kept in the URL hash (#/login, #/trips) so links, the Back
+// The few pages of the app, kept in the URL hash (#/login, #/trips, #/trip/<id>) so links, the Back
 // button and refresh work on any static host without server rewrites.
 
 import { useEffect, useState } from "react";
@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 export type Route =
   | { page: "plan" }
   | { page: "login"; next: "save" | null }
-  | { page: "trips" };
+  | { page: "trips" }
+  | { page: "shared"; tripId: string };
 
 export function parseRoute(hash: string): Route {
   const [path, query = ""] = hash.replace(/^#/, "").split("?");
@@ -15,7 +16,16 @@ export function parseRoute(hash: string): Route {
     return { page: "login", next: new URLSearchParams(query).get("next") === "save" ? "save" : null };
   }
   if (parts[0] === "trips") return { page: "trips" };
+  if (parts[0] === "trip" && parts[1]) return { page: "shared", tripId: safeDecode(parts[1]) };
   return { page: "plan" };
+}
+
+function safeDecode(text: string): string {
+  try {
+    return decodeURIComponent(text);
+  } catch {
+    return text;
+  }
 }
 
 export function routeHash(route: Route): string {
@@ -24,6 +34,8 @@ export function routeHash(route: Route): string {
       return route.next ? `#/login?next=${route.next}` : "#/login";
     case "trips":
       return "#/trips";
+    case "shared":
+      return `#/trip/${encodeURIComponent(route.tripId)}`;
     default:
       return "#/";
   }

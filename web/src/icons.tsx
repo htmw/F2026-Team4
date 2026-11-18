@@ -200,3 +200,14 @@ export function UserIcon(props: IconProps) {
     </Svg>
   );
 }
+
+export function ShareIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <circle cx="4.2" cy="8" r="1.7" />
+      <circle cx="11.8" cy="3.8" r="1.7" />
+      <circle cx="11.8" cy="12.2" r="1.7" />
+      <path d="m5.7 7.2 4.6-2.6M5.7 8.8l4.6 2.6" />
+    </Svg>
+  );
+}
