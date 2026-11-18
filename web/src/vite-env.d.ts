@@ -5,6 +5,8 @@ interface ImportMetaEnv {
   // "demo" (default): accounts and saved-trip lists in this browser. "server": the backend's
   // /auth and /me/trips endpoints (see web/BACKEND-HANDOFF.md).
   readonly VITE_AUTH_MODE?: "demo" | "server";
+  // Map tiles for the day map; defaults to OpenStreetMap's standard tiles.
+  readonly VITE_MAP_TILES?: string;
 }
 
 interface ImportMeta {

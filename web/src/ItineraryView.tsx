@@ -26,6 +26,7 @@ import {
   PinIcon,
   PrintIcon,
 } from "./icons";
+import { DayMap } from "./DayMap";
 import { dayRouteLink, mapsLink, ticketLink } from "./links";
 import { ShareButton } from "./ShareButton";
 import type { Itinerary, ItineraryItem, PlanRequest } from "./types";
@@ -241,6 +242,7 @@ export function ItineraryView({
             </p>
           )}
           {day.items.length === 0 && <p className="muted">Nothing scheduled this day.</p>}
+          {!printing && <DayMap items={day.items} dayNumber={dayNumber} />}
           <ol className="timeline">
             {day.items.map((item, i) => {
               const isRejected = rejected.includes(item.place_id);

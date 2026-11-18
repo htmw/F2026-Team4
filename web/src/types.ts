@@ -44,6 +44,9 @@ export interface ItineraryItem {
   // Not in the contract yet: the place's official website (OpenStreetMap "website" tag). Paid
   // tourist attractions get a "Tickets" link to it when present.
   website?: string;
+  // Not in the contract yet: where the place is, for the day map. No coordinates, no map.
+  lat?: number;
+  lon?: number;
 }
 
 export interface ItineraryDay {

@@ -2006,3 +2006,70 @@ a.button-primary,
 a.button-secondary {
   text-decoration: none;
 }
+
+/* ---- Day map ---- */
+
+.day-map {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+}
+
+.day-map-canvas {
+  height: 300px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  overflow: hidden;
+  /* Leaflet's panes use z-index up to 1000; keep them under the sticky re-plan bar. */
+  isolation: isolate;
+  z-index: 0;
+}
+
+@media (max-width: 480px) {
+  .day-map-canvas {
+    height: 230px;
+  }
+}
+
+.day-map-caption,
+.day-map-failed {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.day-map-marker {
+  background: none;
+  border: 0;
+}
+
+.day-map-pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(16, 40, 30, 0.35);
+  color: #fff;
+  font: 700 13px/1 var(--font-display);
+}
+
+.day-map-pin.pin-food { background: var(--pin-food); }
+.day-map-pin.pin-history { background: var(--pin-history); }
+.day-map-pin.pin-art { background: var(--pin-art); }
+.day-map-pin.pin-architecture { background: var(--pin-architecture); }
+.day-map-pin.pin-nature { background: var(--pin-nature); }
+.day-map-pin.pin-nightlife { background: var(--pin-nightlife); }
+.day-map-pin.pin-shopping { background: var(--pin-shopping); }
+.day-map-pin.pin-other { background: var(--pin-other); }
+
+.day-map-path {
+  stroke: var(--cover);
+}
+
+@media print {
+  .day-map {
+    display: none !important;
+  }
+}
