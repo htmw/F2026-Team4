@@ -396,6 +396,9 @@ def schedule(
             items.append({
                 "place_id": place["id"],
                 "name": place["name"],
+                # Where the stop is, for the day map (and "open in Maps" links).
+                "lat": place["lat"],
+                "lon": place["lon"],
                 "start": to_hhmm(start),
                 "end": to_hhmm(start + duration),
                 "travel_from_prev": {
@@ -611,6 +614,9 @@ def plan_itinerary(
             if about:
                 item["description"] = about["text"]
                 item["description_source"] = about["source"]
+                for key in ("website", "phone"):
+                    if about.get(key):
+                        item[key] = about[key]
 
     if city_data.source == "fixture":
         itinerary["warnings"].append(

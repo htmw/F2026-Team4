@@ -50,7 +50,8 @@ TOWER = {
     "id": 1,
     "lat": 41.1458,
     "lon": -8.6110,
-    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction", "wikidata": "Q1145985"},
+    "tags": {"name": "Torre dos Clérigos", "tourism": "attraction", "wikidata": "Q1145985",
+             "website": "https://www.torredosclerigos.pt", "phone": "+351 22 014 5489"},
 }
 
 
@@ -126,6 +127,8 @@ def test_plan_for_a_live_city(osm):
     assert item["name"] == "Torre dos Clérigos"
     assert item["description"].startswith("The Clérigos Church is a Baroque church")
     assert item["description_source"] == "wikipedia"
+    assert item["website"] == "https://www.torredosclerigos.pt"
+    assert item["phone"] == "+351 22 014 5489"
 
 
 def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):
@@ -284,11 +287,10 @@ def test_the_walk_to_the_nearest_bus_stop_is_saved_with_the_city(osm, monkeypatc
 def test_a_famous_place_is_described_from_wikipedia(osm):
     city = catalog.load_city("Porto")
 
-    assert catalog.description_of("osm:node/1") == {
-        "text": "The Clérigos Church is a Baroque church in Porto. Its tower can be seen "
-        "from various points of the city.",
-        "source": "wikipedia",
-    }
+    about = catalog.description_of("osm:node/1")
+    assert about["text"] == ("The Clérigos Church is a Baroque church in Porto. Its tower can "
+                             "be seen from various points of the city.")
+    assert about["source"] == "wikipedia"
     assert (city.path / "descriptions.json").exists()
 
 
@@ -301,6 +303,5 @@ def test_wikipedia_down_still_gives_every_place_a_line(osm, monkeypatch):
     monkeypatch.setattr(catalog, "http_get", no_wikipedia)
     catalog.load_city("Porto")
 
-    assert catalog.description_of("osm:node/1") == {
-        "text": "Landmark.", "source": "openstreetmap",
-    }
+    about = catalog.description_of("osm:node/1")
+    assert (about["text"], about["source"]) == ("Landmark.", "openstreetmap")

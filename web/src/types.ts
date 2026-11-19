@@ -37,13 +37,13 @@ export interface ItineraryItem {
   // What the place is; "wikipedia" text is credited next to it.
   description?: string;
   description_source?: "wikipedia" | "openstreetmap";
+  // The place's own website and phone number, when OpenStreetMap lists them.
+  website?: string;
+  phone?: string;
   // When the place is open on the visit's day, as [open, close] pairs.
   open_hours?: [string, string][];
   reason: string;
   confidence: Confidence;
-  // Not in the contract yet: the place's official website (OpenStreetMap "website" tag). Paid
-  // tourist attractions get a "Tickets" link to it when present.
-  website?: string;
   // Not in the contract yet: where the place is, for the day map. No coordinates, no map.
   lat?: number;
   lon?: number;

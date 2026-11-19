@@ -517,3 +517,11 @@ def test_estimated_hours_are_followed_too():
 
     assert item["start"] >= "14:00"
     assert item["open_hours"] == [["14:00", "18:00"]]
+
+
+def test_each_stop_says_where_it_is_for_the_day_map():
+    result = run([make_place("museum-1")])
+    item = result["days"][0]["items"][0]
+
+    assert (item["lat"], item["lon"]) == (38.72, -9.14)
+    assert validate("itinerary", result) == []
