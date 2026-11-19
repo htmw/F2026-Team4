@@ -1217,6 +1217,71 @@ select {
   font-variant-numeric: tabular-nums;
 }
 
+/* Links beside a stop (Map, Tickets) and the day's route: quiet text links that open a new tab */
+.stop-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.stop-links a,
+.day-route-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 32px;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.stop-links a:hover,
+.day-route-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.stop-links .icon,
+.day-route-link .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.day-route-link {
+  margin-left: var(--space-3);
+  font-size: 14px;
+}
+
+/* Export buttons in the plan header */
+.plan-export {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.plan-header {
+  flex-wrap: wrap;
+}
+
+@media print {
+  /* A saved PDF is the plan itself: no form, no buttons, no links row clutter */
+  .planner,
+  .plan-export,
+  .day-nav,
+  .remove-button,
+  .replan-bar,
+  .legend,
+  .notice {
+    display: none !important;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .confidence {
   font-weight: 600;
 }
@@ -1663,4 +1728,495 @@ fieldset.group > legend + * {
 }
 .describe-trip-note {
   color: #166534;
+}
+
+/* Keep the design's colours when a plan is printed or saved as PDF: browsers drop background
+   colours by default, which blanks the header band, the route pins and the scale bars. */
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ---- Accounts: header nav, log-in page, My trips ---- */
+
+.wordmark-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.account-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  margin-left: auto;
+  min-height: 40px;
+  font-size: 15px;
+}
+
+.account-link,
+.account-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--cover-ink);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.account-link:hover,
+.account-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.account-nav :focus-visible {
+  outline-color: var(--cover-ink);
+}
+
+.account-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cover-ink-2);
+}
+
+/* Single-column pages (log in, My trips) sit on the same cover as the planner. */
+.page {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.auth-panel {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.auth-panel .panel-title:focus {
+  outline: none;
+}
+
+.auth-lead {
+  color: var(--ink-2);
+}
+
+.auth-form fieldset {
+  display: grid;
+  gap: var(--space-4);
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.password-row {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.password-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.auth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.auth-switch {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+}
+
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.auth-demo-note {
+  padding: var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+.my-trips {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.my-trips-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.my-trips-header .panel-title:focus {
+  outline: none;
+}
+
+.my-trips-empty {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-3);
+  text-align: center;
+  color: var(--ink-2);
+}
+
+.my-trips-empty-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--path);
+  stroke-width: 1.2;
+}
+
+.trip-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trip-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+
+.trip-card-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.trip-card-meta {
+  margin-top: 2px;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.trip-card-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* "Save trip" on the plan, and its saved state. */
+.plan-saved {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 var(--space-2);
+  color: var(--ok-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.plan-save-error {
+  margin-top: calc(-1 * var(--space-2));
+}
+
+@media print {
+  .account-nav {
+    display: none !important;
+  }
+}
+
+/* ---- Sharing ---- */
+
+.share {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.share-manual {
+  display: grid;
+  gap: var(--space-1);
+  flex-basis: 100%;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.share-manual input {
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-control);
+  font: inherit;
+  color: var(--ink);
+}
+
+.page-wide {
+  max-width: 820px;
+}
+
+.shared-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+@media print {
+  .shared-banner {
+    display: none !important;
+  }
+}
+
+a.button-primary,
+a.button-secondary {
+  text-decoration: none;
+}
+
+/* ---- Day map ---- */
+
+.day-map {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+}
+
+.day-map-canvas {
+  height: 300px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface-sunken);
+  overflow: hidden;
+  /* Leaflet's panes use z-index up to 1000; keep them under the sticky re-plan bar. */
+  isolation: isolate;
+  z-index: 0;
+}
+
+@media (max-width: 480px) {
+  .day-map-canvas {
+    height: 230px;
+  }
+}
+
+.day-map-caption,
+.day-map-failed {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.day-map-marker {
+  background: none;
+  border: 0;
+}
+
+.day-map-pin {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(16, 40, 30, 0.35);
+  color: #fff;
+  font: 700 13px/1 var(--font-display);
+}
+
+.day-map-pin.pin-food { background: var(--pin-food); }
+.day-map-pin.pin-history { background: var(--pin-history); }
+.day-map-pin.pin-art { background: var(--pin-art); }
+.day-map-pin.pin-architecture { background: var(--pin-architecture); }
+.day-map-pin.pin-nature { background: var(--pin-nature); }
+.day-map-pin.pin-nightlife { background: var(--pin-nightlife); }
+.day-map-pin.pin-shopping { background: var(--pin-shopping); }
+.day-map-pin.pin-other { background: var(--pin-other); }
+
+.day-map-path {
+  stroke: var(--cover);
+}
+
+@media print {
+  .day-map {
+    display: none !important;
+  }
+}
+
+/* ---- Swap a stop, add a place ---- */
+
+.stop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.swap-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--control-height);
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.swap-button:hover,
+.swap-button[aria-expanded="true"] {
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+.swap-button[aria-expanded="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+/* The rail runs past an open suggestions list, so the footpath doesn't break. */
+.stop-rail {
+  grid-row: 2 / span 2;
+}
+
+.suggestions {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: #f7faff;
+}
+
+.day > .suggestions {
+  margin: var(--space-2) 0 0;
+}
+
+.suggestions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.suggestions-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.suggestions-title:focus {
+  outline: none;
+}
+
+.suggestion-list {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.suggestion {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-control);
+  background: var(--surface);
+}
+
+.stop-pin.stop-pin-small {
+  width: 28px;
+  height: 28px;
+}
+
+.stop-pin.stop-pin-small .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.suggestion-name {
+  font-weight: 600;
+}
+
+.suggestion-meta {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+
+.add-stop-button {
+  margin-top: var(--space-1);
+  margin-left: calc(36px + var(--space-3) - var(--space-2));
+}
+
+.notice-warn {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+}
+
+@media (max-width: 480px) {
+  .stop-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .suggestion {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .suggestion .stop-pin {
+    display: none;
+  }
+
+  .add-stop-button {
+    margin-left: 0;
+  }
+}
+
+@media print {
+  .stop-actions,
+  .suggestions,
+  .add-stop-button {
+    display: none !important;
+  }
 }

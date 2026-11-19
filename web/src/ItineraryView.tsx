@@ -12,8 +12,28 @@ import {
   prettifyPlaceId,
   priceLabel,
 } from "./format";
-import { AlertIcon, ChevronLeft, ChevronRight, CloseIcon, InterestIcon } from "./icons";
-import type { Itinerary, PlanRequest } from "./types";
+import { downloadIcs } from "./calendar";
+import {
+  AlertIcon,
+  BookmarkIcon,
+  CalendarIcon,
+  CheckIcon,
+  ChevronLeft,
+  ChevronRight,
+  CloseIcon,
+  ExternalIcon,
+  InterestIcon,
+  PinIcon,
+  PlusIcon,
+  PrintIcon,
+  SwapIcon,
+} from "./icons";
+import { DayMap } from "./DayMap";
+import { dayRouteLink, mapsLink, ticketLink } from "./links";
+import { ShareButton } from "./ShareButton";
+import { StopSuggestions } from "./StopSuggestions";
+import type { Suggestion } from "./api";
+import type { Itinerary, ItineraryItem, PlanRequest } from "./types";
 
 export interface RemovedPlace {
   id: string;
@@ -34,6 +54,30 @@ interface Props {
   undoing: boolean;
   // A failed re-plan or undo, shown next to the re-plan controls rather than at the top.
   replanError?: string | null;
+  // "Save trip" to My trips. Left out, the button isn't shown.
+  save?: SaveControl;
+  // "Share" copies a read-only link to this trip. Left out, the button isn't shown.
+  shareUrl?: string;
+  // A shared trip opened from a link: no Remove, Re-plan or Undo.
+  readOnly?: boolean;
+  // Swap a stop for another place, or add one to a day; resolves once re-planned.
+  // Left out, the Swap and Add buttons aren't shown.
+  onChangeStop?: (change: StopChange) => Promise<void>;
+  // What the last swap or add did ("Swapped … for …"), or why it couldn't.
+  changeNote?: { text: string; ok: boolean } | null;
+}
+
+export interface StopChange {
+  add: Suggestion;
+  replace?: { id: string; name: string };
+}
+
+type OpenPanel = { kind: "swap"; placeId: string } | { kind: "add"; date: string } | null;
+
+export interface SaveControl {
+  status: "unsaved" | "saving" | "saved";
+  onSave: () => void;
+  error?: string | null;
 }
 
 export function ItineraryView({
@@ -47,9 +91,34 @@ export function ItineraryView({
   onUndo,
   undoing,
   replanError,
+  save,
+  shareUrl,
+  readOnly = false,
+  onChangeStop,
+  changeNote,
 }: Props) {
   const { destination, totals, warnings, score } = itinerary;
   const [dayIndex, setDayIndex] = useState(0);
+  // The open "Swap" or "Add a place" list, if any.
+  const [openPanel, setOpenPanel] = useState<OpenPanel>(null);
+  const canChange = !readOnly && onChangeStop !== undefined;
+  // A new plan (from a swap, add or re-plan) closes the list.
+  useEffect(() => setOpenPanel(null), [itinerary]);
+  // "Save as PDF" renders every day, opens the browser's print dialog, then returns to one day.
+  const [printing, setPrinting] = useState(false);
+  useEffect(() => {
+    if (!printing) return;
+    const done = () => setPrinting(false);
+    window.addEventListener("afterprint", done);
+    const frame = requestAnimationFrame(() => {
+      window.print();
+      done();
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("afterprint", done);
+    };
+  }, [printing]);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const tripRef = useRef<string | null>(null);
   const noticeRef = useRef<HTMLDivElement>(null);
@@ -90,16 +159,40 @@ export function ItineraryView({
           {destination.name}
         </h2>
         {request && <p className="plan-dates">{dayCountLabel(itinerary.days.length)}</p>}
+        <div className="plan-export" role="group" aria-label="Save or export this plan">
+          {save && <SaveButton save={save} />}
+          {shareUrl && <ShareButton url={shareUrl} />}
+          <button type="button" className="button-secondary button-small" onClick={() => downloadIcs(itinerary)}>
+            <CalendarIcon />
+            Add to calendar
+          </button>
+          <button type="button" className="button-secondary button-small" onClick={() => setPrinting(true)}>
+            <PrintIcon />
+            Save as PDF
+          </button>
+        </div>
       </header>
+
+      {save?.error && (
+        <p className="field-error plan-save-error" role="alert">
+          {save.error}
+        </p>
+      )}
 
       <FitSummary itinerary={itinerary} request={request} score={score} />
 
-      {lastRemoved && lastRemoved.length > 0 && (
+      {!readOnly && lastRemoved && lastRemoved.length > 0 && (
         <div className="notice" role="status" ref={noticeRef} tabIndex={-1}>
           <p>Removed {listNames(lastRemoved.map((p) => p.name))} and re-planned the trip.</p>
           <button type="button" className="button-secondary button-small" disabled={undoing} onClick={onUndo}>
             {undoing ? "Undoing…" : "Undo"}
           </button>
+        </div>
+      )}
+
+      {changeNote && (
+        <div className={`notice${changeNote.ok ? "" : " notice-warn"}`} role="status">
+          <p>{changeNote.text}</p>
         </div>
       )}
 
@@ -152,12 +245,33 @@ export function ItineraryView({
       )}
 
       {day ? (
-        <section key={day.date} className="day" aria-labelledby="day-title">
-          <h3 id="day-title" className="day-title">
-            Day {dayIndex + 1} <span className="day-date">{formatDay(day.date)}</span>
+        // On screen one day at a time; when saving as PDF, every day in order.
+        (printing ? itinerary.days : [day]).map((day) => {
+        const dayNumber = itinerary.days.indexOf(day) + 1;
+        return (
+        <section key={day.date} className="day" aria-labelledby={`day-title-${dayNumber}`}>
+          <h3 id={`day-title-${dayNumber}`} className="day-title">
+            Day {dayNumber} <span className="day-date">{formatDay(day.date)}</span>
           </h3>
-          {day.items.length > 0 && <p className="day-totals">{dayTotals(day, totals.currency)}</p>}
+          {day.items.length > 0 && (
+            <p className="day-totals">
+              {dayTotals(day, totals.currency)}
+              {dayRouteLink(day.items, destination.name) && (
+                <a
+                  className="day-route-link"
+                  href={dayRouteLink(day.items, destination.name)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Day route in Google Maps
+                  <ExternalIcon />
+                  <span className="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              )}
+            </p>
+          )}
           {day.items.length === 0 && <p className="muted">Nothing scheduled this day.</p>}
+          {!printing && <DayMap items={day.items} dayNumber={dayNumber} />}
           <ol className="timeline">
             {day.items.map((item, i) => {
               const isRejected = rejected.includes(item.place_id);
@@ -218,7 +332,28 @@ export function ItineraryView({
                           {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                         </span>
                       </p>
+                      <StopLinks item={item} name={name} city={destination.name} />
                     </div>
+                    <div className="stop-actions">
+                    {canChange && !isRejected && (
+                      <button
+                        type="button"
+                        className="swap-button"
+                        aria-expanded={openPanel?.kind === "swap" && openPanel.placeId === item.place_id}
+                        aria-label={`Swap ${name} for another place`}
+                        onClick={() =>
+                          setOpenPanel(
+                            openPanel?.kind === "swap" && openPanel.placeId === item.place_id
+                              ? null
+                              : { kind: "swap", placeId: item.place_id },
+                          )
+                        }
+                      >
+                        <SwapIcon />
+                        <span className="remove-label">Swap</span>
+                      </button>
+                    )}
+                    {!readOnly && (
                     <button
                       type="button"
                       className={`remove-button${isRejected ? " is-active" : ""}`}
@@ -235,13 +370,49 @@ export function ItineraryView({
                         </>
                       )}
                     </button>
+                    )}
+                    </div>
                   </div>
+                  {canChange && openPanel?.kind === "swap" && openPanel.placeId === item.place_id && (
+                    <StopSuggestions
+                      tripId={itinerary.trip_id}
+                      currency={totals.currency}
+                      replace={{ id: item.place_id, name }}
+                      date={day.date}
+                      dayNumber={dayNumber}
+                      onChoose={(s) => onChangeStop!({ add: s, replace: { id: item.place_id, name } })}
+                      onClose={() => setOpenPanel(null)}
+                    />
+                  )}
                   </div>
                 </li>
               );
             })}
           </ol>
+          {canChange && !printing && (
+            openPanel?.kind === "add" && openPanel.date === day.date ? (
+              <StopSuggestions
+                tripId={itinerary.trip_id}
+                currency={totals.currency}
+                date={day.date}
+                dayNumber={dayNumber}
+                onChoose={(s) => onChangeStop!({ add: s })}
+                onClose={() => setOpenPanel(null)}
+              />
+            ) : (
+              <button
+                type="button"
+                className="button-quiet add-stop-button"
+                onClick={() => setOpenPanel({ kind: "add", date: day.date })}
+              >
+                <PlusIcon />
+                Add a place to Day {dayNumber}
+              </button>
+            )
+          )}
         </section>
+        );
+        })
       ) : (
         <p className="muted">Nothing scheduled.</p>
       )}
@@ -259,7 +430,7 @@ export function ItineraryView({
         </dl>
       </details>
 
-      {rejected.length > 0 && (
+      {!readOnly && rejected.length > 0 && (
         <div className="replan-bar">
           {replanError && (
             <p className="replan-error" role="alert" tabIndex={-1} ref={replanErrorRef}>
@@ -395,19 +566,46 @@ function planNotes(itinerary: Itinerary, warnings: string[]): string[] {
 }
 
 // "3 stops · 45 min walking · ¥6,800" for one day.
+// Links beside a stop: Google Maps, and for a paid tourist attraction its official website for
+// tickets when the data has one. They open in a new tab so the plan stays where it was.
+function StopLinks({ item, name, city }: { item: ItineraryItem; name: string; city: string }) {
+  const tickets = ticketLink(item, interestFromReason(item.reason));
+  return (
+    <p className="stop-links">
+      <a href={mapsLink(item, city)} target="_blank" rel="noopener noreferrer" aria-label={`${name} in Google Maps (opens in a new tab)`}>
+        <PinIcon />
+        Map
+      </a>
+      {tickets && (
+        <a href={tickets.href} target="_blank" rel="noopener noreferrer" aria-label={`Tickets for ${name} on the official website (opens in a new tab)`}>
+          <ExternalIcon />
+          Tickets
+        </a>
+      )}
+    </p>
+  );
+}
+
 // A map-style scale bar: the track runs to the traveler's limit (the tick), the fill shows what the
 // plan uses. Past the limit the track extends and the overflow is drawn in the warning colour.
 // Decorative: the text next to it says the same thing.
 function ScaleBar({ value, limit, label }: { value: number; limit: number; label: string }) {
-  const span = Math.max(value, limit) * 1.1;
-  const pct = (n: number) => `${Math.min(100, (n / span) * 100).toFixed(1)}%`;
+  // Within the limit the bar ends at the limit's tick; only an overflow extends the bar past it,
+  // so there is never an empty stretch after the tick.
   const over = value > limit;
+  const span = over ? value * 1.05 : limit;
+  const share = (n: number) => Math.min(100, (n / span) * 100);
+  const pct = (n: number) => `${share(n).toFixed(1)}%`;
+  const tickAtEnd = share(limit) > 92;
   return (
     <span className={`scale${over ? " is-over" : ""}`} aria-hidden="true">
       <span className="scale-fill" style={{ width: pct(Math.min(value, limit)) }} />
       {over && <span className="scale-over" style={{ left: pct(limit), width: pct(value - limit) }} />}
       <span className="scale-tick" style={{ left: pct(limit) }} />
-      <span className="scale-label" style={{ right: `calc(100% - ${pct(limit)})` }}>
+      <span
+        className="scale-label"
+        style={tickAtEnd ? { right: 0, transform: "none" } : { right: `calc(100% - ${pct(limit)})` }}
+      >
         {label}
       </span>
     </span>
@@ -441,4 +639,26 @@ function dayCountLabel(days: number): string {
 function listNames(names: string[]): string {
   if (names.length <= 1) return names.join("");
   return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+function SaveButton({ save }: { save: SaveControl }) {
+  if (save.status === "saved") {
+    return (
+      <span className="plan-saved" role="status">
+        <CheckIcon />
+        Saved to My trips
+      </span>
+    );
+  }
+  return (
+    <button
+      type="button"
+      className="button-primary button-small"
+      disabled={save.status === "saving"}
+      onClick={save.onSave}
+    >
+      <BookmarkIcon />
+      {save.status === "saving" ? "Saving…" : "Save trip"}
+    </button>
+  );
 }

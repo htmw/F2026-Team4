@@ -1,6 +1,6 @@
 import type { Itinerary, PlanRequest, TravelerProfile } from "./types";
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
+export const API_BASE = import.meta.env.VITE_API_BASE ?? "http://localhost:8000";
 
 // An API error with a readable message. `field` is set when the problem is a form field
 // the user can fix (today: an unknown or invalid destination), so the form can show the
@@ -108,4 +108,53 @@ export async function postProfileFromText(text: string): Promise<ProfileFromText
     throw readableError("Profile", resp.status, await resp.text());
   }
   return (await resp.json()) as ProfileFromText;
+}
+
+// A saved trip's latest plan (the backend keeps every planned trip, re-plans included).
+export async function getTrip(tripId: string): Promise<Itinerary> {
+  const resp = await fetch(`${API_BASE}/trips/${encodeURIComponent(tripId)}`);
+  if (!resp.ok) {
+    if (resp.status === 404) {
+      throw new ApiError("This trip couldn't be found. It may have been deleted from the planner.", 404);
+    }
+    throw readableError("Trip", resp.status, await resp.text());
+  }
+  return (await resp.json()) as Itinerary;
+}
+
+// A place the traveler could add, or use instead of a stop (GET /trips/{id}/suggestions).
+export interface Suggestion {
+  place_id: string;
+  name: string;
+  reason: string;
+  cost?: number;
+  cost_confidence?: "known" | "inferred" | "unknown";
+}
+
+// The backend doesn't have the suggestions endpoint yet; the UI says so instead of failing.
+export class SuggestionsUnavailable extends Error {
+  constructor() {
+    super("Adding and swapping places isn't available yet.");
+    this.name = "SuggestionsUnavailable";
+  }
+}
+
+export async function getSuggestions(
+  tripId: string,
+  options: { replace?: string; date?: string } = {},
+): Promise<Suggestion[]> {
+  const params = new URLSearchParams();
+  if (options.replace) params.set("replace", options.replace);
+  if (options.date) params.set("date", options.date);
+  const query = params.toString();
+  const resp = await fetch(`${API_BASE}/trips/${encodeURIComponent(tripId)}/suggestions${query ? `?${query}` : ""}`);
+  if (resp.status === 404 || resp.status === 405 || resp.status === 501) {
+    // A 404 that names the trip means the trip is gone; any other 404 means no endpoint.
+    const text = await resp.text();
+    if (resp.status === 404 && /No trip with id/.test(text)) throw readableError("Suggestions", 404, text);
+    throw new SuggestionsUnavailable();
+  }
+  if (!resp.ok) throw readableError("Suggestions", resp.status, await resp.text());
+  const body = (await resp.json()) as { suggestions?: Suggestion[] };
+  return body.suggestions ?? [];
 }

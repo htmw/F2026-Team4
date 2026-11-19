@@ -1,12 +1,21 @@
 import { useEffect, useRef, useState } from "react";
 
-import { ApiError, postFeedback, postPlan } from "./api";
+import { ApiError, getTrip, postFeedback, postPlan } from "./api";
 import type { Feedback } from "./api";
+import { auth } from "./auth";
+import type { User } from "./auth";
 import { formatDateRange, prettifyPlaceId } from "./format";
-import { FoldedMapIcon, InterestIcon } from "./icons";
+import { FoldedMapIcon, InterestIcon, UserIcon } from "./icons";
 import { ItineraryView } from "./ItineraryView";
-import type { RemovedPlace } from "./ItineraryView";
+import type { RemovedPlace, SaveControl, StopChange } from "./ItineraryView";
+import { shareLink } from "./links";
+import { LoginPage } from "./LoginPage";
+import { MyTrips } from "./MyTrips";
 import { PreferenceForm } from "./PreferenceForm";
+import { navigate, useRoute } from "./route";
+import { savedTrips } from "./savedTrips";
+import { SharedTrip } from "./SharedTrip";
+import type { SavedTrip } from "./savedTrips";
 import type { Itinerary, PlanRequest } from "./types";
 
 export function App() {
@@ -30,6 +39,108 @@ export function App() {
   const [undoing, setUndoing] = useState(false);
   // A failed re-plan or undo is shown next to the re-plan controls, not in the top banner.
   const [replanError, setReplanError] = useState<string | null>(null);
+  // What the last swap or add did.
+  const [changeNote, setChangeNote] = useState<{ text: string; ok: boolean } | null>(null);
+
+  const route = useRoute();
+  // undefined while we check whether someone is already logged in.
+  const [user, setUser] = useState<User | null | undefined>(undefined);
+  // Trip ids in the user's My trips, so the plan on screen can say it's already saved.
+  const [savedIds, setSavedIds] = useState<string[]>([]);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [opening, setOpening] = useState<string | null>(null);
+  const [openError, setOpenError] = useState<string | null>(null);
+
+  useEffect(() => {
+    auth
+      .current()
+      .then(setUser)
+      .catch(() => setUser(null));
+  }, []);
+
+  useEffect(() => {
+    if (!user) {
+      setSavedIds([]);
+      return;
+    }
+    let live = true;
+    savedTrips
+      .list(user)
+      .then((list) => live && setSavedIds(list.map((t) => t.trip_id)))
+      .catch(() => live && setSavedIds([]));
+    return () => {
+      live = false;
+    };
+  }, [user]);
+
+  async function saveTrip(who: User, plan: Itinerary) {
+    setSaving(true);
+    setSaveError(null);
+    try {
+      await savedTrips.save(who, plan, lastRequest);
+      setSavedIds((ids) => (ids.includes(plan.trip_id) ? ids : [...ids, plan.trip_id]));
+    } catch (err) {
+      setSaveError(`Couldn't save the trip: ${sentence(err)}`);
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  function handleSave() {
+    if (!itinerary) return;
+    if (!user) {
+      navigate({ page: "login", next: "save" });
+      return;
+    }
+    void saveTrip(user, itinerary);
+  }
+
+  function handleLoggedIn(who: User) {
+    setUser(who);
+    if (route.page === "login" && route.next === "save" && itinerary) {
+      void saveTrip(who, itinerary);
+      navigate({ page: "plan" });
+    } else {
+      navigate({ page: "trips" });
+    }
+  }
+
+  async function handleLogOut() {
+    await auth.logOut();
+    setUser(null);
+    setSaveError(null);
+    navigate({ page: "plan" });
+  }
+
+  async function openSavedTrip(trip: SavedTrip) {
+    setOpening(trip.trip_id);
+    setOpenError(null);
+    try {
+      const plan = await getTrip(trip.trip_id);
+      setItinerary(plan);
+      setLastRequest(trip.request ?? null);
+      setChangeNote(null);
+      setRejected([]);
+      setLastRemoved(null);
+      setReplanError(null);
+      setError(null);
+      setFormOpen(false);
+      navigate({ page: "plan" });
+    } catch (err) {
+      setOpenError(`Couldn't open the ${trip.destination} trip: ${sentence(err)}`);
+    } finally {
+      setOpening(null);
+    }
+  }
+
+  const saveControl: SaveControl | undefined = itinerary
+    ? {
+        status: savedIds.includes(itinerary.trip_id) ? "saved" : saving ? "saving" : "unsaved",
+        onSave: handleSave,
+        error: saveError,
+      }
+    : undefined;
 
   async function handleSubmit(req: PlanRequest) {
     setSubmitting(true);
@@ -44,6 +155,8 @@ export function App() {
       setRejected([]);
       setLastRemoved(null);
       setReplanError(null);
+      setSaveError(null);
+      setChangeNote(null);
       setFormOpen(false);
     } catch (err) {
       // Keep the plan that is already on screen: a failed new request shouldn't destroy it.
@@ -77,6 +190,7 @@ export function App() {
       setItinerary(await postFeedback(itinerary.trip_id, feedback));
       setRejected([]);
       setLastRemoved(removed);
+      setChangeNote(null);
     } catch (err) {
       setReplanError(`Couldn't re-plan the trip: ${sentence(err)} Your plan hasn't changed.`);
     } finally {
@@ -101,6 +215,27 @@ export function App() {
     }
   }
 
+  // Swap a stop or add a place: the chosen place is sent as accepted (the planner must fit
+  // it in) and a swapped-out stop as rejected, then the trip is re-planned. Errors go back
+  // to the suggestions list, which shows them.
+  async function handleChangeStop({ add, replace }: StopChange) {
+    if (!itinerary) return;
+    const feedback: Feedback = { accepted: [add.place_id], rejected: replace ? [replace.id] : [] };
+    const plan = await postFeedback(itinerary.trip_id, feedback);
+    const fitted = plan.days.some((d) => d.items.some((i) => i.place_id === add.place_id));
+    setItinerary(plan);
+    setRejected([]);
+    setLastRemoved(null);
+    setChangeNote(
+      fitted
+        ? { text: replace ? `Swapped ${replace.name} for ${add.name}.` : `Added ${add.name} to your trip.`, ok: true }
+        : {
+            text: `The planner couldn't fit ${add.name} into this trip${replace ? `, so ${replace.name} was removed and something else planned` : ""}.`,
+            ok: false,
+          },
+    );
+  }
+
   function openForm() {
     setFormOpen(true);
     requestAnimationFrame(() => {
@@ -114,13 +249,47 @@ export function App() {
       <header className="app-header">
         <div className="app-header-inner">
           <h1 className="wordmark">
-            <FoldedMapIcon className="wordmark-mark" />
-            Wanderwise
+            <a href="#/" className="wordmark-link">
+              <FoldedMapIcon className="wordmark-mark" />
+              Wanderwise
+            </a>
           </h1>
           <p className="app-tagline">Day plans you can actually walk</p>
+          <AccountNav user={user} onLogOut={handleLogOut} />
         </div>
       </header>
 
+      {route.page === "login" || (route.page === "trips" && user === null) ? (
+        <main className="page">
+          <LoginPage
+            onLoggedIn={handleLoggedIn}
+            onCancel={() => navigate({ page: "plan" })}
+            reason={
+              route.page === "trips"
+                ? "Log in to see your saved trips."
+                : route.next === "save"
+                  ? "Log in or create an account to save this trip. Your plan stays as it is."
+                  : null
+            }
+          />
+        </main>
+      ) : route.page === "shared" ? (
+        <main className="page page-wide">
+          <SharedTrip tripId={route.tripId} />
+        </main>
+      ) : route.page === "trips" ? (
+        <main className="page">
+          {user && (
+            <MyTrips
+              user={user}
+              onOpen={openSavedTrip}
+              onPlanNew={() => navigate({ page: "plan" })}
+              opening={opening}
+              openError={openError}
+            />
+          )}
+        </main>
+      ) : (
       <main className="layout">
         <div className={`planner${formOpen ? "" : " planner-collapsed"}`}>
           {lastRequest && (
@@ -169,6 +338,10 @@ export function App() {
               replanError={replanError}
               onUndo={handleUndo}
               undoing={undoing}
+              save={saveControl}
+              shareUrl={shareLink(itinerary.trip_id)}
+              onChangeStop={handleChangeStop}
+              changeNote={changeNote}
             />
           ) : (
             !error &&
@@ -198,7 +371,35 @@ export function App() {
           )}
         </div>
       </main>
+      )}
     </div>
+  );
+}
+
+function AccountNav({ user, onLogOut }: { user: User | null | undefined; onLogOut: () => void }) {
+  if (user === undefined) return <nav className="account-nav" aria-label="Account" />;
+  return (
+    <nav className="account-nav" aria-label="Account">
+      {user ? (
+        <>
+          <a href="#/trips" className="account-link">
+            My trips
+          </a>
+          <span className="account-name">
+            <UserIcon />
+            {user.name}
+          </span>
+          <button type="button" className="account-button" onClick={onLogOut}>
+            Log out
+          </button>
+        </>
+      ) : (
+        <a href="#/login" className="account-link">
+          <UserIcon />
+          Log in
+        </a>
+      )}
+    </nav>
   );
 }
 

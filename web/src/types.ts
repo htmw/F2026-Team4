@@ -41,6 +41,12 @@ export interface ItineraryItem {
   open_hours?: [string, string][];
   reason: string;
   confidence: Confidence;
+  // Not in the contract yet: the place's official website (OpenStreetMap "website" tag). Paid
+  // tourist attractions get a "Tickets" link to it when present.
+  website?: string;
+  // Not in the contract yet: where the place is, for the day map. No coordinates, no map.
+  lat?: number;
+  lon?: number;
 }
 
 export interface ItineraryDay {
