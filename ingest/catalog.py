@@ -316,6 +316,28 @@ def load_city(name: str | None) -> CityData:
     return _load(source, path, stamp_file.stat().st_mtime)
 
 
+# Swapped out in tests, like http_get: the forecast service the planner asks.
+weather_get = requests.get
+
+
+def trip_weather(lat: float, lon: float, start: str, end: str) -> dict[str, dict]:
+    """{date: weather summary} for the trip, or {} when there is no forecast to use.
+
+    A trip more than about 16 days away has no forecast yet, and a forecast service that
+    cannot be reached must never stop a plan, so both simply give no weather.
+    WANDERWISE_WEATHER=0 turns it off (the test suite does).
+    """
+    if os.environ.get("WANDERWISE_WEATHER", "1") == "0":
+        return {}
+    from .weather import daily_forecast, for_plan
+
+    try:
+        forecast = daily_forecast(lat, lon, start, end, CACHE_DIR, get=weather_get)
+    except (requests.RequestException, RuntimeError, ValueError, KeyError, TypeError):
+        return {}
+    return for_plan(forecast)
+
+
 def load_places(name: str) -> list[dict]:
     """Shortcut for load_city(name).places. Callers must not mutate the returned records."""
     return load_city(name).places

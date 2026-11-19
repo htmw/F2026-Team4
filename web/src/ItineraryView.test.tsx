@@ -147,6 +147,13 @@ describe("ItineraryView", () => {
     expect(screen.getByText("(Wikipedia)")).toBeTruthy();
   });
 
+  it("shows the day's weather when there is a forecast", () => {
+    const rainy = structuredClone(itinerary);
+    rainy.days[0].weather = { summary: "Rain likely", rainy: true, rain_probability: 85, temp_min_c: 11, temp_max_c: 15 };
+    renderPlan(null, { itinerary: rainy });
+    expect(screen.getByText("Rain likely · 85% · 11–15 °C")).toBeTruthy();
+  });
+
   it("shows each day's stops, walking and cost", () => {
     renderPlan(null);
     expect(screen.getByText("2 stops · 25 min walking · ¥3,000")).toBeTruthy();

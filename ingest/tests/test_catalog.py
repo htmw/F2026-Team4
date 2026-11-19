@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+import requests
 
 from ingest import catalog
 from ingest.to_place import make_validator
@@ -206,3 +207,39 @@ def test_committed_snapshots_are_valid_places():
         for place in places:
             errors = list(validator.iter_errors(place))
             assert not errors, f"{city_dir.name} {place['id']}: {errors[0].message}"
+
+
+def test_trip_weather_is_off_in_tests_and_never_breaks_a_plan(monkeypatch, tmp_path):
+    assert catalog.trip_weather(41.9, 12.5, "2026-11-09", "2026-11-10") == {}
+
+    monkeypatch.setenv("WANDERWISE_WEATHER", "1")
+    monkeypatch.setattr(catalog, "CACHE_DIR", tmp_path)
+
+    def down(*a, **kw):
+        raise requests.ConnectionError("no forecast service")
+
+    monkeypatch.setattr(catalog, "weather_get", down)
+    assert catalog.trip_weather(41.9, 12.5, "2026-11-09", "2026-11-10") == {}
+
+
+def test_trip_weather_gives_each_day_its_forecast(monkeypatch, tmp_path):
+    payload = {"daily": {
+        "time": ["2026-11-09", "2026-11-10"], "weather_code": [1, 63],
+        "precipitation_probability_max": [10, 85], "precipitation_sum": [0.0, 7.4],
+        "temperature_2m_max": [18.2, 15.1], "temperature_2m_min": [10.1, 11.3],
+    }}
+
+    class Answer:
+        def raise_for_status(self):
+            pass
+
+        def json(self):
+            return payload
+
+    monkeypatch.setenv("WANDERWISE_WEATHER", "1")
+    monkeypatch.setattr(catalog, "CACHE_DIR", tmp_path)
+    monkeypatch.setattr(catalog, "weather_get", lambda *a, **kw: Answer())
+    out = catalog.trip_weather(41.9, 12.5, "2026-11-09", "2026-11-10")
+
+    assert out["2026-11-09"]["summary"] == "Sunny" and not out["2026-11-09"]["rainy"]
+    assert out["2026-11-10"]["summary"] == "Rain likely" and out["2026-11-10"]["rainy"]

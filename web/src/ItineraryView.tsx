@@ -11,6 +11,7 @@ import {
   openHoursLabel,
   prettifyPlaceId,
   priceLabel,
+  weatherLabel,
 } from "./format";
 import { downloadIcs } from "./calendar";
 import {
@@ -253,6 +254,11 @@ export function ItineraryView({
           <h3 id={`day-title-${dayNumber}`} className="day-title">
             Day {dayNumber} <span className="day-date">{formatDay(day.date)}</span>
           </h3>
+          {day.weather && (
+            <p className={`day-weather${day.weather.rainy ? " is-rainy" : ""}`}>
+              {weatherLabel(day.weather)}
+            </p>
+          )}
           {day.items.length > 0 && (
             <p className="day-totals">
               {dayTotals(day, totals.currency)}

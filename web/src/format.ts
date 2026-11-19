@@ -1,4 +1,4 @@
-import type { Confidence } from "./types";
+import type { Confidence, DayWeather } from "./types";
 
 export function formatMoney(amount: number, currency: string): string {
   try {
@@ -134,4 +134,15 @@ export function interestLabel(reason: string): string {
 export function interestFromReason(reason: string): string | null {
   const names = reasonInterests(reason);
   return names.length ? names[0].toLowerCase() : null;
+}
+
+// "Rain likely · 85% · 11–15 °C", "Sunny · 12–19 °C". Empty when there is no forecast.
+export function weatherLabel(weather?: DayWeather): string {
+  if (!weather) return "";
+  const parts = [weather.summary];
+  if (weather.rainy && weather.rain_probability != null) parts.push(`${weather.rain_probability}%`);
+  const lo = weather.temp_min_c;
+  const hi = weather.temp_max_c;
+  if (lo != null && hi != null) parts.push(`${Math.round(lo)}–${Math.round(hi)} °C`);
+  return parts.join(" · ");
 }

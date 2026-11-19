@@ -1427,6 +1427,24 @@ select {
 
 /* Per-day totals and over-limit walks */
 
+.day-weather {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+}
+
+.day-weather.is-rainy {
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+
 .day-totals {
   margin-top: 2px;
   font-size: 14px;

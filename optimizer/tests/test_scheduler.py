@@ -343,6 +343,61 @@ def test_a_transit_ride_counts_the_walk_to_and_from_the_stop():
     assert result["totals"]["walking_minutes"] == 6, "not 0 just because it was a ride"
 
 
+# ---- weather (US-11: what if it rains?) ---------------------------------------------------
+
+RAIN = {"summary": "Rain likely", "rainy": True, "rain_probability": 85,
+        "temp_max_c": 15.1, "temp_min_c": 11.3}
+DRY = {"summary": "Sunny", "rainy": False, "rain_probability": 5,
+       "temp_max_c": 19.0, "temp_min_c": 12.0}
+
+
+def _fort_and_museum():
+    fort = make_place("fort", duration=300)
+    fort["categories"] = ["landmark"]  # outdoors
+    fort["popularity"] = 1.0
+    museum = make_place("museum", duration=300)
+    museum["popularity"] = 0.5
+    return [fort, museum]
+
+
+def _plan(weather):
+    return schedule(
+        places=_fort_and_museum(), profile=PROFILE, dates=["2026-10-19", "2026-10-20"],
+        category_map={"museum": ["history"], "landmark": ["history"]},
+        destination=DESTINATION, weather=weather,
+    )
+
+
+def _first_stops(result):
+    return [day["items"][0]["place_id"] for day in result["days"]]
+
+
+def test_an_outdoor_stop_moves_off_a_rainy_day():
+    assert _first_stops(_plan(None)) == ["fort", "museum"], "the fort is better on a dry trip"
+
+    result = _plan({"2026-10-19": RAIN, "2026-10-20": DRY})
+
+    assert _first_stops(result) == ["museum", "fort"], "museum on the rainy day, fort when dry"
+    assert result["days"][0]["weather"] == RAIN and result["days"][1]["weather"] == DRY
+    assert any("Rain is likely on Mon, Oct 19, so indoor stops were preferred that day" in w
+               for w in result["warnings"])
+    assert not any("moved" in w for w in result["warnings"]), "never claims a stop moved"
+    assert validate("itinerary", result) == []
+
+
+def test_an_outdoor_stop_that_must_stay_on_a_rainy_day_is_named():
+    result = _plan({"2026-10-19": RAIN, "2026-10-20": RAIN})
+
+    assert any("Place fort is outdoors, so take an umbrella" in w for w in result["warnings"])
+
+
+def test_no_forecast_plans_as_before():
+    result = _plan({})
+
+    assert _first_stops(result) == ["fort", "museum"]
+    assert all("weather" not in day for day in result["days"])
+
+
 # ---- interests, time of day, day length -----------------------------------------------
 
 ALL_DAY = {day: [["08:00", "23:30"]] for day in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")}

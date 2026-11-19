@@ -12,6 +12,7 @@ import {
   interestLabel,
   prettifyPlaceId,
   priceLabel,
+  weatherLabel,
 } from "./format";
 
 describe("format helpers", () => {
@@ -111,5 +112,17 @@ describe("reasons with several interests", () => {
     expect(interestLabel(reason)).toBe("Matches your interests: history, architecture, nature");
     expect(interestFromReason(reason)).toBe("history");
     expect(interestFromReason("Matches your interest in food.")).toBe("food");
+  });
+});
+
+describe("weatherLabel", () => {
+  it("sums up a day's forecast", () => {
+    expect(
+      weatherLabel({ summary: "Rain likely", rainy: true, rain_probability: 85, temp_min_c: 11.3, temp_max_c: 15.1 }),
+    ).toBe("Rain likely · 85% · 11–15 °C");
+    expect(weatherLabel({ summary: "Sunny", rainy: false, rain_probability: 5, temp_min_c: 12, temp_max_c: 19 })).toBe(
+      "Sunny · 12–19 °C",
+    );
+    expect(weatherLabel(undefined)).toBe("");
   });
 });
