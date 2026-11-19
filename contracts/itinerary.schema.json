@@ -69,6 +69,22 @@
           "type": "string",
           "description": "What the place is, in a sentence or two. Optional."
         },
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90,
+          "description": "Where the stop is (WGS 84), for the day map. Optional."
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180,
+          "description": "Where the stop is (WGS 84), for the day map. Optional."
+        },
+        "website": {
+          "type": "string",
+          "description": "The place's own website, from OpenStreetMap (http or https). Optional."
+        },
         "open_hours": {
           "type": "array",
           "description": "When the place is open on the visit's day, as [open, close] pairs (HH:MM). Verified or estimated, per confidence. Optional.",

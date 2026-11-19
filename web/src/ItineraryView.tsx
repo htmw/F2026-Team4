@@ -331,6 +331,18 @@ export function ItineraryView({
                         <span className="stop-cost">
                           {priceLabel(item.cost, totals.currency, item.cost_confidence)}
                         </span>
+                        {/* A paid attraction already links its website as "Tickets". */}
+                        {item.website && !ticketLink(item, interestFromReason(item.reason)) && (
+                          <a
+                            className="stop-link"
+                            href={item.website}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Website of ${name}`}
+                          >
+                            Website
+                          </a>
+                        )}
                       </p>
                       <StopLinks item={item} name={name} city={destination.name} />
                     </div>

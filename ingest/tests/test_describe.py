@@ -1,6 +1,12 @@
 """Short "what is this place" lines: OSM tags for every place, Wikipedia for famous ones."""
 
-from ingest.describe import WIKIDATA_API, WIKIPEDIA_API, describe_from_tags, describe_places
+from ingest.describe import (
+    WIKIDATA_API,
+    WIKIPEDIA_API,
+    contacts_from_tags,
+    describe_from_tags,
+    describe_places,
+)
 
 
 class FakeResponse:
@@ -73,3 +79,33 @@ def test_a_long_intro_is_cut_at_a_sentence():
                           log=lambda *_: None)
     assert len(out["a"]["text"]) <= 280
     assert out["a"]["text"].endswith(".")
+
+
+def test_a_place_keeps_its_own_website():
+    tags = {"website": "https://www.salarjungmuseum.in", "phone": "+91 40 2457 6443"}
+    assert contacts_from_tags(tags) == {"website": "https://www.salarjungmuseum.in"}
+
+
+def test_contact_tags_are_cleaned():
+    assert contacts_from_tags({"contact:website": "example.com"}) == {"website": "https://example.com"}
+    assert contacts_from_tags({"website": "https://a.example; https://b.example"}) == {
+        "website": "https://a.example"}
+
+
+def test_anything_that_is_not_a_web_link_is_dropped():
+    assert contacts_from_tags({"website": "javascript:alert(1)"}) == {}
+    assert contacts_from_tags({"website": "ftp://files.example.com"}) == {}
+    assert contacts_from_tags({"website": "see the sign at the door"}) == {}
+
+
+def test_a_famous_place_keeps_its_contacts_next_to_the_wikipedia_text():
+    places = [{"id": "a", "categories": ["museum"], "popularity": 1}]
+
+    def get(url, params, **kw):
+        return FakeResponse({"query": {"pages": {"1": {"title": "M", "extract": "A museum."}}}})
+
+    out = describe_places(
+        places, {"a": {"tags": {"wikipedia": "en:M", "website": "https://m.example"}}},
+        get=get, log=lambda *_: None,
+    )
+    assert out["a"] == {"text": "A museum.", "source": "wikipedia", "website": "https://m.example"}

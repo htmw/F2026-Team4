@@ -122,6 +122,25 @@ describe("ItineraryView", () => {
     expect(screen.getByText("Open 6:00 AM – 5:00 PM")).toBeTruthy();
   });
 
+  it("shows Tickets, not a second Website link, for a paid attraction", () => {
+    const paid = structuredClone(itinerary);
+    paid.days[0].items[1].website = "https://www.tsukiji.or.jp";
+    paid.days[0].items[1].reason = "Matches your interest in history.";
+    renderPlan(null, { itinerary: paid });
+    expect(screen.queryByRole("link", { name: "Website of Tsukiji Outer Market" })).toBeNull();
+    expect(screen.getByRole("link", { name: /Tickets for Tsukiji Outer Market/ })).toBeTruthy();
+  });
+
+  it("links to a place's own website", () => {
+    const withSite = structuredClone(itinerary);
+    withSite.days[0].items[0].website = "https://www.senso-ji.jp";
+    renderPlan(null, { itinerary: withSite });
+
+    const site = screen.getByRole("link", { name: "Website of Sensō-ji" });
+    expect(site.getAttribute("href")).toBe("https://www.senso-ji.jp");
+    expect(site.getAttribute("target")).toBe("_blank");
+  });
+
   it("says what each place is, crediting Wikipedia", () => {
     renderPlan(null);
     expect(screen.getByText(/Sensō-ji is an ancient Buddhist temple in Asakusa, Tokyo\./)).toBeTruthy();
