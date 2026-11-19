@@ -96,3 +96,37 @@ def test_missing_values_do_not_count_as_rain():
 )
 def test_is_outdoor_uses_the_primary_category(categories, outdoor):
     assert is_outdoor({"categories": categories}) is outdoor
+
+
+def test_a_day_is_summed_up_in_a_few_words():
+    from ingest.weather import summary
+
+    def day(code, prob=0, mm=0.0):
+        return DayWeather("2026-11-09", code, prob, mm, 18.0, 10.0)
+
+    assert summary(day(63, 85, 7.4)) == "Rain likely"
+    assert summary(day(0)) == "Sunny"
+    assert summary(day(3)) == "Cloudy"
+    assert summary(day(45)) == "Foggy"
+    assert summary(day(73)) == "Snow"
+    assert summary(day(51, 20, 0.5)) == "Light showers"
+
+
+def test_the_plan_gets_one_summary_per_forecast_day():
+    from ingest.weather import for_plan
+
+    wet = DayWeather("2026-11-10", 63, 85, 7.4, 15.1, 11.3)
+    out = for_plan({"2026-11-10": wet, "2026-12-30": None})
+
+    assert out["2026-11-10"] == {"summary": "Rain likely", "rainy": True,
+                                 "rain_probability": 85, "temp_max_c": 15.1, "temp_min_c": 11.3}
+    assert out["2026-12-30"]["summary"] == "Forecast unavailable", "past the forecast: say so"
+    assert not out["2026-12-30"]["rainy"]
+
+
+def test_missing_weather_is_unavailable_never_dry():
+    """Bala's review: a day without a weather type showed "Dry"."""
+    from ingest.weather import for_plan, summary
+
+    assert summary(DayWeather("2026-11-09", None, None, None, None, None)) == "Forecast unavailable"
+    assert for_plan({"2026-12-30": None, "2026-12-31": None}) == {}, "no forecast at all"

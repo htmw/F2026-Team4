@@ -51,6 +51,10 @@ MEAL_CATEGORIES = {"restaurant"}
 EVENING_START = 18 * 60
 EVENING_RESERVE = 150
 
+# Rain: an outdoor stop on a day when rain is likely counts for this much less, enough
+# for a museum or a cafe to win the slot, not so much that a rainy day stays empty.
+RAIN_OUTDOOR_PENALTY = 0.35
+
 # Only the best-scoring places are considered for scheduling. A city can have thousands of
 # places; no trip needs more than this, and it keeps the travel matrix small (300 places
 # = about 90,000 legs).
@@ -124,8 +128,13 @@ def schedule(
     destination: dict[str, Any] | None = None,
     trip_id: str | None = None,
     scorer: Scorer | None = None,
+    weather: dict[str, dict] | None = None,
 ) -> dict[str, Any]:
     """Produce an itinerary matching the existing JSON contract.
+
+    `weather` is {date: {"summary", "rainy", ...}} from the Data team's forecast. On a rainy
+    day, outdoor stops (parks, viewpoints, markets...) are worth less, so indoor ones fill
+    that day and the outdoor ones go to drier days. Each day carries its weather.
 
     `scorer` is the trained ranker's score(place, profile) (ranker.model.get_scorer()).
     When given, it decides how good each shortlisted place is; without it (no trained
@@ -262,7 +271,11 @@ def schedule(
     unknown_costs = 0
     estimated_costs = 0
 
+    weather = weather or {}
+    from ingest.weather import is_outdoor
+
     for day in dates:
+        rainy_today = bool((weather.get(day) or {}).get("rainy"))
         cursor = day_start
         previous = None
         active_used = 0
@@ -341,6 +354,7 @@ def schedule(
                     - HOURS_PENALTY.get(confidence, HOURS_PENALTY["unknown"])
                     - 0.0005 * travel
                     - 0.0002 * waiting
+                    - (RAIN_OUTDOOR_PENALTY if rainy_today and is_outdoor(place) else 0.0)
                 )
 
                 options.append((
@@ -442,10 +456,10 @@ def schedule(
             elif cost_confidence != "known":
                 unknown_costs += 1
 
-        days_out.append({
-            "date": day,
-            "items": items,
-        })
+        day_out = {"date": day, "items": items}
+        if weather.get(day):
+            day_out["weather"] = weather[day]
+        days_out.append(day_out)
 
     placed = sum(len(day["items"]) for day in days_out)
 
@@ -489,6 +503,23 @@ def schedule(
             f"Dietary needs ({', '.join(dietary)}) can't be checked yet: our place data "
             f"has no menu information, so please check restaurants yourself."
         )
+
+    # Rain: say which days preferred indoor stops, and name any outdoor stop still on one.
+    # It never claims a stop "moved": with no dry day in the trip, nothing could.
+    for d in days_out:
+        if not (d.get("weather") or {}).get("rainy"):
+            continue
+        by_id = {p["id"]: p for p in places}
+        still_out = [i["name"] for i in d["items"]
+                     if i["place_id"] in by_id and is_outdoor(by_id[i["place_id"]])]
+        when = date.fromisoformat(d["date"])
+        note = (f"Rain is likely on {when:%a}, {when:%b} {when.day}, so indoor stops were "
+                "preferred that day")
+        if still_out:
+            outdoor = ", ".join(still_out)
+            verb = "is" if len(still_out) == 1 else "are"
+            note += f"; {outdoor} {verb} outdoors, so take an umbrella or swap it"
+        warnings.append(note + ".")
 
     accessibility = [a for a in profile.get("accessibility", []) if a]
     if accessibility and placed:
@@ -571,7 +602,7 @@ def plan_itinerary(
     (503). Pass `trip_id` when re-planning.
     """
     from api.contracts import load_categories
-    from ingest.catalog import description_of, load_city, travel_legs
+    from ingest.catalog import description_of, load_city, travel_legs, trip_weather
     from ranker.model import get_scorer
 
     # No silent default: a request without a city name is refused, never planned in Lisbon.
@@ -601,6 +632,8 @@ def plan_itinerary(
         # The trained ranker orders the places when its model file exists
         # (models/ranker.txt); otherwise get_scorer() is None and the rule score is used.
         scorer=get_scorer(),
+        # The forecast for the trip days, when it reaches that far (about 16 days).
+        weather=trip_weather(dest["lat"], dest["lon"], start_date, end_date),
     )
 
     # What each stop is, from the Data team: a Wikipedia intro for famous places, a line

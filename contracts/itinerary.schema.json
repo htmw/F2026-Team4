@@ -94,7 +94,20 @@
       "additionalProperties": false,
       "properties": {
         "date": { "type": "string", "format": "date" },
-        "items": { "type": "array", "items": { "$ref": "#/$defs/item" } }
+        "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+        "weather": {
+          "type": "object",
+          "description": "The forecast for this day, when the trip is close enough to have one. Optional.",
+          "required": ["summary", "rainy"],
+          "additionalProperties": false,
+          "properties": {
+            "summary": { "type": "string" },
+            "rainy": { "type": "boolean" },
+            "rain_probability": { "type": ["integer", "null"] },
+            "temp_max_c": { "type": ["number", "null"] },
+            "temp_min_c": { "type": ["number", "null"] }
+          }
+        }
       }
     }
   }

@@ -49,9 +49,19 @@ export interface ItineraryItem {
   lon?: number;
 }
 
+export interface DayWeather {
+  summary: string;
+  rainy: boolean;
+  rain_probability?: number | null;
+  temp_max_c?: number | null;
+  temp_min_c?: number | null;
+}
+
 export interface ItineraryDay {
   date: string;
   items: ItineraryItem[];
+  // The forecast, when the trip is close enough (about 16 days) to have one.
+  weather?: DayWeather;
 }
 
 export interface Itinerary {

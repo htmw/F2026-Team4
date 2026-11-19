@@ -69,6 +69,59 @@ class DayWeather:
         return {**asdict(self), "rainy": self.rainy}
 
 
+def summary(day: DayWeather) -> str:
+    """A few words for the traveler: "Rain likely", "Sunny", "Cloudy"... (WMO weather codes)."""
+    if day.rainy:
+        return "Rain likely"
+    code = day.weather_code
+    if code is None:
+        return "Forecast unavailable"  # no weather type for the day: say so, never guess
+    if code <= 1:
+        return "Sunny"
+    if code <= 3:
+        return "Cloudy"
+    if code in (45, 48):
+        return "Foggy"
+    if 71 <= code <= 77 or code in (85, 86):
+        return "Snow"
+    if code >= 95:
+        return "Thunderstorms"
+    return "Light showers" if code >= 51 else "Forecast unavailable"
+
+
+UNAVAILABLE = {
+    "summary": "Forecast unavailable",
+    "rainy": False,
+    "rain_probability": None,
+    "temp_max_c": None,
+    "temp_min_c": None,
+}
+
+
+def for_plan(forecast: dict[str, DayWeather | None]) -> dict[str, dict]:
+    """{date: what a day in the itinerary shows}.
+
+    A trip day past the end of the forecast says "Forecast unavailable" rather than nothing,
+    as long as some day of the trip has a forecast. With none at all (a trip months away),
+    no day gets a weather line.
+    """
+    if all(day is None for day in forecast.values()):
+        return {}
+    out = {}
+    for d, day in forecast.items():
+        if day is None:
+            out[d] = dict(UNAVAILABLE)
+            continue
+        out[d] = {
+            "summary": summary(day),
+            "rainy": day.rainy,
+            "rain_probability": day.rain_probability,
+            "temp_max_c": day.temp_max_c,
+            "temp_min_c": day.temp_min_c,
+        }
+    return out
+
+
 def is_outdoor(place: dict) -> bool:
     """True when the visit happens mostly outside, judged by the primary category."""
     return place["categories"][0] in OUTDOOR_CATEGORIES
