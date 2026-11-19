@@ -5,11 +5,10 @@ Wikipedia article. Every other place gets a line built from its OSM tags, such a
 "Restaurant serving Hyderabadi and biryani food." Wikipedia text is CC BY-SA, so each
 description says where it came from and the website names Wikipedia next to it.
 
-Each place also keeps its own website and phone number from OSM, when it lists them.
+Each place also keeps its own website from OSM, when it lists one.
 
-Saved as descriptions.json next to places.json ({place_id: {"text", "source", "website"?,
-"phone"?}}), not inside the place records, so every place still matches
-contracts/place.schema.json.
+Saved as descriptions.json next to places.json ({place_id: {"text", "source", "website"?}}),
+not inside the place records, so every place still matches contracts/place.schema.json.
 """
 
 from __future__ import annotations
@@ -112,14 +111,11 @@ def describe_from_tags(tags: dict, categories: list[str]) -> str:
     return line + "."
 
 
-_PHONE_CHARS = re.compile(r"^[+0-9 ()./-]{6,30}$")
-
-
 def contacts_from_tags(tags: dict) -> dict:
-    """The place's own website and phone number from OSM, when it lists them.
+    """The place's own website from OSM, when it lists one (the "Tickets" link uses it).
 
-    Only http(s) links are kept (a bare "example.com" gets https://), and only phone numbers
-    made of digits and the usual separators; the first of several ("a; b") is used.
+    Only http(s) links are kept; a bare "example.com" gets https://. The first of several
+    ("a; b") is used.
     """
     out: dict = {}
     site = (tags.get("website") or tags.get("contact:website") or tags.get("url") or "").strip()
@@ -129,9 +125,6 @@ def contacts_from_tags(tags: dict) -> dict:
             site = "https://" + site
         if site.lower().startswith(("http://", "https://")) and len(site) <= 300:
             out["website"] = site
-    phone = (tags.get("phone") or tags.get("contact:phone") or "").split(";")[0].strip()
-    if _PHONE_CHARS.match(phone) and sum(c.isdigit() for c in phone) >= 6:
-        out["phone"] = phone
     return out
 
 
@@ -227,8 +220,8 @@ def describe_places(
     get=requests.get,
     log=print,
 ) -> dict[str, dict]:
-    """{place_id: {"text", "source"}} for every place, plus "website" and "phone" when the
-    place lists them in OpenStreetMap.
+    """{place_id: {"text", "source"}} for every place, plus "website" when the place lists
+    one in OpenStreetMap.
 
     info holds what the OSM element said about each place id: {"tags": {...}}. Wikipedia is
     asked only for famous places, most popular first, and any failure falls back to the

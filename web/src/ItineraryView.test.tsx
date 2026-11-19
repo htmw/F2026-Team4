@@ -131,18 +131,14 @@ describe("ItineraryView", () => {
     expect(screen.getByRole("link", { name: /Tickets for Tsukiji Outer Market/ })).toBeTruthy();
   });
 
-  it("links to a place's website and lets the traveler call it", () => {
-    const withContacts = structuredClone(itinerary);
-    withContacts.days[0].items[0].website = "https://www.senso-ji.jp";
-    withContacts.days[0].items[0].phone = "+81 3-3842-0181";
-    renderPlan(null, { itinerary: withContacts });
+  it("links to a place's own website", () => {
+    const withSite = structuredClone(itinerary);
+    withSite.days[0].items[0].website = "https://www.senso-ji.jp";
+    renderPlan(null, { itinerary: withSite });
 
     const site = screen.getByRole("link", { name: "Website of Sensō-ji" });
     expect(site.getAttribute("href")).toBe("https://www.senso-ji.jp");
     expect(site.getAttribute("target")).toBe("_blank");
-    expect(screen.getByRole("link", { name: "Call Sensō-ji" }).getAttribute("href")).toBe(
-      "tel:+81338420181",
-    );
   });
 
   it("says what each place is, crediting Wikipedia", () => {

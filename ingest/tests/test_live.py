@@ -128,7 +128,6 @@ def test_plan_for_a_live_city(osm):
     assert item["description"].startswith("The Clérigos Church is a Baroque church")
     assert item["description_source"] == "wikipedia"
     assert item["website"] == "https://www.torredosclerigos.pt"
-    assert item["phone"] == "+351 22 014 5489"
 
 
 def test_a_live_city_is_shown_with_its_own_name_and_currency(osm, monkeypatch):

@@ -81,25 +81,21 @@ def test_a_long_intro_is_cut_at_a_sentence():
     assert out["a"]["text"].endswith(".")
 
 
-def test_a_place_keeps_its_own_website_and_phone():
+def test_a_place_keeps_its_own_website():
     tags = {"website": "https://www.salarjungmuseum.in", "phone": "+91 40 2457 6443"}
-    assert contacts_from_tags(tags) == {
-        "website": "https://www.salarjungmuseum.in", "phone": "+91 40 2457 6443",
-    }
+    assert contacts_from_tags(tags) == {"website": "https://www.salarjungmuseum.in"}
 
 
 def test_contact_tags_are_cleaned():
     assert contacts_from_tags({"contact:website": "example.com"}) == {"website": "https://example.com"}
-    assert contacts_from_tags({"phone": "+33 1 23 45 67 89; +33 6 00 00 00 00"}) == {
-        "phone": "+33 1 23 45 67 89"}
+    assert contacts_from_tags({"website": "https://a.example; https://b.example"}) == {
+        "website": "https://a.example"}
 
 
-def test_anything_that_is_not_a_web_link_or_a_phone_number_is_dropped():
+def test_anything_that_is_not_a_web_link_is_dropped():
     assert contacts_from_tags({"website": "javascript:alert(1)"}) == {}
     assert contacts_from_tags({"website": "ftp://files.example.com"}) == {}
     assert contacts_from_tags({"website": "see the sign at the door"}) == {}
-    assert contacts_from_tags({"phone": "ask at the desk"}) == {}
-    assert contacts_from_tags({"phone": "12"}) == {}
 
 
 def test_a_famous_place_keeps_its_contacts_next_to_the_wikipedia_text():

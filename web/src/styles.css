@@ -2221,7 +2221,7 @@ a.button-secondary {
   }
 }
 
-/* A stop's own website and phone number, beside its price. */
+/* A stop's own website, beside its price. */
 .stop-link {
   color: var(--accent);
   font-weight: 600;

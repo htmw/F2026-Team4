@@ -614,9 +614,8 @@ def plan_itinerary(
             if about:
                 item["description"] = about["text"]
                 item["description_source"] = about["source"]
-                for key in ("website", "phone"):
-                    if about.get(key):
-                        item[key] = about[key]
+                if about.get("website"):
+                    item["website"] = about["website"]
 
     if city_data.source == "fixture":
         itinerary["warnings"].append(

@@ -85,10 +85,6 @@
           "type": "string",
           "description": "The place's own website, from OpenStreetMap (http or https). Optional."
         },
-        "phone": {
-          "type": "string",
-          "description": "The place's phone number, from OpenStreetMap. Optional."
-        },
         "open_hours": {
           "type": "array",
           "description": "When the place is open on the visit's day, as [open, close] pairs (HH:MM). Verified or estimated, per confidence. Optional.",

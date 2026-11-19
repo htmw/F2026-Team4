@@ -343,15 +343,6 @@ export function ItineraryView({
                             Website
                           </a>
                         )}
-                        {item.phone && (
-                          <a
-                            className="stop-link"
-                            href={`tel:${item.phone.replace(/[^+0-9]/g, "")}`}
-                            aria-label={`Call ${name}`}
-                          >
-                            {item.phone}
-                          </a>
-                        )}
                       </p>
                       <StopLinks item={item} name={name} city={destination.name} />
                     </div>
