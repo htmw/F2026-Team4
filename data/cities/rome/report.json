@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-18T01:27:57+00:00",
+ "generated_at": "2026-11-20T19:07:05+00:00",
  "query": "Rome, Italy",
  "destination": {
   "name": "Rome",
@@ -16,15 +16,21 @@
  "bbox_source": "explicit",
  "currency_fallback": "EUR",
  "counts": {
-  "valid_records": 4857,
-  "dropped_unmapped_category": 492,
+  "valid_records": 4704,
+  "dropped_not_famous": 186,
+  "dropped_unmapped_category": 2357,
   "dropped_outside_bbox": 14,
   "dropped_always_closed": 3,
+  "dropped_no_english_name": 5,
+  "dropped_global_chain": 4,
+  "dropped_no_name": 19,
   "dropped_no_position": 1,
-  "places": 4549
+  "dropped_extra_outlets": 138,
+  "places": 4300,
+  "transit_stops": 1879
  },
  "duplicates": {
-  "merged": 171,
+  "merged": 160,
   "examples": [
    {
     "kept": "osm:way/112137587",
@@ -41,17 +47,17 @@
     ]
    },
    {
+    "kept": "osm:node/2296913458",
+    "name": "Stadio di Domiziano",
+    "dropped": [
+     "osm:node/12052719807"
+    ]
+   },
+   {
     "kept": "osm:node/1649776329",
     "name": "Galleria Colonna",
     "dropped": [
      "osm:relation/2054909"
-    ]
-   },
-   {
-    "kept": "osm:way/23920927",
-    "name": "Centro della Fotografia",
-    "dropped": [
-     "osm:node/13838853822"
     ]
    },
    {
@@ -102,19 +108,19 @@
    {
     "kept": "osm:relation/10129640",
     "name": "Mura Aureliane",
-    "pieces": 91,
+    "pieces": 92,
     "placed_at": "osm:way/1006455125"
    },
    {
     "kept": "osm:way/112677344",
     "name": "Mura Serviane",
-    "pieces": 18,
+    "pieces": 14,
     "placed_at": "osm:way/112677344"
    },
    {
     "kept": "osm:way/837026526",
     "name": "Mura gianicolensi",
-    "pieces": 7,
+    "pieces": 6,
     "placed_at": "osm:way/837026526"
    },
    {
@@ -159,75 +165,67 @@
   ]
  },
  "hours_status": {
-  "absent": 3428,
-  "parsed": 1010,
-  "unparseable": 111
+  "absent": 3282,
+  "parsed": 1018
  },
  "cost_status": {
-  "no_data": 3329,
-  "default_free": 1105,
-  "fee_free": 52,
-  "fee_amount_missing": 39,
-  "charge_parsed": 24
+  "typical_price": 3262,
+  "default_free": 966,
+  "fee_free": 50,
+  "charge_parsed": 22
  },
  "categories": {
-  "restaurant": 1974,
-  "shop": 104,
-  "viewpoint": 18,
-  "bar": 303,
-  "cafe": 877,
-  "bakery": 93,
-  "museum": 115,
-  "landmark": 351,
-  "gallery": 18,
-  "park": 142,
+  "restaurant": 1917,
+  "shop": 93,
+  "bar": 301,
+  "cafe": 826,
+  "bakery": 92,
+  "museum": 117,
+  "gallery": 19,
+  "park": 144,
   "church": 375,
-  "nightclub": 23,
+  "nightclub": 25,
+  "landmark": 267,
   "monument": 42,
-  "market": 34,
   "neighborhood": 26,
+  "viewpoint": 1,
   "castle": 4,
   "garden": 46,
-  "palace": 4
+  "palace": 4,
+  "market": 1
  },
  "vocabulary_gaps": [
   "day_trip"
  ],
  "curation": {
-  "applied": 33,
-  "unmatched": [],
+  "applied": 31,
+  "unmatched": [
+   "Mercato di Testaccio",
+   "Gianicolo terrace"
+  ],
   "excluded": [
    "osm:node/10774102105",
    "osm:node/10774102106",
    "osm:node/10774102107",
    "osm:node/10774102205",
-   "osm:node/11359857923",
+   "osm:node/12481098961",
    "osm:node/12640825738",
-   "osm:node/1272283718",
-   "osm:node/12813664034",
    "osm:node/13004798413",
-   "osm:node/13094031501",
    "osm:node/13735344022",
    "osm:node/13947393775",
    "osm:node/14107772324",
-   "osm:node/1416733018",
-   "osm:node/1447566609",
+   "osm:node/14324230991",
    "osm:node/1447566610",
-   "osm:node/1448531164",
    "osm:node/1490313730",
    "osm:node/1510795500",
-   "osm:node/1987788474",
    "osm:node/2263021094",
    "osm:node/2419664831",
    "osm:node/365475871",
    "osm:node/3721907363",
-   "osm:node/5107467923",
-   "osm:node/5156841892",
    "osm:node/5586787424",
    "osm:node/5737556419",
    "osm:node/5737557524",
    "osm:node/6204294310",
-   "osm:node/6205592781",
    "osm:node/6718428602",
    "osm:node/6718428615",
    "osm:node/6718428616",
@@ -239,57 +237,39 @@
    "osm:relation/13357829",
    "osm:relation/13402532",
    "osm:relation/13402573",
-   "osm:relation/13402576",
    "osm:relation/13402598",
    "osm:relation/13426221",
    "osm:relation/1691910",
    "osm:relation/1765420",
    "osm:relation/1765428",
    "osm:relation/1765429",
-   "osm:relation/1765430",
    "osm:relation/1766532",
-   "osm:relation/1766534",
    "osm:relation/1767601",
    "osm:relation/1767603",
-   "osm:relation/1805340",
    "osm:relation/1805341",
-   "osm:relation/1805345",
    "osm:relation/1805350",
-   "osm:relation/1805353",
    "osm:relation/1805355",
-   "osm:relation/1805359",
-   "osm:relation/1807196",
-   "osm:relation/1835449",
-   "osm:relation/1835450",
    "osm:relation/1836975",
    "osm:relation/1836976",
    "osm:relation/1841077",
    "osm:relation/1841078",
    "osm:relation/1841079",
-   "osm:relation/1841084",
    "osm:relation/1841086",
    "osm:relation/1841089",
    "osm:relation/1841091",
    "osm:relation/1842058",
-   "osm:relation/1842059",
-   "osm:relation/1842060",
    "osm:relation/1842061",
    "osm:relation/1842062",
-   "osm:relation/1849828",
    "osm:relation/1849832",
    "osm:relation/1849835",
    "osm:relation/1854238",
    "osm:relation/1854239",
    "osm:relation/1854240",
-   "osm:relation/1856081",
    "osm:relation/1857984",
    "osm:relation/1857985",
-   "osm:relation/1860918",
    "osm:relation/1860919",
    "osm:relation/1860920",
    "osm:relation/1860921",
-   "osm:relation/1861910",
-   "osm:relation/1861912",
    "osm:relation/19372161",
    "osm:relation/49690",
    "osm:way/1016871040",
@@ -310,12 +290,9 @@
    "osm:way/131451564",
    "osm:way/131451776",
    "osm:way/131451819",
-   "osm:way/131557337",
    "osm:way/132581385",
-   "osm:way/132881964",
    "osm:way/135747106",
    "osm:way/149714726",
-   "osm:way/1527652398",
    "osm:way/205595971",
    "osm:way/212488877",
    "osm:way/215289671",
@@ -330,8 +307,8 @@
    "osm:way/49824161"
   ],
   "excluded_by_zone": {
-   "Roman Forum and Palatine": 75,
-   "Vatican Museums, Gardens and Apostolic Palace": 49
+   "Roman Forum and Palatine": 48,
+   "Vatican Museums, Gardens and Apostolic Palace": 46
   },
   "folded": [
    {
@@ -353,13 +330,6 @@
     "kept": "osm:node/706793341",
     "dropped": [
      "osm:relation/1707363"
-    ]
-   },
-   {
-    "entry": "Giardino degli Aranci",
-    "kept": "osm:relation/8437974",
-    "dropped": [
-     "osm:node/653947448"
     ]
    },
    {
@@ -492,12 +462,6 @@
     "as": "known"
    },
    {
-    "name": "Mercato di Testaccio",
-    "id": "osm:relation/15258037",
-    "osm_name": "Nuovo Mercato Testaccio",
-    "as": "known"
-   },
-   {
     "name": "Palazzo Massimo alle Terme",
     "id": "osm:node/12707172364",
     "osm_name": "Museo Nazionale Romano di Palazzo Massimo",
@@ -519,12 +483,6 @@
     "name": "Giardino degli Aranci",
     "id": "osm:relation/8437974",
     "osm_name": "Giardino degli Aranci",
-    "as": "known"
-   },
-   {
-    "name": "Gianicolo terrace",
-    "id": "osm:node/1001130475",
-    "osm_name": "Terrazza del Gianicolo",
     "as": "known"
    },
    {
