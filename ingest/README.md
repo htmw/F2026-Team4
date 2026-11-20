@@ -15,6 +15,11 @@ committed snapshot):
 | `city.json` | aliases the API accepts, bbox, currency, build time, OSM attribution |
 | `report.json` | counts, drop reasons, duplicates merged, hours and price coverage, curation result |
 | `matrix.json` | walk and transit minutes for the most popular places (skipped with `--matrix-top 0`) |
+| `stop_walks.json` | minutes from each place to its nearest bus stop or station (when OSM has stops) |
+| `descriptions.json` | a "what is this place" line per place: `{"text", "source", "website"?}`, source `wikipedia` or `openstreetmap`; `website` is the place's own site when OSM has one |
+
+The two last files sit beside `places.json`, not inside it, so every place still matches the
+Place contract unchanged.
 
 Raw Nominatim and Overpass responses are cached in `data/cache/` (git-ignored). A cached
 file is only reused when the city, bbox and query text match exactly.
@@ -83,17 +88,38 @@ name, country and centre.
 6. **Curation** ([`curation.py`](curation.py)): hand checked hours, prices and visit lengths
    for the sights that matter most, from `data/curation/<city>.json`.
 
+## Where each piece of data comes from
+
+| What the traveler sees | Source | Marked as |
+|------------------------|--------|-----------|
+| Place names, location, kind of place | OpenStreetMap (Overpass), fetched live per city | — |
+| Price "€18.00" or "Free" | OSM `charge` / `fee=no`, or a hand checked official source (Rome curation) | verified (`known`) |
+| Price "≈ €25.00" | `TYPICAL_PRICE` in `cost.py`: a rough October 2026 price per kind of place for 21 currencies; every other currency converts `BASE_USD` at a rough rate (`USD_RATE`). Paid towers and observation decks: twice a museum ticket. | estimated (`inferred`) |
+| Free parks, churches, squares | `FREE_BY_DEFAULT` in `categories.py` | estimated (`inferred`) |
+| "Hours verified" + "Open 9:00 AM – 6:00 PM" | OSM `opening_hours`, fully parsed, or Rome curation | `known` |
+| "Hours estimated" + "Open …" | `DEFAULT_HOURS` in `categories.py`: the usual hours for that kind of place, used when OSM has no hours or hours we cannot read | `inferred` |
+| What the place is, "(Wikipedia)" | First two sentences of the English Wikipedia article, found through the OSM `wikidata` or `wikipedia` tag (Wikidata API, then Wikipedia API). Text is CC BY-SA and credited on screen. | `description_source: wikipedia` |
+| What the place is, plain line | Built from OSM tags: kind, cuisine, religion, year built, or the OSM `description` | `description_source: openstreetmap` |
+| "Website" link | OSM `website` or `contact:website`, only `http`/`https` links kept | — |
+| Weather pill under each day, rain warning | Open-Meteo daily forecast for the trip dates (up to 16 days ahead), cached 6 hours; "Forecast unavailable" when there is none | forecast |
+| "X min walk" between stops | Straight line x 1.3 at 4.5 km/h (checked against OSRM, see Travel times) | estimate |
+| "X min transit (incl. Y min walk to and from the stop)" | Walk to the nearest OSM bus stop or station from each place, a 4 minute wait, the ride at 15 km/h | estimate |
+
+Nothing here is ever labelled `known` unless it came from OSM or an official source. Every
+estimate says so on screen (≈, "estimated", "Some travel times are estimates").
+
 ## Confidence: the one rule
 
 Never label a guess `known`.
 
 | Field | `known` | `inferred` | `unknown` |
 |-------|---------|------------|-----------|
-| `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag (category default), or a curated entry with only secondary sources | tag present but outside the supported syntax |
-| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | no fee tag on a usually free category (park, church, square...), or a typical price per person for a restaurant, cafe, bar or ticketed sight in that currency (`TYPICAL_PRICE` in `cost.py`) | `fee=yes` without an amount, ambiguous charge, or no data |
+| `hours` | OSM `opening_hours` fully parsed, or a curated entry from an official source | no hours tag, or a tag we cannot read: the category's usual hours; or a curated entry with only secondary sources | not produced any more (older saved cities are filled in when they load) |
+| `cost` | parsed `charge`, `fee=no`, or a curated price from an official source | a usually free category (park, church, square...); otherwise a typical price per person in that currency (`TYPICAL_PRICE`, or `BASE_USD` x `USD_RATE`); `fee=yes` without an amount or an ambiguous charge also gets the typical price | only a place with no currency at all (`XXX`) |
 
-The hours parser is strict on purpose: if any part of the string is not understood, the whole
-value is `unknown` instead of half guessed. `PH` and `SH` (holiday) rules are skipped because
+The hours parser is strict on purpose: if any part of the string is not understood, the parser
+gives up instead of half guessing, and the place gets its category's usual hours marked
+`inferred`, never a half parsed `known`. `PH` and `SH` (holiday) rules are skipped because
 the contract has no holiday field. `typical_duration_minutes` is a category default unless a
 curated entry sets it. `popularity` is a proxy, documented as one, and `rating` is never set
 because OSM has no reviews.
@@ -144,8 +170,11 @@ To refresh a city, check the sources again, update `checked_on`, then `make snap
 - **walk**: straight line distance x 1.3 / 4.5 km/h. Against OSRM foot routing on 600 pairs of
   popular Rome places this is off by about 2 minutes per walkable leg (p95 under 6), slightly
   on the long side. See [`docs/routing-spike.md`](../docs/routing-spike.md).
-- **transit**: 10 minutes to reach and wait for a stop, then the distance x 1.4 at 15 km/h.
-  A planning estimate, not a timetable.
+- **transit**: the walk from the place to its nearest bus stop or station, a 4 minute wait,
+  the distance x 1.4 at 15 km/h, and the walk from the stop nearest the next place. The walks
+  come from `stop_walks.json` (straight line to the nearest OSM stop x 1.3 at 4.5 km/h, at most
+  15 min); without it, 3 minutes each way. The leg carries `walk_minutes` so the day's walking
+  total includes it. A planning estimate, not a timetable.
 
 A leg is `walk` while it fits the traveler's `max_walk_minutes`, otherwise `transit`.
 
@@ -198,6 +227,17 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 - Seasonal hours: the contract holds one weekly pattern, so the curated hours are the winter
   timetable that covers the demo dates. Change them when the season changes.
 - `day_trip` has no OSM mapping yet; it needs curated entries.
+- Typical prices and exchange rates are rough October 2026 figures, shown with ≈. They are
+  worth a check against a cost-of-living source (for example Numbeo) and a refresh each year.
+- Estimated hours ignore closing days: a restaurant whose unreadable tag says "closed
+  Sunday" gets its usual hours every day.
+- The walk to transit uses the nearest stop in a straight line, which is not always on the
+  right route.
+- Descriptions are English Wikipedia only; a famous place with no English article gets the
+  plain OSM line. Saved cities from before descriptions existed have none until they are
+  fetched again (`rm -rf data/live/*`). Rome, the committed snapshot, is rebuilt with
+  `make snapshot-rome`, which passes `--wikipedia` (the command line only asks Wikipedia when
+  told to).
 - Parts of one site that OSM tags with the site's wikidata under another name more than
   100 m away stay separate records. In Rome the one that mattered (Piazza Retta, part of
   St. Peter's Square) is excluded by hand.
@@ -209,3 +249,5 @@ dates (Open-Meteo, no key needed, cached for 6 hours) and `is_outdoor(place)`.
 
 Place data comes from OpenStreetMap, (c) OpenStreetMap contributors, under the ODbL 1.0.
 `city.json` carries the attribution and anything that shows the data should too.
+Descriptions marked `wikipedia` are from Wikipedia, under CC BY-SA 4.0; the website credits
+"(Wikipedia)" next to each one.

@@ -16,7 +16,7 @@ Generated 2026-11-20 by `python -m ingest.quality`. Each city is loaded the way 
 | Cairo, Egypt | 9 | 78% | 22% | 0% | 0% | 100% | 0% | 100% | 44% | 0% |
 | Sydney, Australia | 10 | 80% | 20% | 0% | 20% | 80% | 0% | 100% | 50% | 0% |
 | Mexico City, Mexico | 10 | 70% | 30% | 0% | 0% | 100% | 0% | 100% | 40% | 0% |
-| Rome, Italy | 11 | 100% | 0% | 0% | 55% | 46% | 0% | 0% | 0% | 0% |
+| Rome, Italy | 11 | 82% | 18% | 0% | 36% | 64% | 0% | 100% | 27% | 0% |
 | Greater London, United Kingdom | 10 | 80% | 20% | 0% | 10% | 90% | 0% | 100% | 90% | 0% |
 | Berlin, Germany | 12 | 92% | 8% | 0% | 17% | 83% | 0% | 100% | 67% | 0% |
 | Istanbul, Turkey | 12 | 83% | 17% | 0% | 0% | 100% | 0% | 100% | 67% | 0% |
@@ -41,7 +41,7 @@ Generated 2026-11-20 by `python -m ingest.quality`. Each city is loaded the way 
 | Cairo, Egypt | EGP | 493 | 0.0 s (saved copy from an earlier fetch) | 7.2 min | 29% | 5 (7, 10, 14, 19, 27) |
 | Sydney, Australia | AUD | 3911 | 0.3 s (saved copy from an earlier fetch) | 1.3 min | 96% | 4 (2, 2, 3, 5) |
 | Mexico City, Mexico | MXN | 1058 | 0.0 s (saved copy from an earlier fetch) | 4.2 min | 59% | 4 (13, 15, 17, 19) |
-| Rome, Italy | EUR | 4549 | 0.1 s (saved in the repo) | n/a | n/a | 4 (6, 6, 6, 6) |
+| Rome, Italy | EUR | 4300 | 0.1 s (saved in the repo) | 1.5 min | 99% | 4 (3, 4, 5, 6) |
 | Greater London, United Kingdom | GBP | 9536 | 0.5 s (saved copy from an earlier fetch) | 1.3 min | 98% | 5 (1, 2, 3, 3, 4) |
 | Berlin, Germany | EUR | 7098 | 0.5 s (saved copy from an earlier fetch) | 2.0 min | 96% | 2 (4, 5) |
 | Istanbul, Turkey | TRY | 5131 | 0.1 s (saved copy from an earlier fetch) | 2.2 min | 92% | 3 (3, 4, 6) |

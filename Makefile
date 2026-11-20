@@ -50,7 +50,7 @@ ingest: ## Ingest one city into data/out: make ingest CITY="Porto, Portugal"
 snapshot-rome: ## Rebuild the committed Rome snapshot in data/cities/rome
 	uv run python -m ingest "Rome, Italy" --bbox $(ROME_BBOX) --slug rome \
 		--alias Roma --alias "Roma, Italia" \
-		--out data/cities --curation data/curation/rome.json --matrix-top 0
+		--out data/cities --curation data/curation/rome.json --matrix-top 0 --wikipedia
 
 data-quality: ## What a traveler gets per city -> docs/data-quality.md: make data-quality CITIES='"Tokyo" "Paris"'
 	uv run python -m ingest.quality $(CITIES)
