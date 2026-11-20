@@ -24,6 +24,7 @@ file is only reused when the city, bbox and query text match exactly.
 ```bash
 make ingest CITY="Porto, Portugal"     # any city -> data/out/porto-portugal/
 make snapshot-rome                     # rebuild the committed Rome snapshot
+make data-quality                      # what a traveler gets in 8 cities -> docs/data-quality.md
 make data-spike                        # hours and price coverage -> docs/data-spike.md
 make routing-spike                     # haversine vs OSRM walking -> docs/routing-spike.md
 ```
