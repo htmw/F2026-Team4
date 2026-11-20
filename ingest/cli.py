@@ -4,7 +4,8 @@ Examples:
     python -m ingest "Lisbon, Portugal"
     python -m ingest "London, UK" --bbox 51.45,-0.25,51.56,0.02
     python -m ingest "Rome, Italy" --bbox 41.87,12.43,41.94,12.53 --slug rome \\
-        --alias Roma --out data/cities --curation data/curation/rome.json --matrix-top 0
+        --alias Roma --out data/cities --curation data/curation/rome.json --matrix-top 0 \\
+        --wikipedia
 """
 
 from __future__ import annotations
@@ -50,6 +51,11 @@ def main(argv: list[str] | None = None) -> int:
         default=300,
         help="places included in matrix.json, 0 writes no matrix file",
     )
+    ap.add_argument(
+        "--wikipedia",
+        action="store_true",
+        help="add the Wikipedia intro to famous places, as live cities get (needs internet)",
+    )
     ap.add_argument("--speed-kmh", type=float, default=4.5)
     ap.add_argument("--detour-factor", type=float, default=1.3)
     a = ap.parse_args(argv)
@@ -69,6 +75,7 @@ def main(argv: list[str] | None = None) -> int:
             slug=a.slug,
             aliases=a.alias,
             curation_path=Path(a.curation) if a.curation else None,
+            wikipedia=a.wikipedia,
         )
     except (GeocodeError, CurationError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
