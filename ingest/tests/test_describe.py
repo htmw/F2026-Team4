@@ -109,3 +109,34 @@ def test_a_famous_place_keeps_its_contacts_next_to_the_wikipedia_text():
         get=get, log=lambda *_: None,
     )
     assert out["a"] == {"text": "A museum.", "source": "wikipedia", "website": "https://m.example"}
+
+
+class Busy(FakeResponse):
+    status_code = 429
+    headers = {"Retry-After": "3"}
+
+
+def test_wikipedia_saying_slow_down_is_waited_for_not_given_up_on():
+    """Paris, 18 Nov 2026: a 429 left the whole city without Wikipedia descriptions."""
+    places = [{"id": "a", "categories": ["landmark"], "popularity": 1}]
+    answers = [Busy({}), FakeResponse({"query": {"pages": {"1": {
+        "title": "Arc de Triomphe", "extract": "The Arc de Triomphe is a monument in Paris."}}}})]
+    waits = []
+
+    out = describe_places(places, {"a": {"tags": {"wikipedia": "en:Arc de Triomphe"}}},
+                          get=lambda url, params, **kw: answers.pop(0), sleep=waits.append,
+                          log=lambda *_: None)
+
+    assert out["a"]["source"] == "wikipedia"
+    assert waits == [3.0], "waited as long as Wikipedia asked"
+
+
+def test_a_long_list_pauses_between_batches():
+    places = [{"id": f"p{i}", "categories": ["museum"], "popularity": 1} for i in range(25)]
+    info = {f"p{i}": {"tags": {"wikipedia": f"en:Museum {i}"}} for i in range(25)}
+    waits = []
+
+    describe_places(places, info, get=lambda url, params, **kw: FakeResponse({"query": {}}),
+                    sleep=waits.append, log=lambda *_: None)
+
+    assert waits == [1.0], "two Wikipedia batches of 20 and 5, one polite pause between"

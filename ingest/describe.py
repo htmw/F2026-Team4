@@ -14,6 +14,7 @@ not inside the place records, so every place still matches contracts/place.schem
 from __future__ import annotations
 
 import re
+import time
 
 import requests
 
@@ -212,12 +213,43 @@ def _wikipedia_intros(titles: list[str], get, log) -> dict[str, dict]:
     return intros
 
 
+# Wikipedia asks API clients to slow down with HTTP 429 when they go too fast (Paris has
+# hundreds of famous places). Wait as asked and try again rather than give up on the city.
+RATE_LIMIT_TRIES = 4
+BATCH_PAUSE_S = 1.0
+
+
+def _patient(get, sleep, log):
+    """get() that waits and retries on 429, and pauses between batches to the same API."""
+    last_url: list[str] = []
+
+    def call(url, params=None, **kw):
+        if last_url and last_url[-1] == url:
+            sleep(BATCH_PAUSE_S)  # the next batch to the same API: be polite
+        last_url.append(url)
+        for attempt in range(RATE_LIMIT_TRIES):
+            resp = get(url, params=params, **kw)
+            if getattr(resp, "status_code", 200) != 429 or attempt == RATE_LIMIT_TRIES - 1:
+                return resp
+            headers = getattr(resp, "headers", None) or {}
+            try:
+                wait = float(headers.get("Retry-After", 0)) or 2.0 * 2 ** attempt
+            except (TypeError, ValueError):
+                wait = 2.0 * 2 ** attempt
+            log(f"  descriptions: Wikipedia asked us to slow down; waiting {min(wait, 30):.0f} s")
+            sleep(min(wait, 30))
+        return resp
+
+    return call
+
+
 def describe_places(
     places: list[dict],
     info: dict[str, dict],
     *,
     wikipedia: bool = True,
     get=requests.get,
+    sleep=time.sleep,
     log=print,
 ) -> dict[str, dict]:
     """{place_id: {"text", "source"}} for every place, plus "website" when the place lists
@@ -244,6 +276,7 @@ def describe_places(
 
     if not wikipedia or not famous:
         return out
+    get = _patient(get, sleep, log)
 
     popularity = {p["id"]: float(p.get("popularity") or 0) for p in places}
     by_popularity = sorted(famous, key=lambda pid: -popularity[pid])

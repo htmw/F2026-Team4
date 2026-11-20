@@ -175,7 +175,9 @@ def run_city(
     counts["places"] = len(places)
     counts["transit_stops"] = len(stops)
     stop_walks = stop_walk_minutes(places, stops)
-    descriptions = describe_places(places, element_info, wikipedia=wikipedia, get=get, log=log)
+    descriptions = describe_places(
+        places, element_info, wikipedia=wikipedia, get=get, sleep=sleep, log=log
+    )
     for p in places:
         hours_status[_hours_label(p)] += 1
         cost_status[_cost_label(p, signals.get(p["id"], {}))] += 1
