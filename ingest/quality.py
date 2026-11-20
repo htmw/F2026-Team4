@@ -8,7 +8,9 @@ with descriptions and bus stops), then a sample two-day trip is planned with the
 traveler in fixtures/. The report measures the stops in that plan, because those are what a
 traveler sees, plus the city's whole place list for the walk to the nearest stop.
 
-Delete data/live/<city> first to measure a fresh fetch, including how long it takes.
+Delete data/live/<city> first to measure a fresh fetch, including how long it takes. The
+report says which cities were really downloaded during the run (their places.json was
+written), not guessed from how long they took.
 Writes docs/data-quality.md and docs/data-quality.json, even if a city fails.
 """
 
@@ -71,12 +73,36 @@ def city_stats(places: list[dict], stop_walks: dict[str, float]) -> dict:
     }
 
 
+def downloaded_during_load(city, began_at: float) -> bool:
+    """True when this load fetched the city from OpenStreetMap, not when it read a saved copy.
+
+    A live fetch writes the city's places.json; a saved copy (the repo snapshot, or a live
+    city kept in data/live from an earlier request) is only read. So the file says what
+    happened, however long the load took.
+    """
+    if city.source != "live":
+        return False
+    places_file = Path(city.path) / "places.json"
+    return places_file.exists() and places_file.stat().st_mtime >= began_at
+
+
+def _loaded_from(r: dict) -> str:
+    if r.get("downloaded"):
+        return "downloaded now"
+    if r.get("source") == "snapshot":
+        return "saved in the repo"
+    if r.get("source") == "live":
+        return "saved copy from an earlier fetch"
+    return r.get("source") or "unknown"
+
+
 def measure(name: str, start: date, plan=None, load=catalog.load_city) -> dict:
     """Load one city as the app does, plan a two-day sample trip, and measure both."""
     if plan is None:
         from optimizer.scheduler import plan_itinerary as plan
     profile = json.loads(SAMPLE_PROFILE.read_text(encoding="utf-8"))
     began = time.monotonic()
+    began_at = time.time()
     city = load(name)
     load_seconds = round(time.monotonic() - began, 1)
     itinerary = plan(
@@ -90,6 +116,7 @@ def measure(name: str, start: date, plan=None, load=catalog.load_city) -> dict:
     return {
         "city": itinerary["destination"]["name"],
         "source": city.source,
+        "downloaded": downloaded_during_load(city, began_at),
         "load_seconds": load_seconds,
         **city_stats(city.places, walks),
         **plan_stats(itinerary),
@@ -140,8 +167,7 @@ def render(results: dict, today: str) -> str:
     for r in ok.values():
         walk = "n/a" if r["median_walk_to_stop"] is None else f"{r['median_walk_to_stop']} min"
         rides = ", ".join(map(str, r["ride_walk_minutes"])) or "none"
-        fresh = " (fresh fetch)" if r["load_seconds"] > 5 else " (saved)"
-        loaded = f"{r['load_seconds']} s{fresh}"
+        loaded = f"{r['load_seconds']} s ({_loaded_from(r)})"
         lines.append(
             f"| {r['city']} | {r['currency']} | {r['places']} | {loaded} | {walk} | "
             f"{_pct(r['near_a_stop'])} | {r['transit_rides']} ({rides}) |"

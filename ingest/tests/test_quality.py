@@ -1,5 +1,6 @@
 """The data quality report measures what a traveler gets from a planned trip."""
 
+import os
 from datetime import date
 from types import SimpleNamespace
 
@@ -41,7 +42,7 @@ def test_a_city_without_stop_data_says_so():
 
 
 def test_measure_and_render(monkeypatch):
-    city = SimpleNamespace(places=[{"id": "a"}, {"id": "b"}], source="live")
+    city = SimpleNamespace(places=[{"id": "a"}, {"id": "b"}], source="snapshot", path=".")
     monkeypatch.setattr(catalog, "_STOP_WALKS", {"a": 3.0, "b": 4.0, "elsewhere": 30.0})
     r = quality.measure("Porto", date(2026, 12, 1), plan=lambda **kw: ITINERARY,
                         load=lambda name: city)
@@ -52,6 +53,7 @@ def test_measure_and_render(monkeypatch):
     assert "| Porto, Portugal | 2 | 50% | 50% | 0% | 50% | 50% | 0% | 100% | 50% | 50% |" in md
     assert "- Atlantisville: not found" in md
     assert "no planned stop has unknown hours or prices" in md
+    assert "(saved in the repo)" in md
 
 
 def test_the_summary_line_matches_the_results():
@@ -67,3 +69,29 @@ def test_the_summary_line_matches_the_results():
     assert "every stop has a verified value" not in some_unknown
     assert "In 1 of 2 cities some planned stops have unknown hours or prices" in some_unknown
     assert "Lima, Peru (20% of stops with unknown hours, 0% with an unknown price)" in some_unknown
+
+
+def test_downloaded_means_the_city_was_written_during_this_load_not_that_it_was_slow(tmp_path):
+    """Bala's review: "saved" or "fresh" was guessed from the load time."""
+    import time as clock
+
+    places_file = tmp_path / "places.json"
+    places_file.write_text("[]")
+    old = clock.time() - 3600
+    os.utime(places_file, (old, old))
+    city = SimpleNamespace(source="live", path=tmp_path)
+
+    began = clock.time()
+    assert not quality.downloaded_during_load(city, began), "read from data/live, even if slow"
+
+    places_file.write_text("[]")  # what a fetch does
+    assert quality.downloaded_during_load(city, began)
+    snapshot = SimpleNamespace(source="snapshot", path=tmp_path)
+    assert not quality.downloaded_during_load(snapshot, began), "the repo copy is never fetched"
+
+
+def test_the_report_names_where_each_city_came_from():
+    assert quality._loaded_from({"source": "live", "downloaded": True}) == "downloaded now"
+    assert quality._loaded_from({"source": "live", "downloaded": False}) == (
+        "saved copy from an earlier fetch")
+    assert quality._loaded_from({"source": "snapshot"}) == "saved in the repo"
