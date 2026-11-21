@@ -243,3 +243,14 @@ def test_trip_weather_gives_each_day_its_forecast(monkeypatch, tmp_path):
 
     assert out["2026-11-09"]["summary"] == "Sunny" and not out["2026-11-09"]["rainy"]
     assert out["2026-11-10"]["summary"] == "Rain likely" and out["2026-11-10"]["rainy"]
+
+
+def test_saved_wikipedia_text_is_shown_without_its_pronunciation():
+    """Rome was saved with "The Colosseum ( KOL-ə-SEE-əm; ...) is"; it loads without it."""
+    rome = catalog.load_city("Rome")
+    texts = [catalog.description_of(p["id"]) for p in rome.places]
+    wiki = [d["text"] for d in texts if d and d["source"] == "wikipedia"]
+    assert wiki, "Rome has Wikipedia descriptions"
+    assert not [t for t in wiki if "ə" in t or "pronunc" in t.lower()]
+    colosseum = next(t for t in wiki if t.startswith("The Colosseum"))
+    assert colosseum.startswith("The Colosseum is ")

@@ -7,28 +7,28 @@ Generated 2026-11-20 by `python -m ingest.quality`. Each city is loaded the way 
 
 ## In the planned trip
 
-| City | Stops | Hours verified | Hours estimated | Hours unknown | Real price or free | Price ≈ estimate | Price unknown | Described | From Wikipedia | Photo |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Hyderabad, India | 9 | 78% | 22% | 0% | 0% | 100% | 0% | 100% | 22% | 0% |
-| New York, United States | 11 | 91% | 9% | 0% | 0% | 100% | 0% | 100% | 27% | 0% |
-| Tokyo, Japan | 10 | 90% | 10% | 0% | 10% | 90% | 0% | 100% | 0% | 0% |
-| Paris, France | 10 | 100% | 0% | 0% | 0% | 100% | 0% | 100% | 80% | 0% |
-| Cairo, Egypt | 9 | 78% | 22% | 0% | 0% | 100% | 0% | 100% | 44% | 0% |
-| Sydney, Australia | 10 | 80% | 20% | 0% | 20% | 80% | 0% | 100% | 50% | 0% |
-| Mexico City, Mexico | 10 | 70% | 30% | 0% | 0% | 100% | 0% | 100% | 40% | 0% |
-| Rome, Italy | 11 | 82% | 18% | 0% | 36% | 64% | 0% | 100% | 27% | 0% |
-| Greater London, United Kingdom | 10 | 80% | 20% | 0% | 10% | 90% | 0% | 100% | 90% | 0% |
-| Berlin, Germany | 12 | 92% | 8% | 0% | 17% | 83% | 0% | 100% | 67% | 0% |
-| Istanbul, Turkey | 12 | 83% | 17% | 0% | 0% | 100% | 0% | 100% | 67% | 0% |
-| Dubai, United Arab Emirates | 11 | 73% | 27% | 0% | 18% | 82% | 0% | 100% | 36% | 0% |
-| Bangkok, Thailand | 9 | 89% | 11% | 0% | 11% | 89% | 0% | 100% | 44% | 0% |
-| Seoul, South Korea | 9 | 89% | 11% | 0% | 0% | 100% | 0% | 100% | 67% | 0% |
-| Singapore, Singapore | 10 | 80% | 20% | 0% | 10% | 90% | 0% | 100% | 80% | 0% |
-| Nairobi, Kenya | 9 | 67% | 33% | 0% | 0% | 100% | 0% | 100% | 44% | 0% |
-| Cape Town, South Africa | 10 | 80% | 20% | 0% | 0% | 100% | 0% | 100% | 40% | 0% |
-| Lima, Peru | 10 | 90% | 10% | 0% | 0% | 100% | 0% | 100% | 60% | 0% |
-| Buenos Aires, Argentina | 9 | 89% | 11% | 0% | 11% | 89% | 0% | 100% | 56% | 0% |
-| Toronto, Canada | 11 | 73% | 27% | 0% | 0% | 100% | 0% | 100% | 91% | 0% |
+| City | Stops | Hours verified | Hours estimated | Hours unknown | Real price or free | Price ≈ estimate | Price unknown | Described | From Wikipedia |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Hyderabad, India | 9 | 78% | 22% | 0% | 0% | 100% | 0% | 100% | 22% |
+| New York, United States | 11 | 91% | 9% | 0% | 0% | 100% | 0% | 100% | 27% |
+| Tokyo, Japan | 10 | 90% | 10% | 0% | 10% | 90% | 0% | 100% | 0% |
+| Paris, France | 10 | 100% | 0% | 0% | 0% | 100% | 0% | 100% | 80% |
+| Cairo, Egypt | 9 | 78% | 22% | 0% | 0% | 100% | 0% | 100% | 44% |
+| Sydney, Australia | 10 | 80% | 20% | 0% | 20% | 80% | 0% | 100% | 50% |
+| Mexico City, Mexico | 10 | 70% | 30% | 0% | 0% | 100% | 0% | 100% | 40% |
+| Rome, Italy | 11 | 82% | 18% | 0% | 36% | 64% | 0% | 100% | 27% |
+| Greater London, United Kingdom | 10 | 80% | 20% | 0% | 10% | 90% | 0% | 100% | 90% |
+| Berlin, Germany | 12 | 92% | 8% | 0% | 17% | 83% | 0% | 100% | 67% |
+| Istanbul, Turkey | 12 | 83% | 17% | 0% | 0% | 100% | 0% | 100% | 67% |
+| Dubai, United Arab Emirates | 11 | 73% | 27% | 0% | 18% | 82% | 0% | 100% | 36% |
+| Bangkok, Thailand | 9 | 89% | 11% | 0% | 11% | 89% | 0% | 100% | 44% |
+| Seoul, South Korea | 9 | 89% | 11% | 0% | 0% | 100% | 0% | 100% | 67% |
+| Singapore, Singapore | 10 | 80% | 20% | 0% | 10% | 90% | 0% | 100% | 80% |
+| Nairobi, Kenya | 9 | 67% | 33% | 0% | 0% | 100% | 0% | 100% | 44% |
+| Cape Town, South Africa | 10 | 80% | 20% | 0% | 0% | 100% | 0% | 100% | 40% |
+| Lima, Peru | 10 | 90% | 10% | 0% | 0% | 100% | 0% | 100% | 60% |
+| Buenos Aires, Argentina | 9 | 89% | 11% | 0% | 11% | 89% | 0% | 100% | 56% |
+| Toronto, Canada | 11 | 73% | 27% | 0% | 0% | 100% | 0% | 100% | 91% |
 
 ## The city as a whole
 

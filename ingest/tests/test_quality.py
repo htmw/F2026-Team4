@@ -12,7 +12,7 @@ ITINERARY = {
     "days": [{"items": [
         {"place_id": "a", "confidence": "known", "cost_confidence": "known",
          "description": "A tower.", "description_source": "wikipedia",
-         "photo": {"url": "u", "page": "p"}, "open_hours": [["09:00", "18:00"]]},
+         "open_hours": [["09:00", "18:00"]]},
         {"place_id": "b", "confidence": "inferred", "cost_confidence": "inferred",
          "description": "Café.", "description_source": "openstreetmap",
          "travel_from_prev": {"minutes": 19, "mode": "transit", "walk_minutes": 4}},
@@ -26,7 +26,8 @@ def test_plan_stats_counts_what_the_traveler_sees():
     assert s["stops"] == 2
     assert (s["hours_verified"], s["hours_estimated"], s["hours_unknown"]) == (0.5, 0.5, 0.0)
     assert (s["price_real"], s["price_estimated"], s["price_unknown"]) == (0.5, 0.5, 0.0)
-    assert (s["described"], s["from_wikipedia"], s["with_photo"]) == (1.0, 0.5, 0.5)
+    assert (s["described"], s["from_wikipedia"]) == (1.0, 0.5)
+    assert "with_photo" not in s, "photos were dropped from the plan, so no empty column"
     assert s["transit_rides"] == 1 and s["ride_walk_minutes"] == [4]
 
 
@@ -50,7 +51,7 @@ def test_measure_and_render(monkeypatch):
     assert r["city"] == "Porto, Portugal" and r["places"] == 2
     assert r["median_walk_to_stop"] == 3.5, "only this city's places"
     md = quality.render({"Porto": r, "Atlantisville": {"error": "not found"}}, "2026-12-01")
-    assert "| Porto, Portugal | 2 | 50% | 50% | 0% | 50% | 50% | 0% | 100% | 50% | 50% |" in md
+    assert "| Porto, Portugal | 2 | 50% | 50% | 0% | 50% | 50% | 0% | 100% | 50% |" in md
     assert "- Atlantisville: not found" in md
     assert "no planned stop has unknown hours or prices" in md
     assert "(saved in the repo)" in md

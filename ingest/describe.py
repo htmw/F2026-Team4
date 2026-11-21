@@ -129,6 +129,19 @@ def contacts_from_tags(tags: dict) -> dict:
     return out
 
 
+# A bracket that only tells how to say the name: IPA in [ ], "pronounced", or respelling
+# such as KOL-ə-SEE-əm. A bracket with a translation, "(Fountain of the Bees)", is kept.
+_SAYING = re.compile(r"\[|pronounc|[əˈˌːɪʊɛɔæʃʒθðŋ]", re.IGNORECASE)
+
+
+def without_pronunciation(text: str) -> str:
+    """'The Colosseum ( KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is' -> 'The Colosseum is'."""
+    out = re.sub(
+        r"\s*\(([^()]*)\)", lambda m: "" if _SAYING.search(m.group(1)) else m.group(0), text
+    )
+    return re.sub(r"\s+([,.;])", r"\1", " ".join(out.split()))
+
+
 def _short(text: str) -> str:
     """At most MAX_CHARS, cut at the end of a sentence when there is one."""
     text = " ".join(text.split())
@@ -209,7 +222,7 @@ def _wikipedia_intros(titles: list[str], get, log) -> dict[str, dict]:
             text = (page.get("extract") or "").strip()
             if text and "may refer to" not in text:
                 title = page.get("title", "")
-                intros[back.get(title, title)] = {"text": _short(text)}
+                intros[back.get(title, title)] = {"text": _short(without_pronunciation(text))}
     return intros
 
 

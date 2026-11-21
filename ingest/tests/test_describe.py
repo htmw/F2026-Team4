@@ -6,6 +6,7 @@ from ingest.describe import (
     contacts_from_tags,
     describe_from_tags,
     describe_places,
+    without_pronunciation,
 )
 
 
@@ -140,3 +141,30 @@ def test_a_long_list_pauses_between_batches():
                     sleep=waits.append, log=lambda *_: None)
 
     assert waits == [1.0], "two Wikipedia batches of 20 and 5, one polite pause between"
+
+
+def test_how_to_say_a_name_is_left_out_but_a_translation_stays():
+    """Rome, 20 Nov 2026: the Colosseum's description began with its pronunciation."""
+    assert without_pronunciation(
+        "The Colosseum ( KOL-ə-SEE-əm; Italian: Colosseo [kolosˈsɛːo]) is an elliptical"
+        " amphitheatre."
+    ) == "The Colosseum is an elliptical amphitheatre."
+    assert without_pronunciation(
+        "The Palazzo Colonna (Italian pronunciation: [paˈlattso koˈlonna]) is a palace in Rome."
+    ) == "The Palazzo Colonna is a palace in Rome."
+    kept = "Fontana delle Api (Fountain of the Bees) is a fountain in Piazza Barberini."
+    assert without_pronunciation(kept) == kept
+    museum = "The National Etruscan Museum (Italian: Museo Nazionale Etrusco) is a museum."
+    assert without_pronunciation(museum) == museum
+
+
+def test_a_new_wikipedia_intro_comes_without_its_pronunciation():
+    places = [{"id": "a", "categories": ["landmark"], "popularity": 1}]
+    intro = "The Colosseum ( KOL-ə-SEE-əm) is an amphitheatre in Rome."
+    out = describe_places(
+        places, {"a": {"tags": {"wikipedia": "en:Colosseum"}}},
+        get=lambda url, params, **kw: FakeResponse(
+            {"query": {"pages": {"1": {"title": "Colosseum", "extract": intro}}}}),
+        log=lambda *_: None,
+    )
+    assert out["a"]["text"] == "The Colosseum is an amphitheatre in Rome."

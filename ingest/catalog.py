@@ -38,6 +38,7 @@ from pathlib import Path
 import requests
 
 from .cache import slugify
+from .describe import without_pronunciation
 from .geocode import GeocodeError, bbox_span_km, geocode
 from .matrix import TravelModel
 from .matrix import travel_legs as _travel_legs
@@ -302,7 +303,10 @@ def _load(source: str, path: Path, mtime: float) -> CityData:
         _STOP_WALKS.update(_read_json(stop_file))
     description_file = path / "descriptions.json"
     if description_file.exists():
-        _DESCRIPTIONS.update(_read_json(description_file))
+        for pid, about in _read_json(description_file).items():
+            if about.get("source") == "wikipedia":  # saved before brackets were cleaned
+                about = {**about, "text": without_pronunciation(about["text"])}
+            _DESCRIPTIONS[pid] = about
     destination = _read_json(path / "destination.json")
     meta = _read_json(path / "city.json") if (path / "city.json").exists() else {}
     country_name = meta.get("country_name", "")

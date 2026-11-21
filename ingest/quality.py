@@ -53,7 +53,6 @@ def plan_stats(itinerary: dict) -> dict:
         "price_unknown": _share(count(lambda i: i.get("cost_confidence") == "unknown"), n),
         "described": _share(count(lambda i: bool(i.get("description"))), n),
         "from_wikipedia": _share(count(lambda i: i.get("description_source") == "wikipedia"), n),
-        "with_photo": _share(count(lambda i: bool(i.get("photo"))), n),
         "with_open_hours": _share(count(lambda i: bool(i.get("open_hours"))), n),
         "transit_rides": len(rides),
         "ride_walk_minutes": sorted(round(r.get("walk_minutes", 0)) for r in rides),
@@ -145,8 +144,8 @@ def render(results: dict, today: str) -> str:
         "## In the planned trip",
         "",
         "| City | Stops | Hours verified | Hours estimated | Hours unknown | Real price or free "
-        "| Price ≈ estimate | Price unknown | Described | From Wikipedia | Photo |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "| Price ≈ estimate | Price unknown | Described | From Wikipedia |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for r in ok.values():
         lines.append(
@@ -154,7 +153,7 @@ def render(results: dict, today: str) -> str:
             f"{_pct(r['hours_estimated'])} | {_pct(r['hours_unknown'])} | "
             f"{_pct(r['price_real'])} | "
             f"{_pct(r['price_estimated'])} | {_pct(r['price_unknown'])} | {_pct(r['described'])} | "
-            f"{_pct(r['from_wikipedia'])} | {_pct(r['with_photo'])} |"
+            f"{_pct(r['from_wikipedia'])} |"
         )
     lines += [
         "",

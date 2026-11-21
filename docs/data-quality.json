@@ -17,7 +17,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.222,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 5,
   "ride_walk_minutes": [
@@ -48,7 +47,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.273,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 6,
   "ride_walk_minutes": [
@@ -80,7 +78,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.0,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 4,
   "ride_walk_minutes": [
@@ -110,7 +107,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.8,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 6,
   "ride_walk_minutes": [
@@ -142,7 +138,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.444,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 5,
   "ride_walk_minutes": [
@@ -173,7 +168,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.5,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 4,
   "ride_walk_minutes": [
@@ -203,7 +197,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.4,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 4,
   "ride_walk_minutes": [
@@ -233,7 +226,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.273,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 4,
   "ride_walk_minutes": [
@@ -263,7 +255,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.9,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 5,
   "ride_walk_minutes": [
@@ -294,7 +285,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.667,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 2,
   "ride_walk_minutes": [
@@ -322,7 +312,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.667,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 3,
   "ride_walk_minutes": [
@@ -351,7 +340,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.364,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 4,
   "ride_walk_minutes": [
@@ -381,7 +369,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.444,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 3,
   "ride_walk_minutes": [
@@ -410,7 +397,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.667,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 6,
   "ride_walk_minutes": [
@@ -442,7 +428,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.8,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 3,
   "ride_walk_minutes": [
@@ -471,7 +456,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.444,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 5,
   "ride_walk_minutes": [
@@ -502,7 +486,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.4,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 3,
   "ride_walk_minutes": [
@@ -531,7 +514,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.6,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 3,
   "ride_walk_minutes": [
@@ -560,7 +542,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.556,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 6,
   "ride_walk_minutes": [
@@ -592,7 +573,6 @@
   "price_unknown": 0.0,
   "described": 1.0,
   "from_wikipedia": 0.909,
-  "with_photo": 0.0,
   "with_open_hours": 1.0,
   "transit_rides": 6,
   "ride_walk_minutes": [
