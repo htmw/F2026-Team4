@@ -82,3 +82,63 @@ def test_newest_feedback_decision_wins():
     current = {"accepted": ["a", "b"], "rejected": ["c"]}
     merged = _merge_feedback(current, Feedback(accepted=["c"], rejected=["a"]))
     assert merged == {"accepted": ["b", "c"], "rejected": ["a"]}
+
+
+# ---- swap a stop / add a place ---------------------------------------------------------
+
+
+def test_suggestions_for_a_swap_leave_out_the_trip_and_follow_the_contract():
+    itinerary = _plan()
+    swapped_out = itinerary["days"][-1]["items"][0]["place_id"]
+
+    resp = client.get(f"/trips/{itinerary['trip_id']}/suggestions", params={"replace": swapped_out})
+
+    assert resp.status_code == 200, resp.text
+    found = resp.json()["suggestions"]
+    assert 1 <= len(found) <= 5
+    assert not {s["place_id"] for s in found} & _place_ids(itinerary)
+    for s in found:
+        assert set(s) == {"place_id", "name", "reason", "cost", "cost_confidence"}
+        assert s["reason"].startswith("Matches your interest")
+
+
+def test_suggestions_for_an_unknown_trip_or_a_bad_date():
+    resp = client.get("/trips/does-not-exist/suggestions")
+    assert resp.status_code == 404
+    assert "No trip with id" in resp.text
+
+    itinerary = _plan()
+    resp = client.get(f"/trips/{itinerary['trip_id']}/suggestions", params={"date": "12/02/2026"})
+    assert resp.status_code == 422
+
+
+def test_a_swapped_in_place_is_planned_on_the_day_it_replaces():
+    itinerary = _plan()
+    last_day = itinerary["days"][-1]
+    swapped_out = last_day["items"][0]["place_id"]
+    trip = f"/trips/{itinerary['trip_id']}"
+    chosen = client.get(f"{trip}/suggestions", params={"replace": swapped_out}).json()
+    new_place = chosen["suggestions"][0]["place_id"]
+
+    swap = {"accepted": [new_place], "rejected": [swapped_out]}
+    resp = client.post(f"{trip}/feedback", json=swap)
+
+    assert resp.status_code == 200, resp.text
+    replanned = resp.json()
+    assert validate("itinerary", replanned) == []
+    assert swapped_out not in _place_ids(replanned)
+    placed_on = [d["date"] for d in replanned["days"]
+                 if any(i["place_id"] == new_place for i in d["items"])]
+    assert placed_on == [last_day["date"]]
+
+
+def test_an_added_place_is_planned():
+    itinerary = _plan()
+    trip = f"/trips/{itinerary['trip_id']}"
+    chosen = client.get(f"{trip}/suggestions", params={"date": itinerary["days"][1]["date"]})
+    new_place = chosen.json()["suggestions"][0]["place_id"]
+
+    resp = client.post(f"{trip}/feedback", json={"accepted": [new_place]})
+
+    assert resp.status_code == 200, resp.text
+    assert new_place in _place_ids(resp.json())

@@ -4,6 +4,7 @@ Endpoints:
     POST /plan                      profile + destination + dates -> Itinerary (saved as a trip)
     GET  /trips/{trip_id}           the trip's current Itinerary
     POST /trips/{trip_id}/feedback  record accepted/rejected places, re-plan, return the Itinerary
+    GET  /trips/{trip_id}/suggestions  up to 5 places to swap in for a stop or add to a day
     POST /profile/from-text         free-text trip description -> TravelerProfile (via /ai)
 
 Every incoming profile and every outgoing itinerary is validated against the contracts,
@@ -21,7 +22,7 @@ from datetime import date
 from pathlib import Path
 from typing import Annotated, Any
 
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -30,6 +31,7 @@ from api.contracts import validate
 from api.trips import TripStore
 from ingest.catalog import CityFetchFailed, CityNotAvailable
 from optimizer.scheduler import plan_itinerary
+from optimizer.suggest import suggest_for_trip
 
 app = FastAPI(
     title="Wanderwise Travel Planning API",
@@ -87,7 +89,27 @@ def _request_errors(req: PlanRequest) -> list[str]:
     return errors
 
 
-def _build_itinerary(request: dict[str, Any], trip_id: str | None = None) -> dict[str, Any]:
+def _city_errors(exc: Exception) -> HTTPException:
+    if isinstance(exc, CityFetchFailed):
+        # The city may be fine; OpenStreetMap is down or rate limiting us. Worth a retry.
+        return HTTPException(status_code=503, detail={"destination_errors": [str(exc)]})
+    # Say so plainly instead of planning a trip in some other city.
+    return HTTPException(status_code=422, detail={"destination_errors": [str(exc)]})
+
+
+def _is_iso_date(text: str) -> bool:
+    try:
+        date.fromisoformat(text)
+    except ValueError:
+        return False
+    return True
+
+
+def _build_itinerary(
+    request: dict[str, Any],
+    trip_id: str | None = None,
+    must_visit_on: dict[str, str] | None = None,
+) -> dict[str, Any]:
     try:
         itinerary = plan_itinerary(
             request["profile"],
@@ -95,13 +117,10 @@ def _build_itinerary(request: dict[str, Any], trip_id: str | None = None) -> dic
             request["start_date"],
             request["end_date"],
             trip_id=trip_id,
+            must_visit_on=must_visit_on,
         )
-    except CityFetchFailed as exc:
-        # The city may be fine; OpenStreetMap is down or rate limiting us. Worth a retry.
-        raise HTTPException(status_code=503, detail={"destination_errors": [str(exc)]}) from exc
-    except CityNotAvailable as exc:
-        # Say so plainly instead of planning a trip in some other city.
-        raise HTTPException(status_code=422, detail={"destination_errors": [str(exc)]}) from exc
+    except CityNotAvailable as exc:  # CityFetchFailed is a CityNotAvailable too
+        raise _city_errors(exc) from exc
     # If our own output breaks the contract, fail loudly — that's a bug, not a bad request.
     itinerary_errors = validate("itinerary", itinerary)
     if itinerary_errors:
@@ -123,6 +142,20 @@ def _merge_feedback(current: dict[str, list[str]], new: Feedback) -> dict[str, l
     accepted += [p for p in new.accepted if p not in accepted]
     rejected += [p for p in new.rejected if p not in rejected]
     return {"accepted": accepted, "rejected": rejected}
+
+
+def _swap_days(itinerary: dict[str, Any], feedback: Feedback) -> dict[str, str]:
+    """On a swap (a stop rejected and a place accepted together), the new place should go
+    on the day of the stop it replaces: {accepted_place_id: that day}."""
+    if not (feedback.accepted and feedback.rejected):
+        return {}
+    swapped_out = feedback.rejected[0]
+    day = next(
+        (d["date"] for d in itinerary.get("days", [])
+         if any(i["place_id"] == swapped_out for i in d["items"])),
+        None,
+    )
+    return {pid: day for pid in feedback.accepted} if day else {}
 
 
 @app.get("/health")
@@ -166,8 +199,10 @@ def get_trip(trip_id: str) -> dict[str, Any]:
 def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     """Record accepted/rejected places on the trip's profile, then re-plan the trip.
 
-    Rejected places are left out of the new plan. Accepted places are only recorded for
-    now; the scheduler does not use them yet.
+    Rejected places are left out of the new plan. Accepted places (a swap, an added place,
+    an undone removal) are must-visit: the optimizer schedules each one where it fits, and
+    on a swap, on the day of the stop it replaces when there is room. One that fits nowhere
+    is named in the itinerary's warnings.
     """
     both = set(feedback.accepted) & set(feedback.rejected)
     if both:
@@ -181,11 +216,35 @@ def give_feedback(trip_id: str, feedback: Feedback) -> dict[str, Any]:
     profile = request["profile"]
     profile["feedback"] = _merge_feedback(profile.get("feedback", {}), feedback)
 
-    # TODO(optimizer, Sprint 2): re-optimize only the affected days, keeping the rest
-    # of the trip as it was. Until then the whole trip is re-planned from scratch.
-    itinerary = _build_itinerary(request, trip_id=trip_id)
+    # TODO(optimizer): re-optimize only the affected days, keeping the rest of the trip as
+    # it was. Until then the whole trip is re-planned from scratch.
+    must_visit_on = _swap_days(trip["itinerary"], feedback)
+    itinerary = _build_itinerary(request, trip_id=trip_id, must_visit_on=must_visit_on)
     store.save(trip_id, request, itinerary)
     return itinerary
+
+
+@app.get("/trips/{trip_id}/suggestions")
+def suggestions(
+    trip_id: str,
+    replace: Annotated[str | None, Query(description="place_id of the stop to swap out")] = None,
+    date: Annotated[str | None, Query(description="YYYY-MM-DD day to add a place to")] = None,
+) -> dict[str, Any]:
+    """Up to 5 places, best first, to swap in for `replace` or add to `date`.
+
+    Ranked like planning (rule score, the trained ranker when a model exists, verified
+    hours preferred), then by fit for the moment: open that day, near the replaced stop or
+    the day's stops, indoors when rain is likely. Places already in the trip or rejected
+    are left out. Choosing one goes through POST /trips/{id}/feedback as usual.
+    """
+    trip = _load_trip(trip_id)
+    if date is not None and not _is_iso_date(date):
+        raise HTTPException(status_code=422, detail="date must be YYYY-MM-DD.")
+    try:
+        found = suggest_for_trip(trip["request"], trip["itinerary"], replace=replace, day=date)
+    except CityNotAvailable as exc:
+        raise _city_errors(exc) from exc
+    return {"suggestions": found}
 
 
 @app.post("/profile/from-text")

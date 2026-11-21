@@ -580,3 +580,78 @@ def test_each_stop_says_where_it_is_for_the_day_map():
 
     assert (item["lat"], item["lon"]) == (38.72, -9.14)
     assert validate("itinerary", result) == []
+
+
+# ---- places the traveler picked (swap a stop, add a place) ------------------------------
+
+
+def picked_plan(places, accepted, dates=None, must_visit_on=None, **overrides):
+    profile = deepcopy(PROFILE)
+    profile["feedback"] = {"accepted": accepted, "rejected": []}
+    profile.update(overrides)
+    return schedule(
+        places=places,
+        profile=profile,
+        dates=dates or ["2026-10-19"],
+        category_map=CATEGORIES,
+        destination=DESTINATION,
+        must_visit_on=must_visit_on,
+    )
+
+
+def test_a_picked_place_is_scheduled_even_when_others_score_higher():
+    # Room for 2 one-hour stops; the picked one would lose to the others on score alone.
+    places = [make_place(f"m{i}") for i in range(4)]
+    picked = make_place("picked")
+    picked["rating"] = 1.0
+    picked["popularity"] = 0.0
+
+    result = picked_plan(places + [picked], ["picked"], daily_active_hours=2)
+
+    assert "picked" in _ids(result)
+
+
+def test_a_picked_place_matching_no_interest_is_still_scheduled():
+    park = make_place("park")
+    park["categories"] = ["park"]  # not in CATEGORIES, so it matches no interest
+
+    result = picked_plan([make_place("museum"), park], ["park"])
+
+    assert "park" in _ids(result)
+    assert validate("itinerary", result) == []
+
+
+def test_a_picked_place_goes_on_the_day_it_replaces():
+    places = [make_place(f"m{i}") for i in range(6)] + [make_place("picked")]
+
+    result = picked_plan(
+        places,
+        ["picked"],
+        dates=["2026-10-19", "2026-10-20"],
+        must_visit_on={"picked": "2026-10-20"},
+    )
+
+    by_day = {d["date"]: [i["place_id"] for i in d["items"]] for d in result["days"]}
+    assert "picked" in by_day["2026-10-20"]
+    assert "picked" not in by_day["2026-10-19"]
+
+
+def test_a_picked_place_never_breaks_opening_hours_and_is_named():
+    closed = {day: [] for day in ("mon", "tue", "wed", "thu", "fri", "sat", "sun")}
+    closed["confidence"] = "known"
+    picked = make_place("picked", hours=closed)
+
+    result = picked_plan([make_place("museum"), picked], ["picked"])
+
+    assert "picked" not in _ids(result)
+    assert any("Couldn't fit Place picked" in w for w in result["warnings"])
+
+
+def test_a_picked_place_that_was_later_rejected_stays_out():
+    profile = deepcopy(PROFILE)
+    profile["feedback"] = {"accepted": ["museum-b"], "rejected": ["museum-b"]}
+
+    result = run([make_place("museum-a"), make_place("museum-b")], profile=profile)
+
+    assert "museum-b" not in _ids(result)
+    assert not any("Couldn't fit" in w for w in result["warnings"])

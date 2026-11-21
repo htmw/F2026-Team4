@@ -60,6 +60,12 @@ RAIN_OUTDOOR_PENALTY = 0.35
 # = about 90,000 legs).
 MAX_CANDIDATES = 300
 
+# Places the traveler picked themselves (swap a stop, add a place, undo a removal) arrive as
+# feedback "accepted". They must be visited whenever they fit: this bonus outweighs every
+# penalty above, so a picked place takes the first slot where it is open, reachable and
+# affordable. It still never breaks opening hours, the budget or the walking limit.
+MUST_VISIT_BONUS = 2.0
+
 TravelMatrix = dict | Callable[[list[dict[str, Any]]], dict]
 Scorer = Callable[..., float]
 
@@ -129,8 +135,16 @@ def schedule(
     trip_id: str | None = None,
     scorer: Scorer | None = None,
     weather: dict[str, dict] | None = None,
+    must_visit_on: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Produce an itinerary matching the existing JSON contract.
+
+    Places in the profile's feedback "accepted" list were picked by the traveler (swap,
+    add, undo a removal), so they are must-visit: scheduled whenever they fit, even if they
+    match none of the stated interests. `must_visit_on` = {place_id: date} asks for a picked
+    place on a given day (the day of the stop it replaces); it goes on a later day only if
+    that day has no room, never on an earlier one. A picked place that fits nowhere is named
+    in a warning.
 
     `weather` is {date: {"summary", "rainy", ...}} from the Data team's forecast. On a rainy
     day, outdoor stops (parks, viewpoints, markets...) are worth less, so indoor ones fill
@@ -189,6 +203,10 @@ def schedule(
     evening_reserve = EVENING_RESERVE if day_end >= 20 * 60 else 0
     daytime_minutes = max(0, active_minutes - evening_reserve)
     rejected = set(profile.get("feedback", {}).get("rejected", []))
+    must_visit = [
+        pid for pid in profile.get("feedback", {}).get("accepted", []) if pid not in rejected
+    ]
+    must_visit_on = must_visit_on or {}
 
     # Score every place once. score() already returns 0 for avoided places and
     # for places that match none of the traveler's interests.
@@ -207,7 +225,10 @@ def schedule(
 
         quality = score(place, profile, category_map)
         if quality <= 0:
-            continue
+            # A place the traveler picked stays in even when it matches no interest.
+            if place["id"] not in must_visit:
+                continue
+            quality = 0.0
 
         quality_of[place["id"]] = quality
         candidates.append(place)
@@ -216,13 +237,17 @@ def schedule(
     interest_weights = profile.get("interests", {})
     top_interest_of = {
         place["id"]: max(
-            matched_interests(place, category_map),
+            matched_interests(place, category_map) or {"picked"},
             key=lambda name: interest_weights.get(name, 0.0),
         )
         for place in candidates
     }
 
+    picked = [place for place in candidates if place["id"] in must_visit]
     candidates = _shortlist(candidates, quality_of, top_interest_of, MAX_CANDIDATES)
+    # A picked place is always considered, even when the shortlist would have cut it.
+    shortlisted = {place["id"] for place in candidates}
+    candidates += [place for place in picked if place["id"] not in shortlisted]
 
     # "Match" shown to the traveler stays the rule score: how well a place fits their
     # stated interests, on a 0-1 scale people can read.
@@ -252,6 +277,9 @@ def schedule(
 
         # Count the stop towards whichever of its interests is furthest below its share:
         # a museum can count as art once history already has enough stops.
+        if not serves_of[place_id]:
+            # A picked place that matches no interest counts towards none of them.
+            return "picked", 0.0
         serves = min(serves_of[place_id], key=over)
         penalty = MIX_PENALTY * max(0.0, over(serves)) + SAME_DAY_PENALTY * today[serves]
         return serves, penalty
@@ -288,6 +316,11 @@ def schedule(
 
             for place in candidates:
                 if place["id"] in used:
+                    continue
+
+                # A picked place asked for on a later day waits for that day.
+                wanted_day = must_visit_on.get(place["id"])
+                if wanted_day and day < wanted_day:
                     continue
 
                 quality = quality_of[place["id"]]
@@ -355,6 +388,7 @@ def schedule(
                     - 0.0005 * travel
                     - 0.0002 * waiting
                     - (RAIN_OUTDOOR_PENALTY if rainy_today and is_outdoor(place) else 0.0)
+                    + (MUST_VISIT_BONUS if place["id"] in must_visit else 0.0)
                 )
 
                 options.append((
@@ -465,6 +499,16 @@ def schedule(
         days_out.append(day_out)
 
     placed = sum(len(day["items"]) for day in days_out)
+
+    # Say plainly when a place the traveler picked could not go in.
+    names = {place["id"]: place["name"] for place in places}
+    missing = [pid for pid in must_visit if pid not in used and pid in names]
+    if missing:
+        listed = ", ".join(names[pid] for pid in missing)
+        warnings.append(
+            f"Couldn't fit {listed} into this trip: it is closed, too far, over budget or "
+            f"there is no free time when it is open."
+        )
 
     if estimated_travel:
         warnings.append(
@@ -595,6 +639,7 @@ def plan_itinerary(
     end_date: str,
     city: str | None = None,
     trip_id: str | None = None,
+    must_visit_on: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     """Adapter used by the FastAPI endpoints (same signature as the old stub).
 
@@ -637,6 +682,7 @@ def plan_itinerary(
         scorer=get_scorer(),
         # The forecast for the trip days, when it reaches that far (about 16 days).
         weather=trip_weather(dest["lat"], dest["lon"], start_date, end_date),
+        must_visit_on=must_visit_on,
     )
 
     # What each stop is, from the Data team: a Wikipedia intro for famous places, a line
