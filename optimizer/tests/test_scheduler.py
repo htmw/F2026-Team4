@@ -4,7 +4,7 @@
 from copy import deepcopy
 
 from api.contracts import validate
-from optimizer.scheduler import schedule
+from optimizer.scheduler import is_not_a_sight, schedule
 
 HOURS = {
     day: [["09:00", "18:00"]]
@@ -419,6 +419,8 @@ MAP = {
     "cafe": ["food"],
     "bar": ["nightlife"],
     "park": ["nature"],
+    "landmark": ["history", "architecture"],
+    "neighborhood": ["architecture", "history"],
 }
 
 
@@ -655,3 +657,38 @@ def test_a_picked_place_that_was_later_rejected_stays_out():
 
     assert "museum-b" not in _ids(result)
     assert not any("Couldn't fit" in w for w in result["warnings"])
+
+
+# ---- places that are not sights --------------------------------------------------------
+
+
+def named(place_id, name, category="landmark"):
+    place = place_of(place_id, category)
+    place["name"] = name
+    return place
+
+
+def test_a_working_jail_or_hospital_is_never_scheduled():
+    # Chanchalguda Central Jail is tagged as a landmark, so it matches architecture.
+    places = [
+        named("jail", "Chanchalguda Central Jail"),
+        named("hospital", "Singapore General Hospital", "neighborhood"),
+        named("fort", "Golconda Fort"),
+    ]
+
+    # Even a ranker that rates the jail highest cannot put it in the plan.
+    result = ranked_plan(
+        places,
+        lambda place, profile: 1.0 if place["id"] == "jail" else 0.5,
+        interests={"architecture": 1.0},
+    )
+
+    assert _ids(result) == ["fort"]
+
+
+def test_a_prison_museum_or_memorial_is_still_a_sight():
+    assert not is_not_a_sight(named("a", "Cellular Jail National Memorial"))
+    assert not is_not_a_sight(named("b", "Alcatraz Prison", "museum"))
+    assert not is_not_a_sight(named("c", "High Court of Telangana", "monument"))
+    assert is_not_a_sight(named("d", "Muslim Graveyard"))
+    assert is_not_a_sight(named("e", "Panjagutta Police Station"))

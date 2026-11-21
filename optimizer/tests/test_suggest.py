@@ -113,3 +113,18 @@ def test_rain_that_day_prefers_indoor_places():
     found = suggest([park, museum], p, rainy, {**MAP, "park": ["nature"]}, day="2026-10-19")
 
     assert ids(found) == ["museum", "park"]
+
+
+def test_a_jail_or_hospital_is_never_suggested():
+    # Tagged as landmarks, as in the map data, so they match history like a monument.
+    jail = place("jail", "landmark", rating=5.0)
+    jail["name"] = "Chanchalguda Central Jail"
+    hospital = place("hospital", "landmark", rating=5.0)
+    hospital["name"] = "Osmania General Hospital"
+    with_landmarks = {**MAP, "landmark": ["history", "architecture"]}
+
+    found = suggest(
+        [jail, hospital, place("museum")], profile(), trip(("2026-10-19", [])), with_landmarks
+    )
+
+    assert ids(found) == ["museum"]

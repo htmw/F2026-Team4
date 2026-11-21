@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 import uuid
 from collections import Counter
 from collections.abc import Callable
@@ -66,8 +67,33 @@ MAX_CANDIDATES = 300
 # affordable. It still never breaks opening hours, the budget or the walking limit.
 MUST_VISIT_BONUS = 2.0
 
+# Places the map tags as a landmark (often an old or listed building) that a traveler
+# cannot visit: a working jail, a police station, a hospital, a graveyard. They match history
+# and architecture like a palace does, so the rule score and the ranker both rate them highly
+# (Chanchalguda Central Jail ranked 30th of 1,385 places in Hyderabad).
+NOT_A_SIGHT = re.compile(
+    r"\b(jail|prison|penitentiary|correctional|detention centre|detention center"
+    r"|police station|police headquarters|hospital|graveyard|burial ground|crematorium)\b",
+    re.IGNORECASE,
+)
+
+# A former prison turned museum or memorial (Cellular Jail, Alcatraz, Kilmainham Gaol)
+# is a real sight, so these keep a place in.
+STILL_A_SIGHT = re.compile(r"\b(museum|memorial|heritage)\b", re.IGNORECASE)
+SIGHT_CATEGORIES = {"museum", "gallery"}
+
 TravelMatrix = dict | Callable[[list[dict[str, Any]]], dict]
 Scorer = Callable[..., float]
+
+
+def is_not_a_sight(place: dict[str, Any]) -> bool:
+    """True for a place whose name says it is closed to visitors (a jail, a hospital)."""
+    name = place.get("name", "")
+    if not NOT_A_SIGHT.search(name):
+        return False
+    if SIGHT_CATEGORIES.intersection(place.get("categories", [])):
+        return False
+    return not STILL_A_SIGHT.search(name)
 
 
 def _shortlist(
@@ -216,6 +242,10 @@ def schedule(
 
     for place in places:
         if place["id"] in rejected:
+            continue
+
+        # Never schedule a jail or a hospital, however the ranker scores it.
+        if is_not_a_sight(place):
             continue
 
         # A stray price in another currency cannot be added to the trip total.

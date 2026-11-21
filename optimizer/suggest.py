@@ -19,6 +19,7 @@ from optimizer.scheduler import (
     Scorer,
     _ranker_quality,
     _shortlist,
+    is_not_a_sight,
 )
 from optimizer.scoring import matched_interests, recommendation_reason, score
 from optimizer.travel import distance_km
@@ -55,8 +56,9 @@ def suggest(
 ) -> list[dict[str, Any]]:
     """Up to `limit` places, best first, for swapping out `replace` or adding to `day`.
 
-    Places already in the trip, rejected by the traveler, avoided, priced in another
-    currency or matching none of the traveler's interests are left out. Each suggestion
+    Places already in the trip, rejected by the traveler, avoided, closed to visitors
+    (a jail, a hospital), priced in another currency or matching none of the traveler's
+    interests are left out. Each suggestion
     is {"place_id", "name", "reason", "cost", "cost_confidence"}; `reason` uses the
     scheduler's own wording ("Matches your interest in ..."), which the website reads.
     """
@@ -97,6 +99,8 @@ def suggest(
     for place in places:
         pid = place["id"]
         if pid in in_trip or pid in rejected or pid == replace:
+            continue
+        if is_not_a_sight(place):  # never offer a jail or a hospital as a swap
             continue
         if currency and place["cost"]["currency"] != currency:
             continue
